@@ -51,3 +51,26 @@
   Confiabilidade permanece `media`.
 - **Impacto**: o pipeline de ingestão pode indexar esses materiais como chunks
   recuperáveis pelo RAG, com metadados completos de proveniência.
+
+## ADR-005 — Notas de rodapé sinalizadas como `tipo_chunk: nota_rodape`
+- **Data**: 11/06/2026
+- **Contexto**: a auditoria do acervo piloto (CNV vol. I —
+  `docs/auditorias/2026-06-11-cnv-vol1.md`) identificou que chunks formados
+  por notas de fim de capítulo apareciam na busca sem sinalização, podendo
+  ser citados como se fossem o corpo do relatório.
+- **Decisão (Yuri)**: tratar imediatamente, ainda na Fase 1 — coluna
+  `tipo_chunk` (`corpo` | `nota_rodape`) no banco (migração 0002), detecção
+  de blocos de notas no chunking e reindexação. Em caso de dúvida na
+  classificação, prevalece `corpo` (não esconder conteúdo).
+- **Impacto**: a camada de citações (Fase 3) deve sinalizar ao usuário quando
+  o trecho citado é nota de rodapé.
+
+## ADR-006 — Proveniência do PDF da CNV vol. I via Internet Archive
+- **Data**: 11/06/2026
+- **Contexto**: o portal oficial (cnv.memoriasreveladas.gov.br) bloqueia
+  downloads automatizados; o PDF foi obtido de cópia arquivada no Internet
+  Archive (Wayback Machine, 23/01/2024), com URL original, URL de
+  arquivamento e sha256 registrados em `pipeline/manifesto.json`.
+- **Decisão (Yuri)**: aceitar a proveniência como está, mantendo registrada
+  a possibilidade de confronto manual futuro do hash contra download direto
+  do portal oficial.

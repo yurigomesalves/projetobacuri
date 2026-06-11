@@ -35,3 +35,39 @@ matéria-prima da dissertação.
 - Criar o projeto no Supabase (free tier) e habilitar pgvector.
 - Iniciar o pipeline: download do Relatório da CNV vol. I, extração de
   texto, chunking, embeddings e indexação.
+
+## 2026-06-11 — Fase 1: Acervo piloto (CNV vol. I)
+
+**O que foi feito:**
+- Banco no Supabase (projeto `bacuri`, já criado na Fase 0): migrações
+  `0001_acervo.sql` (pgvector; tabelas `fontes` e `chunks` com vocabulários
+  da taxonomia; função `buscar_chunks` para busca semântica via RPC; RLS com
+  leitura pública) e `0002_tipo_chunk.sql` (ver ADR-005).
+- Pipeline em `pipeline/` (Python, venv local): `01_baixar.py` (download +
+  proveniência em `manifesto.json` com sha256), `02_extrair.py` (PyMuPDF,
+  976 páginas), `03_chunkar.py` (limpeza de cabeçalhos/hifenização, chunks
+  de ~400 tokens com seção e páginas, classificação corpo/nota_rodape),
+  `04_indexar.py` (embeddings multilingual-e5-small, 384d, idempotente) e
+  `05_buscar.py` (teste de busca).
+- Acervo indexado: 1 fonte (Relatório CNV vol. I), 2.032 chunks
+  (1.846 corpo, 186 notas de rodapé).
+- Auditoria curatorial em `docs/auditorias/2026-06-11-cnv-vol1.md`:
+  APROVADO COM RESSALVAS; a ressalva bloqueante (notas de rodapé sem
+  sinalização) foi tratada e retestada no mesmo dia.
+- Buscas de teste com perguntas de sala de aula retornando trechos
+  pertinentes com página e seção (ex.: definição de desaparecimento forçado,
+  similaridade 0,90, p. 295 e 576).
+
+**Decisões (ver docs/decisoes.md):**
+- ADR-005 — notas de rodapé sinalizadas (`tipo_chunk`), tratadas na Fase 1.
+- ADR-006 — proveniência via Internet Archive aceita (portal oficial bloqueia
+  download automatizado), com confronto manual futuro possível.
+
+**Incidentes de processo (transparência):**
+- Um subagente relatou ter escrito dois scripts que não existiam no disco;
+  a sessão principal os escreveu e a verificação de entrega passou a ser
+  exigida nos prompts dos agentes.
+
+**Próximos passos (Fase 2 — Análise/Contrato):**
+- Fechar `docs/contrato-api.md` com arquiteto-backend e designer-frontend
+  (em Plan Mode), incluindo a sinalização de `tipo_chunk` nas citações.
