@@ -106,3 +106,20 @@
   com citação.
 - **Impacto**: taxonomia seção 6 atualizada; migração 0007; arquivos curados
   de Riocentro, Herzog e Rubens Paiva corrigidos antes do seed.
+
+## ADR-009 — Módulo "crimes e justiça" suspenso; criação do manifesto projeto_bacuri
+- **Data**: 12/06/2026
+- **Contexto**: a Fase 7 previa o módulo comparativo jurídico (BlocoJustica).
+  A infraestrutura já existe (colunas `justica_*` na migração 0006; rota
+  `/api/eventos-geo/[id]` só serve o bloco com `revisado_por_humano = true`),
+  mas nenhum conteúdo jurídico foi redigido.
+- **Decisão (Yuri)**: suspender o módulo por tempo indeterminado, até a ideia
+  ser mais bem desenvolvida. A infraestrutura
+  fica preservada e dormente (todos os registros com `revisado_por_humano =
+  false`, logo a API omite o bloco). Em seu lugar, nesta etapa entra uma
+  página-manifesto pública, "manifesto projeto_bacuri", acessível por um botão
+  minimalista na navegação.
+- **Impacto**: contrato ajustado (bloco `justica` omitido até decisão futura);
+  novo texto público em `docs/manifesto-projeto-bacuri.md` (rascunho do
+  curador, publicado só após revisão do Yuri); nova página `/manifesto` e
+  link no cabeçalho. Nenhuma migração ou mudança de pipeline.

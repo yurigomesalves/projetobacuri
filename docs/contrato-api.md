@@ -89,7 +89,8 @@ coleta nenhum, mas o usuário pode digitá-los livremente).
 ### GET /api/eventos-geo/[id] (Fase 6)
 - Response: `EventoGeo` completo. O bloco `justica` é **opcional**: só é servido
   quando `revisado_por_humano = true` (salvaguarda do módulo crimes e justiça,
-  abaixo); até a Fase 7, vem omitido.
+  abaixo); o módulo foi adiado por decisão editorial (ADR-009), então o bloco
+  vem omitido até decisão futura.
 
 ## Tipos compartilhados (lib/shared/tipos.ts)
 ```ts
@@ -105,7 +106,7 @@ EventoGeo  = { evento_id, titulo, data, municipio, uf,
                geometria: GeoJSON.Point | GeoJSON.Polygon | GeoJSON.MultiPolygon, // ADR-003
                descricao_md, vitimas: [slug], tipos_crime: [string],
                marcadores: Marcador[], fontes: Citacao[], justica?: BlocoJustica }
-               // justica omitido até revisado_por_humano = true (Fase 7)
+               // justica omitido até revisado_por_humano = true (módulo adiado — ADR-009)
 BlocoJustica = { descricao_crimes_md, enquadramento_atual_md, punicao_ocorrida_md,
                  nota_metodologica_md, fontes: Citacao[], revisado_por_humano: boolean }
 // Fase 4 — curadoria e transparência

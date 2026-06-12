@@ -256,3 +256,22 @@ backend → frontend, partindo das seções "Perfil – Nome" do vol. III.
 
 **Pendências:** Edson Luís e Araguaia (curadoria futura); bloco
 crimes-e-justiça (Fase 7); testes automatizados das rotas novas.
+
+## 12/06/2026 — Fase 7 redefinida: módulo jurídico adiado, manifesto criado
+- Decisão do Yuri (ADR-009): o módulo "crimes e justiça" foi adiado para
+  amadurecer a ideia. A infraestrutura (migração 0006, rota com salvaguarda
+  `revisado_por_humano`) permanece dormente; contrato ajustado.
+- Curadoria (curador-historiador): rascunho do manifesto público em
+  `docs/manifesto-projeto-bacuri.md` — por que o projeto existe, o nome
+  (hipótese: homenagem a Eduardo Collen Leite, "Bacuri"; AGUARDA CONFIRMAÇÃO
+  do Yuri), os 7 princípios e o convite à colaboração.
+- Sessão principal: página estática `/manifesto` (lê o markdown de docs/ no
+  build — texto público só muda passando pelo repositório) e link minimalista
+  "manifesto projeto_bacuri" no cabeçalho.
+- Build de produção ok; página verificada com `next start`.
+- Revisão do Yuri (12/06/2026): nome confirmado como homenagem a Eduardo
+  Collen Leite ("Bacuri") e texto aprovado para publicação. Data do
+  assassinato fixada em 8 de dezembro de 1970, conferida no texto extraído da
+  CNV (vol. I). Comentários de rascunho removidos; manifesto publicado.
+- **Pendências:** futuro do módulo crimes e justiça em aberto; Edson Luís e
+  Araguaia (curadoria futura); testes automatizados das rotas.

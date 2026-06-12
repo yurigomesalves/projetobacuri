@@ -5,6 +5,7 @@ const LINKS = [
   { href: "/biografias", rotulo: "Nomes e histórias" },
   { href: "/mapa", rotulo: "Mapa" },
   { href: "/transparencia", rotulo: "Transparência" },
+  { href: "/manifesto", rotulo: "manifesto projeto_bacuri" },
 ];
 
 /**
