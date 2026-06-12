@@ -134,6 +134,12 @@ Vocabulário fechado, baseado na nomenclatura da CNV:
 - `perseguicao_exilio_banimento`
 - `censura` — quando o evento documentado é um ato de censura (jornal, livro,
   obra) e não violência física direta
+- `atentado_a_populacao_civil` — atentados (a bomba ou similares) cometidos por
+  agentes do Estado contra a população, como o caso do Riocentro (1981).
+  **Decisão ADR-008 (12/06/2026):** termo criado porque o vocabulário original,
+  derivado das graves violações nucleares da CNV, não classificava corretamente
+  esse tipo de evento — usar `tortura` como aproximação seria factualmente
+  incorreto
 
 ### 6.1 Campo `status_caso` (em `BlocoJustica`, módulo crimes e justiça)
 - `nao_investigado`

@@ -59,7 +59,9 @@ export type EventoGeo = {
   tipos_crime: string[];
   marcadores: Marcador[];
   fontes: Citacao[];
-  justica: BlocoJustica;
+  // Omitido até revisado_por_humano = true (salvaguarda do módulo crimes e
+  // justiça — contrato v1.2; o bloco completo chega na Fase 7).
+  justica?: BlocoJustica;
 };
 
 export type BlocoJustica = {

@@ -1,4 +1,4 @@
-# Contrato de API — Memória e Verdade (v1.1 — curadoria e transparência, Fase 4, 12/06/2026)
+# Contrato de API — Memória e Verdade (v1.2 — biografias e mapa, Fase 6, 12/06/2026)
 
 > Fechado na Fase 2 (Análise/Contrato) a partir do rascunho v0.1, incorporando as
 > pendências dos ADRs 001, 003 e 005 (ver `docs/decisoes.md`) e alinhando os tipos ao
@@ -67,19 +67,29 @@ também confere se o conteúdo enviado não contém dados pessoais (LGPD; o form
 coleta nenhum, mas o usuário pode digitá-los livremente).
 - Response 200: `{ "itens": [ItemTransparencia], "total": number, "pagina": number }`
 
-### GET /api/biografias?q=&tipo=&cidade=&pagina=
+### GET /api/biografias?q=&tipo=&cidade=&pagina= (Fase 6)
 - `tipo`: "vitima" | "organizacao" | "perpetrador" | "local"
+- `q`: busca por nome (sem distinção de maiúsculas/acentos quando possível).
 - Response: `{ "itens": [BiografiaResumo], "total": number, "pagina": number }`
+- Serve **apenas** biografias com `status_curadoria = "publicada"` — conteúdo em
+  rascunho nunca aparece na API (transparência: publicação só após revisão humana).
 
-### GET /api/biografias/[slug]
-- Response: `Biografia` completa (com fontes e eventos ligados).
+### GET /api/biografias/[slug] (Fase 6)
+- Response: `Biografia` completa (com fontes e eventos ligados). Mesma regra:
+  só `status_curadoria = "publicada"`; caso contrário 404 `ACERVO_SEM_RESULTADO`.
 
-### GET /api/eventos-geo?bbox=&tipo_crime=
+### GET /api/eventos-geo?bbox=&tipo_crime= (Fase 6)
 - Response: GeoJSON FeatureCollection; `geometry` pode ser **Point** (casos individuais) ou **Polygon/MultiPolygon** (territórios — ADR-003); properties de cada feature: `{ evento_id, titulo, data, municipio, uf, tipos_crime: [string] }`
 - Eventos com `tipo_crime` = `violencia_contra_povos_indigenas` formam camada própria no mapa, que o usuário liga/desliga (ADR-003); o frontend separa as camadas pelo `tipo_crime`, sem campo extra.
+- `bbox` = `oeste,sul,leste,norte` (graus decimais). O filtro é aplicado **no
+  servidor Next.js**, sem PostGIS: a geometria fica em coluna jsonb e o acervo é
+  pequeno (dezenas de eventos) — decisão registrada na Fase 6; migrar para
+  PostGIS só se o volume justificar.
 
-### GET /api/eventos-geo/[id]
-- Response: `EventoGeo` completo, incluindo o bloco `justica`.
+### GET /api/eventos-geo/[id] (Fase 6)
+- Response: `EventoGeo` completo. O bloco `justica` é **opcional**: só é servido
+  quando `revisado_por_humano = true` (salvaguarda do módulo crimes e justiça,
+  abaixo); até a Fase 7, vem omitido.
 
 ## Tipos compartilhados (lib/shared/tipos.ts)
 ```ts
@@ -94,7 +104,8 @@ Biografia  = BiografiaResumo + { texto_md, marcadores: Marcador[], fontes: Citac
 EventoGeo  = { evento_id, titulo, data, municipio, uf,
                geometria: GeoJSON.Point | GeoJSON.Polygon | GeoJSON.MultiPolygon, // ADR-003
                descricao_md, vitimas: [slug], tipos_crime: [string],
-               marcadores: Marcador[], fontes: Citacao[], justica: BlocoJustica }
+               marcadores: Marcador[], fontes: Citacao[], justica?: BlocoJustica }
+               // justica omitido até revisado_por_humano = true (Fase 7)
 BlocoJustica = { descricao_crimes_md, enquadramento_atual_md, punicao_ocorrida_md,
                  nota_metodologica_md, fontes: Citacao[], revisado_por_humano: boolean }
 // Fase 4 — curadoria e transparência

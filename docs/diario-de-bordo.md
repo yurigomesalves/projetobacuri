@@ -217,3 +217,42 @@ ficam para uma futura rodada de ingestão com este mesmo pipeline.
 
 **Próximos passos (Fase 6 — Biografias e mapa):** curador (conteúdo) →
 backend → frontend, partindo das seções "Perfil – Nome" do vol. III.
+
+## Fase 6 — Biografias e mapa (12/06/2026)
+
+- Contrato atualizado para v1.2 antes do código: `justica` opcional (só servido
+  com `revisado_por_humano = true`, Fase 7), biografias só `publicada`, bbox
+  filtrado no servidor (sem PostGIS — geometria GeoJSON em jsonb, acervo de
+  dezenas de eventos).
+- Migração 0006 (autorizada pelo Yuri): `biografias`, `eventos_geo` e tabelas
+  de ligação que amarram cada citação e marcador à tabela `fontes`
+  (princípio 3 / ADR-001 — nada de citação solta).
+- Curadoria (curador-historiador): 9 biografias e 6 eventos, ~30 citações
+  copiadas verbatim do texto extraído da CNV (vols. I–III), em
+  `pipeline/dados/curadoria/`. Não sustentados nesta rodada: Edson Luís
+  (pouca base no texto lido) e Guerrilha do Araguaia como evento com polígono
+  (falta especificidade geográfica) — ficam para rodada futura.
+- Decisões do Yuri (ADR-008): novo `tipo_crime` `atentado_a_populacao_civil`
+  (Riocentro estava classificado como "tortura", incorreto; migração 0007) e
+  marcadores 6.2 mantidos restritos à interseccionalidade (marcadores de
+  profissão removidos).
+- Seed idempotente: `pipeline/06_semear_curadoria.py` valida contra a
+  taxonomia antes de gravar.
+- Backend (arquiteto-backend): 4 rotas novas (`/api/biografias`,
+  `/api/biografias/[slug]`, `/api/eventos-geo`, `/api/eventos-geo/[id]`) +
+  `lib/server/citacoes.ts`; smoke test ok (busca, citações com página e link,
+  camada indígena em Polygon, bbox, 404).
+- Frontend (designer-frontend): `/biografias` (busca, filtro, paginação),
+  `/biografias/[slug]` (markdown, marcadores com fonte, citações),
+  `/mapa` (Leaflet + OSM, camada "Violência contra povos indígenas"
+  ligável/desligável — ADR-003, painel de detalhe com fontes) e cabeçalho de
+  navegação. Revisão editorial dos textos públicos pelo curador ao final:
+  rótulos de tipo_crime corrigidos/completados conforme a taxonomia (incluindo
+  o novo `atentado_a_populacao_civil`), rótulo "fantasma" removido, e nota
+  fixa de precisão geográfica adicionada ao mapa (geometrias aproximadas; os
+  polígonos não correspondem a limites oficiais de terras indígenas — a
+  proveniência por evento está em `nota_geometria` nos JSONs curados; exibir
+  a nota por evento exigiria mudança de contrato e fica como opção futura).
+
+**Pendências:** Edson Luís e Araguaia (curadoria futura); bloco
+crimes-e-justiça (Fase 7); testes automatizados das rotas novas.

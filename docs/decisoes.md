@@ -91,3 +91,18 @@
   Edge Function `embed-consulta` foi removida do repositório (a versão
   implantada no Supabase pode ser apagada pelo painel). Primeira requisição
   após ociosidade do servidor é mais lenta (download/carga do modelo).
+
+## ADR-008 — Novo `tipo_crime`: `atentado_a_populacao_civil`; marcadores 6.2 restritos à interseccionalidade
+- **Data**: 12/06/2026
+- **Contexto**: na curadoria da Fase 6, o atentado do Riocentro (1981) não
+  cabia no vocabulário fechado de `tipo_crime` (derivado das graves violações
+  nucleares da CNV), e o curador usou `tortura` como aproximação — classificação
+  factualmente incorreta. Na mesma rodada, surgiram marcadores de profissão
+  ("jornalista", "militar_oposicao") fora do vocabulário 6.2.
+- **Decisão (Yuri)**: (a) criar o termo `atentado_a_populacao_civil` na seção 6
+  da taxonomia (migração 0007 ajusta o vocabulário no banco); (b) manter a
+  seção 6.2 restrita à interseccionalidade (classe, raça, gênero, etc.) —
+  marcadores de profissão removidos; a profissão segue no texto biográfico,
+  com citação.
+- **Impacto**: taxonomia seção 6 atualizada; migração 0007; arquivos curados
+  de Riocentro, Herzog e Rubens Paiva corrigidos antes do seed.
