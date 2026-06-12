@@ -1,17 +1,42 @@
+import Chat from "./componentes/Chat";
+
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center gap-6 px-6 py-24 text-center">
-      <h1 className="text-3xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100 sm:text-4xl">
-        Memória e Verdade
-      </h1>
-      <p className="max-w-xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
-        Em construção. Um acervo digital e um assistente de pesquisa sobre a
-        Ditadura Civil-Militar no Brasil (1964–1985), com toda resposta
-        referenciada em fontes históricas documentadas.
-      </p>
-      <p className="text-sm text-neutral-500">
-        Mestrado Profissional em Ensino de História — ProfHistória/UFU
-      </p>
-    </main>
+    <div className="flex flex-1 flex-col">
+      <header className="border-b border-neutral-200 px-4 py-4 sm:px-6 dark:border-neutral-800">
+        <div className="mx-auto w-full max-w-2xl">
+          <h1 className="text-xl font-semibold tracking-tight text-neutral-900 sm:text-2xl dark:text-neutral-100">
+            Memória e Verdade
+          </h1>
+          <p className="mt-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+            Assistente educativo sobre a Ditadura Civil-Militar no Brasil
+            (1964–1985), que responde apenas com base em documentos
+            históricos, citando as fontes utilizadas.
+          </p>
+          <p className="mt-2 text-xs leading-relaxed text-neutral-500 dark:text-neutral-500">
+            Projeto de mestrado (ProfHistória/UFU), código aberto. O acervo
+            está em construção — atualmente inclui o Relatório da Comissão
+            Nacional da Verdade, volume I.
+          </p>
+        </div>
+      </header>
+
+      <main className="flex flex-1 flex-col">
+        <Chat />
+      </main>
+
+      <footer className="border-t border-neutral-200 px-4 py-3 text-center text-xs text-neutral-500 sm:px-6 dark:border-neutral-800 dark:text-neutral-500">
+        <a
+          href="https://github.com/yurigomesalves/memoria-e-verdade"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-2 hover:text-neutral-700 dark:hover:text-neutral-300"
+        >
+          Código-fonte no GitHub
+        </a>
+        {" · "}
+        Licenciado sob AGPL-3.0
+      </footer>
+    </div>
   );
 }

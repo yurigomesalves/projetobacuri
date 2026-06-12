@@ -33,7 +33,7 @@ Pergunta do usuário → resposta com citações.
 }
 ```
 - Se a busca não atingir o limiar de relevância: 200 com `citacoes: []` e resposta honesta padrão (não há base documental + sugestões). **Nunca** resposta factual sem citação.
-- **Fluxo interno (RAG)**: embedding da pergunta gerado na Edge Function do Supabase (Transformers.js, `intfloat/multilingual-e5-small`, mesmo modelo da indexação) → RPC `buscar_chunks` (limiar 0.78, até 8 trechos — valores padrão da função; ajustes mudam primeiro a migração) → LLM de geração definido por `LLM_PROVIDER` (padrão Groq; trocável por OpenRouter/Ollama sem mudar o contrato).
+- **Fluxo interno (RAG)**: embedding da pergunta gerado no próprio servidor Next.js (Transformers.js em Node, `intfloat/multilingual-e5-small`, mesmo modelo da indexação — ADR-007; a Edge Function do free tier do Supabase não comporta o modelo) → RPC `buscar_chunks` (limiar 0.82 — migração 0004; até 8 trechos — valores padrão da função; ajustes mudam primeiro a migração) → LLM de geração definido por `LLM_PROVIDER` (padrão Groq; trocável por OpenRouter/Ollama sem mudar o contrato).
 - O prompt do LLM recebe `tipo_chunk`, `confiabilidade` e `nota_contexto` de cada trecho e a resposta preserva os marcadores `[n]` na ordem de `citacoes`.
 
 ### POST /api/feedback

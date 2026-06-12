@@ -101,3 +101,44 @@ matéria-prima da dissertação.
   POST /api/chat com RAG e citações, rota POST /api/feedback.
 - designer-frontend: interface de chat minimalista com citações
   (incluindo selo de nota de rodapé) e formulário de feedback.
+
+## 2026-06-11 — Fase 3: Execução do chat (RAG com citações no ar)
+
+**O que foi feito:**
+- Backend (arquiteto-backend): tipos do contrato (`lib/shared/tipos.ts`),
+  abstração de provedor de LLM (`lib/server/llm.ts`, com retry em 429/5xx),
+  rate limit em memória, rota POST /api/chat (RAG completo: embedding →
+  `buscar_chunks` → LLM → citações na ordem dos marcadores [n]) e rota
+  POST /api/feedback (fila de curadoria). Migração 0003 (`interacoes` e
+  `feedbacks`, RLS sem leitura pública — LGPD) aplicada com aprovação.
+- Frontend (designer-frontend): chat virou a página inicial; componentes
+  `Chat`, `Citacoes` (selo de nota de rodapé, nota de contexto, trecho em
+  `<details>`, âncoras dos marcadores [n]) e `Feedback` (útil/incompleta/
+  incorreta + resposta alternativa). Tom sóbrio, acessível, sem rastreadores.
+- Testes de ponta a ponta no build de produção: pergunta pertinente →
+  8 citações com página e link; pergunta fora do acervo → resposta honesta
+  sem citações; feedback gravado (201); validações de entrada (400).
+
+**Decisões e mudanças de contrato (Fase 3):**
+- ADR-007: o embedding da consulta passou do Edge Function do Supabase para
+  o próprio servidor Next.js — o worker do free tier (256 MB) não comporta
+  o modelo multilíngue (~112 MB; erro `WORKER_RESOURCE_LIMIT`/546). Mesmo
+  modelo da indexação, com prefixo "query: " (o da indexação é "passage: ").
+- Migração 0004: limiar de relevância de 0,78 → 0,82. Medições: pergunta
+  fora do tema ("capital da Mongólia") atingia 0,80 de similaridade (o
+  modelo e5 comprime as notas para cima); perguntas pertinentes ficam entre
+  0,85 e 0,89. Com 0,82, perguntas fora do acervo recebem a resposta honesta.
+- Provedor de LLM: decisão do Yuri de usar OpenRouter (não Groq). Modelo
+  atual: `google/gemma-4-31b-it:free` (o `llama-3.3-70b-instruct:free`
+  estava congestionado no upstream). Troca só por variável de ambiente.
+
+**Incidente corrigido:** a promessa de carregamento do modelo de embeddings
+ficava "envenenada" após falha de rede (toda requisição seguinte falhava na
+hora); corrigido descartando o cache em caso de erro.
+
+**Pendência:** cadastrar as variáveis de ambiente na Vercel (sem isso o
+chat em produção não funciona) e apagar pelo painel do Supabase a Edge
+Function `embed-consulta`, obsoleta pelo ADR-007.
+
+**Próximos passos (Fase 4 — Feedback do usuário):** revisão dos textos de
+interface pelo curador-historiador e painel/fluxo de curadoria dos feedbacks.

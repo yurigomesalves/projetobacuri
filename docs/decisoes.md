@@ -74,3 +74,20 @@
 - **Decisão (Yuri)**: aceitar a proveniência como está, mantendo registrada
   a possibilidade de confronto manual futuro do hash contra download direto
   do portal oficial.
+
+## ADR-007 — Embedding da consulta no servidor Next.js (não na Edge Function)
+- **Data**: 11/06/2026
+- **Contexto**: o contrato v1.0 previa gerar o embedding da pergunta numa
+  Edge Function do Supabase. Na implementação (Fase 3), a função implantada
+  falhou com `WORKER_RESOURCE_LIMIT` (status 546): o worker do free tier
+  (256 MB) não comporta o modelo `multilingual-e5-small` (~112 MB + runtime
+  WASM). O exemplo da documentação do Supabase usa o `gte-small` (34 MB),
+  modelo em inglês, inadequado ao acervo em português.
+- **Decisão (Yuri)**: gerar o embedding na própria rota `/api/chat`
+  (Transformers.js em Node/Vercel), mantendo o MESMO modelo da indexação.
+  Alternativas rejeitadas: trocar por modelo menor em inglês (pior para
+  pt-BR e exigiria reindexar) e pagar tier maior do Supabase (princípio 4).
+- **Impacto**: contrato atualizado (fluxo interno do POST /api/chat); a
+  Edge Function `embed-consulta` foi removida do repositório (a versão
+  implantada no Supabase pode ser apagada pelo painel). Primeira requisição
+  após ociosidade do servidor é mais lenta (download/carga do modelo).
