@@ -71,3 +71,33 @@ matéria-prima da dissertação.
 **Próximos passos (Fase 2 — Análise/Contrato):**
 - Fechar `docs/contrato-api.md` com arquiteto-backend e designer-frontend
   (em Plan Mode), incluindo a sinalização de `tipo_chunk` nas citações.
+
+## 2026-06-11 — Fase 2: Análise/Contrato (contrato de API fechado)
+
+**O que foi feito:**
+- `docs/contrato-api.md` fechado como v1.0, a partir do rascunho v0.1,
+  retomando o processo interrompido após a Fase 1.
+- `Citacao` alinhada ao retorno real de `buscar_chunks` (migrações 0001/0002):
+  ganhou `confiabilidade`, `secao` e `tipo_chunk` ("corpo" | "nota_rodape"),
+  cumprindo o ADR-005.
+- Tipo `Marcador` (marcador + fonte) em biografias e eventos, cumprindo o
+  ADR-001 (marcador sempre com fonte, nunca por inferência).
+- `eventos-geo` passou a aceitar geometria Point ou Polygon/MultiPolygon,
+  com camada própria para violência contra povos indígenas (ADR-003).
+- Documentado o fluxo interno do RAG no POST /api/chat: embedding da consulta
+  na Edge Function (mesmo modelo da indexação), RPC `buscar_chunks`
+  (limiar 0,78, até 8 trechos), LLM trocável via `LLM_PROVIDER`.
+- Nova seção "Obrigações de exibição das citações (frontend)": selo de nota
+  de rodapé, exibição de `nota_contexto` e fonte por marcador.
+
+**Decisão de processo:**
+- O refinamento foi feito na sessão principal, sem convocar arquiteto-backend
+  e designer-frontend: edição pequena de um único documento, conforme a regra
+  de economia de tokens do CLAUDE.md. Divergências de contrato serão tratadas
+  na Fase 3, se surgirem na implementação.
+
+**Próximos passos (Fase 3 — Execução do chat):**
+- arquiteto-backend: Edge Function de embedding da consulta, rota
+  POST /api/chat com RAG e citações, rota POST /api/feedback.
+- designer-frontend: interface de chat minimalista com citações
+  (incluindo selo de nota de rodapé) e formulário de feedback.

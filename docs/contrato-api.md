@@ -1,9 +1,10 @@
-# Contrato de API — Memória e Verdade (v0.1, rascunho para a Fase 2)
+# Contrato de API — Memória e Verdade (v1.0 — fechado na Fase 2, 11/06/2026)
 
-> Os contratos que você trouxe eram do tutorial "EpicTodo" (projetos/PRD/tarefas) — um app de exemplo
-> que não tem relação com o seu produto. Este contrato reaproveita a ESTRUTURA boa daquele exemplo
-> (escopos, fonte da verdade, tipos compartilhados, processo de mudança) com os endpoints do SEU chatbot.
-> Na Fase 2, arquiteto-backend e designer-frontend devem refinar e fechar este documento.
+> Fechado na Fase 2 (Análise/Contrato) a partir do rascunho v0.1, incorporando as
+> pendências dos ADRs 001, 003 e 005 (ver `docs/decisoes.md`) e alinhando os tipos ao
+> que a função `buscar_chunks` (migrações 0001/0002) realmente devolve. Por economia de
+> tokens, o refinamento foi feito na sessão principal (edição pequena de um único
+> documento), e não por subagentes. Mudanças futuras: primeiro aqui, depois no código.
 
 ## Regras gerais (valem para todos os agentes)
 - Carregar e seguir o CLAUDE.md do projeto.
@@ -32,6 +33,8 @@ Pergunta do usuário → resposta com citações.
 }
 ```
 - Se a busca não atingir o limiar de relevância: 200 com `citacoes: []` e resposta honesta padrão (não há base documental + sugestões). **Nunca** resposta factual sem citação.
+- **Fluxo interno (RAG)**: embedding da pergunta gerado na Edge Function do Supabase (Transformers.js, `intfloat/multilingual-e5-small`, mesmo modelo da indexação) → RPC `buscar_chunks` (limiar 0.78, até 8 trechos — valores padrão da função; ajustes mudam primeiro a migração) → LLM de geração definido por `LLM_PROVIDER` (padrão Groq; trocável por OpenRouter/Ollama sem mudar o contrato).
+- O prompt do LLM recebe `tipo_chunk`, `confiabilidade` e `nota_contexto` de cada trecho e a resposta preserva os marcadores `[n]` na ordem de `citacoes`.
 
 ### POST /api/feedback
 - Request: `{ "interacao_id": uuid, "classificacao": "util" | "incompleta" | "incorreta", "resposta_alternativa"?: string (até 3000), "fontes_sugeridas"?: string }`
@@ -46,7 +49,8 @@ Pergunta do usuário → resposta com citações.
 - Response: `Biografia` completa (com fontes e eventos ligados).
 
 ### GET /api/eventos-geo?bbox=&tipo_crime=
-- Response: GeoJSON FeatureCollection; cada feature: `{ evento_id, titulo, data, municipio, uf, lat, lng, tipos_crime: [string] }`
+- Response: GeoJSON FeatureCollection; `geometry` pode ser **Point** (casos individuais) ou **Polygon/MultiPolygon** (territórios — ADR-003); properties de cada feature: `{ evento_id, titulo, data, municipio, uf, tipos_crime: [string] }`
+- Eventos com `tipo_crime` = `violencia_contra_povos_indigenas` formam camada própria no mapa, que o usuário liga/desliga (ADR-003); o frontend separa as camadas pelo `tipo_crime`, sem campo extra.
 
 ### GET /api/eventos-geo/[id]
 - Response: `EventoGeo` completo, incluindo o bloco `justica`.
@@ -54,15 +58,26 @@ Pergunta do usuário → resposta com citações.
 ## Tipos compartilhados (lib/shared/tipos.ts)
 ```ts
 Mensagem   = { papel: "usuario" | "assistente", conteudo: string }
-Citacao    = { n: number, fonte_id, titulo, autor_orgao, tipo_fonte, data_documento?,
-               paginas?, trecho: string, url_origem, nota_contexto? }
+Citacao    = { n: number, fonte_id, titulo, autor_orgao, tipo_fonte, confiabilidade,
+               data_documento?, paginas?, secao?, trecho: string, url_origem,
+               nota_contexto?, tipo_chunk: "corpo" | "nota_rodape" }
+Marcador   = { marcador: string, fonte: Citacao }   // ADR-001: marcador sempre com fonte, nunca por inferência
 BiografiaResumo = { slug, nome, tipo, resumo_1_linha, municipio?, uf? }
-Biografia  = BiografiaResumo + { texto_md, fontes: Citacao[], eventos: [evento_id], status_curadoria }
-EventoGeo  = { evento_id, titulo, data, municipio, uf, lat, lng, descricao_md,
-               vitimas: [slug], tipos_crime: [string], fontes: Citacao[], justica: BlocoJustica }
+Biografia  = BiografiaResumo + { texto_md, marcadores: Marcador[], fontes: Citacao[],
+               eventos: [evento_id], status_curadoria }
+EventoGeo  = { evento_id, titulo, data, municipio, uf,
+               geometria: GeoJSON.Point | GeoJSON.Polygon | GeoJSON.MultiPolygon, // ADR-003
+               descricao_md, vitimas: [slug], tipos_crime: [string],
+               marcadores: Marcador[], fontes: Citacao[], justica: BlocoJustica }
 BlocoJustica = { descricao_crimes_md, enquadramento_atual_md, punicao_ocorrida_md,
                  nota_metodologica_md, fontes: Citacao[], revisado_por_humano: boolean }
 ```
+
+## Obrigações de exibição das citações (frontend)
+Toda `Citacao` renderizada deve mostrar: título, autor/órgão, página(s) e link (`url_origem`) — princípio 3. Além disso:
+- `tipo_chunk = "nota_rodape"` → selo visível "nota de rodapé" junto à citação (ADR-005).
+- `nota_contexto` presente → exibida junto à citação (obrigatória no banco para imprensa da época e documentos da repressão — o leitor precisa do aviso de contexto).
+- `marcadores` de biografias/eventos → cada marcador exibido com sua fonte (ADR-001).
 
 ## ⚠️ Módulo "crimes e justiça" — salvaguarda obrigatória
 A comparação entre os crimes da ditadura e o direito brasileiro atual (tipificação no Código Penal vigente, imprescritibilidade de crimes contra a humanidade, Lei da Anistia e a ADPF 153, decisões da Corte Interamericana como o caso Gomes Lund) é conteúdo **jurídico sensível**:
