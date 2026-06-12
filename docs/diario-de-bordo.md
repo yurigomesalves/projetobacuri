@@ -142,3 +142,40 @@ Function `embed-consulta`, obsoleta pelo ADR-007.
 
 **Próximos passos (Fase 4 — Feedback do usuário):** revisão dos textos de
 interface pelo curador-historiador e painel/fluxo de curadoria dos feedbacks.
+
+## 2026-06-12 — Fase 4: Feedback do usuário (curadoria e transparência)
+
+**O que foi feito:**
+- Contrato v1.1: três endpoints novos — GET /api/curadoria/feedbacks e
+  PATCH /api/curadoria/feedbacks/[id] (protegidos por `CURADORIA_SENHA`,
+  Bearer com comparação timing-safe) e GET /api/transparencia (público);
+  código de erro NAO_AUTORIZADO; tipos FeedbackCuradoria e ItemTransparencia.
+- Migração 0005 aplicada (com aprovação): colunas `justificativa_decisao`
+  (10–2000 chars) e `decidido_em` em `feedbacks`.
+- Backend (arquiteto-backend): rotas acima + `lib/server/curadoria-auth.ts`.
+- Frontend (designer-frontend): página interna `/curadoria` (senha só em
+  memória, abas por status, decisão com justificativa obrigatória, noindex)
+  e página pública `/transparencia` (decisões publicadas com justificativa —
+  princípio 1); link no rodapé.
+- Revisão editorial (curador-historiador, `docs/revisao-editorial-fase4.md`):
+  nota de transparência definitiva aplicada em /transparencia; correção
+  bloqueante na pergunta de exemplo do chat sobre Marighella, que invertia
+  vítima e perpetrador; "feedbacks" → "avaliações" na área de curadoria.
+
+**Decisões do Yuri:** painel próprio `/curadoria` com senha (em vez de editar
+o banco à mão) e página pública de transparência já nesta fase, gravando a
+justificativa de toda decisão — aceite ou recusa — para publicação.
+
+**Testes de ponta a ponta (build de produção):** 401 sem/with senha errada;
+listagem de pendentes com a interação embutida; justificativa curta → 400;
+decisão válida → 200; redecisão → 409 ("feedback já decidido"); item decidido
+publicado em /api/transparencia; páginas /curadoria e /transparencia → 200.
+O feedback de teste da Fase 3 foi recusado com justificativa registrando que
+era registro interno de teste — primeira decisão pública de curadoria.
+
+**Pendências (ação manual do Yuri):** cadastrar `CURADORIA_SENHA` na Vercel
+(junto com as demais variáveis pendentes da Fase 3) e apagar a Edge Function
+obsoleta `embed-consulta` no painel do Supabase.
+
+**Próximos passos (Fase 5 — Acervo completo):** ingestão das demais fontes
+prioritárias (engenheiro → cientista → curador).

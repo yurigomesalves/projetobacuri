@@ -1,4 +1,4 @@
-# Contrato de API — Memória e Verdade (v1.0 — fechado na Fase 2, 11/06/2026)
+# Contrato de API — Memória e Verdade (v1.1 — curadoria e transparência, Fase 4, 12/06/2026)
 
 > Fechado na Fase 2 (Análise/Contrato) a partir do rascunho v0.1, incorporando as
 > pendências dos ADRs 001, 003 e 005 (ver `docs/decisoes.md`) e alinhando os tipos ao
@@ -16,7 +16,7 @@
 ```json
 { "erro": { "codigo": "ACERVO_SEM_RESULTADO", "mensagem": "texto legível em pt-BR" } }
 ```
-Códigos: ENTRADA_INVALIDA, ACERVO_SEM_RESULTADO, LIMITE_EXCEDIDO, ERRO_INTERNO.
+Códigos: ENTRADA_INVALIDA, ACERVO_SEM_RESULTADO, LIMITE_EXCEDIDO, ERRO_INTERNO, NAO_AUTORIZADO (HTTP 401, rotas de curadoria).
 
 ## Endpoints
 
@@ -40,6 +40,32 @@ Pergunta do usuário → resposta com citações.
 - Request: `{ "interacao_id": uuid, "classificacao": "util" | "incompleta" | "incorreta", "resposta_alternativa"?: string (até 3000), "fontes_sugeridas"?: string }`
 - Response 201: `{ "status": "recebido_para_curadoria" }`
 - Feedback NUNCA altera o acervo automaticamente: entra na fila de curadoria humana (tabela `feedbacks`, status pendente/aceito/recusado — transparência editorial).
+
+### GET /api/curadoria/feedbacks?status=&pagina= (protegida — Fase 4)
+Fila de curadoria humana dos feedbacks. **Autenticação obrigatória**: header
+`Authorization: Bearer <senha>`, comparada de forma timing-safe com a variável de
+ambiente `CURADORIA_SENHA` (sem ela configurada, a rota responde 401 sempre). Sem o
+header ou com senha errada: 401 `NAO_AUTORIZADO`.
+- `status`: "pendente" (padrão) | "aceito" | "recusado"
+- Response 200: `{ "itens": [FeedbackCuradoria], "total": number, "pagina": number }`
+- Cada item traz a interação associada (pergunta, resposta, citações) para o curador
+  julgar com contexto.
+
+### PATCH /api/curadoria/feedbacks/[id] (protegida — Fase 4)
+Decisão de curadoria sobre um feedback. Mesma autenticação acima.
+- Request: `{ "decisao": "aceito" | "recusado", "justificativa": string (10..2000) }`
+- A `justificativa` é **obrigatória e pública** (exibida em /api/transparencia) —
+  transparência editorial também nas recusas.
+- Response 200: `FeedbackCuradoria` atualizado (status, justificativa, decidido_em).
+- Feedback já decidido não pode ser redecidido: 409 `ENTRADA_INVALIDA` ("feedback já
+  decidido"). Correção de decisão errada: só direto no banco, com registro no diário.
+
+### GET /api/transparencia?pagina= (pública — Fase 4)
+Lista os feedbacks **já decididos** (aceitos e recusados), do mais recente ao mais
+antigo. Feedbacks pendentes NUNCA aparecem — publicação só após revisão humana, que
+também confere se o conteúdo enviado não contém dados pessoais (LGPD; o formulário não
+coleta nenhum, mas o usuário pode digitá-los livremente).
+- Response 200: `{ "itens": [ItemTransparencia], "total": number, "pagina": number }`
 
 ### GET /api/biografias?q=&tipo=&cidade=&pagina=
 - `tipo`: "vitima" | "organizacao" | "perpetrador" | "local"
@@ -71,6 +97,14 @@ EventoGeo  = { evento_id, titulo, data, municipio, uf,
                marcadores: Marcador[], fontes: Citacao[], justica: BlocoJustica }
 BlocoJustica = { descricao_crimes_md, enquadramento_atual_md, punicao_ocorrida_md,
                  nota_metodologica_md, fontes: Citacao[], revisado_por_humano: boolean }
+// Fase 4 — curadoria e transparência
+FeedbackCuradoria = { feedback_id, classificacao, resposta_alternativa?, fontes_sugeridas?,
+                      status: "pendente" | "aceito" | "recusado", justificativa_decisao?,
+                      criado_em, decidido_em?,
+                      interacao: { interacao_id, pergunta, resposta, citacoes: Citacao[] } }
+ItemTransparencia = { feedback_id, pergunta, classificacao, resposta_alternativa?,
+                      fontes_sugeridas?, status: "aceito" | "recusado",
+                      justificativa_decisao, criado_em, decidido_em }
 ```
 
 ## Obrigações de exibição das citações (frontend)

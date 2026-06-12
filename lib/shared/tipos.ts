@@ -77,7 +77,8 @@ export type CodigoErro =
   | "ENTRADA_INVALIDA"
   | "ACERVO_SEM_RESULTADO"
   | "LIMITE_EXCEDIDO"
-  | "ERRO_INTERNO";
+  | "ERRO_INTERNO"
+  | "NAO_AUTORIZADO";
 
 export type RespostaErro = {
   erro: {
@@ -111,4 +112,35 @@ export type RequisicaoFeedback = {
 
 export type RespostaFeedback = {
   status: "recebido_para_curadoria";
+};
+
+// --- Fase 4: curadoria e transparência ---
+
+export type FeedbackCuradoria = {
+  feedback_id: string;
+  classificacao: "util" | "incompleta" | "incorreta";
+  resposta_alternativa?: string;
+  fontes_sugeridas?: string;
+  status: "pendente" | "aceito" | "recusado";
+  justificativa_decisao?: string;
+  criado_em: string;
+  decidido_em?: string;
+  interacao: {
+    interacao_id: string;
+    pergunta: string;
+    resposta: string;
+    citacoes: Citacao[];
+  };
+};
+
+export type ItemTransparencia = {
+  feedback_id: string;
+  pergunta: string;
+  classificacao: "util" | "incompleta" | "incorreta";
+  resposta_alternativa?: string;
+  fontes_sugeridas?: string;
+  status: "aceito" | "recusado";
+  justificativa_decisao: string;
+  criado_em: string;
+  decidido_em: string;
 };

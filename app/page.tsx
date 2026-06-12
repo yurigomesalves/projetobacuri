@@ -36,6 +36,13 @@ export default function Home() {
         </a>
         {" · "}
         Licenciado sob AGPL-3.0
+        {" · "}
+        <a
+          href="/transparencia"
+          className="underline underline-offset-2 hover:text-neutral-700 dark:hover:text-neutral-300"
+        >
+          Transparência editorial
+        </a>
       </footer>
     </div>
   );

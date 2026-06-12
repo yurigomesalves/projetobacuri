@@ -18,7 +18,7 @@ const MAX_HISTORICO = 6;
 const PERGUNTAS_EXEMPLO = [
   "O que foi o Relatório da Comissão Nacional da Verdade?",
   "Quais métodos de tortura são documentados no relatório da CNV?",
-  "Quem foram as vítimas de Marighella e como ele morreu?",
+  "O que o relatório da CNV documenta sobre a morte de Carlos Marighella?",
   "O que diz o relatório sobre a Guerrilha do Araguaia?",
 ];
 
