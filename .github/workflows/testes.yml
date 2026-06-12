@@ -1,0 +1,28 @@
+# Vistoria automática: roda lint e a suíte de testes a cada push e pull
+# request. Os testes são 100% offline (Supabase, embeddings e LLM são
+# substituídos por dublês em tests/apoio/), então nenhum segredo é necessário.
+name: Testes
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Testes
+        run: npm test

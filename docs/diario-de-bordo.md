@@ -275,3 +275,28 @@ crimes-e-justiça (Fase 7); testes automatizados das rotas novas.
   CNV (vol. I). Comentários de rascunho removidos; manifesto publicado.
 - **Pendências:** futuro do módulo crimes e justiça em aberto; Edson Luís e
   Araguaia (curadoria futura); testes automatizados das rotas.
+
+## Fase 8 — Testes automatizados das rotas (12/06/2026)
+
+- Vitest instalado (devDependency; FOSS, MIT). Scripts novos: `npm test` e
+  `npm run test:watch`. Suíte: 69 testes em 9 arquivos, ~1s, 100% offline —
+  Supabase, embeddings e LLM substituídos por dublês em `tests/apoio/`
+  (cliente falso encadeável + fixtures sóbrias baseadas na CNV).
+- Cobertura: as 9 rotas de API (chat, feedback, transparência, biografias,
+  eventos-geo, curadoria) + unitários de `citacoes`, `limite` e
+  `curadoria-auth`. Casos-chave: princípio 3 (sem base documental → resposta
+  padrão SEM chamar o LLM; citações sempre com página e link), salvaguarda do
+  bloco `justica` (ADR-009), rate limit 20/min, autenticação Bearer da
+  curadoria (401 sempre que CURADORIA_SENHA ausente), escape de ILIKE,
+  filtros bbox/tipo_crime, erros 400/404/409/429/500 sem vazar detalhes.
+- Verificação por mutação: adulterar o limite de requisições fez o teste
+  falhar na hora (a vistoria pega regressão); mudança revertida.
+- CI: `.github/workflows/testes.yml` roda lint + testes a cada push/PR, sem
+  segredos. Lint zerado: `pipeline/` ignorado pelo ESLint (varria o .venv do
+  Python), supressão documentada de `react-hooks/set-state-in-effect` em
+  /curadoria e limpeza de 2 avisos antigos no mapa.
+- `npm run build` ok após tudo.
+
+**Pendências:** futuro do módulo crimes e justiça em aberto; Edson Luís e
+Araguaia (curadoria futura); testes de componentes React e E2E (fase futura,
+se necessário).

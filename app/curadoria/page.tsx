@@ -102,6 +102,9 @@ export default function CuradoriaPage() {
 
   useEffect(() => {
     if (senhaValida) {
+      // `carregar` liga o indicador de carregamento de forma síncrona; é uma
+      // busca de dados disparada por mudança de filtro/página, padrão aceito.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       carregar(senhaValida, status, pagina);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

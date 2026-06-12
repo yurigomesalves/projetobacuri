@@ -112,7 +112,6 @@ function MapaConteudo() {
     if (eventoInicial) {
       selecionarEvento(eventoInicial);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [eventoInicial]);
 
   async function selecionarEvento(eventoId: string) {

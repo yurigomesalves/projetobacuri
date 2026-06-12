@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Fora do escopo do lint do app: scripts Python e seu virtualenv.
+    "pipeline/**",
   ]),
 ]);
 

@@ -3,7 +3,7 @@
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { MapContainer, TileLayer, Marker, Polygon } from "react-leaflet";
-import type { Feature, FeatureCollection } from "geojson";
+import type { Feature } from "geojson";
 
 // Corrige o problema clássico dos ícones padrão do Leaflet com bundlers:
 // os caminhos relativos das imagens não são resolvidos pelo Next.js, então
