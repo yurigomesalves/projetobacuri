@@ -27,5 +27,15 @@
     "sha256": "acf3d684035885b6fd3bab5d87500bbb647879a4a243ef8adc66a2a1a6c52379",
     "tamanho_bytes": 17059083,
     "descricao": "Relatório Final da CNV, volume III (mortos e desaparecidos políticos — perfis das vítimas), dez/2014, PDF com camada de texto. Documento original do portal Memórias Reveladas/Arquivo Nacional (https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_3_digital.pdf), obtido via cópia arquivada pelo Internet Archive (Wayback Machine) em 25/08/2025, pois o portal oficial bloqueia downloads automatizados (proteção anti-robô)."
+  },
+  {
+    "slug": "cemdp-direito-memoria-verdade",
+    "url": "https://www.dhnet.org.br/dados/livros/a_pdf/livro_memoria1_direito_verdade.pdf",
+    "url_original": "https://www.dhnet.org.br/dados/livros/a_pdf/livro_memoria1_direito_verdade.pdf",
+    "arquivo_local": "dados/brutos/cemdp-direito-memoria-verdade.pdf",
+    "data_download": "2026-06-13T23:21:35.047972+00:00",
+    "sha256": "02c865592daf9578c2858a7ff917f58ee5114a8cd7746aacee5681f8df1e1379",
+    "tamanho_bytes": 8776959,
+    "descricao": "Livro 'Direito à Memória e à Verdade', CEMDP/Secretaria Especial dos Direitos Humanos da Presidência da República, 2007, 502 p., PDF com camada de texto. Baixado diretamente de https://www.dhnet.org.br/dados/livros/a_pdf/livro_memoria1_direito_verdade.pdf."
   }
 ]

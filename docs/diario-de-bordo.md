@@ -334,3 +334,25 @@ se necessário).
 **Pendências:** Guerrilha do Araguaia (evento dedicado, busca futura por
 "Operação Marajoara"/"Bico do Papagaio" no vol. III); módulo crimes e justiça
 (ADR-009, em aberto).
+
+## 13/06/2026 — Fase 5: acervo ampliado com o relatório da CEMDP (2007)
+- Nova fonte ingerida: "Direito à Memória e à Verdade" (CEMDP, 2007, 502 págs.,
+  texto nativo, sem OCR). Cópia oficial não encontrada em gov.br; usada cópia
+  da DHnet (ONG de Rede de Direitos Humanos), aprovada pelo Yuri — registrado
+  como ADR-011 em `docs/decisoes.md`.
+- Engenheiro-de-dados: baixou e extraiu o texto (`pipeline/dados/extraido/
+  cemdp-direito-memoria-verdade.jsonl`), registrou proveniência em
+  `pipeline/manifesto.json`/`fontes.json`, generalizou `01_baixar.py`.
+- Cientista-de-dados: criou `pipeline/03_chunkar_cemdp.py` adaptando a
+  estratégia da CNV (393 perfis de vítima detectados, capítulos, glossário e
+  anexos); 1.400 chunks (mediana 373 tokens) indexados no Supabase (fonte id
+  `067ba85a-8b58-4089-9c9d-2da4d100adfd`, `relatorio_oficial`/`alta`).
+  Avaliação de recuperação com boa similaridade (0.87–0.92).
+- Curador-historiador: auditou amostra de 24 chunks — aprovado para produção,
+  com 2 ressalvas menores (subseções de "As Organizações de Esquerda" e erro
+  de OCR "RevoLúcionária" no glossário, ambos não bloqueantes).
+
+**Pendências:** corrigir as 2 ressalvas menores do CEMDP se houver
+reprocessamento futuro; Guerrilha do Araguaia; módulo crimes e justiça
+(ADR-009, em aberto); melhorias de design de interface (próxima frente
+discutida, ainda não iniciada).

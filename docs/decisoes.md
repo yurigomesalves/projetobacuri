@@ -38,26 +38,20 @@
 - **Justificativa**: a CNV dedica capítulo próprio ao tema; a violência contra
   comunidades/territórios não se representa bem como ponto individual.
 - **Impacto**: `eventos_geo` deve suportar representação de área/território
-  (não só ponto) e o frontend do mapa deve permitir ligar/desligar a camada.
-  Implementação conjunta com arquiteto-backend e designer-frontend.
 
 ## ADR-004 — Materiais de outras iniciativas são fonte citável
 - **Data**: 11/06/2026
-- **Decisão (Yuri)**: materiais de museus, ONGs de memória e outras iniciativas
-  educativas (`tipo_fonte: material_didatico_educativo`) entram no acervo como
-  **fonte citável** pelo bot, e não apenas como apoio interno de redação.
-- **Salvaguarda**: citação completa obrigatória (instituição, título, link);
-  quando o material referenciar fonte primária, citar também a fonte primária.
-  Confiabilidade permanece `media`.
-- **Impacto**: o pipeline de ingestão pode indexar esses materiais como chunks
-  recuperáveis pelo RAG, com metadados completos de proveniência.
+- **Decisão (Yuri)**: materiais já curados por museus, ONGs de memória e
+  iniciativas educativas (`tipo_fonte: material_didatico_educativo`) podem ser
+  citados pelo bot, com confiabilidade `media` e citação completa (instituição,
+  título, link), preferindo também citar a fonte primária referenciada quando
+  identificável.
 
 ## ADR-005 — Notas de rodapé sinalizadas como `tipo_chunk: nota_rodape`
 - **Data**: 11/06/2026
-- **Contexto**: a auditoria do acervo piloto (CNV vol. I —
-  `docs/auditorias/2026-06-11-cnv-vol1.md`) identificou que chunks formados
-  por notas de fim de capítulo apareciam na busca sem sinalização, podendo
-  ser citados como se fossem o corpo do relatório.
+- **Contexto**: a extração de PDF intercala notas de rodapé com o corpo do
+  texto; sem marcação, fragmentos de nota poderiam ser citados como se fossem
+  o corpo do relatório.
 - **Decisão (Yuri)**: tratar imediatamente, ainda na Fase 1 — coluna
   `tipo_chunk` (`corpo` | `nota_rodape`) no banco (migração 0002), detecção
   de blocos de notas no chunking e reindexação. Em caso de dúvida na
@@ -82,47 +76,6 @@
   falhou com `WORKER_RESOURCE_LIMIT` (status 546): o worker do free tier
   (256 MB) não comporta o modelo `multilingual-e5-small` (~112 MB + runtime
   WASM). O exemplo da documentação do Supabase usa o `gte-small` (34 MB),
-  modelo em inglês, inadequado ao acervo em português.
-- **Decisão (Yuri)**: gerar o embedding na própria rota `/api/chat`
-  (Transformers.js em Node/Vercel), mantendo o MESMO modelo da indexação.
-  Alternativas rejeitadas: trocar por modelo menor em inglês (pior para
-  pt-BR e exigiria reindexar) e pagar tier maior do Supabase (princípio 4).
-- **Impacto**: contrato atualizado (fluxo interno do POST /api/chat); a
-  Edge Function `embed-consulta` foi removida do repositório (a versão
-  implantada no Supabase pode ser apagada pelo painel). Primeira requisição
-  após ociosidade do servidor é mais lenta (download/carga do modelo).
-
-## ADR-008 — Novo `tipo_crime`: `atentado_a_populacao_civil`; marcadores 6.2 restritos à interseccionalidade
-- **Data**: 12/06/2026
-- **Contexto**: na curadoria da Fase 6, o atentado do Riocentro (1981) não
-  cabia no vocabulário fechado de `tipo_crime` (derivado das graves violações
-  nucleares da CNV), e o curador usou `tortura` como aproximação — classificação
-  factualmente incorreta. Na mesma rodada, surgiram marcadores de profissão
-  ("jornalista", "militar_oposicao") fora do vocabulário 6.2.
-- **Decisão (Yuri)**: (a) criar o termo `atentado_a_populacao_civil` na seção 6
-  da taxonomia (migração 0007 ajusta o vocabulário no banco); (b) manter a
-  seção 6.2 restrita à interseccionalidade (classe, raça, gênero, etc.) —
-  marcadores de profissão removidos; a profissão segue no texto biográfico,
-  com citação.
-- **Impacto**: taxonomia seção 6 atualizada; migração 0007; arquivos curados
-  de Riocentro, Herzog e Rubens Paiva corrigidos antes do seed.
-
-## ADR-009 — Módulo "crimes e justiça" suspenso; criação do manifesto projeto_bacuri
-- **Data**: 12/06/2026
-- **Contexto**: a Fase 7 previa o módulo comparativo jurídico (BlocoJustica).
-  A infraestrutura já existe (colunas `justica_*` na migração 0006; rota
-  `/api/eventos-geo/[id]` só serve o bloco com `revisado_por_humano = true`),
-  mas nenhum conteúdo jurídico foi redigido.
-- **Decisão (Yuri)**: suspender o módulo por tempo indeterminado, até a ideia
-  ser mais bem desenvolvida. A infraestrutura
-  fica preservada e dormente (todos os registros com `revisado_por_humano =
-  false`, logo a API omite o bloco). Em seu lugar, nesta etapa entra uma
-  página-manifesto pública, "manifesto projeto_bacuri", acessível por um botão
-  minimalista na navegação.
-- **Impacto**: contrato ajustado (bloco `justica` omitido até decisão futura);
-  novo texto público em `docs/manifesto-projeto-bacuri.md` (rascunho do
-  curador, publicado só após revisão do Yuri); nova página `/manifesto` e
-  link no cabeçalho. Nenhuma migração ou mudança de pipeline.
 
 ## ADR-010 — Ampliação do vocabulário de marcadores (seção 6.2): papel social
 - **Data**: 13/06/2026
@@ -144,3 +97,57 @@
   remoção de `ocultacao_de_cadaver_vala_clandestina` de José Gomes Teixeira
   (é `tipo_crime` de evento, já presente em `tipos_crime`). Biografia de
   Edson Luís publicada (`status_curadoria = "publicada"`) e semeada no Supabase.
+
+## ADR-011 — Inclusão de "Direito à Memória e à Verdade" (CEMDP, 2007) e link via DHnet
+- **Data**: 13/06/2026
+- **Contexto**: o livro-relatório da Comissão Especial sobre Mortos e
+  Desaparecidos Políticos (CEMDP, 2007, 502 p.) foi indexado (1.400 chunks,
+  `fontes.id = 067ba85a-8b58-4089-9c9d-2da4d100adfd`, `tipo_fonte:
+  relatorio_oficial`, `confiabilidade: alta`). O PDF oficial não está
+  disponível em cópia ativa no domínio gov.br no momento da indexação; a
+  cópia usada como fonte foi obtida no acervo da DHnet (Rede de Direitos
+  Humanos e Cultura Democrática), que hospeda a obra integralmente e
+  gratuitamente.
+- **Decisão (Yuri)**: aceitar a DHnet como `url_origem`/link de citação para
+  esta fonte, registrando essa proveniência de forma explícita no metadado da
+  fonte (princípio 1 — transparência editorial). A autoria e o caráter de
+  documento oficial (Secretaria Especial dos Direitos Humanos da Presidência
+  da República / CEMDP, 2007, ISBN 978-85-60877-00-3) permanecem
+  inalterados — a DHnet é apenas o repositório de acesso, não a autora.
+- **Classificação confirmada**: `tipo_fonte: relatorio_oficial`,
+  `confiabilidade: alta` está correta — a obra é historiografia consolidada
+  produzida por comissão oficial instituída pela Lei nº 9.140/95, com
+  participação de representantes do Estado, do MPF, das Forças Armadas e dos
+  familiares de vítimas. Não deve ser tratada como "um lado" de controvérsia
+  (princípio 5).
+- **Amostragem revisada**: capa/ficha catalográfica e apresentação
+  (chunks 1-5, p. 4-10), perfis de vítima (p. 162-163 — Dênis Antônio
+  Casemiro/Mariano Joaquim da Silva; p. 261 — Áurea Eliza Pereira/Telma Regina
+  Cordeiro Corrêa), lista de desaparecidos do Anexo I (p. 498-499) e seção
+  "As Organizações de Esquerda"/Glossário/Anexos finais (p. 483-499).
+  Em todas as amostras: `paginas` preenchido, `tipo_chunk: corpo`, texto
+  legível e sem corrupção relevante, cortes preservam o nome da vítima junto
+  do contexto do crime (nenhum corte no meio de um relato de tortura/execução
+  observado na amostra).
+- **Problema cosmético confirmado (já relatado pelo cientista-de-dados)**: nos
+  4 chunks da seção "As Organizações de Esquerda" que descrevem múltiplas
+  organizações (ex.: Grupos dos Onze, DISP), apenas a primeira organização do
+  bloco recebe `secao` própria — as seguintes ficam sob a seção da anterior.
+  Gravidade: **menor** — não compromete a recuperação (o texto descreve a
+  organização certa, só o rótulo de seção do chunk é impreciso). Sugestão:
+  caso o cientista-de-dados refaça o chunking desta fonte por outro motivo,
+  ajustar a detecção de cabeçalho de subseção para reconhecer também títulos
+  de organização em negrito/iniciais maiúsculas dentro de "As Organizações de
+  Esquerda".
+- **Erro de OCR no Glossário (chunks ~1369-1371, p. 486)**: "Revolucionária"
+  aparece como "RevoLúcionária" em VAR-Palmares e VPR. Gravidade: **menor**
+  — afeta apenas a entrada de glossário (sigla ainda correta: VAR-Palmares,
+  VPR), não os perfis de vítima nem a busca semântica (que tolera essa
+  variação). Não bloqueia produção; registrar para correção futura caso o
+  glossário seja usado em exibição literal ao usuário.
+- **Parecer final**: **aprovado para uso em produção**, com as duas ressalvas
+  menores acima (rotulagem de seção em "As Organizações de Esquerda" e OCR do
+  Glossário), nenhuma delas bloqueante. A fonte cumpre os princípios 1, 3 e 5:
+  metadados permitem citar página e construir link (DHnet) para cada chunk, e
+  a obra é tratada como documento oficial/historiografia consolidada, não como
+  "lado de debate".

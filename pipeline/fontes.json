@@ -31,6 +31,22 @@
       "licenca": "documento público oficial"
     }
   },
+  "cemdp-direito-memoria-verdade": {
+    "url_oficial": "https://www.dhnet.org.br/dados/livros/a_pdf/livro_memoria1_direito_verdade.pdf",
+    "url_download": "https://www.dhnet.org.br/dados/livros/a_pdf/livro_memoria1_direito_verdade.pdf",
+    "data_captura_wayback": null,
+    "descricao_curta": "Livro 'Direito à Memória e à Verdade', CEMDP/Secretaria Especial dos Direitos Humanos da Presidência da República, 2007, 502 p., PDF com camada de texto.",
+    "fonte": {
+      "titulo": "Direito à Memória e à Verdade — Comissão Especial sobre Mortos e Desaparecidos Políticos",
+      "autor_orgao": "Secretaria Especial dos Direitos Humanos da Presidência da República (CEMDP)",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2007-08-29",
+      "periodo": "pos_1985",
+      "url_origem": "https://www.dhnet.org.br/dados/livros/a_pdf/livro_memoria1_direito_verdade.pdf",
+      "licenca": "documento público oficial (reprodução parcial ou total permitida, desde que citada a fonte e sem fins comerciais, conforme nota de copyright na p. 5 do PDF)"
+    }
+  },
   "cnv-vol3": {
     "url_oficial": "https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_3_digital.pdf",
     "url_download": "http://web.archive.org/web/20250825070448/https://cnv.memoriasreveladas.gov.br./images/pdf/relatorio/volume_3_digital.pdf",

@@ -56,12 +56,18 @@ def montar_bundle_ca() -> str:
 
 
 def montar_descricao(item: dict) -> str:
+    captura = item.get("data_captura_wayback")
+    if captura:
+        return (
+            f"{item['descricao_curta']} "
+            "Documento original do portal Memórias Reveladas/Arquivo Nacional "
+            f"({item['url_oficial']}), obtido via cópia arquivada pelo Internet "
+            f"Archive (Wayback Machine) em {captura}, pois o "
+            "portal oficial bloqueia downloads automatizados (proteção anti-robô)."
+        )
     return (
         f"{item['descricao_curta']} "
-        "Documento original do portal Memórias Reveladas/Arquivo Nacional "
-        f"({item['url_oficial']}), obtido via cópia arquivada pelo Internet "
-        f"Archive (Wayback Machine) em {item['data_captura_wayback']}, pois o "
-        "portal oficial bloqueia downloads automatizados (proteção anti-robô)."
+        f"Baixado diretamente de {item['url_download']}."
     )
 
 
