@@ -147,9 +147,9 @@ function MapaConteudo() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <header className="border-b border-neutral-200 px-4 py-4 sm:px-6 dark:border-neutral-800">
+      <header className="border-b border-creme-200 px-4 py-4 sm:px-6 dark:border-verde-900">
         <div className="mx-auto w-full max-w-5xl">
-          <h1 className="text-xl font-semibold tracking-tight text-neutral-900 sm:text-2xl dark:text-neutral-100">
+          <h1 className="text-xl font-semibold tracking-tight text-verde-950 sm:text-2xl dark:text-neutral-100">
             Mapa
           </h1>
           <p className="mt-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
@@ -169,7 +169,7 @@ function MapaConteudo() {
 
       <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-4 px-4 py-4 sm:px-6 lg:flex-row">
         <div className="flex flex-1 flex-col gap-3 lg:order-1">
-          <fieldset className="flex flex-wrap gap-4 rounded-md border border-neutral-200 p-3 text-sm dark:border-neutral-800">
+          <fieldset className="flex flex-wrap gap-4 rounded-md border border-creme-200 p-3 text-sm dark:border-verde-900">
             <legend className="px-1 text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
               Camadas
             </legend>
@@ -202,7 +202,7 @@ function MapaConteudo() {
               Carregando mapa...
             </p>
           ) : (
-            <div className="h-[60vh] min-h-[320px] overflow-hidden rounded-md border border-neutral-200 dark:border-neutral-800">
+            <div className="h-[60vh] min-h-[320px] overflow-hidden rounded-md border border-creme-200 dark:border-verde-900">
               <MapaEventos features={featuresVisiveis} onSelecionar={selecionarEvento} />
             </div>
           )}
@@ -229,8 +229,8 @@ function MapaConteudo() {
           )}
 
           {eventoSelecionado && (
-            <div className="rounded-md border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
-              <h2 className="text-base font-semibold text-neutral-900 dark:text-neutral-100">
+            <div className="rounded-md border border-creme-200 bg-creme-50 p-4 dark:border-verde-900 dark:bg-verde-900">
+              <h2 className="text-base font-semibold text-verde-950 dark:text-neutral-100">
                 {eventoSelecionado.titulo}
               </h2>
               <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-500">
@@ -243,7 +243,7 @@ function MapaConteudo() {
                   {eventoSelecionado.tipos_crime.map((tipo) => (
                     <li
                       key={tipo}
-                      className="rounded border border-neutral-400 px-1.5 py-0.5 text-xs font-medium text-neutral-700 dark:border-neutral-600 dark:text-neutral-300"
+                      className="rounded border border-verde-700 px-1.5 py-0.5 text-xs font-medium text-neutral-700 dark:border-verde-700 dark:text-neutral-300"
                     >
                       {rotuloCrime(tipo)}
                     </li>
@@ -257,7 +257,7 @@ function MapaConteudo() {
 
               {eventoSelecionado.vitimas.length > 0 && (
                 <div className="mt-3">
-                  <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
+                  <h3 className="text-sm font-semibold text-verde-950 dark:text-neutral-100">
                     Vítimas
                   </h3>
                   <ul className="mt-1 space-y-1">
@@ -277,16 +277,16 @@ function MapaConteudo() {
 
               {eventoSelecionado.marcadores.length > 0 && (
                 <div className="mt-3">
-                  <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
+                  <h3 className="text-sm font-semibold text-verde-950 dark:text-neutral-100">
                     Marcadores
                   </h3>
                   <ul className="mt-2 space-y-3">
                     {eventoSelecionado.marcadores.map((m, i) => (
                       <li
                         key={i}
-                        className="rounded-md border border-neutral-200 bg-white p-3 dark:border-neutral-800 dark:bg-neutral-950"
+                        className="rounded-md border border-creme-200 bg-white p-3 dark:border-verde-900 dark:bg-verde-950"
                       >
-                        <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                        <p className="text-sm font-medium text-verde-950 dark:text-neutral-100">
                           {m.marcador}
                         </p>
                         <Citacoes citacoes={[m.fonte]} idResposta={`evento-marcador-${i}`} />

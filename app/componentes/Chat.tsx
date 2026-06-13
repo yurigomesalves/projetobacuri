@@ -170,7 +170,7 @@ export default function Chat() {
                   <button
                     type="button"
                     onClick={() => void enviarMensagem(pergunta)}
-                    className="w-full rounded-md border border-neutral-300 bg-neutral-50 px-3 py-2 text-left text-sm text-neutral-800 hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:bg-neutral-800"
+                    className="w-full rounded-md border border-creme-200 bg-white px-3 py-2 text-left text-sm text-neutral-800 hover:bg-creme-100 dark:border-verde-800 dark:bg-verde-900 dark:text-neutral-200 dark:hover:bg-verde-800"
                   >
                     {pergunta}
                   </button>
@@ -193,18 +193,18 @@ export default function Chat() {
             }`}
           >
             {mensagem.papel === "usuario" ? (
-              <p className="max-w-[85%] rounded-md bg-neutral-900 px-3 py-2 text-sm text-white dark:bg-neutral-100 dark:text-neutral-900">
+              <p className="max-w-[85%] rounded-md bg-verde-950 px-3 py-2 text-sm text-white dark:bg-creme-100 dark:text-verde-950">
                 {mensagem.conteudo}
               </p>
             ) : (
-              <div className="w-full rounded-md border border-neutral-200 bg-white px-3 py-3 text-sm dark:border-neutral-800 dark:bg-neutral-950">
+              <div className="w-full rounded-md border border-creme-200 bg-white px-3 py-3 text-sm dark:border-verde-900 dark:bg-verde-950">
                 {mensagem.erro ? (
                   <p role="alert" className="text-red-700 dark:text-red-400">
                     {mensagem.erro}
                   </p>
                 ) : (
                   <>
-                    <div className="prose prose-neutral prose-sm max-w-none dark:prose-invert prose-a:text-neutral-900 dark:prose-a:text-neutral-100">
+                    <div className="prose prose-neutral prose-sm max-w-none dark:prose-invert prose-a:text-verde-950 dark:prose-a:text-neutral-100">
                       <ReactMarkdown
                         components={{ a: criarLinkMarcador(mensagem.id) }}
                       >
@@ -214,7 +214,7 @@ export default function Chat() {
 
                     {mensagem.sugestoesPesquisa &&
                       mensagem.sugestoesPesquisa.length > 0 && (
-                        <div className="mt-3 rounded-md border border-neutral-300 bg-neutral-50 p-3 dark:border-neutral-700 dark:bg-neutral-900">
+                        <div className="mt-3 rounded-md border border-creme-200 bg-creme-50 p-3 dark:border-verde-800 dark:bg-verde-900">
                           <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-600 dark:text-neutral-400">
                             Para aprofundar a pesquisa
                           </h3>
@@ -247,7 +247,7 @@ export default function Chat() {
           <div className="mx-auto w-full max-w-2xl">
             <p
               role="status"
-              className="rounded-md border border-neutral-200 bg-white px-3 py-2 text-sm text-neutral-600 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-400"
+              className="rounded-md border border-creme-200 bg-white px-3 py-2 text-sm text-neutral-600 dark:border-verde-900 dark:bg-verde-950 dark:text-neutral-400"
             >
               Consultando o acervo e redigindo a resposta — pode levar alguns
               segundos.
@@ -269,7 +269,7 @@ export default function Chat() {
 
       <form
         onSubmit={aoEnviarFormulario}
-        className="border-t border-neutral-200 bg-white px-4 py-3 sm:px-6 dark:border-neutral-800 dark:bg-neutral-950"
+        className="border-t border-creme-200 bg-creme-50 px-4 py-3 sm:px-6 dark:border-verde-900 dark:bg-verde-950"
       >
         <div className="mx-auto flex w-full max-w-2xl flex-col gap-2">
           <label htmlFor="campo-pergunta" className="sr-only">
@@ -283,7 +283,7 @@ export default function Chat() {
             rows={2}
             placeholder="Pergunte sobre a Ditadura Civil-Militar no Brasil (1964–1985)..."
             disabled={carregando}
-            className="w-full resize-none rounded-md border border-neutral-300 bg-white p-2 text-sm text-neutral-900 focus:border-neutral-500 focus:outline-none disabled:opacity-60 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
+            className="w-full resize-none rounded-md border border-creme-200 bg-white p-2 text-sm text-verde-950 focus:border-verde-700 focus:outline-none disabled:opacity-60 dark:border-verde-800 dark:bg-verde-900 dark:text-neutral-100"
           />
           <div className="flex items-center justify-between">
             <span className="text-xs text-neutral-500 dark:text-neutral-400">
@@ -292,7 +292,7 @@ export default function Chat() {
             <button
               type="submit"
               disabled={!tamanhoValido || carregando}
-              className="rounded-md border border-neutral-900 bg-neutral-900 px-4 py-1.5 text-sm font-medium text-white hover:bg-neutral-700 disabled:opacity-50 dark:border-neutral-100 dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-300"
+              className="rounded-md border border-verde-950 bg-verde-950 px-4 py-1.5 text-sm font-medium text-white hover:bg-verde-800 disabled:opacity-50 dark:border-creme-100 dark:bg-creme-100 dark:text-verde-950 dark:hover:bg-creme-200"
             >
               Enviar
             </button>

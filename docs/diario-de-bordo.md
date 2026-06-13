@@ -300,3 +300,16 @@ crimes-e-justiça (Fase 7); testes automatizados das rotas novas.
 **Pendências:** futuro do módulo crimes e justiça em aberto; Edson Luís e
 Araguaia (curadoria futura); testes de componentes React e E2E (fase futura,
 se necessário).
+
+## 12/06/2026 — Identidade visual: paleta creme/verde e ajustes de texto
+- Redesenho visual aplicado a todas as páginas: paleta própria definida em
+  `globals.css` (off-white quente "creme" + verde-escuro profundo, tom sóbrio
+  e editorial), fonte serifada (Source Serif 4) no nome do projeto (cabeçalho
+  e h1 da home), cabeçalho com nome à esquerda e links à direita, modo escuro
+  em verde-quase-preto.
+- Sessão anterior havia ficado sem fechar: a página /manifesto tinha ficado
+  fora do redesenho — títulos ajustados para o mesmo padrão (verde-950).
+- Texto público da home corrigido: o acervo inclui os volumes I, II e III do
+  Relatório da CNV (estava desatualizado desde a Fase 5).
+- Rodapé da home ganhou link discreto para /curadoria (acesso restrito).
+- Validação: lint zerado, 69 testes passando, build de produção ok.

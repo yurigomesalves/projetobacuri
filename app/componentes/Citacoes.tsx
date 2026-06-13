@@ -19,7 +19,7 @@ export default function Citacoes({ citacoes, idResposta }: Props) {
   return (
     <section
       aria-label="Fontes citadas nesta resposta"
-      className="mt-3 border-t border-neutral-200 pt-3 dark:border-neutral-800"
+      className="mt-3 border-t border-creme-200 pt-3 dark:border-verde-900"
     >
       <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
         Fontes
@@ -29,17 +29,17 @@ export default function Citacoes({ citacoes, idResposta }: Props) {
           <li
             key={citacao.n}
             id={`${idResposta}-fonte-${citacao.n}`}
-            className="scroll-mt-20 rounded-md border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-800 dark:bg-neutral-900"
+            className="scroll-mt-20 rounded-md border border-creme-200 bg-creme-50 p-3 dark:border-verde-900 dark:bg-verde-900"
           >
             <div className="flex flex-wrap items-baseline gap-2">
-              <span className="font-semibold text-neutral-900 dark:text-neutral-100">
+              <span className="font-semibold text-verde-950 dark:text-neutral-100">
                 [{citacao.n}]
               </span>
-              <span className="font-medium text-neutral-900 dark:text-neutral-100">
+              <span className="font-medium text-verde-950 dark:text-neutral-100">
                 {citacao.titulo}
               </span>
               {citacao.tipo_chunk === "nota_rodape" && (
-                <span className="rounded border border-neutral-400 px-1.5 py-0.5 text-xs font-medium text-neutral-700 dark:border-neutral-600 dark:text-neutral-300">
+                <span className="rounded border border-verde-700 px-1.5 py-0.5 text-xs font-medium text-neutral-700 dark:border-verde-700 dark:text-neutral-300">
                   nota de rodapé
                 </span>
               )}
@@ -68,7 +68,7 @@ export default function Citacoes({ citacoes, idResposta }: Props) {
               <summary className="cursor-pointer text-sm font-medium text-neutral-700 underline underline-offset-2 dark:text-neutral-300">
                 ver trecho
               </summary>
-              <blockquote className="mt-2 border-l-2 border-neutral-300 pl-3 text-sm italic text-neutral-600 dark:border-neutral-700 dark:text-neutral-400">
+              <blockquote className="mt-2 border-l-2 border-creme-200 pl-3 text-sm italic text-neutral-600 dark:border-verde-800 dark:text-neutral-400">
                 {citacao.trecho}
               </blockquote>
             </details>

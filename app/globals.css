@@ -1,8 +1,23 @@
 @import "tailwindcss";
 
+/*
+ * Paleta do projeto: off-white quente (creme) e verde-escuro profundo.
+ * Tom sóbrio e editorial, condizente com a sensibilidade do tema.
+ */
+@theme {
+  --color-creme-50: #f6f5ef;
+  --color-creme-100: #edebe0;
+  --color-creme-200: #dcd8c8;
+
+  --color-verde-700: #2e544a;
+  --color-verde-800: #1d3b33;
+  --color-verde-900: #142b25;
+  --color-verde-950: #0d1f1a;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f6f5ef;
+  --foreground: #14241f;
 }
 
 @theme inline {
@@ -10,17 +25,18 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-source-serif), Georgia, "Times New Roman", serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0c1916;
+    --foreground: #e9e7dc;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }

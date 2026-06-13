@@ -77,9 +77,9 @@ export default function BiografiasPage() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <header className="border-b border-neutral-200 px-4 py-4 sm:px-6 dark:border-neutral-800">
+      <header className="border-b border-creme-200 px-4 py-4 sm:px-6 dark:border-verde-900">
         <div className="mx-auto w-full max-w-3xl">
-          <h1 className="text-xl font-semibold tracking-tight text-neutral-900 sm:text-2xl dark:text-neutral-100">
+          <h1 className="text-xl font-semibold tracking-tight text-verde-950 sm:text-2xl dark:text-neutral-100">
             Nomes e histórias
           </h1>
           <p className="mt-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
@@ -113,7 +113,7 @@ export default function BiografiasPage() {
                 setPagina(1);
               }}
               placeholder="Ex.: Vladimir Herzog"
-              className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm text-neutral-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
+              className="mt-1 w-full rounded-md border border-creme-200 px-3 py-2 text-sm text-verde-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-verde-800 dark:bg-verde-900 dark:text-neutral-100"
             />
           </div>
 
@@ -131,7 +131,7 @@ export default function BiografiasPage() {
                 setTipo(e.target.value);
                 setPagina(1);
               }}
-              className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm text-neutral-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 sm:w-auto"
+              className="mt-1 w-full rounded-md border border-creme-200 px-3 py-2 text-sm text-verde-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-verde-800 dark:bg-verde-900 dark:text-neutral-100 sm:w-auto"
             >
               {TIPOS.map((t) => (
                 <option key={t.valor} value={t.valor}>
@@ -166,13 +166,13 @@ export default function BiografiasPage() {
               <li key={item.slug}>
                 <Link
                   href={`/biografias/${item.slug}`}
-                  className="block rounded-md border border-neutral-200 bg-neutral-50 p-4 hover:border-neutral-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-600"
+                  className="block rounded-md border border-creme-200 bg-creme-50 p-4 hover:border-verde-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-verde-900 dark:bg-verde-900 dark:hover:border-neutral-600"
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h2 className="text-base font-semibold text-neutral-900 dark:text-neutral-100">
+                    <h2 className="text-base font-semibold text-verde-950 dark:text-neutral-100">
                       {item.nome}
                     </h2>
-                    <span className="rounded border border-neutral-400 px-1.5 py-0.5 text-xs font-medium text-neutral-700 dark:border-neutral-600 dark:text-neutral-300">
+                    <span className="rounded border border-verde-700 px-1.5 py-0.5 text-xs font-medium text-neutral-700 dark:border-verde-700 dark:text-neutral-300">
                       {ROTULO_TIPO[item.tipo] ?? item.tipo}
                     </span>
                   </div>
@@ -198,7 +198,7 @@ export default function BiografiasPage() {
             <button
               onClick={() => setPagina((p) => Math.max(1, p - 1))}
               disabled={pagina <= 1 || carregando}
-              className="rounded-md border border-neutral-300 px-3 py-1.5 disabled:opacity-50 dark:border-neutral-700"
+              className="rounded-md border border-creme-200 px-3 py-1.5 disabled:opacity-50 dark:border-verde-800"
             >
               Anterior
             </button>
@@ -208,7 +208,7 @@ export default function BiografiasPage() {
             <button
               onClick={() => setPagina((p) => Math.min(totalPaginas, p + 1))}
               disabled={pagina >= totalPaginas || carregando}
-              className="rounded-md border border-neutral-300 px-3 py-1.5 disabled:opacity-50 dark:border-neutral-700"
+              className="rounded-md border border-creme-200 px-3 py-1.5 disabled:opacity-50 dark:border-verde-800"
             >
               Próxima
             </button>

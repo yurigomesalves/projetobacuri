@@ -18,7 +18,7 @@ export default async function ManifestoPage() {
 
   return (
     <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-6 sm:px-6">
-      <article className="space-y-3 text-sm leading-relaxed text-neutral-800 [&_a]:underline [&_a]:underline-offset-2 [&_h1]:text-xl [&_h1]:font-semibold [&_h2]:mt-4 [&_h2]:text-base [&_h2]:font-semibold [&_h3]:font-semibold [&_li]:ml-4 [&_li]:list-disc [&_strong]:font-semibold dark:text-neutral-200">
+      <article className="space-y-3 text-sm leading-relaxed text-neutral-800 [&_a]:underline [&_a]:underline-offset-2 [&_h1]:text-xl [&_h1]:font-semibold [&_h1]:text-verde-950 dark:[&_h1]:text-neutral-100 [&_h2]:mt-4 [&_h2]:text-base [&_h2]:font-semibold [&_h2]:text-verde-950 dark:[&_h2]:text-neutral-100 [&_h3]:font-semibold [&_li]:ml-4 [&_li]:list-disc [&_strong]:font-semibold dark:text-neutral-200">
         <ReactMarkdown>{texto}</ReactMarkdown>
       </article>
     </main>

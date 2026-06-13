@@ -72,7 +72,7 @@ export default function BiografiaPage() {
   if (naoEncontrado) {
     return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-6 sm:px-6">
-        <h1 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+        <h1 className="text-xl font-semibold text-verde-950 dark:text-neutral-100">
           Biografia não encontrada
         </h1>
         <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
@@ -123,10 +123,10 @@ export default function BiografiaPage() {
 
       <header>
         <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h1 className="text-xl font-semibold tracking-tight text-neutral-900 sm:text-2xl dark:text-neutral-100">
+          <h1 className="text-xl font-semibold tracking-tight text-verde-950 sm:text-2xl dark:text-neutral-100">
             {biografia.nome}
           </h1>
-          <span className="rounded border border-neutral-400 px-1.5 py-0.5 text-xs font-medium text-neutral-700 dark:border-neutral-600 dark:text-neutral-300">
+          <span className="rounded border border-verde-700 px-1.5 py-0.5 text-xs font-medium text-neutral-700 dark:border-verde-700 dark:text-neutral-300">
             {ROTULO_TIPO[biografia.tipo] ?? biografia.tipo}
           </span>
         </div>
@@ -142,8 +142,8 @@ export default function BiografiaPage() {
       </article>
 
       {biografia.marcadores.length > 0 && (
-        <section className="mt-6 border-t border-neutral-200 pt-4 dark:border-neutral-800">
-          <h2 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
+        <section className="mt-6 border-t border-creme-200 pt-4 dark:border-verde-900">
+          <h2 className="text-sm font-semibold text-verde-950 dark:text-neutral-100">
             Marcadores
           </h2>
           <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-500">
@@ -153,9 +153,9 @@ export default function BiografiaPage() {
             {biografia.marcadores.map((m, i) => (
               <li
                 key={i}
-                className="rounded-md border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-800 dark:bg-neutral-900"
+                className="rounded-md border border-creme-200 bg-creme-50 p-3 dark:border-verde-900 dark:bg-verde-900"
               >
-                <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                <p className="text-sm font-medium text-verde-950 dark:text-neutral-100">
                   {m.marcador}
                 </p>
                 <div className="mt-2">
@@ -172,8 +172,8 @@ export default function BiografiaPage() {
       )}
 
       {biografia.eventos.length > 0 && (
-        <section className="mt-6 border-t border-neutral-200 pt-4 dark:border-neutral-800">
-          <h2 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
+        <section className="mt-6 border-t border-creme-200 pt-4 dark:border-verde-900">
+          <h2 className="text-sm font-semibold text-verde-950 dark:text-neutral-100">
             Eventos no mapa
           </h2>
           <ul className="mt-2 space-y-1">
