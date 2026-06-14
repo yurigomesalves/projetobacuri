@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
 import type {
@@ -67,6 +67,11 @@ export default function Chat() {
   const [erroGeral, setErroGeral] = useState<string | null>(null);
   const idBase = useId();
   const listaRef = useRef<HTMLDivElement>(null);
+  const fimRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    fimRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+  }, [mensagens, carregando]);
 
   const tamanhoValido =
     entrada.trim().length >= MIN_CARACTERES &&
@@ -193,11 +198,19 @@ export default function Chat() {
             }`}
           >
             {mensagem.papel === "usuario" ? (
-              <p className="max-w-[85%] rounded-md bg-verde-950 px-3 py-2 text-sm text-white dark:bg-creme-100 dark:text-verde-950">
-                {mensagem.conteudo}
-              </p>
+              <div className="flex max-w-[85%] flex-col items-end gap-1">
+                <span className="text-xs font-medium text-neutral-500 dark:text-neutral-400">
+                  Você
+                </span>
+                <p className="rounded-md bg-verde-950 px-3 py-2 text-sm text-white dark:bg-creme-100 dark:text-verde-950">
+                  {mensagem.conteudo}
+                </p>
+              </div>
             ) : (
               <div className="w-full rounded-md border border-creme-200 bg-white px-3 py-3 text-sm dark:border-verde-900 dark:bg-verde-950">
+                <span className="mb-2 block text-xs font-medium text-neutral-500 dark:text-neutral-400">
+                  Memória e Verdade
+                </span>
                 {mensagem.erro ? (
                   <p role="alert" className="text-red-700 dark:text-red-400">
                     {mensagem.erro}
@@ -245,13 +258,18 @@ export default function Chat() {
 
         {carregando && (
           <div className="mx-auto w-full max-w-2xl">
-            <p
+            <div
               role="status"
-              className="rounded-md border border-creme-200 bg-white px-3 py-2 text-sm text-neutral-600 dark:border-verde-900 dark:bg-verde-950 dark:text-neutral-400"
+              className="flex items-center gap-2 rounded-md border border-creme-200 bg-white px-3 py-2 text-sm text-neutral-600 dark:border-verde-900 dark:bg-verde-950 dark:text-neutral-400"
             >
+              <span className="flex gap-1">
+                <span className="size-1.5 animate-bounce rounded-full bg-verde-700 [animation-delay:-0.3s] dark:bg-creme-200" />
+                <span className="size-1.5 animate-bounce rounded-full bg-verde-700 [animation-delay:-0.15s] dark:bg-creme-200" />
+                <span className="size-1.5 animate-bounce rounded-full bg-verde-700 dark:bg-creme-200" />
+              </span>
               Consultando o acervo e redigindo a resposta — pode levar alguns
               segundos.
-            </p>
+            </div>
           </div>
         )}
 
@@ -265,6 +283,8 @@ export default function Chat() {
             </p>
           </div>
         )}
+
+        <div ref={fimRef} />
       </div>
 
       <form
