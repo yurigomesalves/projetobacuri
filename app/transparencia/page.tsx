@@ -56,9 +56,9 @@ export default function TransparenciaPage() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <header className="border-b border-creme-200 px-4 py-6 sm:px-6 dark:border-verde-900">
+      <header className="border-b border-papel-200 px-4 py-6 sm:px-6 dark:border-tinta-900">
         <div className="mx-auto w-full max-w-3xl">
-          <h1 className="font-serif text-2xl font-medium tracking-tight text-verde-950 sm:text-3xl dark:text-creme-50">
+          <h1 className="font-sans text-2xl font-bold tracking-tight text-tinta-950 sm:text-3xl dark:text-papel-50">
             Transparência editorial
           </h1>
           {/* Texto definitivo aprovado em docs/revisao-editorial-fase4.md */}
@@ -126,14 +126,14 @@ export default function TransparenciaPage() {
           {itens.map((item) => (
             <li
               key={item.feedback_id}
-              className="rounded-md border border-creme-200 bg-creme-50 p-4 dark:border-verde-900 dark:bg-verde-900"
+              className="rounded-md border border-papel-200 bg-papel-50 p-4 dark:border-tinta-900 dark:bg-tinta-900"
             >
               <p className="text-xs text-neutral-500 dark:text-neutral-500">
                 Enviado em {formatarData(item.criado_em)} · decidido em{" "}
                 {formatarData(item.decidido_em)}
               </p>
 
-              <h3 className="mt-1 text-sm font-semibold text-verde-950 dark:text-neutral-100">
+              <h3 className="mt-1 text-sm font-semibold text-tinta-950 dark:text-neutral-100">
                 Pergunta original
               </h3>
               <p className="mt-1 text-sm text-neutral-800 dark:text-neutral-200">
@@ -147,7 +147,7 @@ export default function TransparenciaPage() {
 
               {item.resposta_alternativa && (
                 <div className="mt-2">
-                  <h4 className="text-sm font-semibold text-verde-950 dark:text-neutral-100">
+                  <h4 className="text-sm font-semibold text-tinta-950 dark:text-neutral-100">
                     Resposta alternativa proposta
                   </h4>
                   <p className="mt-1 whitespace-pre-wrap text-sm text-neutral-700 dark:text-neutral-300">
@@ -158,7 +158,7 @@ export default function TransparenciaPage() {
 
               {item.fontes_sugeridas && (
                 <div className="mt-2">
-                  <h4 className="text-sm font-semibold text-verde-950 dark:text-neutral-100">
+                  <h4 className="text-sm font-semibold text-tinta-950 dark:text-neutral-100">
                     Fontes sugeridas
                   </h4>
                   <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
@@ -167,7 +167,7 @@ export default function TransparenciaPage() {
                 </div>
               )}
 
-              <div className="mt-3 border-t border-creme-200 pt-3 dark:border-verde-900">
+              <div className="mt-3 border-t border-papel-200 pt-3 dark:border-tinta-900">
                 <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">
                   Decisão:{" "}
                   <span
@@ -197,7 +197,7 @@ export default function TransparenciaPage() {
             <button
               onClick={() => setPagina((p) => Math.max(1, p - 1))}
               disabled={pagina <= 1 || carregando}
-              className="rounded-md border border-creme-200 px-3 py-1.5 disabled:opacity-50 dark:border-verde-800"
+              className="rounded-md border border-papel-200 px-3 py-1.5 disabled:opacity-50 dark:border-tinta-800"
             >
               Anterior
             </button>
@@ -207,7 +207,7 @@ export default function TransparenciaPage() {
             <button
               onClick={() => setPagina((p) => Math.min(totalPaginas, p + 1))}
               disabled={pagina >= totalPaginas || carregando}
-              className="rounded-md border border-creme-200 px-3 py-1.5 disabled:opacity-50 dark:border-verde-800"
+              className="rounded-md border border-papel-200 px-3 py-1.5 disabled:opacity-50 dark:border-tinta-800"
             >
               Próxima
             </button>

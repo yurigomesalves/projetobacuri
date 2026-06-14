@@ -72,7 +72,7 @@ export default function BiografiaPage() {
   if (naoEncontrado) {
     return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-6 sm:px-6">
-        <h1 className="font-serif text-2xl font-medium text-verde-950 dark:text-creme-50">
+        <h1 className="font-sans text-2xl font-bold text-tinta-950 dark:text-papel-50">
           Biografia não encontrada
         </h1>
         <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
@@ -123,10 +123,10 @@ export default function BiografiaPage() {
 
       <header>
         <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h1 className="font-serif text-2xl font-medium tracking-tight text-verde-950 sm:text-3xl dark:text-creme-50">
+          <h1 className="font-sans text-2xl font-bold tracking-tight text-tinta-950 sm:text-3xl dark:text-papel-50">
             {biografia.nome}
           </h1>
-          <span className="rounded border border-verde-700 px-1.5 py-0.5 text-xs font-medium text-neutral-700 dark:border-verde-700 dark:text-neutral-300">
+          <span className="rounded border border-tinta-700 px-1.5 py-0.5 text-xs font-medium text-neutral-700 dark:border-tinta-700 dark:text-neutral-300">
             {ROTULO_TIPO[biografia.tipo] ?? biografia.tipo}
           </span>
         </div>
@@ -137,13 +137,13 @@ export default function BiografiaPage() {
         )}
       </header>
 
-      <article className="mt-4 space-y-3 text-sm leading-relaxed text-neutral-800 [&_a]:underline [&_a]:underline-offset-2 [&_h2]:mt-4 [&_h2]:text-base [&_h2]:font-semibold [&_h3]:font-semibold [&_li]:ml-4 [&_li]:list-disc [&_strong]:font-semibold dark:text-neutral-200">
+      <article className="mt-4 space-y-3 font-serif text-sm leading-relaxed text-neutral-800 [&_a]:underline [&_a]:underline-offset-2 [&_h2]:mt-4 [&_h2]:font-sans [&_h2]:text-base [&_h2]:font-semibold [&_h3]:font-sans [&_h3]:font-semibold [&_li]:ml-4 [&_li]:list-disc [&_strong]:font-semibold dark:text-neutral-200">
         <ReactMarkdown>{biografia.texto_md}</ReactMarkdown>
       </article>
 
       {biografia.marcadores.length > 0 && (
-        <section className="mt-6 border-t border-creme-200 pt-4 dark:border-verde-900">
-          <h2 className="text-sm font-semibold text-verde-950 dark:text-neutral-100">
+        <section className="mt-6 border-t border-papel-200 pt-4 dark:border-tinta-900">
+          <h2 className="text-sm font-semibold text-tinta-950 dark:text-neutral-100">
             Marcadores
           </h2>
           <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-500">
@@ -153,9 +153,9 @@ export default function BiografiaPage() {
             {biografia.marcadores.map((m, i) => (
               <li
                 key={i}
-                className="rounded-md border border-creme-200 bg-creme-50 p-3 dark:border-verde-900 dark:bg-verde-900"
+                className="rounded-md border border-papel-200 bg-papel-50 p-3 dark:border-tinta-900 dark:bg-tinta-900"
               >
-                <p className="text-sm font-medium text-verde-950 dark:text-neutral-100">
+                <p className="text-sm font-medium text-tinta-950 dark:text-neutral-100">
                   {m.marcador}
                 </p>
                 <div className="mt-2">
@@ -172,8 +172,8 @@ export default function BiografiaPage() {
       )}
 
       {biografia.eventos.length > 0 && (
-        <section className="mt-6 border-t border-creme-200 pt-4 dark:border-verde-900">
-          <h2 className="text-sm font-semibold text-verde-950 dark:text-neutral-100">
+        <section className="mt-6 border-t border-papel-200 pt-4 dark:border-tinta-900">
+          <h2 className="text-sm font-semibold text-tinta-950 dark:text-neutral-100">
             Eventos no mapa
           </h2>
           <ul className="mt-2 space-y-1">

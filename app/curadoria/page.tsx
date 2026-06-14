@@ -132,9 +132,9 @@ export default function CuradoriaPage() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <header className="border-b border-creme-200 px-4 py-4 sm:px-6 dark:border-verde-900">
+      <header className="border-b border-papel-200 px-4 py-4 sm:px-6 dark:border-tinta-900">
         <div className="mx-auto w-full max-w-3xl">
-          <h1 className="text-xl font-semibold tracking-tight text-verde-950 sm:text-2xl dark:text-neutral-100">
+          <h1 className="text-xl font-semibold tracking-tight text-tinta-950 sm:text-2xl dark:text-neutral-100">
             Curadoria de avaliações
           </h1>
           <p className="mt-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
@@ -162,13 +162,13 @@ export default function CuradoriaPage() {
                 onChange={(e) => setSenha(e.target.value)}
                 autoComplete="off"
                 required
-                className="mt-1 w-full rounded-md border border-creme-200 bg-white p-2 text-sm text-verde-950 focus:border-verde-700 focus:outline-none dark:border-verde-800 dark:bg-verde-900 dark:text-neutral-100"
+                className="mt-1 w-full rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
               />
             </label>
             <button
               type="submit"
               disabled={entrando || senha.length === 0}
-              className="rounded-md border border-verde-950 bg-verde-950 px-4 py-1.5 text-sm font-medium text-white hover:bg-verde-800 disabled:opacity-60 dark:border-creme-100 dark:bg-creme-100 dark:text-verde-950 dark:hover:bg-creme-200"
+              className="rounded-md border border-tinta-950 bg-tinta-950 px-4 py-1.5 text-sm font-medium text-papel-50 hover:bg-tinta-800 disabled:opacity-60 dark:border-papel-100 dark:bg-papel-100 dark:text-tinta-950 dark:hover:bg-papel-200"
             >
               {entrando ? "Entrando..." : "Entrar"}
             </button>
@@ -187,7 +187,7 @@ export default function CuradoriaPage() {
             <div
               role="tablist"
               aria-label="Filtrar por status"
-              className="mb-4 flex gap-2 border-b border-creme-200 dark:border-verde-900"
+              className="mb-4 flex gap-2 border-b border-papel-200 dark:border-tinta-900"
             >
               {ABAS.map((aba) => (
                 <button
@@ -197,7 +197,7 @@ export default function CuradoriaPage() {
                   onClick={() => trocarStatus(aba.valor)}
                   className={`border-b-2 px-3 py-2 text-sm font-medium transition-colors ${
                     status === aba.valor
-                      ? "border-verde-950 text-verde-950 dark:border-creme-100 dark:text-neutral-100"
+                      ? "border-tinta-950 text-tinta-950 dark:border-papel-100 dark:text-neutral-100"
                       : "border-transparent text-neutral-500 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
                   }`}
                 >
@@ -248,7 +248,7 @@ export default function CuradoriaPage() {
                 <button
                   onClick={() => setPagina((p) => Math.max(1, p - 1))}
                   disabled={pagina <= 1 || carregando}
-                  className="rounded-md border border-creme-200 px-3 py-1.5 disabled:opacity-50 dark:border-verde-800"
+                  className="rounded-md border border-papel-200 px-3 py-1.5 disabled:opacity-50 dark:border-tinta-800"
                 >
                   Anterior
                 </button>
@@ -258,7 +258,7 @@ export default function CuradoriaPage() {
                 <button
                   onClick={() => setPagina((p) => Math.min(totalPaginas, p + 1))}
                   disabled={pagina >= totalPaginas || carregando}
-                  className="rounded-md border border-creme-200 px-3 py-1.5 disabled:opacity-50 dark:border-verde-800"
+                  className="rounded-md border border-papel-200 px-3 py-1.5 disabled:opacity-50 dark:border-tinta-800"
                 >
                   Próxima
                 </button>
@@ -323,12 +323,12 @@ function ItemFeedback({
   }
 
   return (
-    <article className="rounded-md border border-creme-200 bg-creme-50 p-4 dark:border-verde-900 dark:bg-verde-900">
+    <article className="rounded-md border border-papel-200 bg-papel-50 p-4 dark:border-tinta-900 dark:bg-tinta-900">
       <p className="text-xs text-neutral-500 dark:text-neutral-500">
         Enviado em {formatarData(item.criado_em)}
       </p>
 
-      <h3 className="mt-1 text-sm font-semibold text-verde-950 dark:text-neutral-100">
+      <h3 className="mt-1 text-sm font-semibold text-tinta-950 dark:text-neutral-100">
         Pergunta do usuário
       </h3>
       <p className="mt-1 text-sm text-neutral-800 dark:text-neutral-200">
@@ -351,7 +351,7 @@ function ItemFeedback({
 
       {item.resposta_alternativa && (
         <div className="mt-2">
-          <h4 className="text-sm font-semibold text-verde-950 dark:text-neutral-100">
+          <h4 className="text-sm font-semibold text-tinta-950 dark:text-neutral-100">
             Resposta alternativa proposta
           </h4>
           <p className="mt-1 whitespace-pre-wrap text-sm text-neutral-700 dark:text-neutral-300">
@@ -362,7 +362,7 @@ function ItemFeedback({
 
       {item.fontes_sugeridas && (
         <div className="mt-2">
-          <h4 className="text-sm font-semibold text-verde-950 dark:text-neutral-100">
+          <h4 className="text-sm font-semibold text-tinta-950 dark:text-neutral-100">
             Fontes sugeridas
           </h4>
           <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
@@ -372,14 +372,14 @@ function ItemFeedback({
       )}
 
       {item.status === "pendente" ? (
-        <div className="mt-4 border-t border-creme-200 pt-3 dark:border-verde-900">
+        <div className="mt-4 border-t border-papel-200 pt-3 dark:border-tinta-900">
           <label className="block text-sm text-neutral-700 dark:text-neutral-300">
             Justificativa da decisão (10–2000 caracteres)
             <textarea
               value={justificativa}
               onChange={(e) => setJustificativa(e.target.value.slice(0, 2000))}
               rows={3}
-              className="mt-1 w-full rounded-md border border-creme-200 bg-white p-2 text-sm text-verde-950 focus:border-verde-700 focus:outline-none dark:border-verde-800 dark:bg-verde-950 dark:text-neutral-100"
+              className="mt-1 w-full rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none dark:border-tinta-800 dark:bg-tinta-950 dark:text-neutral-100"
             />
             <span className="mt-1 block text-right text-xs text-neutral-500">
               {justificativa.length}/2000
@@ -395,7 +395,7 @@ function ItemFeedback({
               type="button"
               onClick={() => decidir("aceito")}
               disabled={enviando || !justificativaValida}
-              className="rounded-md border border-verde-950 bg-verde-950 px-4 py-1.5 text-sm font-medium text-white hover:bg-verde-800 disabled:opacity-60 dark:border-creme-100 dark:bg-creme-100 dark:text-verde-950 dark:hover:bg-creme-200"
+              className="rounded-md border border-tinta-950 bg-tinta-950 px-4 py-1.5 text-sm font-medium text-papel-50 hover:bg-tinta-800 disabled:opacity-60 dark:border-papel-100 dark:bg-papel-100 dark:text-tinta-950 dark:hover:bg-papel-200"
             >
               {enviando ? "Enviando..." : "Aceitar"}
             </button>
@@ -403,7 +403,7 @@ function ItemFeedback({
               type="button"
               onClick={() => decidir("recusado")}
               disabled={enviando || !justificativaValida}
-              className="rounded-md border border-creme-200 px-4 py-1.5 text-sm font-medium text-neutral-800 hover:bg-creme-100 disabled:opacity-60 dark:border-verde-800 dark:text-neutral-200 dark:hover:bg-verde-800"
+              className="rounded-md border border-papel-200 px-4 py-1.5 text-sm font-medium text-neutral-800 hover:bg-papel-100 disabled:opacity-60 dark:border-tinta-800 dark:text-neutral-200 dark:hover:bg-tinta-800"
             >
               {enviando ? "Enviando..." : "Recusar"}
             </button>
@@ -416,7 +416,7 @@ function ItemFeedback({
           )}
         </div>
       ) : (
-        <div className="mt-4 border-t border-creme-200 pt-3 dark:border-verde-900">
+        <div className="mt-4 border-t border-papel-200 pt-3 dark:border-tinta-900">
           <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">
             Status:{" "}
             <span

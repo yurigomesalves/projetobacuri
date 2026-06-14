@@ -87,7 +87,7 @@ export default function Feedback({ interacaoId }: Props) {
   }
 
   return (
-    <div className="mt-3 border-t border-creme-200 pt-3 dark:border-verde-900">
+    <div className="mt-3 border-t border-papel-200 pt-3 dark:border-tinta-900">
       <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">
         Esta resposta foi útil?
       </p>
@@ -105,8 +105,8 @@ export default function Feedback({ interacaoId }: Props) {
             aria-pressed={classificacao === opcao.valor}
             className={`rounded-md border px-3 py-1.5 text-sm transition-colors ${
               classificacao === opcao.valor
-                ? "border-verde-950 bg-verde-950 text-white dark:border-creme-100 dark:bg-creme-100 dark:text-verde-950"
-                : "border-creme-200 text-neutral-700 hover:bg-creme-100 dark:border-verde-800 dark:text-neutral-300 dark:hover:bg-verde-800"
+                ? "border-tinta-950 bg-tinta-950 text-papel-50 dark:border-papel-100 dark:bg-papel-100 dark:text-tinta-950"
+                : "border-papel-200 text-neutral-700 hover:bg-papel-100 dark:border-tinta-800 dark:text-neutral-300 dark:hover:bg-tinta-800"
             }`}
           >
             {opcao.rotulo}
@@ -128,7 +128,7 @@ export default function Feedback({ interacaoId }: Props) {
               onChange={(e) => setRespostaAlternativa(e.target.value.slice(0, 3000))}
               maxLength={3000}
               rows={4}
-              className="mt-1 w-full rounded-md border border-creme-200 bg-white p-2 text-sm text-verde-950 focus:border-verde-700 focus:outline-none dark:border-verde-800 dark:bg-verde-900 dark:text-neutral-100"
+              className="mt-1 w-full rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
               placeholder="Como você redigiria esta resposta com base nas fontes do acervo?"
             />
             <span className="mt-1 block text-right text-xs text-neutral-500">
@@ -142,7 +142,7 @@ export default function Feedback({ interacaoId }: Props) {
               type="text"
               value={fontesSugeridas}
               onChange={(e) => setFontesSugeridas(e.target.value)}
-              className="mt-1 w-full rounded-md border border-creme-200 bg-white p-2 text-sm text-verde-950 focus:border-verde-700 focus:outline-none dark:border-verde-800 dark:bg-verde-900 dark:text-neutral-100"
+              className="mt-1 w-full rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
               placeholder="Ex.: documento, autor, link"
             />
           </label>
@@ -151,7 +151,7 @@ export default function Feedback({ interacaoId }: Props) {
             type="button"
             onClick={() => enviarFeedback(classificacao)}
             disabled={enviando}
-            className="rounded-md border border-verde-950 bg-verde-950 px-4 py-1.5 text-sm font-medium text-white hover:bg-verde-800 disabled:opacity-60 dark:border-creme-100 dark:bg-creme-100 dark:text-verde-950 dark:hover:bg-creme-200"
+            className="rounded-md border border-tinta-950 bg-tinta-950 px-4 py-1.5 text-sm font-medium text-papel-50 hover:bg-tinta-800 disabled:opacity-60 dark:border-papel-100 dark:bg-papel-100 dark:text-tinta-950 dark:hover:bg-papel-200"
           >
             {enviando ? "Enviando..." : "Enviar feedback"}
           </button>

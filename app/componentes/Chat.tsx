@@ -175,7 +175,7 @@ export default function Chat() {
                   <button
                     type="button"
                     onClick={() => void enviarMensagem(pergunta)}
-                    className="w-full rounded-md border border-creme-200 bg-white px-3 py-2 text-left text-sm text-neutral-800 hover:bg-creme-100 dark:border-verde-800 dark:bg-verde-900 dark:text-neutral-200 dark:hover:bg-verde-800"
+                    className="w-full rounded-md border border-papel-200 bg-papel-50 px-3 py-2 text-left text-sm text-neutral-800 hover:bg-papel-100 dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-200 dark:hover:bg-tinta-800"
                   >
                     {pergunta}
                   </button>
@@ -202,12 +202,12 @@ export default function Chat() {
                 <span className="text-xs font-medium text-neutral-500 dark:text-neutral-400">
                   Você
                 </span>
-                <p className="rounded-md bg-verde-950 px-3 py-2 text-sm text-white dark:bg-creme-100 dark:text-verde-950">
+                <p className="rounded-md bg-tinta-950 px-3 py-2 text-sm text-papel-50 dark:bg-papel-100 dark:text-tinta-950">
                   {mensagem.conteudo}
                 </p>
               </div>
             ) : (
-              <div className="w-full rounded-md border border-creme-200 bg-white px-3 py-3 text-sm dark:border-verde-900 dark:bg-verde-950">
+              <div className="w-full rounded-md border border-papel-200 bg-papel-50 px-3 py-3 text-sm dark:border-tinta-900 dark:bg-tinta-950">
                 <span className="mb-2 block text-xs font-medium text-neutral-500 dark:text-neutral-400">
                   Projeto Bacuri
                 </span>
@@ -217,7 +217,7 @@ export default function Chat() {
                   </p>
                 ) : (
                   <>
-                    <div className="prose prose-neutral prose-sm max-w-none dark:prose-invert prose-a:text-verde-950 dark:prose-a:text-neutral-100">
+                    <div className="prose prose-neutral prose-sm max-w-none font-serif dark:prose-invert prose-a:font-sans prose-a:font-semibold prose-a:text-carmim-700 dark:prose-a:text-carmim-700">
                       <ReactMarkdown
                         components={{ a: criarLinkMarcador(mensagem.id) }}
                       >
@@ -227,7 +227,7 @@ export default function Chat() {
 
                     {mensagem.sugestoesPesquisa &&
                       mensagem.sugestoesPesquisa.length > 0 && (
-                        <div className="mt-3 rounded-md border border-creme-200 bg-creme-50 p-3 dark:border-verde-800 dark:bg-verde-900">
+                        <div className="mt-3 rounded-md border border-papel-200 bg-papel-50 p-3 dark:border-tinta-800 dark:bg-tinta-900">
                           <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-600 dark:text-neutral-400">
                             Para aprofundar a pesquisa
                           </h3>
@@ -260,12 +260,12 @@ export default function Chat() {
           <div className="mx-auto w-full max-w-2xl">
             <div
               role="status"
-              className="flex items-center gap-2 rounded-md border border-creme-200 bg-white px-3 py-2 text-sm text-neutral-600 dark:border-verde-900 dark:bg-verde-950 dark:text-neutral-400"
+              className="flex items-center gap-2 rounded-md border border-papel-200 bg-papel-50 px-3 py-2 text-sm text-neutral-600 dark:border-tinta-900 dark:bg-tinta-950 dark:text-neutral-400"
             >
               <span className="flex gap-1">
-                <span className="size-1.5 animate-bounce rounded-full bg-verde-700 [animation-delay:-0.3s] dark:bg-creme-200" />
-                <span className="size-1.5 animate-bounce rounded-full bg-verde-700 [animation-delay:-0.15s] dark:bg-creme-200" />
-                <span className="size-1.5 animate-bounce rounded-full bg-verde-700 dark:bg-creme-200" />
+                <span className="size-1.5 animate-bounce rounded-full bg-tinta-700 [animation-delay:-0.3s] dark:bg-papel-200" />
+                <span className="size-1.5 animate-bounce rounded-full bg-tinta-700 [animation-delay:-0.15s] dark:bg-papel-200" />
+                <span className="size-1.5 animate-bounce rounded-full bg-tinta-700 dark:bg-papel-200" />
               </span>
               Consultando o acervo e redigindo a resposta — pode levar alguns
               segundos.
@@ -289,7 +289,7 @@ export default function Chat() {
 
       <form
         onSubmit={aoEnviarFormulario}
-        className="border-t border-creme-200 bg-creme-50 px-4 py-3 sm:px-6 dark:border-verde-900 dark:bg-verde-950"
+        className="border-t border-papel-200 bg-papel-50 px-4 py-3 sm:px-6 dark:border-tinta-900 dark:bg-tinta-950"
       >
         <div className="mx-auto flex w-full max-w-2xl flex-col gap-2">
           <label htmlFor="campo-pergunta" className="sr-only">
@@ -303,7 +303,7 @@ export default function Chat() {
             rows={2}
             placeholder="Pergunte sobre a Ditadura Civil-Militar no Brasil (1964–1985)..."
             disabled={carregando}
-            className="w-full resize-none rounded-md border border-creme-200 bg-white p-2 text-sm text-verde-950 focus:border-verde-700 focus:outline-none disabled:opacity-60 dark:border-verde-800 dark:bg-verde-900 dark:text-neutral-100"
+            className="w-full resize-none rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none disabled:opacity-60 dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
           />
           <div className="flex items-center justify-between">
             <span className="text-xs text-neutral-500 dark:text-neutral-400">
@@ -312,7 +312,7 @@ export default function Chat() {
             <button
               type="submit"
               disabled={!tamanhoValido || carregando}
-              className="rounded-md border border-verde-950 bg-verde-950 px-4 py-1.5 text-sm font-medium text-white hover:bg-verde-800 disabled:opacity-50 dark:border-creme-100 dark:bg-creme-100 dark:text-verde-950 dark:hover:bg-creme-200"
+              className="rounded-md border border-tinta-950 bg-tinta-950 px-4 py-1.5 text-sm font-medium text-papel-50 hover:bg-tinta-800 disabled:opacity-50 dark:border-papel-100 dark:bg-papel-100 dark:text-tinta-950 dark:hover:bg-papel-200"
             >
               Enviar
             </button>
