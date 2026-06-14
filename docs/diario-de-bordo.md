@@ -356,3 +356,35 @@ se necessário).
 reprocessamento futuro; Guerrilha do Araguaia; módulo crimes e justiça
 (ADR-009, em aberto); melhorias de design de interface (próxima frente
 discutida, ainda não iniciada).
+
+## 13/06/2026 — Melhorias de design (cabeçalho e home)
+- Cabeçalho: link da página atual passa a ficar destacado (sublinhado),
+  ajudando o visitante a se orientar; rótulo "manifesto projeto_bacuri"
+  padronizado para "Manifesto Projeto Bacuri", consistente com os demais
+  links do menu.
+- Home: cabeçalho de boas-vindas reduzido no mobile (título menor, texto de
+  proveniência do projeto escondido em telas pequenas) para que o campo de
+  pergunta do chat apareça sem precisar rolar a tela.
+- Validado com screenshots (desktop e mobile via Playwright), lint e build
+  de produção.
+
+## 14/06/2026 — Bugfix: chat fora do ar em produção (Vercel)
+- Yuri reportou que toda pergunta ao chat em memoria-e-verdade.vercel.app
+  retornava "Não foi possível conectar ao servidor".
+- Causa raiz, encontrada nos runtime logs da Vercel: `/api/chat` falhava ao
+  carregar o binário nativo `libonnxruntime.so.1`, usado pelo Transformers.js
+  para gerar o embedding da pergunta (ADR-007). O rastreador de arquivos da
+  Vercel não detectava esse binário como dependência da rota, então ele não
+  ia para o pacote da função e o módulo quebrava antes de qualquer try/catch
+  do código — gerando uma página de erro 500 em HTML (não JSON), que o
+  frontend interpretava como falha de conexão.
+- Correção em `next.config.ts`: `outputFileTracingIncludes` força a inclusão
+  dos binários do ONNX Runtime para `/api/chat`. Primeira tentativa incluiu
+  a pasta `onnxruntime-node/bin` inteira (513MB, com binários CUDA/Windows/
+  macOS) e excedeu o limite de 250MB da função, causando um deploy com erro;
+  corrigido restringindo a apenas os ~35MB necessários para CPU em Linux x64.
+- Validado: deploy `Ready` e `curl` em `/api/chat` retornando 200 com
+  resposta e citações da CNV.
+
+**Pendências:** as de antes (CEMDP, Araguaia, módulo crimes e justiça,
+demais melhorias de design).
