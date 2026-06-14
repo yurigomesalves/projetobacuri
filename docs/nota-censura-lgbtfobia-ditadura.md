@@ -1,0 +1,24 @@
+# Nota temática: censura, LGBTfobia e a ditadura civil-militar
+
+**Status de curadoria**: publicada
+**Fonte principal**: Relatório da Comissão Nacional da Verdade, vol. II, "Texto 7 — Ditadura e homossexualidades" (pp. 299-306), elaborado sob coordenação do conselheiro Paulo Sérgio Pinheiro, com pesquisa de James N. Green, Carlos Manuel de Céspedes e Renan Quinalha.
+
+## Por que esta nota existe
+
+Diferentemente das biografias individuais do acervo — centradas em vítimas de prisão ilegal, tortura, execução, desaparecimento forçado ou ocultação de cadáver, conforme a tipologia da CNV —, os casos abaixo documentam outra dimensão da repressão: a perseguição sistemática a pessoas LGBT por meio de censura, demissões e processos judiciais, fundamentada numa ideologia de Estado que associava homossexualidade a "subversão" e "degeneração moral". Por não se tratarem de casos de morte ou desaparecimento, optou-se por um registro temático em vez de biografias individuais no formato padrão do acervo. Isso não diminui a gravidade dessas violações — destruição de carreiras, perseguição judicial, censura de obras — nem o caráter estrutural da LGBTfobia como eixo da repressão (CNV, vol. II, pp. 299-306).
+
+## O expurgo do Itamaraty (1969)
+
+Em 1969, 15 diplomatas foram cassados pelo regime; sete deles tiveram como justificativa explícita a "prática de homossexualismo, incontinência pública escandalosa". Uma Comissão de Investigação Sumária, criada por Magalhães Pinto, produziu um relatório mantido em segredo por 40 anos, que confirma que o ódio contra homossexuais foi o fator mais determinante na escolha dos cassados — recomendando inclusive "exame de cuidado médico e psiquiátrico" a todos os suspeitos de homossexualidade. O primeiro-secretário Raul José de Sá Barbosa, que servia em Jacarta, recebeu telegrama de aposentadoria compulsória e declarou ao jornal O Globo: "Fui vítima de preconceito. Cortaram minha carreira, destruíram minha vida" (CNV, vol. II, pp. 303-304).
+
+## Cassandra Rios
+
+Escritora de ficção sobre lesbianidade, com produção literária prolífica e milhões de livros vendidos, teve 36 obras censuradas durante a ditadura — a CNV a descreve como possivelmente "a artista mais censurada do país durante a ditadura militar". O livro Eudemônia foi alvo de 16 processos judiciais, sob acusação de conteúdo imoral que "aliciava o leitor à homossexualidade". As forças de censura retiravam suas obras de livrarias e as apreendiam nas gráficas, causando enormes danos financeiros a ela e suas editoras. A CNV registra que artistas e intelectuais que costumavam se mobilizar contra arbitrariedades da ditadura não se solidarizaram com Cassandra Rios em sua luta, "provavelmente por causa do conteúdo das suas obras" — um silêncio que expõe os limites da própria resistência cultural da época diante da LGBTfobia (CNV, vol. II, p. 304).
+
+## Celso Curi e o Lampião da Esquina
+
+Celso Curi, jornalista do Última Hora (SP), publicou "A Coluna do Meio" entre fevereiro de 1976 e novembro de 1977, dirigida a leitores gays. Foi processado pela Promotoria Pública de São Paulo por "promover a licença de costumes e o homossexualismo especificamente", numa denúncia que classificava como "uniões anormais entre seres do mesmo sexo" relações cuja divulgação a coluna ajudava a viabilizar (inclusive por meio de uma seção de "Correio Elegante"). Foi absolvido apenas em março de 1979 — quase três anos depois. A CNV registra que, como no caso de Cassandra Rios, os setores mais amplos de oposição à ditadura não se mobilizaram em sua defesa. O caso de Curi esteve na capa do número zero do jornal Lampião da Esquina (abril de 1978), o primeiro a defender abertamente direitos de pessoas homossexuais no Brasil, que impulsionou a formação do grupo ativista SOMOS — Grupo de Afirmação Homossexual (CNV, vol. II, pp. 305-306).
+
+## Nota de transparência editorial
+
+Os episódios acima ocorrem em diferentes momentos do regime (1969-1979), incluindo o período de "distensão" dos governos Geisel e Figueiredo — evidência de que a perseguição a pessoas LGBT não foi exclusiva dos "anos de chumbo", mas atravessou toda a ditadura como expressão da aliança entre anticomunismo e moralismo conservador. Esta nota não esgota o tema: a CNV também documenta, no mesmo texto, a infiltração de órgãos de repressão em espaços de sociabilidade LGBT e a instrumentalização da Lei de Segurança Nacional (1969) e do Código Brasileiro de Telecomunicações (1967) para fins de censura moral. Caso o acervo do Projeto Bacuri venha a incorporar fontes adicionais sobre o Lampião da Esquina, o grupo SOMOS, ou outros nomes individuais com documentação suficiente, recomenda-se avaliar biografias individuais próprias seguindo o mesmo padrão das demais — desde que enquadráveis na tipologia de vítima/organização do acervo.
