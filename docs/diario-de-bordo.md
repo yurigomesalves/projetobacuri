@@ -388,3 +388,42 @@ discutida, ainda não iniciada).
 
 **Pendências:** as de antes (CEMDP, Araguaia, módulo crimes e justiça,
 demais melhorias de design).
+
+## 14/06/2026 — Fase 5: acervo ampliado com a CEV-SP "Rubens Paiva" (Tomo I)
+- Nova fonte ingerida: Relatório Final da **Comissão da Verdade do Estado de
+  São Paulo "Rubens Paiva" — Tomo I** (Recomendações Gerais e Temáticas,
+  março/2015, 1.912 páginas, texto nativo, sem OCR). Decisão de curadoria do
+  Yuri: começar pelo Tomo I (o mais denso para o RAG); Tomo II (dossiê de
+  mortos e desaparecidos) no site oficial é só uma síntese de 16 páginas —
+  fica pendente de busca por versão completa; Tomos III e IV adiados.
+- Engenheiro-de-dados: baixou direto do portal oficial da ALESP
+  (`comissaodaverdade.al.sp.gov.br`, no ar e sem bloqueio — dispensou Wayback),
+  extraiu o texto (`pipeline/dados/extraido/cev-sp-rubens-paiva-tomo1.jsonl`),
+  registrou proveniência (hash SHA-256, URL, licença "documento público
+  oficial") em `pipeline/manifesto.json`/`fontes.json` (slug
+  `cev-sp-rubens-paiva-tomo1`).
+- Cientista-de-dados: criou `pipeline/03_chunkar_cev_sp.py` adaptado à
+  estrutura do tomo; 2.789 chunks gerados e indexados no Supabase
+  (`relatorio_oficial`/`alta`/`pos_1985`). Avaliação de recuperação com boa
+  similaridade (0,888–0,891). A indexação foi concluída na sessão principal
+  após o limite de sessão ter interrompido o agente no meio da etapa.
+- Curador-historiador: auditou amostra de ~25 chunks. **Aprovado para
+  produção com ressalvas não-bloqueantes:**
+  - [importante] Documento de inteligência em francês (lista de torturadores
+    do CODI/DOI-OBAN, ~p.464) com OCR muito degradado — ilegível se recuperado.
+  - [importante] Boletins de inteligência SNI/CISA (pp.~719-844) reproduzidos
+    na íntegra precisam de `nota_contexto` deixando claro que são fonte
+    primária de espionagem reproduzida pela CEV-SP, não posição da comissão.
+  - [menor] Sobreposição de blocos entre chunks consecutivos; campo `secao`
+    genérico ("Março 2015") pouco informativo.
+  - Classificação confirmada conforme `docs/taxonomia.md` — sem alterações.
+- Incidente de processo: ao registrar esta auditoria, o curador (sem acesso a
+  git/Bash) sobrescreveu este diário com a ferramenta Write e apagou o miolo
+  do arquivo. A sessão principal restaurou com `git restore` (HEAD íntegro,
+  390 linhas) e reaplicou a entrada como append seguro. Lição: agentes sem
+  Bash devem usar Edit/append, nunca Write, em arquivos longos existentes.
+
+**Pendências:** tratar as 2 ressalvas "importantes" da CEV-SP (OCR francês e
+`nota_contexto` dos boletins SNI/CISA) num reprocessamento futuro; Tomo II
+completo da CEV-SP; Tomos III e IV; as de antes (CEMDP, Araguaia, módulo
+crimes e justiça, demais melhorias de design).

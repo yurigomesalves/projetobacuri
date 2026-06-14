@@ -37,5 +37,15 @@
     "sha256": "02c865592daf9578c2858a7ff917f58ee5114a8cd7746aacee5681f8df1e1379",
     "tamanho_bytes": 8776959,
     "descricao": "Livro 'Direito à Memória e à Verdade', CEMDP/Secretaria Especial dos Direitos Humanos da Presidência da República, 2007, 502 p., PDF com camada de texto. Baixado diretamente de https://www.dhnet.org.br/dados/livros/a_pdf/livro_memoria1_direito_verdade.pdf."
+  },
+  {
+    "slug": "cev-sp-rubens-paiva-tomo1",
+    "url": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-i/downloads/Tomo_I_Completo.pdf",
+    "url_original": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-i/downloads/Tomo_I_Completo.pdf",
+    "arquivo_local": "dados/brutos/cev-sp-rubens-paiva-tomo1.pdf",
+    "data_download": "2026-06-14T19:37:31.085980+00:00",
+    "sha256": "33d4a39f7fd0520a3390a3c398c1d374813737805df962901436b20bca8746c5",
+    "tamanho_bytes": 145377230,
+    "descricao": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva', Tomo I (Recomendações Gerais e Recomendações Temáticas), mar/2015, 1912 p., PDF com camada de texto. Baixado diretamente de https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-i/downloads/Tomo_I_Completo.pdf."
   }
 ]

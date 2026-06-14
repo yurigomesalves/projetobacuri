@@ -47,6 +47,22 @@
       "licenca": "documento público oficial (reprodução parcial ou total permitida, desde que citada a fonte e sem fins comerciais, conforme nota de copyright na p. 5 do PDF)"
     }
   },
+  "cev-sp-rubens-paiva-tomo1": {
+    "url_oficial": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-i/downloads/Tomo_I_Completo.pdf",
+    "url_download": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-i/downloads/Tomo_I_Completo.pdf",
+    "data_captura_wayback": null,
+    "descricao_curta": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva', Tomo I (Recomendações Gerais e Recomendações Temáticas), mar/2015, 1912 p., PDF com camada de texto.",
+    "fonte": {
+      "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+      "autor_orgao": "Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' (Assembleia Legislativa do Estado de São Paulo)",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2015-03-01",
+      "periodo": "pos_1985",
+      "url_origem": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-i/downloads/Tomo_I_Completo.pdf",
+      "licenca": "documento público oficial"
+    }
+  },
   "cnv-vol3": {
     "url_oficial": "https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_3_digital.pdf",
     "url_download": "http://web.archive.org/web/20250825070448/https://cnv.memoriasreveladas.gov.br./images/pdf/relatorio/volume_3_digital.pdf",
