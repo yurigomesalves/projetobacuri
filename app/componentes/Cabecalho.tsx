@@ -5,11 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const LINKS = [
-  { href: "/", rotulo: "Início" },
-  { href: "/biografias", rotulo: "Nomes e histórias" },
-  { href: "/mapa", rotulo: "Mapa" },
-  { href: "/transparencia", rotulo: "Transparência" },
-  { href: "/manifesto", rotulo: "Manifesto Projeto Bacuri" },
+  { href: "/", rotulo: "INÍCIO" },
+  { href: "/biografias", rotulo: "NOMES E HISTÓRIAS" },
+  { href: "/mapa", rotulo: "MAPA" },
+  { href: "/transparencia", rotulo: "TRANSPARÊNCIA" },
+  { href: "/manifesto", rotulo: "MANIFESTO projeto_BACURI" },
 ];
 
 /**
