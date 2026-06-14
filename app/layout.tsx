@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Cabecalho from "./componentes/Cabecalho";
 
@@ -37,6 +38,7 @@ export default function RootLayout({
       <body className="flex h-full flex-col">
         <Cabecalho />
         {children}
+        <Analytics />
       </body>
     </html>
   );
