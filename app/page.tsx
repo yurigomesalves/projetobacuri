@@ -3,17 +3,17 @@ import Chat from "./componentes/Chat";
 export default function Home() {
   return (
     <div className="flex flex-1 flex-col">
-      <header className="border-b border-creme-200 px-4 py-12 text-center sm:px-6 sm:py-16 dark:border-verde-900">
+      <header className="border-b border-creme-200 px-4 py-4 text-center sm:px-6 sm:py-16 dark:border-verde-900">
         <div className="mx-auto w-full max-w-2xl">
-          <h1 className="font-serif text-4xl font-medium tracking-tight text-verde-950 sm:text-5xl dark:text-creme-50">
+          <h1 className="font-serif text-2xl font-medium tracking-tight text-verde-950 sm:text-5xl dark:text-creme-50">
             Memória e Verdade
           </h1>
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+          <p className="mx-auto mt-2 max-w-xl text-xs leading-relaxed text-neutral-600 sm:mt-3 sm:text-sm dark:text-neutral-400">
             Assistente educativo sobre a Ditadura Civil-Militar no Brasil
             (1964–1985), que responde apenas com base em documentos
             históricos, citando as fontes utilizadas.
           </p>
-          <p className="mx-auto mt-2 max-w-xl text-xs leading-relaxed text-neutral-500 dark:text-neutral-500">
+          <p className="mx-auto mt-2 hidden max-w-xl text-xs leading-relaxed text-neutral-500 sm:block dark:text-neutral-500">
             Projeto de mestrado (ProfHistória/UFU), código aberto. O acervo
             está em construção — atualmente inclui o Relatório da Comissão
             Nacional da Verdade (volumes I, II e III).
