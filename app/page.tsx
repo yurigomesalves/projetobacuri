@@ -8,18 +8,18 @@ export default function Home() {
         <div className="mx-auto w-full max-w-2xl">
           <h1 className="sr-only">Projeto Bacuri</h1>
           <Image
-            src="/marca/logo_fundo_branco.png"
+            src="/marca/logo_fundo_claro_transparente.png"
             alt="Projeto Bacuri"
-            width={220}
-            height={220}
+            width={500}
+            height={500}
             className="mx-auto h-auto w-32 dark:hidden sm:w-56"
             priority
           />
           <Image
-            src="/marca/logo_fundo_preto.png"
+            src="/marca/logo_fundo_escuro_transparente.png"
             alt="Projeto Bacuri"
-            width={220}
-            height={220}
+            width={500}
+            height={500}
             className="mx-auto hidden h-auto w-32 dark:block sm:w-56"
             priority
           />

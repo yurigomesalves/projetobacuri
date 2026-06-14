@@ -29,18 +29,18 @@ export default function Cabecalho() {
       <div className="mx-auto flex w-full max-w-4xl flex-wrap items-center justify-between gap-x-6 gap-y-1">
         <Link href="/" className="inline-flex items-center">
           <Image
-            src="/marca/logo_horizontal_fundo_branco.png"
+            src="/marca/logo_horizontal_fundo_claro_transparente.png"
             alt="Projeto Bacuri"
-            width={132}
-            height={44}
+            width={600}
+            height={100}
             className="h-7 w-auto dark:hidden"
             priority
           />
           <Image
-            src="/marca/logo_horizontal_fundo_preto.png"
+            src="/marca/logo_horizontal_fundo_escuro_transparente.png"
             alt="Projeto Bacuri"
-            width={132}
-            height={44}
+            width={600}
+            height={100}
             className="hidden h-7 w-auto dark:block"
             priority
           />
