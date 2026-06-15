@@ -111,6 +111,38 @@
       "licenca": "documento público oficial"
     }
   },
+  "cev-mg-covemg-relatorio-final-2017": {
+    "url_oficial": "http://comissaodaverdade.mg.gov.br/bitstream/handle/123456789/2736/Comiss%c3%a3o%20da%20Verdade%20em%20Minas%20Gerais_Relat%c3%b3rio%20Final_2017.pdf?sequence=1&isAllowed=y",
+    "url_download": "http://comissaodaverdade.mg.gov.br/bitstream/handle/123456789/2736/Comiss%c3%a3o%20da%20Verdade%20em%20Minas%20Gerais_Relat%c3%b3rio%20Final_2017.pdf?sequence=1&isAllowed=y",
+    "data_captura_wayback": null,
+    "descricao_curta": "Relatório Final da Comissão da Verdade em Minas Gerais (Covemg), comissão ESTADUAL ligada ao governo de Minas Gerais, 2017, 1781 p., ~67 MB, PDF com camada de texto.",
+    "fonte": {
+      "titulo": "Relatório Final da Comissão da Verdade em Minas Gerais (Covemg)",
+      "autor_orgao": "Comissão da Verdade em Minas Gerais (Covemg) — comissão estadual, governo do Estado de Minas Gerais",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2017-01-01",
+      "periodo": "pos_1985",
+      "url_origem": "http://comissaodaverdade.mg.gov.br/bitstream/handle/123456789/2736/Comiss%c3%a3o%20da%20Verdade%20em%20Minas%20Gerais_Relat%c3%b3rio%20Final_2017.pdf?sequence=1&isAllowed=y",
+      "licenca": "documento público oficial, reprodução autorizada citando a fonte (DSpace institucional da Covemg)"
+    }
+  },
+  "cev-mg-covemg-anexo-justica-transicao-ufmg": {
+    "url_oficial": "http://comissaodaverdade.mg.gov.br/bitstream/handle/123456789/2743/Justi%c3%a7a%20de%20Transi%c3%a7%c3%a3o%20-%20COVEMG.pdf",
+    "url_download": "http://comissaodaverdade.mg.gov.br/bitstream/handle/123456789/2743/Justi%c3%a7a%20de%20Transi%c3%a7%c3%a3o%20-%20COVEMG.pdf",
+    "data_captura_wayback": null,
+    "descricao_curta": "Relatório Técnico de Recomendações do Centro de Estudos sobre Justiça de Transição da UFMG, anexo ao relatório final da Covemg, 5 p., ~271 KB, PDF com camada de texto.",
+    "fonte": {
+      "titulo": "Relatório Técnico de Recomendações — Centro de Estudos sobre Justiça de Transição (UFMG), anexo ao Relatório Final da Covemg",
+      "autor_orgao": "Centro de Estudos sobre Justiça de Transição da Universidade Federal de Minas Gerais (UFMG), em colaboração com a Comissão da Verdade em Minas Gerais (Covemg)",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2017-01-01",
+      "periodo": "pos_1985",
+      "url_origem": "http://comissaodaverdade.mg.gov.br/bitstream/handle/123456789/2743/Justi%c3%a7a%20de%20Transi%c3%a7%c3%a3o%20-%20COVEMG.pdf",
+      "licenca": "documento público oficial, reprodução autorizada citando a fonte (DSpace institucional da Covemg)"
+    }
+  },
   "cnv-vol3": {
     "url_oficial": "https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_3_digital.pdf",
     "url_download": "http://web.archive.org/web/20250825070448/https://cnv.memoriasreveladas.gov.br./images/pdf/relatorio/volume_3_digital.pdf",

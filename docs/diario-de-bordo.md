@@ -587,3 +587,45 @@ fonte; para o Tomo III, usar heurística CONSERVADORA (não inventar rótulos).
 completo do Tomo II; falta Araguaia/CEV-Rio e demais prioridades (BNM, imprensa,
 documentos dos EUA, acadêmico); módulo crimes e justiça (Fase 7); ampliar
 biografias e mapa.
+
+## 15/06/2026 — Fase 5: ingestão da Comissão da Verdade em Minas Gerais (Covemg)
+**Decisão do Yuri:** ampliar o acervo com a CEV estadual de Minas Gerais,
+ingerindo de uma vez (sem parar a cada etapa) o relatório consolidado mais o
+anexo pequeno da UFMG; checar antes se havia mais volumes.
+
+- **Reconhecimento (engenheiro-de-dados):** fonte localizada no repositório
+  DSpace oficial do governo de MG (`comissaodaverdade.mg.gov.br`), domínio
+  `.mg.gov.br`, download livre, documento público redistribuível. Sondagem do
+  índice na sessão principal confirmou que o **Relatório Final 2017 é volume
+  único consolidado** (handle 2736, 1781 p.) — o "01. A Comissão…" (handle 199)
+  é só agrupamento de capítulos já contidos no consolidado. Achado extra: um
+  **anexo à parte** — "Relatório Técnico de Recomendações do Centro de Estudos
+  sobre Justiça de Transição da UFMG" (handle 2743, ~271 KB), relevante para o
+  futuro módulo crimes e justiça (Fase 7) — incluído na ingestão.
+- **Boa notícia de custo:** ambos os PDFs têm camada de texto nativa — **nenhum
+  OCR**, ao contrário do calvário do Tomo III da CEV-SP. Extração direta.
+- **Engenheiro-de-dados:** baixou os dois, conferiu SHA-256 do consolidado
+  contra valor conhecido (íntegro), registrou proveniência em `fontes.json` e
+  `manifesto.json` (deixando explícito que é a comissão **estadual**, não a
+  municipal de BH). Extração: Relatório Final = 1781 páginas (3 vazias, ~4,27 mi
+  caracteres); Anexo UFMG = 5 páginas (~14,3 mil caracteres).
+- **Cientista-de-dados:** novo `03_chunkar_cev_mg.py` no mesmo padrão da CEV-SP
+  (~395 tokens, sobreposição ~80, sem cruzar fronteira de seção; seções = 13
+  capítulos + Apresentação/Prefácio mapeados pelo Sumário, 99,4% preenchidas).
+  Resultado: 3071 chunks (Relatório) + 9 (Anexo) = **3080 chunks** indexados no
+  Supabase (e5-small, 384 dim). Desta vez o free tier **não caiu** (lotes de
+  100, ~14 min). Buscas de sanidade OK: Krenak (p.983, cap.8), massacre de
+  Ipatinga (p.845, cap.6), mina de Morro Velho (p.593, cap.6) — proveniência de
+  página e seção corretas, e a busca híbrida segue cruzando com CNV/CEV-SP.
+- **Curador-historiador** (auditoria em `docs/auditorias/cev-mg.md`): **APTO sem
+  bloqueantes**. Fronteiras de capítulo conferem com o Sumário; nenhum chunk
+  separa nome de vítima do contexto do crime; conteúdo sobre Ipatinga, Morro
+  Velho e povos indígenas (Krenak/Maxakali/Xakriabá) com fontes e granularidade
+  adequadas para citação responsável (perspectiva classista/interseccional).
+
+**Pendências (melhorias futuras, não bloqueantes):** rótulo de seção dos anexos
+finais do cap.13 da CEV-MG; resíduos de caracteres de controle em páginas de
+rosto; `nota_contexto` no anexo UFMG esclarecendo que é texto teórico, não
+levantamento de casos mineiros. Continuam pendentes: dossiê completo do Tomo II
+da CEV-SP, Araguaia/CEV-Rio e demais prioridades (BNM, imprensa, documentos dos
+EUA, acadêmico); módulo crimes e justiça (Fase 7); ampliar biografias e mapa.

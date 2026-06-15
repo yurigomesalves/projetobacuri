@@ -19,6 +19,26 @@
     "descricao": "Relatório Final da CNV, volume II (textos temáticos), dez/2014, PDF com camada de texto. Documento original do portal Memórias Reveladas/Arquivo Nacional (https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_2_digital.pdf), obtido via cópia arquivada pelo Internet Archive (Wayback Machine) em 09/02/2026, pois o portal oficial bloqueia downloads automatizados (proteção anti-robô)."
   },
   {
+    "slug": "cev-mg-covemg-relatorio-final-2017",
+    "url": "http://comissaodaverdade.mg.gov.br/bitstream/handle/123456789/2736/Comiss%c3%a3o%20da%20Verdade%20em%20Minas%20Gerais_Relat%c3%b3rio%20Final_2017.pdf?sequence=1&isAllowed=y",
+    "url_original": "http://comissaodaverdade.mg.gov.br/bitstream/handle/123456789/2736/Comiss%c3%a3o%20da%20Verdade%20em%20Minas%20Gerais_Relat%c3%b3rio%20Final_2017.pdf?sequence=1&isAllowed=y",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-relatorio-final-2017.pdf",
+    "data_download": "2026-06-15T00:00:00+00:00",
+    "sha256": "f96a0b46f3cb8f3335e999a82153382f10a32d13513dbd4bf3c5822fea1f17e4",
+    "tamanho_bytes": 69919984,
+    "descricao": "Relatório Final da Comissão da Verdade em Minas Gerais (Covemg), comissão ESTADUAL ligada ao governo de Minas Gerais, 2017, 1781 p., PDF com camada de texto. Baixado diretamente do repositório DSpace institucional (comissaodaverdade.mg.gov.br/bitstream/handle/123456789/2736). Hash SHA-256 confere com o valor previamente conhecido para este arquivo."
+  },
+  {
+    "slug": "cev-mg-covemg-anexo-justica-transicao-ufmg",
+    "url": "http://comissaodaverdade.mg.gov.br/bitstream/handle/123456789/2743/Justi%c3%a7a%20de%20Transi%c3%a7%c3%a3o%20-%20COVEMG.pdf",
+    "url_original": "http://comissaodaverdade.mg.gov.br/bitstream/handle/123456789/2743/Justi%c3%a7a%20de%20Transi%c3%a7%c3%a3o%20-%20COVEMG.pdf",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-anexo-justica-transicao-ufmg.pdf",
+    "data_download": "2026-06-15T00:00:00+00:00",
+    "sha256": "f5e237344ea3ae4167f4bd9f7f465402ced4de0880eb4114b37920d0c8e7ff2d",
+    "tamanho_bytes": 271387,
+    "descricao": "Relatório Técnico de Recomendações do Centro de Estudos sobre Justiça de Transição da UFMG, anexo ao relatório final da Covemg, 5 p., PDF com camada de texto. Baixado diretamente do repositório DSpace institucional (comissaodaverdade.mg.gov.br/bitstream/handle/123456789/2743)."
+  },
+  {
     "slug": "cnv-vol3",
     "url": "http://web.archive.org/web/20250825070448/https://cnv.memoriasreveladas.gov.br./images/pdf/relatorio/volume_3_digital.pdf",
     "url_original": "https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_3_digital.pdf",
