@@ -1,4 +1,6 @@
 pymupdf
+pytesseract
+Pillow
 sentence-transformers
 supabase
 python-dotenv

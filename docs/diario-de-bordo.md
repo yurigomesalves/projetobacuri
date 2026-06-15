@@ -427,3 +427,56 @@ demais melhorias de design).
 `nota_contexto` dos boletins SNI/CISA) num reprocessamento futuro; Tomo II
 completo da CEV-SP; Tomos III e IV; as de antes (CEMDP, Araguaia, módulo
 crimes e justiça, demais melhorias de design).
+
+## 14/06/2026 — Dívida técnica da CEV-SP quitada (notas de contexto + re-OCR)
+Como o roteiro original de 7 fases já estava concluído, esta sessão atacou as 2
+ressalvas "importantes" da auditoria da CEV-SP. Decisão do Yuri: fazer as duas
+partes, com a nota de contexto em coluna nova (não gambiarra no texto).
+
+- **Parte A — nota de contexto por trecho.** Migração `0009`: nova coluna
+  `chunks.nota_contexto` e ajuste da função `buscar_chunks` para preferir a nota
+  do trecho, com fallback para a da fonte. Descoberto que o consumo já existia:
+  `app/api/chat/route.ts` e `app/componentes/Citacoes.tsx` já leem e exibem a
+  nota (caixa âmbar) e a enviam ao LLM. Delimitados via SQL dois blocos de
+  reprodução documental de naturezas OPOSTAS, que o curador-historiador
+  distinguiu em duas notas (documentadas em `docs/notas-contexto-cev-sp.md`):
+  - **Boletins do SNI/CI-SI (repressão), pp. 699–857** — espionagem da Guerra
+    Fria reproduzida como prova; nota alerta que não é análise da comissão.
+  - **Anexo de denúncia da resistência (pp. 460–501)** — lista francesa "Les
+    tortionnaires" (DIAL, 1976) + dossiês clandestinos (caso Herzog etc.);
+    nota distingue a autoria (resistência) e avisa do OCR degradado.
+- **Parte B — re-OCR do anexo escaneado (pp. 460–501).** O problema era maior
+  que a ressalva indicava (~40 páginas escaneadas, não só ~p.464). Engenheiro
+  criou `pipeline/02b_reocr_anexo_cev_sp.py` (PyMuPDF 300 DPI + Tesseract
+  `por+fra`; `pytesseract`/`Pillow` adicionados ao venv) e corrigiu só essas
+  linhas no `.jsonl` extraído (backup em `.jsonl.bak`; 1912 linhas preservadas,
+  0 diffs fora do intervalo). Melhora clara no corpo em português e legível no
+  francês (nomes de torturadores recuperados, incl. Fleury). Re-chunkado
+  (2.789 → 2.739 trechos) e re-indexado no Supabase **com autorização explícita
+  do Yuri** (sobrescrita de banco de produção). As 2 notas foram reaplicadas
+  após o re-index (544 trechos: 372 SNI + 172 anexo).
+
+- **Pendências menores resolvidas (mesma sessão).** O cabeçalho/logotipo da
+  CEV-SP que o re-OCR captava no topo de cada página e o ruído de aspas ("!!")
+  foram limpos no chunker `03_chunkar_cev_sp.py` (função `limpar_reocr`,
+  RESTRITA às pp. 460-501 para não tocar nas ~1870 páginas nativas). O
+  logotipo é OCRado de formas variáveis, então casamos a frase estável do
+  subtítulo ("Recomendações Gerais e Recomendações") e toleramos só ruído curto
+  no fim das linhas "COMISSÃO DA"/"...Estado de São Paulo" — frases reais, que
+  são longas, ficam protegidas. Validado: 0 cabeçalhos residuais e 0 "!!" no
+  anexo. Re-chunkado (2.736) e re-indexado com nova autorização do Yuri; notas
+  reaplicadas (541 trechos: 372 SNI + 169 anexo).
+
+- **Auditoria de amostra (mesma sessão).** Conferidos trechos dos três tipos:
+  lista francesa (legível, nomes recuperados, ex. Fleury), dossiês em português
+  (caso Herzog/Shibata) e boletins do SNI — todos com a nota correta e sem
+  cabeçalho ruidoso. A auditoria pegou UM erro editorial: o limite superior do
+  Bloco 1 (699–857) havia capturado um chunk de transição na p.857 que já era
+  texto analítico da comissão (sobre o genocídio de povos indígenas), rotulando-o
+  indevidamente como boletim do SNI. Varredura do miolo 699–856 confirmou que o
+  anexo é contíguo e homogêneo (0 textos de comissão infiltrados); a borda
+  inferior (p.699) também está limpa. Correção: a nota foi REMOVIDA só desse
+  chunk. Estado final: 540 trechos com nota (371 SNI + 169 anexo de denúncia).
+
+**Pendências:** Tomo II completo da CEV-SP; Tomos III e IV; CEMDP/Araguaia/
+CEV-Rio; módulo crimes e justiça (Fase 7); ampliar biografias e mapa.

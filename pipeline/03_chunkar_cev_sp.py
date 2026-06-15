@@ -96,6 +96,47 @@ ABERTURA_PARTE = re.compile(r"PARTE\xa0(\d)\xa0\n((?:[^\n]*\xa0\n)+)")
 PRIVATE_USE = re.compile("[\uE000-\uF8FF]")
 
 
+# --- Limpeza específica do anexo re-OCRado (pp. 460-501) ----------------------
+# Essas páginas são reproduções escaneadas re-OCRadas pelo 02b_reocr_anexo_cev_sp.py.
+# O Tesseract capturou o logotipo/cabeçalho da CEV-SP no topo de CADA página,
+# sempre com esta forma (o prefixo da 2ª linha é ruído variável do logotipo):
+#   COMISSÃO DA
+#   <ruído> Relatório - Tomo |: Recomendações Gerais e Recomendações Temáticas
+#   d[eo] Estado de São Paulo
+# Removemos essas linhas (senão poluiriam todos os chunks do anexo) e corrigimos
+# só o ruído de aspas claramente espúrio que o OCR gerou ("!!"/'"!' por aspa de
+# fechamento). NÃO mexemos em "="/"»", cuja correção seria insegura. Restrito a
+# este intervalo para não tocar nas ~1870 páginas de texto nativo do documento.
+REOCR_PAGINA_INICIO = 460
+REOCR_PAGINA_FIM = 501
+
+REOCR_LINHAS_CABECALHO = [
+    # Toleramos alguns tokens curtos de ruído no fim da linha (números de página,
+    # restos de OCR como "pa"/"224"); uma frase real que cite "Estado de São
+    # Paulo" é longa e NÃO casa este padrão (fica protegida).
+    re.compile(r"^COMISSÃO DA(\s+\S{1,4}){0,3}$"),
+    # subtítulo do logotipo; o prefixo "Relatório - Tomo" é OCRado de formas
+    # variáveis (ex.: "E elatório", quebra de linha), então casamos a frase
+    # estável, que no anexo (460-501) só ocorre no cabeçalho.
+    re.compile(r"Recomendações Gerais e Recomendações"),
+    re.compile(r"^d[eo] Estado de São Paulo(\s+\S{1,4}){0,2}$"),
+]
+
+
+def limpar_reocr(texto):
+    """Remove o cabeçalho/logotipo da CEV-SP captado pelo OCR e corrige o ruído
+    de aspas, nas páginas re-OCRadas (anexo escaneado, pp. 460-501)."""
+    linhas = [
+        linha
+        for linha in texto.split("\n")
+        if not any(rx.search(linha.strip()) for rx in REOCR_LINHAS_CABECALHO)
+    ]
+    texto = "\n".join(linhas)
+    # aspas de fechamento que o OCR transformou em "!!" ou '"!'
+    texto = texto.replace("!!", '"').replace('"!', '"')
+    return texto
+
+
 def limpar_pagina(texto, numero_pagina):
     """Limpa o texto de uma página e tenta extrair pista de seção (PARTE).
 
@@ -116,6 +157,10 @@ def limpar_pagina(texto, numero_pagina):
 
     # remove rodapé corrido
     texto_sem_rodape = FOOTER.sub("", texto_norm).strip()
+
+    # limpeza do cabeçalho/aspas nas páginas re-OCRadas (anexo escaneado)
+    if REOCR_PAGINA_INICIO <= numero_pagina <= REOCR_PAGINA_FIM:
+        texto_sem_rodape = limpar_reocr(texto_sem_rodape).strip()
 
     if not texto_sem_rodape:
         return "", secao_detectada, False
