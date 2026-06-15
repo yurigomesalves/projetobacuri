@@ -517,3 +517,36 @@ mensagem, com o contexto preservado, para indexar o Tomo IV e rodar a sanidade.
 por anexo/autor no IV) e log das páginas descartadas — melhorias, não
 bloqueantes; Tomo II completo da CEV-SP; CEMDP/Araguaia/CEV-Rio; módulo crimes e
 justiça (Fase 7); ampliar biografias e mapa.
+
+## 15/06/2026 — Fase 5: CEV-SP Tomo II (versão de síntese) ingerido
+**Decisão do Yuri:** ingerir a versão curta do Tomo II disponível no portal
+oficial (o dossiê completo segue não localizado em formato digital oficial).
+
+- Por ser documento minúsculo (16 págs.), toda a ingestão foi feita na sessão
+  principal, sem convocar engenheiro/cientista (regra de economia de tokens);
+  só o curador-historiador foi convocado, para a auditoria.
+- Baixado direto do portal da ALESP (`.../tomo-ii/downloads/II_Tomo_Dossie-...
+  1964-1985.pdf`, 839 KB, SHA-256 no manifesto; slug `cev-sp-rubens-paiva-tomo2`).
+  Texto nativo (sem OCR), 16 páginas. Chunker próprio
+  `03_chunkar_cev_sp_tomo2.py` (mesma lógica dos demais): 25 chunks
+  (`secao=null` — texto corrido). Indexado no Supabase (fonte `efc10a75…`).
+  Busca de sanidade ok (trecho do Tomo II no topo, 0,903, página correta).
+- Defeito corrigido durante a sessão: o rodapé do Tomo II usa dois-pontos
+  ("Relatório - Tomo II: …"), não hífen como os outros tomos; o regex inicial
+  não casava e o rodapé vazou para um chunk. Corrigido, re-chunkado (26→25) e
+  re-indexado limpo (0 rodapés residuais).
+- Auditoria (curador-historiador, `docs/auditorias/cev-sp-tomo2.md`): **apto.**
+  Tom, proveniência e ausência de negacionismo aprovados. O achado "bloqueante"
+  de chunks duplicados (23/24) NÃO se confirmou na versão final de 25 chunks
+  (verificação direta: 0 conteúdos idênticos) — o agente avaliou a versão antiga.
+- `nota_contexto` aplicada aos 25 chunks (autorizada pelo Yuri): deixa explícito
+  que é a SÍNTESE, não o dossiê completo, e que não contém a lista nominal das
+  vítimas — para o chatbot não dar a entender que possui o dossiê integral.
+- Incidente de processo: o curador retornou "API Error: Overloaded" e foi
+  reconvocado; a 1ª convocação na verdade concluiu (notificação atrasada),
+  tornando a 2ª redundante — encerrada. Lição: conferir se a 1ª terminou antes
+  de reconvocar.
+
+**Pendências:** dossiê completo do Tomo II (busca futura); mapeamentos de
+metadado dos Tomos III/IV; CEMDP/Araguaia/CEV-Rio; módulo crimes e justiça
+(Fase 7); ampliar biografias e mapa.

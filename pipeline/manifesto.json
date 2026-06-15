@@ -67,5 +67,15 @@
     "sha256": "6f3e7cfd62d1ac54a2ee119b65735a09ad7f626a44f53a720370da2eafd3e877",
     "tamanho_bytes": 124243538,
     "descricao": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva', Tomo IV (Contribuições e Relatórios dos Grupos de Trabalho), ~124 MB. Baixado diretamente de https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-iv/downloads/IV_Tomo_Completo.pdf."
+  },
+  {
+    "slug": "cev-sp-rubens-paiva-tomo2",
+    "url": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-ii/downloads/II_Tomo_Dossie-ditadura-mortos-e-desparecidos-politicos-no-brasil-1964-1985.pdf",
+    "url_original": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-ii/downloads/II_Tomo_Dossie-ditadura-mortos-e-desparecidos-politicos-no-brasil-1964-1985.pdf",
+    "arquivo_local": "dados/brutos/cev-sp-rubens-paiva-tomo2.pdf",
+    "data_download": "2026-06-15T12:38:34.239778+00:00",
+    "sha256": "10607abcb9bb6f020f319ddb9d85bf01ba50fb5f8371c1bb608a4f1ec882a6e4",
+    "tamanho_bytes": 839555,
+    "descricao": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva', Tomo II (Dossiê Ditadura: Mortos e Desaparecidos Políticos no Brasil 1964-1985) — versão de síntese disponível no portal oficial, ~16 p., 839 KB. NÃO é o dossiê completo (que não foi localizado em versão oficial digital). Baixado diretamente de https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-ii/downloads/II_Tomo_Dossie-ditadura-mortos-e-desparecidos-politicos-no-brasil-1964-1985.pdf."
   }
 ]
