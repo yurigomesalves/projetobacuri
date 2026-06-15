@@ -97,6 +97,7 @@ export type RequisicaoChat = {
 };
 
 export type RespostaChat = {
+  resumo: string; // síntese didática (2–3 frases) da resposta; "" quando sem base documental
   resposta: string;
   citacoes: Citacao[];
   sugestoes_pesquisa: string[];

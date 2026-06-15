@@ -74,6 +74,41 @@ describe("POST /api/chat — resposta com base documental", () => {
     expect(corpo.citacoes[1]).toMatchObject({ n: 2, tipo_chunk: "nota_rodape" });
   });
 
+  it("separa o resumo didático da resposta completa no separador ---", async () => {
+    estado.supabase = criarSupabaseFalso({
+      rpc: { data: [trechoBuscado()] },
+      tabelas: { interacoes: { data: { interacao_id: UUID_INTERACAO } } },
+    });
+    vi.mocked(gerarResposta).mockResolvedValueOnce(
+      "RESUMO: O AI-5 foi o ato que endureceu a ditadura em 1968.\n" +
+        "---\n" +
+        "O AI-5 suspendeu garantias constitucionais [1]."
+    );
+
+    const resposta = await POST(requisicao({ mensagem: "O que foi o AI-5?" }));
+    const corpo = await resposta.json();
+
+    expect(corpo.resumo).toBe("O AI-5 foi o ato que endureceu a ditadura em 1968.");
+    expect(corpo.resumo).not.toContain("[1]");
+    expect(corpo.resposta).toBe("O AI-5 suspendeu garantias constitucionais [1].");
+  });
+
+  it("plano B: sem separador, resumo vazio e resposta completa preservada", async () => {
+    estado.supabase = criarSupabaseFalso({
+      rpc: { data: [trechoBuscado()] },
+      tabelas: { interacoes: { data: { interacao_id: UUID_INTERACAO } } },
+    });
+    vi.mocked(gerarResposta).mockResolvedValueOnce(
+      "O AI-5 suspendeu garantias constitucionais [1]."
+    );
+
+    const resposta = await POST(requisicao({ mensagem: "O que foi o AI-5?" }));
+    const corpo = await resposta.json();
+
+    expect(corpo.resumo).toBe("");
+    expect(corpo.resposta).toBe("O AI-5 suspendeu garantias constitucionais [1].");
+  });
+
   it("trunca trechos longos das citações em 400 caracteres", async () => {
     const conteudoLongo = "a".repeat(600);
     estado.supabase = criarSupabaseFalso({

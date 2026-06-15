@@ -63,6 +63,37 @@ function truncar(texto: string, limite = 400): string {
   return texto.slice(0, limite).trimEnd() + "…";
 }
 
+// Separa o resumo didático da resposta completa no primeiro `---` em linha
+// isolada (formato pedido ao LLM). Plano B: sem separador no formato esperado,
+// devolve resumo vazio e o texto inteiro como resposta — o contrato admite
+// resumo: "" e jamais perdemos a resposta com as citações.
+function separarResumo(texto: string): { resumo: string; resposta: string } {
+  const separador = /^[ \t]*-{3,}[ \t]*$/m;
+  const correspondencia = separador.exec(texto);
+
+  if (!correspondencia) {
+    return { resumo: "", resposta: texto.trim() };
+  }
+
+  const resumo = texto
+    .slice(0, correspondencia.index)
+    // Remove um eventual rótulo "RESUMO:" que o modelo tenha incluído.
+    .replace(/^\s*(parte\s*1\s*[—-]?\s*)?resumo\s*:?\s*/i, "")
+    .trim();
+  const resposta = texto
+    .slice(correspondencia.index + correspondencia[0].length)
+    .replace(/^\s*(parte\s*3\s*[—-]?\s*)?resposta(\s+completa)?\s*:?\s*/i, "")
+    .trim();
+
+  // Se algum dos lados ficou vazio, o formato não foi seguido de fato:
+  // preserva o texto inteiro como resposta (plano B).
+  if (!resumo || !resposta) {
+    return { resumo: "", resposta: texto.trim() };
+  }
+
+  return { resumo, resposta };
+}
+
 type TrechoBuscado = {
   chunk_id: string;
   conteudo: string;
@@ -140,6 +171,7 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
       }
 
       const corpoResposta: RespostaChat = {
+        resumo: "",
         resposta: RESPOSTA_SEM_BASE,
         citacoes: [],
         sugestoes_pesquisa: SUGESTOES_SEM_BASE,
@@ -195,8 +227,19 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
       "números. Notas de rodapé fornecidas como trecho são contexto secundário; " +
       "se usar uma, mencione que se trata de uma nota de rodapé. Não trate o " +
       "negacionismo histórico como um debate em aberto: responda a ele com a " +
-      "documentação apresentada. Termine incentivando o usuário a explorar as " +
-      "fontes citadas para aprofundar a pesquisa.\n\n" +
+      "documentação apresentada.\n\n" +
+      "Ao final do seu raciocínio, produza a resposta em duas partes, nesta ordem:\n\n" +
+      "PARTE 1 — RESUMO: escreva de 2 a 3 frases que sintetizem a resposta de " +
+      "forma didática, em linguagem acessível a quem não tem familiaridade com o " +
+      "tema. Não use marcadores de citação [n] nesta parte — as fontes aparecem na " +
+      "resposta completa, logo abaixo. Não inclua nenhuma informação, nome, data ou " +
+      "afirmação que não esteja sustentada pelos trechos fornecidos. Mantenha tom " +
+      "sóbrio e respeitoso: o tema trata de tortura, morte e desaparecimento de " +
+      "pessoas reais, com familiares vivos.\n\n" +
+      "PARTE 2 — SEPARADOR: escreva, em uma linha isolada, exatamente:\n---\n\n" +
+      "PARTE 3 — RESPOSTA COMPLETA: escreva a resposta detalhada, com os marcadores " +
+      "[1], [2] etc. indicando a origem de cada afirmação. Termine incentivando o " +
+      "usuário a explorar as fontes citadas para aprofundar a pesquisa.\n\n" +
       "Trechos disponíveis:\n\n" +
       blocosTrechos;
 
@@ -211,7 +254,12 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
 
     mensagensLLM.push({ role: "user", content: mensagem });
 
-    const resposta = await gerarResposta(mensagensLLM);
+    const textoLLM = await gerarResposta(mensagensLLM);
+
+    // Separa o resumo didático da resposta completa no primeiro `---` isolado.
+    // Plano B: se o modelo não seguiu o formato, resumo fica vazio e a resposta
+    // completa é preservada inteira (o contrato prevê resumo: "").
+    const { resumo, resposta } = separarResumo(textoLLM);
 
     // 6. Registra a interação para auditoria editorial (sem dados pessoais).
     const { data: interacao, error: erroInsercao } = await supabaseServidor
@@ -229,6 +277,7 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
     }
 
     const corpoResposta: RespostaChat = {
+      resumo,
       resposta,
       citacoes,
       sugestoes_pesquisa: [],

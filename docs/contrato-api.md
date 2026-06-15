@@ -26,13 +26,15 @@ Pergunta do usuário → resposta com citações.
 - Response 200:
 ```json
 {
+  "resumo": "síntese didática de 2–3 frases, sem marcadores",
   "resposta": "texto em markdown com marcadores [1], [2]...",
   "citacoes": [Citacao],
   "sugestoes_pesquisa": ["string"],
   "interacao_id": "uuid"
 }
 ```
-- Se a busca não atingir o limiar de relevância: 200 com `citacoes: []` e resposta honesta padrão (não há base documental + sugestões). **Nunca** resposta factual sem citação.
+- `resumo`: síntese didática (2–3 frases) exibida **antes** da resposta completa, em linguagem acessível. Gerado na mesma chamada ao LLM (economia de tokens): o modelo devolve `RESUMO\n---\nRESPOSTA`, e o servidor separa no primeiro `---`. Plano B (modelo não seguiu o formato): `resumo: ""` e a resposta completa preservada inteira. **Salvaguarda editorial (curador, Princípio 3)**: o resumo não traz marcadores `[n]` nem afirma nada além do que a resposta citada sustenta; é sempre exibido junto da resposta completa e da lista de fontes, nunca isolado. Recurso futuro de copiar/compartilhar só o resumo reabre essa análise (aí o resumo teria de levar as fontes junto).
+- Se a busca não atingir o limiar de relevância: 200 com `citacoes: []`, `resumo: ""` e resposta honesta padrão (não há base documental + sugestões). **Nunca** resposta factual sem citação.
 - **Fluxo interno (RAG)**: embedding da pergunta gerado no próprio servidor Next.js (Transformers.js em Node, `intfloat/multilingual-e5-small`, mesmo modelo da indexação — ADR-007; a Edge Function do free tier do Supabase não comporta o modelo) → RPC `buscar_chunks` (limiar 0.82 — migração 0004; até 8 trechos — valores padrão da função; ajustes mudam primeiro a migração) → LLM de geração definido por `LLM_PROVIDER` (padrão Groq; trocável por OpenRouter/Ollama sem mudar o contrato).
 - O prompt do LLM recebe `tipo_chunk`, `confiabilidade` e `nota_contexto` de cada trecho e a resposta preserva os marcadores `[n]` na ordem de `citacoes`.
 

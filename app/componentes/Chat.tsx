@@ -24,6 +24,7 @@ const PERGUNTAS_EXEMPLO = [
 
 type MensagemExibida = Mensagem & {
   id: string;
+  resumo?: string;
   citacoes?: RespostaChat["citacoes"];
   sugestoesPesquisa?: string[];
   interacaoId?: string;
@@ -115,6 +116,7 @@ export default function Chat() {
             id: dados.interacao_id,
             papel: "assistente",
             conteudo: dados.resposta,
+            resumo: dados.resumo,
             citacoes: dados.citacoes,
             sugestoesPesquisa: dados.sugestoes_pesquisa,
             interacaoId: dados.interacao_id,
@@ -217,6 +219,17 @@ export default function Chat() {
                   </p>
                 ) : (
                   <>
+                    {mensagem.resumo && (
+                      <div className="mb-3 rounded-md border-l-2 border-carmim-700 bg-papel-100 px-3 py-2 dark:bg-tinta-900">
+                        <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-600 dark:text-neutral-400">
+                          Resumo
+                        </h3>
+                        <p className="mt-1 text-sm text-neutral-800 dark:text-neutral-200">
+                          {mensagem.resumo}
+                        </p>
+                      </div>
+                    )}
+
                     <div className="prose prose-neutral prose-sm max-w-none font-serif dark:prose-invert prose-a:font-sans prose-a:font-semibold prose-a:text-carmim-700 dark:prose-a:text-carmim-700">
                       <ReactMarkdown
                         components={{ a: criarLinkMarcador(mensagem.id) }}
