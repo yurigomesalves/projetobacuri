@@ -85,3 +85,40 @@ para o Tomo IV, onde há 19 autores distintos de pesquisa.
   página→autor de anexo (Tomo IV) nesta fase ou deixar para fase de polimento.
 - Solicitar ao engenheiro-de-dados o log de páginas descartadas para fechar o
   item 4 desta auditoria.
+
+## Fechamento da dívida (2026-06-15)
+
+Decisão do Yuri: quitar a dívida nesta fase. O cientista-de-dados reetiquetou a
+coluna `secao` dos chunks já indexados — sem recalcular embeddings, pois a
+`secao` não entra no vetor (`04_indexar.py` embeda apenas `"passage: " +
+conteudo`). A sincronia com o Supabase foi confirmada por dry-run (0 diferenças
+entre arquivo local e banco) nos dois tomos. Auditoria de amostragem do curador:
+
+**Item 3 — Tomo IV (anexos + autores): APROVADO, sem ressalvas.** Os 19 rótulos
+no formato `ANEXO <romano> — <descrição> (autor: <nome>)` conferem com o índice
+oficial (págs. 828-829 do extraído), inclusive os cinco anexos com autor pessoa
+(VI Gilberto Bercovici; XVI Eduardo Saad-Diniz; XVII Emílio Peluso Neder Meyer;
+XVIII Alessandro Octaviani; XIX José Carlos Moreira da Silva Filho). Nenhum
+rótulo inventado; corrigidos os dois defeitos da heurística antiga (linha de
+índice rotulada como anexo; nome de autor solto virando seção).
+
+**Item 2 — Tomo III (audiências, heurística conservadora): APROVADO, sem
+ressalvas.** Amostra de 7 chunks (ordens 304, 359, 436, 5304, 9304, 12804,
+12999) confirma número e data de audiência coerentes com o conteúdo. A fronteira
+`secao=null` (até a página 3119, antes da 1ª audiência detectada) está correta.
+Cobertura: 13.241/13.545 chunks (97,8%) rotulados; 304 (2,2%) em `null`. Critério
+de detecção: linha "instalada a Nª audiência pública" (numérica ou por extenso)
+com data validada (2012-2015) — não inventa rótulo onde não há cabeçalho de alta
+confiança, conforme o princípio "não inventar".
+
+**Item 4 — Páginas descartadas: APROVADO, sem ressalvas.** Logs gerados em
+`pipeline/dados/chunks/cev-sp-rubens-paiva-tomo{3,4}.descartes.jsonl`, batendo
+exatamente com as contagens desta auditoria (Tomo III: 5121 em branco + 81 baixa
+qualidade; Tomo IV: 148 vazias + 288 baixa qualidade). Amostradas ~15 páginas de
+motivo "baixa_qualidade" em cada tomo: todas são ruído de diagramação
+(cabeçalho/rodapé repetido, numeração de página, "(Aplausos)", "A sessão está
+encerrada") — nenhum conteúdo historiograficamente relevante foi perdido.
+
+**Veredito geral:** os três itens pendentes ficam FECHADOS, sem bloqueantes.
+Ressalva remanescente (não bloqueante): os 2,2% de chunks `secao=null` no Tomo
+III são item de polimento futuro, não pendência de auditoria.

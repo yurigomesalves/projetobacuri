@@ -550,3 +550,40 @@ oficial (o dossiê completo segue não localizado em formato digital oficial).
 **Pendências:** dossiê completo do Tomo II (busca futura); mapeamentos de
 metadado dos Tomos III/IV; CEMDP/Araguaia/CEV-Rio; módulo crimes e justiça
 (Fase 7); ampliar biografias e mapa.
+
+## 15/06/2026 — Fase 5: dívida técnica de metadados da CEV-SP (Tomos III/IV) quitada
+**Decisão do Yuri:** quitar agora os metadados pendentes em vez de ingerir nova
+fonte; para o Tomo III, usar heurística CONSERVADORA (não inventar rótulos).
+
+- **Fato técnico que barateou tudo:** o embedding usa só `"passage: " + conteudo`
+  (`04_indexar.py` l. 94) — a `secao` NÃO entra no vetor. Logo, foi tudo
+  reetiquetagem de `secao` (UPDATE no banco), sem recalcular embeddings nem
+  reindexar. Analogia: trocamos as etiquetas das pastas, sem reescrever os papéis.
+- **Cientista-de-dados** criou 3 scripts: `07_log_descartes_cev_sp.py` (lista as
+  páginas descartadas com motivo) e `08_reetiquetar_secao_tomo{3,4}.py`
+  (idempotentes; dry-run por padrão, `--aplicar` grava). JSONL de chunks locais
+  reescritos.
+- **Tomo IV:** mapa explícito dos 19 anexos (índice págs. 828-829) → `secao` no
+  formato `ANEXO <romano> — <descrição> (autor: <nome>)`, com autor onde há
+  pessoa (VI, XVI-XIX). Corrigidos 2 defeitos da heurística antiga. 616 chunks
+  reetiquetados.
+- **Tomo III:** heurística conservadora (linha "instalada a Nª audiência pública"
+  + data validada 2012-2015). 72 audiências distintas; 13.241/13.545 chunks
+  (97,8%) rotulados, 2,2% `null` (páginas antes da 1ª audiência).
+- **Incidente:** o UPDATE do Tomo III (13.241 linhas, uma chamada por linha)
+  derrubou a conexão HTTP/2 do free tier após ~10 mil streams
+  (`RemoteProtocolError`). Corrigido na sessão principal: o script passou a
+  recriar o cliente a cada 1000 UPDATEs e a tentar de novo em caso de queda.
+  Como é idempotente, o re-run completou só os 3.256 restantes. Dry-run final: 0
+  diferenças nos dois tomos.
+- **Curador-historiador** (auditoria em `docs/auditorias/cev-sp-tomos-3-4.md`,
+  seção "Fechamento da dívida"): os 3 itens APROVADOS sem bloqueantes. Páginas
+  descartadas amostradas = só ruído de diagramação, nada relevante perdido.
+- **Incidente de processo:** o curador não tem ferramenta Edit (só Read/Write/
+  Grep/Glob) e Write em arquivo existente é vetado; a sessão principal aplicou a
+  edição da auditoria a partir do veredito dele.
+
+**Pendências:** Tomo III com 2,2% `secao=null` (polimento futuro); dossiê
+completo do Tomo II; falta Araguaia/CEV-Rio e demais prioridades (BNM, imprensa,
+documentos dos EUA, acadêmico); módulo crimes e justiça (Fase 7); ampliar
+biografias e mapa.
