@@ -63,6 +63,38 @@
       "licenca": "documento público oficial"
     }
   },
+  "cev-sp-rubens-paiva-tomo3": {
+    "url_oficial": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-iii/downloads/III_Tomo_Completo.pdf",
+    "url_download": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-iii/downloads/III_Tomo_Completo.pdf",
+    "data_captura_wayback": null,
+    "descricao_curta": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva', Tomo III (Audiências Públicas), mar/2015, ~184 MB.",
+    "fonte": {
+      "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+      "autor_orgao": "Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' (Assembleia Legislativa do Estado de São Paulo)",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2015-03-01",
+      "periodo": "pos_1985",
+      "url_origem": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-iii/downloads/III_Tomo_Completo.pdf",
+      "licenca": "documento público oficial"
+    }
+  },
+  "cev-sp-rubens-paiva-tomo4": {
+    "url_oficial": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-iv/downloads/IV_Tomo_Completo.pdf",
+    "url_download": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-iv/downloads/IV_Tomo_Completo.pdf",
+    "data_captura_wayback": null,
+    "descricao_curta": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva', Tomo IV (Contribuições e Relatórios dos Grupos de Trabalho), ~124 MB.",
+    "fonte": {
+      "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo IV: Contribuições e Relatórios dos Grupos de Trabalho",
+      "autor_orgao": "Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' (Assembleia Legislativa do Estado de São Paulo)",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2015-03-01",
+      "periodo": "pos_1985",
+      "url_origem": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-iv/downloads/IV_Tomo_Completo.pdf",
+      "licenca": "documento público oficial"
+    }
+  },
   "cnv-vol3": {
     "url_oficial": "https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_3_digital.pdf",
     "url_download": "http://web.archive.org/web/20250825070448/https://cnv.memoriasreveladas.gov.br./images/pdf/relatorio/volume_3_digital.pdf",

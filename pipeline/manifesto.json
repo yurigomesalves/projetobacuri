@@ -47,5 +47,25 @@
     "sha256": "33d4a39f7fd0520a3390a3c398c1d374813737805df962901436b20bca8746c5",
     "tamanho_bytes": 145377230,
     "descricao": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva', Tomo I (Recomendações Gerais e Recomendações Temáticas), mar/2015, 1912 p., PDF com camada de texto. Baixado diretamente de https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-i/downloads/Tomo_I_Completo.pdf."
+  },
+  {
+    "slug": "cev-sp-rubens-paiva-tomo3",
+    "url": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-iii/downloads/III_Tomo_Completo.pdf",
+    "url_original": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-iii/downloads/III_Tomo_Completo.pdf",
+    "arquivo_local": "dados/brutos/cev-sp-rubens-paiva-tomo3.pdf",
+    "data_download": "2026-06-15T00:47:21.624430+00:00",
+    "sha256": "bb2aea719e3978e2f08efa5cf4cf4924ee0e538d9b2f057d81733f777ca36bfa",
+    "tamanho_bytes": 183603760,
+    "descricao": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva', Tomo III (Audiências Públicas), mar/2015, ~184 MB. Baixado diretamente de https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-iii/downloads/III_Tomo_Completo.pdf."
+  },
+  {
+    "slug": "cev-sp-rubens-paiva-tomo4",
+    "url": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-iv/downloads/IV_Tomo_Completo.pdf",
+    "url_original": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-iv/downloads/IV_Tomo_Completo.pdf",
+    "arquivo_local": "dados/brutos/cev-sp-rubens-paiva-tomo4.pdf",
+    "data_download": "2026-06-15T00:48:06.211183+00:00",
+    "sha256": "6f3e7cfd62d1ac54a2ee119b65735a09ad7f626a44f53a720370da2eafd3e877",
+    "tamanho_bytes": 124243538,
+    "descricao": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva', Tomo IV (Contribuições e Relatórios dos Grupos de Trabalho), ~124 MB. Baixado diretamente de https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-iv/downloads/IV_Tomo_Completo.pdf."
   }
 ]

@@ -480,3 +480,40 @@ partes, com a nota de contexto em coluna nova (não gambiarra no texto).
 
 **Pendências:** Tomo II completo da CEV-SP; Tomos III e IV; CEMDP/Araguaia/
 CEV-Rio; módulo crimes e justiça (Fase 7); ampliar biografias e mapa.
+
+## 15/06/2026 — Fase 5: acervo ampliado com a CEV-SP "Rubens Paiva" (Tomos III e IV)
+**Escopo decidido pelo Yuri:** ingerir os Tomos III e IV, dando continuidade à
+comissão estadual de SP já iniciada (Tomo I). Cadeia da fase, um agente por vez:
+engenheiro → cientista → curador.
+
+- **Engenheiro-de-dados:** baixou os dois tomos direto do portal oficial da
+  ALESP (`comissaodaverdade.al.sp.gov.br/relatorio/tomo-iii|iv/`, sem Wayback),
+  registrou proveniência (SHA-256, URL, licença) em `manifesto.json`/`fontes.json`
+  (slugs `cev-sp-rubens-paiva-tomo3` e `-tomo4`). Tomo IV (124 MB, 1.324 págs.)
+  tem camada de texto nativa. **Tomo III (184 MB, 12.225 págs.) é totalmente
+  escaneado** (audiências) — exigiu OCR. Criado `pipeline/02c_ocr_tomo3_cev_sp.py`
+  (Tesseract pt-BR, checkpoint a cada 100 págs., retomável); ~3h30 de OCR.
+- **Cientista-de-dados:** chunkers por tomo (`03_chunkar_cev_sp_tomo3.py` e
+  `_tomo4.py`). Critério de descarte: ≥60 caracteres alfabéticos e ≥50% de
+  texto alfabético. Tomo III = 13.545 chunks (de 7.023/12.225 págs.; 5.121 em
+  branco + 81 de baixa qualidade descartadas; `secao=null` — audiências sem
+  seção confiável). Tomo IV = 1.412 chunks (de 888/1.324 págs.; 148 vazias +
+  288 só rodapé; seções via heurística "ANEXO N" + caixa-alta). Indexados no
+  Supabase (Tomo III fonte `c5f751ff…`, Tomo IV `de865a48…`; 384 dim). Busca de
+  sanidade ok: depoimentos/tortura recuperaram trechos do III (~0,90, página
+  correta) e repressão a trabalhadores rurais recuperou trechos do IV com seção.
+- **Curador-historiador** (`docs/auditorias/cev-sp-tomos-3-4.md`): **apto para
+  uso, sem bloqueantes.** OCR do III legível e citável; proveniência e tom ok.
+  Ressalvas importantes: (1) mapear faixa de página → audiência no III; (2) a
+  heurística do IV não captura o autor individual dos 19 anexos; (3) confirmar o
+  log das páginas descartadas (não localizado na auditoria).
+- Acervo da CEV-SP agora completo do Tomo I ao IV.
+
+**Incidentes de processo:** o cientista-de-dados encerrou um turno ao perceber
+que entrava em laço de comandos triviais (parada correta); foi retomado por
+mensagem, com o contexto preservado, para indexar o Tomo IV e rodar a sanidade.
+
+**Pendências:** mapeamentos de metadado da CEV-SP (seções por audiência no III,
+por anexo/autor no IV) e log das páginas descartadas — melhorias, não
+bloqueantes; Tomo II completo da CEV-SP; CEMDP/Araguaia/CEV-Rio; módulo crimes e
+justiça (Fase 7); ampliar biografias e mapa.
