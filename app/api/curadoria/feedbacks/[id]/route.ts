@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseServidor } from "@/lib/server/supabase";
-import { autenticado } from "@/lib/server/curadoria-auth";
+import { autenticarCurador } from "@/lib/server/curadoria-auth";
 import type { FeedbackCuradoria, RespostaErro } from "@/lib/shared/tipos";
 
 export const runtime = "nodejs";
@@ -23,7 +23,8 @@ export async function PATCH(
   requisicao: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ): Promise<NextResponse> {
-  if (!autenticado(requisicao)) {
+  const curador = await autenticarCurador(requisicao);
+  if (!curador) {
     return respostaErro("NAO_AUTORIZADO", "Acesso não autorizado à curadoria.", 401);
   }
 
@@ -76,6 +77,7 @@ export async function PATCH(
         status: decisao,
         justificativa_decisao: justificativa,
         decidido_em: new Date().toISOString(),
+        decidido_por: curador.user_id,
       })
       .eq("feedback_id", id)
       .select(

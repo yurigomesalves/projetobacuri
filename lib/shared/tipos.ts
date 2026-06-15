@@ -146,4 +146,54 @@ export type ItemTransparencia = {
   justificativa_decisao: string;
   criado_em: string;
   decidido_em: string;
+  // Autoria pública da decisão (princípio 1). Ausente em decisões antigas,
+  // anteriores à migração 0010 (contas individuais).
+  decidido_por_nome?: string;
+};
+
+// --- Fase 7: contas de curadoria, convites e perfis ---
+
+export type PapelCurador = "admin" | "curador";
+
+// Curador autenticado (uso interno: header da área, checagem de papel).
+export type Curador = {
+  user_id: string;
+  nome: string;
+  email: string;
+  papel: PapelCurador;
+};
+
+// Perfil público de um curador, exibido na página de transparência.
+export type CuradorPublico = {
+  nome: string;
+  foto_url?: string;
+  lattes_url?: string;
+  organizacao?: string;
+  sobre?: string;
+};
+
+// Convite pendente, listado no painel do admin.
+export type ConvitePendente = {
+  convite_id: string;
+  email: string;
+  link: string;
+  expira_em: string;
+  criado_em: string;
+};
+
+// POST /api/curadoria/convites
+export type RequisicaoConvite = {
+  email: string;
+};
+
+export type RespostaConvite = {
+  convite_id: string;
+  email: string;
+  link: string;
+  expira_em: string;
+};
+
+// GET /api/curadoria/convites/validar?token= — dados mínimos para abrir o cadastro.
+export type ConviteValido = {
+  email: string;
 };

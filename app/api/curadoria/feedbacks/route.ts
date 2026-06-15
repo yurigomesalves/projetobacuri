@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseServidor } from "@/lib/server/supabase";
-import { autenticado } from "@/lib/server/curadoria-auth";
+import { autenticarCurador } from "@/lib/server/curadoria-auth";
 import type { FeedbackCuradoria, RespostaErro } from "@/lib/shared/tipos";
 
 export const runtime = "nodejs";
@@ -22,7 +22,8 @@ function respostaErro(
 }
 
 export async function GET(requisicao: NextRequest): Promise<NextResponse> {
-  if (!autenticado(requisicao)) {
+  const curador = await autenticarCurador(requisicao);
+  if (!curador) {
     return respostaErro("NAO_AUTORIZADO", "Acesso não autorizado à curadoria.", 401);
   }
 

@@ -1,4 +1,4 @@
-# Contrato de API — Projeto Bacuri (v1.2 — biografias e mapa, Fase 6, 12/06/2026)
+# Contrato de API — Projeto Bacuri (v1.3 — contas de curadoria, Fase 7, 15/06/2026)
 
 > Fechado na Fase 2 (Análise/Contrato) a partir do rascunho v0.1, incorporando as
 > pendências dos ADRs 001, 003 e 005 (ver `docs/decisoes.md`) e alinhando os tipos ao
@@ -43,31 +43,87 @@ Pergunta do usuário → resposta com citações.
 - Response 201: `{ "status": "recebido_para_curadoria" }`
 - Feedback NUNCA altera o acervo automaticamente: entra na fila de curadoria humana (tabela `feedbacks`, status pendente/aceito/recusado — transparência editorial).
 
-### GET /api/curadoria/feedbacks?status=&pagina= (protegida — Fase 4)
-Fila de curadoria humana dos feedbacks. **Autenticação obrigatória**: header
-`Authorization: Bearer <senha>`, comparada de forma timing-safe com a variável de
-ambiente `CURADORIA_SENHA` (sem ela configurada, a rota responde 401 sempre). Sem o
-header ou com senha errada: 401 `NAO_AUTORIZADO`.
+## Autenticação da curadoria (Fase 7 — contas individuais)
+A senha única compartilhada (`CURADORIA_SENHA`) foi **removida**. O acesso é por **conta
+individual** via Supabase Auth (e-mail + senha), criada **somente por convite** (não há
+cadastro aberto). As rotas protegidas exigem o header `Authorization: Bearer <access_token>`
+(JWT do Supabase Auth, obtido pelo login no navegador). O servidor valida o JWT
+(`supabase.auth.getUser`) e confere o papel na tabela `curadores`. Sem token válido ou
+sem linha em `curadores`: 401 `NAO_AUTORIZADO`. Rotas marcadas **(admin)** exigem
+`papel = 'admin'`; caso contrário 401.
+
+### GET /api/curadoria/eu (protegida)
+Identidade do curador autenticado, usada pelo frontend após o login (nome no
+cabeçalho; `papel` decide se o painel de convites aparece).
+- Response 200: `Curador` (`{ user_id, nome, email, papel }`). Sem token válido: 401.
+
+### GET /api/curadoria/perfil (protegida) · PATCH /api/curadoria/perfil (protegida, multipart)
+Perfil público do próprio curador logado (inclui o admin), para completar/editar o
+que aparece na Transparência.
+- GET → `CuradorPublico` (`{ nome, foto_url?, lattes_url?, organizacao?, sobre? }`).
+- PATCH (multipart/form-data): `nome` (2..120), `foto` (File opcional, jpeg/png/webp ≤2 MB),
+  `remover_foto` ("1" limpa a foto), `lattes_url` (vazio ou http/https), `organizacao`
+  (≤200), `sobre` (≤2000). Campos de texto vazios limpam o valor. Response 200:
+  `CuradorPublico` atualizado.
+
+### GET /api/curadoria/feedbacks?status=&pagina= (protegida)
+Fila de curadoria humana dos feedbacks. Autenticação acima (qualquer curador).
 - `status`: "pendente" (padrão) | "aceito" | "recusado"
 - Response 200: `{ "itens": [FeedbackCuradoria], "total": number, "pagina": number }`
 - Cada item traz a interação associada (pergunta, resposta, citações) para o curador
   julgar com contexto.
 
-### PATCH /api/curadoria/feedbacks/[id] (protegida — Fase 4)
-Decisão de curadoria sobre um feedback. Mesma autenticação acima.
+### PATCH /api/curadoria/feedbacks/[id] (protegida)
+Decisão de curadoria sobre um feedback. Autenticação acima (qualquer curador).
 - Request: `{ "decisao": "aceito" | "recusado", "justificativa": string (10..2000) }`
 - A `justificativa` é **obrigatória e pública** (exibida em /api/transparencia) —
-  transparência editorial também nas recusas.
+  transparência editorial também nas recusas. A autoria (`decidido_por`) é registrada e
+  o nome do curador é exibido na transparência.
 - Response 200: `FeedbackCuradoria` atualizado (status, justificativa, decidido_em).
 - Feedback já decidido não pode ser redecidido: 409 `ENTRADA_INVALIDA` ("feedback já
   decidido"). Correção de decisão errada: só direto no banco, com registro no diário.
 
-### GET /api/transparencia?pagina= (pública — Fase 4)
+### POST /api/curadoria/convites (admin)
+Cria um convite e devolve o link a ser enviado manualmente pelo admin (não há envio de
+e-mail automático — decisão de projeto).
+- Request: `{ "email": string }`
+- Response 201: `{ "convite_id", "email", "link", "expira_em" }` (link = `/curadoria/cadastro?token=…`).
+- Convite expira em 7 dias. E-mail já cadastrado como curador: 400 `ENTRADA_INVALIDA`.
+
+### GET /api/curadoria/convites (admin)
+Lista convites **pendentes** (não usados e não expirados).
+- Response 200: `{ "itens": [ConvitePendente] }`
+
+### DELETE /api/curadoria/convites/[id] (admin)
+Revoga um convite pendente. Response 200: `{ "status": "revogado" }`.
+
+### GET /api/curadoria/convites/validar?token= (pública)
+Valida um token de convite para abrir a tela de cadastro.
+- Response 200: `{ "email": string }` se válido (não usado e não expirado).
+- Token inexistente/usado/expirado: 404 `ACERVO_SEM_RESULTADO`.
+
+### POST /api/curadoria/cadastro (pública, multipart/form-data)
+Conclui o convite: cria a conta no Supabase Auth e o perfil do curador. Campos:
+`token` (obrigatório), `nome` (obrigatório), `senha` (obrigatória, mín. 8), `foto`
+(arquivo opcional: jpeg/png/webp, ≤ 2 MB), `lattes_url`, `organizacao`, `sobre`
+(opcionais). O perfil é **público** (exibido na transparência) — o formulário avisa.
+- Response 201: `{ "status": "cadastrado" }`. Token inválido: 404. Validação: 400.
+
+### GET /api/curadoria/curadores (admin)
+Lista os curadores cadastrados (para o painel do admin).
+- Response 200: `{ "itens": [CuradorPublico & { email, papel }] }`
+
+### GET /api/transparencia?pagina= (pública)
 Lista os feedbacks **já decididos** (aceitos e recusados), do mais recente ao mais
 antigo. Feedbacks pendentes NUNCA aparecem — publicação só após revisão humana, que
 também confere se o conteúdo enviado não contém dados pessoais (LGPD; o formulário não
-coleta nenhum, mas o usuário pode digitá-los livremente).
+coleta nenhum, mas o usuário pode digitá-los livremente). Cada item traz o nome do
+curador que decidiu (`decidido_por_nome`), quando disponível.
 - Response 200: `{ "itens": [ItemTransparencia], "total": number, "pagina": number }`
+
+### GET /api/transparencia/curadores (pública)
+Perfis públicos dos curadores para o bloco "Quem faz a curadoria".
+- Response 200: `{ "itens": [CuradorPublico] }`
 
 ### GET /api/biografias?q=&tipo=&cidade=&pagina= (Fase 6)
 - `tipo`: "vitima" | "organizacao" | "perpetrador" | "local"
@@ -118,7 +174,15 @@ FeedbackCuradoria = { feedback_id, classificacao, resposta_alternativa?, fontes_
                       interacao: { interacao_id, pergunta, resposta, citacoes: Citacao[] } }
 ItemTransparencia = { feedback_id, pergunta, classificacao, resposta_alternativa?,
                       fontes_sugeridas?, status: "aceito" | "recusado",
-                      justificativa_decisao, criado_em, decidido_em }
+                      justificativa_decisao, criado_em, decidido_em, decidido_por_nome? }
+// Fase 7 — contas de curadoria
+PapelCurador    = "admin" | "curador"
+Curador         = { user_id, nome, email, papel: PapelCurador }   // uso interno (sessão)
+CuradorPublico  = { nome, foto_url?, lattes_url?, organizacao?, sobre? }  // vitrine pública
+ConvitePendente = { convite_id, email, link, expira_em, criado_em }
+RequisicaoConvite = { email }
+RespostaConvite   = { convite_id, email, link, expira_em }
+ConviteValido     = { email }
 ```
 
 ## Obrigações de exibição das citações (frontend)

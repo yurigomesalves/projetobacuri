@@ -56,7 +56,7 @@ export async function GET(requisicao: NextRequest): Promise<NextResponse> {
     const { data, count, error } = await supabaseServidor
       .from("feedbacks")
       .select(
-        "feedback_id, classificacao, resposta_alternativa, fontes_sugeridas, status, justificativa_decisao, criado_em, decidido_em, interacao:interacoes(pergunta)",
+        "feedback_id, classificacao, resposta_alternativa, fontes_sugeridas, status, justificativa_decisao, criado_em, decidido_em, decidido_por, interacao:interacoes(pergunta)",
         { count: "exact" }
       )
       .in("status", ["aceito", "recusado"])
@@ -65,6 +65,28 @@ export async function GET(requisicao: NextRequest): Promise<NextResponse> {
 
     if (error) {
       throw new Error(`Falha ao buscar transparência: ${error.message}`);
+    }
+
+    // Nome do curador que decidiu (autoria pública, princípio 1). Buscado
+    // numa segunda consulta simples por user_id, em vez de embedding
+    // PostGREST, porque o nome da relação feedbacks->curadores via
+    // `decidido_por` não é previsível sem alterar a migração.
+    const idsCuradores = Array.from(
+      new Set((data ?? []).map((linha) => linha.decidido_por).filter((id): id is string => Boolean(id)))
+    );
+
+    let nomesPorId = new Map<string, string>();
+    if (idsCuradores.length > 0) {
+      const { data: curadores, error: erroCuradores } = await supabaseServidor
+        .from("curadores")
+        .select("user_id, nome")
+        .in("user_id", idsCuradores);
+
+      if (erroCuradores) {
+        throw new Error(`Falha ao buscar curadores: ${erroCuradores.message}`);
+      }
+
+      nomesPorId = new Map((curadores ?? []).map((c) => [c.user_id, c.nome]));
     }
 
     const itens: ItemTransparencia[] = (data ?? []).map((linha) => {
@@ -79,6 +101,7 @@ export async function GET(requisicao: NextRequest): Promise<NextResponse> {
         justificativa_decisao: linha.justificativa_decisao ?? "",
         criado_em: linha.criado_em,
         decidido_em: linha.decidido_em ?? "",
+        decidido_por_nome: linha.decidido_por ? nomesPorId.get(linha.decidido_por) : undefined,
       };
     });
 

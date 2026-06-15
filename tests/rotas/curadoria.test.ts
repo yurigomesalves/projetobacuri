@@ -12,10 +12,30 @@ vi.mock("@/lib/server/supabase", () => ({
   },
 }));
 
+// A autenticação real (validação do JWT no Supabase + busca em `curadores`) tem
+// teste próprio em tests/unitarios/curadoria-auth.test.ts. Aqui mockamos
+// `autenticarCurador` para focar no comportamento das ROTAS: um Bearer com o
+// token válido identifica um curador; qualquer outro caso devolve null (401).
+const TOKEN_VALIDO = "token-de-teste";
+const UUID_CURADOR = "11111111-1111-1111-1111-111111111111";
+
+vi.mock("@/lib/server/curadoria-auth", () => ({
+  autenticarCurador: vi.fn(async (req: NextRequest) => {
+    if (req.headers.get("authorization") === `Bearer ${TOKEN_VALIDO}`) {
+      return {
+        user_id: UUID_CURADOR,
+        nome: "Curador de Teste",
+        email: "curador@exemplo.org",
+        papel: "curador",
+      };
+    }
+    return null;
+  }),
+  exigirAdmin: (curador: { papel?: string } | null) => curador?.papel === "admin",
+}));
+
 import { GET } from "@/app/api/curadoria/feedbacks/route";
 import { PATCH } from "@/app/api/curadoria/feedbacks/[id]/route";
-
-const SENHA = "senha-de-teste";
 
 function requisicaoLista(query = "", token?: string): NextRequest {
   const headers = new Headers();
@@ -38,8 +58,6 @@ function contexto(id: string) {
 }
 
 beforeEach(() => {
-  vi.unstubAllEnvs();
-  vi.stubEnv("CURADORIA_SENHA", SENHA);
   vi.spyOn(console, "error").mockImplementation(() => {});
   estado.supabase = criarSupabaseFalso();
 });
@@ -51,14 +69,8 @@ describe("GET /api/curadoria/feedbacks — autenticação", () => {
     expect((await resposta.json()).erro.codigo).toBe("NAO_AUTORIZADO");
   });
 
-  it("devolve 401 com token errado", async () => {
-    const resposta = await GET(requisicaoLista("", "senha-errada"));
-    expect(resposta.status).toBe(401);
-  });
-
-  it("devolve 401 mesmo com token quando CURADORIA_SENHA não está configurada", async () => {
-    vi.stubEnv("CURADORIA_SENHA", "");
-    const resposta = await GET(requisicaoLista("", SENHA));
+  it("devolve 401 com token inválido (não é um curador)", async () => {
+    const resposta = await GET(requisicaoLista("", "token-invalido"));
     expect(resposta.status).toBe(401);
   });
 });
@@ -71,7 +83,7 @@ describe("GET /api/curadoria/feedbacks — listagem", () => {
       },
     });
 
-    const resposta = await GET(requisicaoLista("", SENHA));
+    const resposta = await GET(requisicaoLista("", TOKEN_VALIDO));
     const corpo = await resposta.json();
 
     expect(resposta.status).toBe(200);
@@ -89,7 +101,7 @@ describe("GET /api/curadoria/feedbacks — listagem", () => {
   });
 
   it("rejeita status fora de pendente/aceito/recusado com 400", async () => {
-    const resposta = await GET(requisicaoLista("?status=qualquer", SENHA));
+    const resposta = await GET(requisicaoLista("?status=qualquer", TOKEN_VALIDO));
     expect(resposta.status).toBe(400);
     expect((await resposta.json()).erro.codigo).toBe("ENTRADA_INVALIDA");
   });
@@ -104,7 +116,7 @@ describe("PATCH /api/curadoria/feedbacks/[id]", () => {
     expect(resposta.status).toBe(401);
   });
 
-  it("decide um feedback pendente e devolve o item atualizado", async () => {
+  it("decide um feedback pendente, registra a autoria e devolve o item atualizado", async () => {
     estado.supabase = criarSupabaseFalso({
       tabelas: {
         feedbacks: [
@@ -117,7 +129,7 @@ describe("PATCH /api/curadoria/feedbacks/[id]", () => {
     const resposta = await PATCH(
       requisicaoDecisao(
         { decisao: "aceito", justificativa: "Fontes conferidas; a sugestão procede." },
-        SENHA
+        TOKEN_VALIDO
       ),
       contexto(UUID_FEEDBACK)
     );
@@ -130,12 +142,13 @@ describe("PATCH /api/curadoria/feedbacks/[id]", () => {
     expect(atualizacao?.args[0]).toMatchObject({
       status: "aceito",
       justificativa_decisao: "Fontes conferidas; a sugestão procede.",
+      decidido_por: UUID_CURADOR,
     });
   });
 
   it("rejeita justificativa com menos de 10 caracteres (transparência exige justificativa real)", async () => {
     const resposta = await PATCH(
-      requisicaoDecisao({ decisao: "recusado", justificativa: "curta" }, SENHA),
+      requisicaoDecisao({ decisao: "recusado", justificativa: "curta" }, TOKEN_VALIDO),
       contexto(UUID_FEEDBACK)
     );
     expect(resposta.status).toBe(400);
@@ -150,7 +163,7 @@ describe("PATCH /api/curadoria/feedbacks/[id]", () => {
     const resposta = await PATCH(
       requisicaoDecisao(
         { decisao: "recusado", justificativa: "Tentativa de decidir de novo." },
-        SENHA
+        TOKEN_VALIDO
       ),
       contexto(UUID_FEEDBACK)
     );
@@ -159,7 +172,7 @@ describe("PATCH /api/curadoria/feedbacks/[id]", () => {
 
   it("devolve 400 para id que não é UUID", async () => {
     const resposta = await PATCH(
-      requisicaoDecisao({ decisao: "aceito", justificativa: "Justificativa válida." }, SENHA),
+      requisicaoDecisao({ decisao: "aceito", justificativa: "Justificativa válida." }, TOKEN_VALIDO),
       contexto("nao-e-uuid")
     );
     expect(resposta.status).toBe(400);
@@ -171,7 +184,7 @@ describe("PATCH /api/curadoria/feedbacks/[id]", () => {
     });
 
     const resposta = await PATCH(
-      requisicaoDecisao({ decisao: "aceito", justificativa: "Justificativa válida." }, SENHA),
+      requisicaoDecisao({ decisao: "aceito", justificativa: "Justificativa válida." }, TOKEN_VALIDO),
       contexto(UUID_FEEDBACK)
     );
     expect(resposta.status).toBe(400);

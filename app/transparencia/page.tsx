@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { ItemTransparencia, RespostaErro } from "@/lib/shared/tipos";
+import type { CuradorPublico, ItemTransparencia, RespostaErro } from "@/lib/shared/tipos";
 
 const ROTULO_CLASSIFICACAO: Record<string, string> = {
   util: "Útil",
@@ -17,6 +17,29 @@ export default function TransparenciaPage() {
   const [total, setTotal] = useState(0);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState<string | null>(null);
+
+  const [curadores, setCuradores] = useState<CuradorPublico[]>([]);
+  const [carregandoCuradores, setCarregandoCuradores] = useState(true);
+
+  useEffect(() => {
+    let cancelado = false;
+    async function carregarCuradores() {
+      try {
+        const res = await fetch("/api/transparencia/curadores");
+        if (!res.ok) return;
+        const dados: { itens: CuradorPublico[] } = await res.json();
+        if (!cancelado) setCuradores(dados.itens);
+      } catch {
+        // seção é omitida em caso de erro; não bloqueia o resto da página
+      } finally {
+        if (!cancelado) setCarregandoCuradores(false);
+      }
+    }
+    carregarCuradores();
+    return () => {
+      cancelado = true;
+    };
+  }, []);
 
   useEffect(() => {
     let cancelado = false;
@@ -104,6 +127,75 @@ export default function TransparenciaPage() {
       </header>
 
       <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-6 sm:px-6">
+        {!carregandoCuradores && curadores.length > 0 && (
+          <section className="mb-8">
+            <h2 className="text-lg font-semibold tracking-tight text-tinta-950 dark:text-papel-50">
+              Quem faz a curadoria
+            </h2>
+            <p className="mt-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+              As pessoas listadas abaixo avaliam, à luz das fontes documentais,
+              as contribuições enviadas ao projeto e decidem, com
+              justificativa pública, o que entra ou não no acervo. A curadoria
+              reúne pesquisadoras e pesquisadores, professoras e professores e
+              integrantes de movimentos sociais e de memória — uma
+              pluralidade que reflete o compromisso do projeto com a
+              colaboração e com a transparência sobre quem participa dessa
+              avaliação.
+            </p>
+            <ul className="mt-3 grid gap-4 sm:grid-cols-2">
+              {curadores.map((c, i) => (
+                <li
+                  key={i}
+                  className="rounded-md border border-papel-200 bg-papel-50 p-4 dark:border-tinta-900 dark:bg-tinta-900"
+                >
+                  <div className="flex items-center gap-3">
+                    {c.foto_url ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={c.foto_url}
+                        alt={`Foto de ${c.nome}`}
+                        className="h-12 w-12 rounded-full object-cover"
+                      />
+                    ) : (
+                      <span
+                        aria-hidden="true"
+                        className="flex h-12 w-12 items-center justify-center rounded-full bg-papel-100 text-sm font-semibold text-tinta-950 dark:bg-tinta-800 dark:text-neutral-100"
+                      >
+                        {c.nome.charAt(0).toUpperCase()}
+                      </span>
+                    )}
+                    <div>
+                      <p className="text-sm font-semibold text-tinta-950 dark:text-neutral-100">
+                        {c.nome}
+                      </p>
+                      {c.organizacao && (
+                        <p className="text-xs text-neutral-500 dark:text-neutral-500">
+                          {c.organizacao}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  {c.sobre && (
+                    <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-300">
+                      {c.sobre}
+                    </p>
+                  )}
+                  {c.lattes_url && (
+                    <a
+                      href={c.lattes_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 inline-block text-sm underline underline-offset-2 hover:text-neutral-800 dark:hover:text-neutral-200"
+                    >
+                      Currículo Lattes
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         {carregando && (
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
             Carregando...
@@ -184,6 +276,11 @@ export default function TransparenciaPage() {
                   <span className="font-semibold">Justificativa: </span>
                   {item.justificativa_decisao}
                 </p>
+                {item.decidido_por_nome && (
+                  <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-500">
+                    Decisão por {item.decidido_por_nome}
+                  </p>
+                )}
               </div>
             </li>
           ))}
