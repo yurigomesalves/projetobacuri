@@ -116,6 +116,39 @@ CABECALHO_POS = re.compile(
 ALFA = re.compile(r"[^\W\d_]", re.UNICODE)
 MINIMO_CARACTERES = 60
 
+# --- Limpeza de caracteres de controle / mojibake Windows-1252 ---------------
+# A camada de texto do PDF traz caracteres de controle residuais e pontuação do
+# Windows-1252 mal decodificada (ver docs/auditorias/cev-mg.md, ressalva 2).
+# Cada mapeamento foi confirmado lendo o caractere em seu contexto real no
+# documento — não é heurística cega. Aplicado como passo FINAL, sobre o texto
+# do chunk já fechado, para não alterar fronteiras nem a contagem de chunks.
+TRADUCAO_CONTROLE = {
+    "\x07": " ",        # BEL: separa numeração de item do texto ("1.1 ␇A …")
+    "\x91": "‘",   # ' aspa simples de abertura (Windows-1252 0x91)
+    "\x92": "’",   # ' aspa simples de fechamento / apóstrofo (0x92)
+    "\x93": "“",   # " aspa dupla de abertura (0x93)
+    "\x94": "”",   # " aspa dupla de fechamento (0x94)
+    "\x95": "•",   # • marcador de lista (0x95)
+    "\x96": "–",   # – travessão curto / en dash (0x96)
+    "\x97": "—",   # — travessão longo / em dash (0x97)
+    "\x85": "…",   # … reticências (0x85)
+    "\x1d": "“",   # " aspa dupla de abertura (idiossincrasia da extração)
+    "\x1e": "–",   # – separador título/subtítulo (1 caso, p.1347)
+    "\xad": "",         # soft hyphen residual fora de hifenização — remover
+    "​": "",       # zero-width space — remover
+}
+_TRADUCAO = str.maketrans(TRADUCAO_CONTROLE)
+
+
+def limpar_caracteres_controle(texto):
+    """Normaliza caracteres de controle e mojibake Windows-1252 remanescentes.
+    Não remove nem cria quebras de parágrafo; apenas conserta a pontuação e
+    colapsa o espaço extra deixado pela substituição de 0x07."""
+    texto = texto.translate(_TRADUCAO)
+    texto = re.sub(r"[ \t]{2,}", " ", texto)
+    texto = re.sub(r" +\n", "\n", texto)
+    return texto
+
 # Capítulos do Relatório Final 2017 — página inicial (1-based no .jsonl) e
 # título normalizado (ver docstring para a auditoria do mapeamento).
 CAPITULOS_RELATORIO = [
@@ -135,6 +168,42 @@ CAPITULOS_RELATORIO = [
     (1201, "12. Repressão ao Movimento Estudantil e às Universidades em Minas Gerais"),
     (1363, "13. Impedimento de Convivência de Crianças com seus Genitores em Razão da sua Prisão, Morte ou Desaparecimento"),
 ]
+
+
+TITULO_CAP13 = CAPITULOS_RELATORIO[-1][1]
+
+# nota_contexto do apêndice documental do capítulo 13 (ver docs/auditorias/
+# cev-mg.md, ressalva 1). Vale do primeiro bloco "ANEXO C" (página 1578) até o
+# fim do capítulo: dali em diante o conteúdo é apêndice (listas de depoentes,
+# quadros de cassação, relações de feridos, fichas do DOPS), não narrativa
+# sobre o tema do título do capítulo. Texto redigido pelo curador-historiador.
+NOTA_APENDICE_CAP13 = (
+    "Este trecho integra os Anexos do Relatório Final da Covemg, reproduzidos "
+    "sob o título do Capítulo 13 ('Impedimento de Convivência de Crianças com "
+    "seus Genitores...'), mas consistem em listas gerais de depoentes, quadros "
+    "de cassação de mandatos sindicais, relações de feridos e fichas de pessoas "
+    "vigiadas pelo DOPS (com campos como NOME, FILIAÇÃO, NATURALIDADE e "
+    "OBSERVAÇÕES, frequentemente preenchidos com 'N/D'). Um registro isolado "
+    "nesse apêndice — por exemplo, um nome seguido de 'N/D' — não é uma "
+    "afirmação de que essa pessoa teve filhos separados de si por prisão, morte "
+    "ou desaparecimento; trate-o como entrada de catálogo documental, e não "
+    "como evidência sobre o tema específico do capítulo."
+)
+
+
+def marcar_apendice_cap13(chunks):
+    """Atribui NOTA_APENDICE_CAP13 aos chunks do apêndice documental do cap.13,
+    do primeiro bloco 'ANEXO C' em diante até o fim do capítulo. Idempotente e
+    determinístico: usa o marcador estrutural 'ANEXOS' do próprio documento."""
+    em_apendice = False
+    for chunk in chunks:
+        if chunk["secao"] != TITULO_CAP13:
+            continue
+        if "ANEXO C" in chunk["conteudo"]:
+            em_apendice = True
+        if em_apendice:
+            chunk["nota_contexto"] = NOTA_APENDICE_CAP13
+    return chunks
 
 
 def secao_para_pagina(num_pagina):
@@ -297,6 +366,8 @@ def gravar_chunks(slug, chunks, tokenizer):
     tamanhos = []
     with open(saida, "w", encoding="utf-8") as f:
         for chunk in chunks:
+            # passo final: conserta pontuação/controle sem mexer nas fronteiras
+            chunk["conteudo"] = limpar_caracteres_controle(chunk["conteudo"])
             tam = len(tokenizer.encode(chunk["conteudo"], add_special_tokens=True))
             tamanhos.append(tam)
             f.write(json.dumps(chunk, ensure_ascii=False) + "\n")
@@ -346,6 +417,7 @@ def processar_relatorio_final(tokenizer):
     print(f"Páginas aproveitadas: {len(paginas)}")
 
     chunks = chunkar_paginas(paginas, tokenizer)
+    marcar_apendice_cap13(chunks)
     gravar_chunks(slug, chunks, tokenizer)
 
 

@@ -629,3 +629,39 @@ rosto; `nota_contexto` no anexo UFMG esclarecendo que é texto teórico, não
 levantamento de casos mineiros. Continuam pendentes: dossiê completo do Tomo II
 da CEV-SP, Araguaia/CEV-Rio e demais prioridades (BNM, imprensa, documentos dos
 EUA, acadêmico); módulo crimes e justiça (Fase 7); ampliar biografias e mapa.
+
+## 15/06/2026 — Polimento das ressalvas menores da CEV-MG
+**Decisão do Yuri:** quitar as três ressalvas não-bloqueantes da auditoria da
+CEV-MG (`docs/auditorias/cev-mg.md`) antes de seguir.
+
+- **Ressalva 2 (caracteres de controle) — RESOLVIDA.** Diagnóstico revelou que o
+  problema era maior do que a auditoria registrou: **550 chunks** (não 3), com
+  mistura de lixo invisível (soft hyphen `0xAD`, zero-width space, BEL `0x07`) e,
+  mais sério, pontuação do Windows-1252 mal decodificada para a faixa de
+  controle (`0x91 0x92`→aspas simples, `0x94`→aspa dupla, `0x96`→travessão,
+  `0x1d`→aspa dupla de abertura, `0x1e`→travessão). Cada mapeamento foi
+  conferido lendo o caractere em contexto (decisão do Yuri: limpar tudo). Limpeza
+  aplicada como passo final no `03_chunkar_cev_mg.py` (sobre o texto do chunk já
+  fechado, sem mexer em fronteiras nem na contagem) e replicada no Supabase via
+  `translate()`+`regexp_replace` idêntico (550 chunks, `update` idempotente).
+  Verificado: zero caracteres de controle no banco e no disco.
+- **Ressalva 1 (apêndice do cap.13) — RESOLVIDA.** Curador-historiador leu a
+  estrutura do capítulo 13 e definiu a fronteira conservadora no marcador
+  estrutural "ANEXOS" (página 1578, `ordem` 2538): dali ao fim do capítulo
+  (`ordem` 3070, **533 chunks**) o conteúdo é apêndice documental geral (listas
+  de depoentes, quadros de cassação, relações de feridos, fichas do DOPS), não
+  narrativa sobre o tema do título. `nota_contexto` redigida pelo curador
+  aplicada a esses 533 chunks no Supabase e emitida pelo `03_chunkar_cev_mg.py`
+  (do primeiro bloco "ANEXO C" em diante) para reprodutibilidade.
+- **Ressalva 3 (anexo UFMG) — RESOLVIDA.** `nota_contexto` da fonte (curador)
+  esclarecendo que é texto teórico geral sobre justiça de transição, não
+  levantamento de casos mineiros — aplicada à fonte no Supabase e registrada em
+  `fontes.json`.
+- **Pipeline:** `04_indexar.py` passou a carregar `nota_contexto` por chunk
+  (cai na nota da fonte via `coalesce` quando ausente). Disco e banco conferidos
+  como idênticos em estrutura (3071+9 chunks) e na faixa das notas.
+
+**Pendências:** as três ressalvas da CEV-MG estão quitadas. Continuam pendentes:
+dossiê completo do Tomo II da CEV-SP, Araguaia/CEV-Rio e demais prioridades (BNM,
+imprensa, documentos dos EUA, acadêmico); módulo crimes e justiça (Fase 7);
+ampliar biografias e mapa.

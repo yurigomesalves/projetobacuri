@@ -54,7 +54,7 @@ da Comissão da Verdade em Minas Gerais" + numeração não aparece intrusivamen
 amostrados — removido com sucesso na maioria dos casos.
 
 **Achado menor:** em alguns chunks de página de rosto/créditos (ordem 0-2, p.3-5) aparecem
-caracteres de controle residuais (``) antes de itens de lista (ex.: "Levantamento de
+caracteres de controle residuais (``) antes de itens de lista (ex.: "Levantamento de
 dados..."). Não compromete a leitura nem a recuperação semântica (são marcadores de bullet do PDF
 original), mas poderia ser limpo em um polimento futuro. Gravidade: **menor**.
 
@@ -115,19 +115,25 @@ Nenhum chunk separa nome de vítima do contexto do crime. Conteúdo sobre Ipatin
 povos indígenas (Krenak/Maxakali/Xakriabá) tem granularidade e fontes suficientes para citação
 responsável, em linha com a perspectiva classista/interseccional do projeto.
 
-## Ressalvas (melhorias futuras, não bloqueantes)
+## Ressalvas (melhorias futuras, não bloqueantes) — TODAS RESOLVIDAS em 15/06/2026
 
-1. **[menor]** Lista tabular de nomes do cap.13 (anexos finais, p.1363+) está rotulada sob o
-   título "Impedimento de Convivência de Crianças com seus Genitores...", mas parece ser um anexo
-   geral de fichas de vigiados — considerar `nota_contexto` específica para essa faixa de páginas
-   em polimento futuro.
-2. **[menor]** Caracteres de controle residuais (``) em chunks de página de rosto/créditos —
-   limpeza cosmética, sem urgência.
-3. **[menor]** Anexo UFMG poderia receber `nota_contexto` indicando que é texto teórico geral sobre
-   justiça de transição, não levantamento de casos mineiros — para evitar que o bot o cite como
-   fonte factual sobre MG.
+1. **[menor] ✅ RESOLVIDA.** Lista tabular de nomes do cap.13 (anexos finais) está rotulada sob o
+   título "Impedimento de Convivência de Crianças com seus Genitores...", mas é um anexo
+   documental geral de fichas de vigiados/cassados. O curador definiu a fronteira no marcador
+   estrutural "ANEXOS" (p.1578, `ordem` 2538); os 533 chunks de `ordem` 2538–3070 receberam
+   `nota_contexto` específica esclarecendo que são apêndice documental, não narrativa do tema do
+   capítulo (aplicada no Supabase e emitida pelo `03_chunkar_cev_mg.py`).
+2. **[menor] ✅ RESOLVIDA.** Caracteres de controle. O diagnóstico mostrou problema maior do que o
+   aqui registrado — **550 chunks** (não só páginas de rosto), incluindo pontuação do Windows-1252
+   mal decodificada (aspas, travessões). Limpeza determinística (cada mapeamento conferido em
+   contexto) aplicada no `03_chunkar_cev_mg.py` e replicada no Supabase; zero caracteres de
+   controle remanescentes. (Texto original da ressalva: resíduos de caracteres de controle em chunks de página de rosto/créditos —
+   limpeza cosmética, sem urgência.)
+3. **[menor] ✅ RESOLVIDA.** Anexo UFMG recebeu `nota_contexto` de fonte indicando que é texto
+   teórico geral sobre justiça de transição, não levantamento de casos mineiros (aplicada no
+   Supabase e registrada em `fontes.json`).
 
 ## O que precisa de decisão do Yuri
 
-- Nenhuma decisão bloqueante. As três ressalvas acima podem entrar no roadmap de polimento de
-  metadados quando houver tempo, sem impedir o uso já feito da ingestão.
+- Nenhuma decisão pendente. As três ressalvas foram quitadas em 15/06/2026 (ver
+  `docs/diario-de-bordo.md`). Nada bloqueava o uso já feito da ingestão.

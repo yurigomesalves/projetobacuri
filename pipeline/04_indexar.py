@@ -107,6 +107,9 @@ def main() -> None:
             "paginas": c["paginas"],
             "secao": c["secao"],
             "tipo_chunk": c.get("tipo_chunk", "corpo"),
+            # nota_contexto por chunk (opcional); quando ausente/nulo, a busca
+            # cai na nota_contexto da fonte via coalesce (ver migração 0009).
+            "nota_contexto": c.get("nota_contexto"),
             "embedding": emb.tolist(),
         }
         for c, emb in zip(chunks, embeddings)
