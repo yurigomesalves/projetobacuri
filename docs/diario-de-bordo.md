@@ -697,3 +697,44 @@ torturadores, só como a equipe que o retirou do presídio); e os 3–4 casos de
 já garimpados mas não desenvolvidos (Geraldo de Assis, João de Carvalho Barros,
 João Lucas Alves, Flávio Ferreira da Silva). Demais pendências antigas seguem:
 Tomo II da CEV-SP (dossiê), Araguaia/CEV-Rio, BNM, módulo crimes e justiça (Fase 7).
+
+## 16/06/2026 — Fase 6: mulheres de São Paulo (CEV-SP "Rubens Paiva")
+**Convocação da equipe.** O curador-historiador garimpou os chunks da CEV-SP
+(Tomos I, III e IV — o Tomo II indexado tem só a síntese introdutória do dossiê)
+e entregou `docs/auditorias/novas-biografias-mulheres-sp-cevsp.md` com quatro
+casos de mulheres ligadas a São Paulo. A sessão principal converteu em JSON e
+semeou via `06_semear_curadoria.py` (idempotente).
+
+**Ingeridos como `publicada` (3 biografias + 3 eventos_geo):**
+- **Heleny Telles Ferreira Guariba** (Bebedouro/SP) — diretora teatral, torturada
+  na OBAN/SP (1970), desaparecida em 12/7/1971; evento da OBAN georreferenciado
+  no Paraíso. Fonte: Tomo III, 21ª Audiência Pública.
+- **Sônia Maria Lopes de Moraes Angel Jones** (São Vicente/SP) — militante da
+  ALN, morta em 30/11/1973 pelo DOI-CODI/SP, enterrada como indigente em Perus
+  com nome falso. Fonte: Tomo III, 44ª Audiência Pública.
+- **Sibele Aparecida Manoel** (Leme/SP) — empregada doméstica de 17 anos, morta
+  pela tropa de choque da PM-SP na greve dos canavieiros de Leme (11/7/1986).
+  Fonte: Tomo IV, Anexo XIX (Parecer Jurídico).
+
+**Decisões editoriais do Yuri (registradas antes de gravar):**
+- **Ana Rosa Kucinski Silva (4º caso) — RETIDA**, não ingerida: lacuna documental
+  nos chunks (sem data de desaparecimento, sem nascimento/filiação). Aguarda o
+  Tomo II integral da CEV-SP. Princípio 3 (nunca inventar) acima da meta de 4.
+- **Marcadores de classe por inferência omitidos** (precedente Lucimar/MG): só o
+  literal — `mulher` (3), `estudante` (Sônia), `classe_trabalhadora` (Sibele).
+- **Heleny — `violencia_sexual` em tipos_crime com nota de base testemunhal**
+  (relato de Inês Etienne Romeu, única sobrevivente da Casa da Morte; verbo no
+  condicional na fonte).
+- **Sibele — nota pública sobre invisibilidade racial** nos registros oficiais
+  inserida no `texto_md` (a ausência de raça/cor é dado histórico, não prova de
+  branquitude).
+- **Coordenadas** do DOI-CODI/SP alinhadas ao ponto da Rua Tutóia já usado no
+  acervo; OBAN aproximada no Paraíso; Leme no centro do município. Todas marcadas
+  como aproximadas em `nota_geometria`.
+
+**Pendências abertas (decisão/insumo humano):** Ana Rosa (Tomo II integral);
+coordenadas históricas finas (OBAN Rua Tomás Carvalhal, apartamento em São
+Vicente, Bairro Bom Sucesso em Leme); casos de mulheres já garimpados e não
+desenvolvidos (Rosalina Santa Cruz, Maria Auxiliadora Lara Barcelos, Ieda de
+Seixas, Elza Lobo — sobreviventes/testemunhas). Pendências antigas seguem:
+Araguaia/CEV-Rio, BNM, módulo crimes e justiça (Fase 7).
