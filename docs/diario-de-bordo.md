@@ -738,3 +738,33 @@ Vicente, Bairro Bom Sucesso em Leme); casos de mulheres já garimpados e não
 desenvolvidos (Rosalina Santa Cruz, Maria Auxiliadora Lara Barcelos, Ieda de
 Seixas, Elza Lobo — sobreviventes/testemunhas). Pendências antigas seguem:
 Araguaia/CEV-Rio, BNM, módulo crimes e justiça (Fase 7).
+
+## 2026-06-16 — Lote SP/mulheres: ingestão de Ana Rosa Kucinski Silva
+
+**Decisão do Yuri:** ingerir Ana Rosa com os dados disponíveis, com lacunas
+documentadas na nota de transparência editorial do `texto_md`, sem aguardar o
+Tomo II integral da CEV-SP. Princípio 3 respeitado: a ausência de data exata e
+filiação é explicitada publicamente, não ocultada.
+
+**O que foi inserido:**
+- **Ana Rosa Kucinski Silva** (São Paulo/SP) — professora do Instituto de Química
+  da USP e militante da ALN, desaparecida forçadamente em São Paulo em 1974.
+  Marcadores: `mulher`, `classe_media`. Evento no mapa: desaparecimento forçado
+  em São Paulo (coordenadas aproximadas da Cidade Universitária/USP); tipos de
+  crime: `prisao_ilegal_arbitraria`, `desaparecimento_forcado`,
+  `ocultacao_de_cadaver`.
+  - `biografia_id`: d8186043-2644-4cf2-9fae-5c50df1c6265
+  - `evento_id`: 5db9d57f-d9c0-4c6e-9700-1c0fc727f0ca
+
+**Nota de transparência registrada na biografia:** data de nascimento, local de
+nascimento e nome dos pais ausentes nos chunks indexados; data exata do
+desaparecimento (1974) também não localizada — campo `data` do evento usa
+1974-04-01 como aproximação de ano; atualização prevista com Tomo II e Dossiê
+Ditadura (2009).
+
+**Pendências que permanecem:** coordenadas históricas finas; data exata do
+desaparecimento; dados biográficos completos (aguarda Tomo II); marcador
+`estrangeiro_imigrante` (ascendência judia polonesa — aguarda confirmação
+documental nos chunks). Casos de mulheres não desenvolvidos: Rosalina Santa
+Cruz, Maria Auxiliadora Lara Barcelos, Ieda de Seixas. Pendências anteriores:
+Araguaia/CEV-Rio, BNM, módulo crimes e justiça (Fase 7).
