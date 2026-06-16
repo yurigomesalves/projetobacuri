@@ -665,3 +665,35 @@ CEV-MG (`docs/auditorias/cev-mg.md`) antes de seguir.
 dossiê completo do Tomo II da CEV-SP, Araguaia/CEV-Rio e demais prioridades (BNM,
 imprensa, documentos dos EUA, acadêmico); módulo crimes e justiça (Fase 7);
 ampliar biografias e mapa.
+
+## 16/06/2026 — Fase 6: quatro novas biografias e eventos de MG (Covemg)
+**Retomada da fase interrompida.** O curador-historiador havia entregue
+`docs/auditorias/novas-biografias-mg-covemg.md` com 4 casos da Comissão da
+Verdade em Minas Gerais (fonte_id faa5ff3d…), mas eles ainda não tinham virado
+JSON nem ido ao banco. Convertidos e semeados via `06_semear_curadoria.py`
+(idempotente): biografias `augusto-soares-da-cunha`, `carlos-schirmer`,
+`guido-leao-santos`, `lucimar-brandao-guimaraes` e os 4 eventos_geo
+correspondentes, todos `publicada`.
+
+**Decisões editoriais do Yuri (registradas antes de gravar):**
+- **Augusto Soares da Cunha** — marcador `camponesado` NÃO atribuído: o relatório
+  registra "Ocupação: não consta" e a classificação seria mera inferência
+  contextual. Nota inserida no `texto_md`. (Caso fica sem marcador de classe.)
+- **Carlos Schirmer** — marcador `estrangeiro_imigrante` suprimido: nasceu em
+  Além Paraíba/MG; é descendente de imigrantes (pai austríaco, mãe portuguesa),
+  não imigrante, e o vocabulário não tem essa categoria. Origem familiar fica só
+  no `texto_md`. Mantido `classe_trabalhadora`.
+- **Guido Leão Santos** — `tipo_evento = operacao_repressiva` (dispersão da greve
+  da FIAT pela cavalaria da PM é o fato central; o atropelamento foi consequência).
+- **Lucimar Brandão Guimarães** — por coerência com as duas decisões acima, o
+  marcador `classe_media` (também inferência, sinalizada pelo próprio curador)
+  foi omitido; mantido apenas `estudante`, este diretamente nas fontes.
+- **Status** — os 4 gravados como `publicada`, igual ao Benedito Gonçalves.
+
+**Pendências da auditoria que seguem em aberto (decisão humana):** segundo evento
+ou nota para a morte do pai de Augusto (Otávio, ~4/4/1964, sem data exata); nível
+de detalhe sobre perpetradores nomeados (esp. Lucimar — Covemg não os nomeia como
+torturadores, só como a equipe que o retirou do presídio); e os 3–4 casos de MG
+já garimpados mas não desenvolvidos (Geraldo de Assis, João de Carvalho Barros,
+João Lucas Alves, Flávio Ferreira da Silva). Demais pendências antigas seguem:
+Tomo II da CEV-SP (dossiê), Araguaia/CEV-Rio, BNM, módulo crimes e justiça (Fase 7).
