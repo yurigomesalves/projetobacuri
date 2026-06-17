@@ -113,6 +113,17 @@ minibiografia em `biografias`, `tipo: organizacao`):
 > desenvolvimentistas da ditadura. Classificar como `tipo_evento` próprio (ver 6.3),
 > não forçar em "organização armada".
 
+### 5.1 Vínculo pessoa↔organização (`pessoa_organizacoes`) — ADR-016
+Tabela que liga uma pessoa (`biografias`) a uma organização (`biografias` com
+`tipo: organizacao`). Critério **estrito**: o vínculo só é registrado com `fonte_id`
+identificada (ADR-001) e independente do aparato repressivo — ou, se proveniente de
+documento de inteligência (DOPS/DOI-CODI/SNI), corroborada por fonte independente.
+Esses documentos rotulavam como "membros" pessoas apenas suspeitas; reproduzir tais
+vínculos sem verificação replicaria a lógica persecutória do regime. O campo
+`nota_vinculo` (o que a fonte afirma sobre o vínculo, e o que não permite concluir)
+é **obrigatório para perpetradores** (vínculo a órgão repressivo) e opcional para
+vítimas, onde o vínculo costuma já estar descrito no `texto_md`.
+
 ---
 
 ## 6. Tipologia de graves violações (conforme CNV) — campo `tipo_crime` (lista, em `eventos_geo`)
@@ -222,6 +233,24 @@ Vocabulário sugerido (alinhar com a periodização usada no relatório CNV):
 - `1974-1979` (Geisel, "abertura lenta")
 - `1979-1985` (Figueiredo, Lei da Anistia, redemocratização)
 - `pos_1985` (para documentos de comissões da verdade, julgamentos, memória)
+
+### 8.1 Período nas biografias (`data_inicio`/`data_fim`) — ADR-016
+Diferente do `periodo` textual acima (eventos/fontes), as fichas em `biografias`
+ganham um par de datas que marca o **período de atuação/perseguição documentado** no
+contexto da ditadura — **não** datas de nascimento/morte. Vítimas: do primeiro ato de
+repressão documentado até morte/desaparecimento/retorno ou último registro.
+Perpetradores: do ingresso no órgão repressivo até desligamento ou última ação.
+Organizações: da fundação até dissolução ou último registro. Assim o filtro de período
+da interface ("Período de atuação / perseguição") responde *quando o caso aconteceu*.
+Data conhecida só pelo ano → `YYYY-01-01`/`YYYY-12-31`, com a aproximação registrada no
+`texto_md`. Extremo desconhecido → `NULL` (a interface o trata como "sem limite").
+
+### 8.2 Naturalidade nas biografias (`municipio_natal`/`uf_natal`) — ADR-016
+Naturalidade = município/UF de nascimento conforme fonte documental; é **distinta** do
+`municipio`/`uf` já existentes, que marcam o local do crime/morte/atuação. Desconhecida
+→ `NULL`, nunca inferir. As coordenadas (`lat_natal`/`lng_natal`) derivam da tabela
+`municipios_ibge` (sede do município, não endereço preciso) e alimentam a camada de
+origem do mapa, desligada por padrão.
 
 ---
 

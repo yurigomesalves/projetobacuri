@@ -225,3 +225,68 @@
   `pipeline/06_semear_curadoria.py` e `docs/taxonomia.md` (seção 6) atualizados.
   Etiquetagem do evento `violencia-waimiri-atroari` com os novos termos fica
   pendente da aplicação da migração no banco.
+
+## ADR-016 — Naturalidade, período de atuação/perseguição, vínculos a organizações e camada de origem no mapa
+- **Data**: 17/06/2026
+- **Contexto**: para dar filtros às seções "Nomes e Histórias" e "Mapa" (filtros
+  opcionais e aditivos; a tela abre com tudo), foram necessárias decisões
+  semânticas sobre quatro conjuntos de dados novos: (a) naturalidade das vítimas;
+  (b) período representado nas fichas; (c) vínculo documentado entre pessoas e
+  organizações; (d) camada cartográfica de origem no mapa.
+- **Decisão 1 — Naturalidade (`municipio_natal`/`uf_natal`)**: naturalidade =
+  município de nascimento conforme fonte documental (certidão, depoimento à CNV,
+  verbete acadêmico). É distinta do `municipio`/`uf` já existentes, que marcam o
+  local do crime/morte/atuação. Quando a documentação indica só a cidade de
+  criação ou há conflito, registrar o valor mais documentado e explicitar a
+  ambiguidade no `texto_md` com fonte. Naturalidade desconhecida → `NULL`, nunca
+  inferir por UF de atuação ou sobrenome. As coordenadas (`lat_natal`/`lng_natal`)
+  derivam da tabela IBGE e representam a sede do município, nunca endereço preciso.
+- **Decisão 2 — Período (`data_inicio`/`data_fim`)**: o par marca o **período de
+  atuação/perseguição documentado** no contexto da ditadura, não datas de
+  nascimento/morte. Vítimas: do primeiro ato de repressão documentado até
+  morte/desaparecimento/retorno ou último registro. Perpetradores: do ingresso no
+  órgão repressivo até desligamento ou última ação documentada. Organizações: da
+  fundação até dissolução ou último registro. Isso torna o filtro de período útil
+  para situar *quando o caso aconteceu*, evitando confusão com cronologia
+  biográfica geral. Rótulo público do filtro: **"Período de atuação / perseguição"**.
+  Data conhecida só pelo ano → `YYYY-01-01`/`YYYY-12-31`, com a aproximação
+  registrada no `texto_md`. Extremo desconhecido → `NULL` (a interface trata como
+  "sem limite nesse extremo").
+- **Decisão 3 — Vínculos a organizações (`pessoa_organizacoes`)**: um vínculo só é
+  registrado quando há fonte identificada independente do aparato repressivo — ou,
+  quando proveniente de documento de inteligência (DOPS/DOI-CODI/SNI), corroborada
+  por fonte independente. Esses documentos registravam como "membros" pessoas
+  suspeitas sem base factual; reproduzir tais vínculos sem verificação replicaria a
+  lógica persecutória do regime. `fonte_id` é obrigatório (mesmo critério do
+  ADR-001 para marcadores). O campo `nota_vinculo` (o que a fonte afirma sobre o
+  vínculo) é **obrigatório para perpetradores** (vínculo a órgão repressivo) e
+  opcional para vítimas, onde o vínculo costuma já estar descrito no `texto_md`.
+- **Decisão 4 — Camada de origem no mapa**: plota a cidade natal
+  (`lat_natal`/`lng_natal`) das vítimas com ficha publicada, em camada **distinta e
+  separada** da camada de eventos (local do crime). Fica **desligada por padrão**
+  (o mapa abre mostrando os locais de repressão, informação primária do acervo); o
+  usuário a ativa por escolha. O tooltip de cada ponto identifica "cidade natal de
+  [nome] — origem da vítima, não o local do crime". A separação serve ao princípio
+  6: permite ver de quais regiões o país teve seus filhos e filhas mortos e
+  desaparecidos longe de casa — leitura relevante para a perspectiva classista e o
+  colonialismo interno.
+- **Impacto**:
+  - Schema: migração `0014` em `supabase/migrations/` com `municipio_natal`,
+    `uf_natal`, `lat_natal`, `lng_natal`, `data_inicio`, `data_fim` em `biografias`;
+    nova tabela `pessoa_organizacoes` (pessoa, organização, `fonte_id` obrigatório,
+    `trecho`/`paginas`/`nota_vinculo`) com validação de que a organização tem
+    `tipo='organizacao'`; nova tabela de referência `municipios_ibge`. A migração
+    deve importar a lista **atualizada** de `tipos_crime` (ADR-008/015), não o check
+    antigo da 0006.
+  - Proveniência de `municipios_ibge` (coordenadas da **sede**, decisão 1/4): fonte
+    oficial IBGE **"Localidades do Brasil 2022"** — edição vigente do mesmo dataset,
+    preferida ao cadastro de 2010 por já incluir os municípios criados depois de 2010
+    (sem coordenada preenchida à mão). Carga pelo script idempotente
+    `pipeline/09_semear_municipios_ibge.py`; 5.570 municípios, todos com coordenada.
+  - `docs/contrato-api.md`: novos campos em `BiografiaResumo`/`Biografia`; novos
+    parâmetros de filtro em `GET /api/biografias`; período em `GET /api/eventos-geo`;
+    novos endpoints `GET /api/biografias/facetas` e `GET /api/naturalidades` (camada
+    de origem). Contrato antes do código (CLAUDE.md).
+  - `docs/taxonomia.md`: semântica de `data_inicio`/`data_fim` e critérios de
+    vínculo registrados. Rótulos de interface e nota de transparência ao usuário
+    definidos nesta ADR.

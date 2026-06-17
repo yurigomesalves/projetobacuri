@@ -1,4 +1,4 @@
-# Contrato de API — Projeto Bacuri (v1.3 — contas de curadoria, Fase 7, 15/06/2026)
+# Contrato de API — Projeto Bacuri (v1.4 — naturalidade, período e vínculos, ADR-016, 17/06/2026)
 
 > Fechado na Fase 2 (Análise/Contrato) a partir do rascunho v0.1, incorporando as
 > pendências dos ADRs 001, 003 e 005 (ver `docs/decisoes.md`) e alinhando os tipos ao
@@ -125,24 +125,70 @@ curador que decidiu (`decidido_por_nome`), quando disponível.
 Perfis públicos dos curadores para o bloco "Quem faz a curadoria".
 - Response 200: `{ "itens": [CuradorPublico] }`
 
-### GET /api/biografias?q=&tipo=&cidade=&pagina= (Fase 6)
+### GET /api/biografias?q=&tipo=&cidade=&uf_natal=&periodo_de=&periodo_ate=&organizacao=&pagina= (Fase 6 · filtros ADR-016)
 - `tipo`: "vitima" | "organizacao" | "perpetrador" | "local"
 - `q`: busca por nome (sem distinção de maiúsculas/acentos quando possível).
+- `cidade`: filtra por `municipio` (local do crime/atuação — campo já existente).
+- `uf_natal`: filtra pela UF de **naturalidade** (município de nascimento — ADR-016,
+  decisão 1), distinta de `cidade`/`municipio`. Biografias sem naturalidade conhecida
+  (`uf_natal = NULL`) ficam fora quando o filtro é aplicado.
+- `periodo_de` / `periodo_ate`: recorte pelo **período de atuação/perseguição
+  documentado** (`data_inicio`/`data_fim` — ADR-016, decisão 2; rótulo de interface
+  "Período de atuação / perseguição"). Aceitam ano (`YYYY`) ou data ISO (`YYYY-MM-DD`);
+  ano vira `YYYY-01-01` (em `periodo_de`) e `YYYY-12-31` (em `periodo_ate`). O filtro é
+  por **interseção de intervalos**: inclui a biografia cujo período se sobrepõe à janela
+  pedida, tratando extremos `NULL` como "sem limite nesse extremo". Não confundir com
+  datas de nascimento/morte.
+- `organizacao`: `slug` de uma biografia com `tipo = "organizacao"`; devolve as pessoas
+  com **vínculo documentado** a ela (`pessoa_organizacoes` — ADR-016, decisão 3).
+- Todos os filtros são **opcionais e aditivos** (combináveis por E lógico); sem nenhum, a
+  lista abre com tudo. Valores possíveis e contagens vêm de `GET /api/biografias/facetas`.
 - Response: `{ "itens": [BiografiaResumo], "total": number, "pagina": number }`
 - Serve **apenas** biografias com `status_curadoria = "publicada"` — conteúdo em
   rascunho nunca aparece na API (transparência: publicação só após revisão humana).
+
+### GET /api/biografias/facetas?tipo= (Fase 6 · ADR-016)
+Opções e contagens para montar os filtros de "Nomes e Histórias", calculadas **somente
+sobre biografias publicadas**. `tipo` (opcional) restringe as facetas a um tipo.
+- Response 200:
+```json
+{
+  "tipos":        [{ "valor": "vitima", "total": 0 }],
+  "ufs_natais":   [{ "uf": "PE", "total": 0 }],
+  "organizacoes": [{ "slug": "ap-acao-popular", "nome": "Ação Popular", "total": 0 }],
+  "periodo":      { "min": "1964-01-01", "max": "1985-12-31" }
+}
+```
+- `total` em cada faceta = nº de biografias publicadas que casam aquele valor (para a UI
+  exibir contagens e ocultar opções vazias). `periodo.min`/`max` delimitam a régua do
+  filtro de período; ambos podem ser `null` se nenhuma ficha tiver período preenchido.
+- `organizacoes` lista apenas organizações que têm ao menos um vínculo publicado.
 
 ### GET /api/biografias/[slug] (Fase 6)
 - Response: `Biografia` completa (com fontes e eventos ligados). Mesma regra:
   só `status_curadoria = "publicada"`; caso contrário 404 `ACERVO_SEM_RESULTADO`.
 
-### GET /api/eventos-geo?bbox=&tipo_crime= (Fase 6)
+### GET /api/eventos-geo?bbox=&tipo_crime=&periodo_de=&periodo_ate= (Fase 6 · período ADR-016)
 - Response: GeoJSON FeatureCollection; `geometry` pode ser **Point** (casos individuais) ou **Polygon/MultiPolygon** (territórios — ADR-003); properties de cada feature: `{ evento_id, titulo, data, municipio, uf, tipos_crime: [string] }`
 - Eventos com `tipo_crime` = `violencia_contra_povos_indigenas` formam camada própria no mapa, que o usuário liga/desliga (ADR-003); o frontend separa as camadas pelo `tipo_crime`, sem campo extra.
+- `periodo_de` / `periodo_ate`: recorte temporal pela `data` do evento (ano `YYYY` ou data
+  ISO; ano vira início/fim do ano como em `/api/biografias`). Opcionais e aditivos.
 - `bbox` = `oeste,sul,leste,norte` (graus decimais). O filtro é aplicado **no
   servidor Next.js**, sem PostGIS: a geometria fica em coluna jsonb e o acervo é
   pequeno (dezenas de eventos) — decisão registrada na Fase 6; migrar para
   PostGIS só se o volume justificar.
+
+### GET /api/naturalidades?bbox= (Fase 6 · camada de origem, ADR-016 decisão 4)
+Camada cartográfica **separada** da de eventos: a cidade **natal** das vítimas com ficha
+publicada e naturalidade conhecida. **Desligada por padrão** no mapa (que abre nos locais
+de repressão, informação primária); o usuário a ativa por escolha.
+- Response: GeoJSON FeatureCollection de **Point** (sede do município natal, nunca endereço
+  preciso); properties: `{ slug, nome, municipio_natal, uf_natal }`.
+- Só vítimas (`tipo = "vitima"`) publicadas com `lat_natal`/`lng_natal` preenchidos;
+  fichas sem naturalidade documentada não entram (ADR-016: não inferir).
+- `bbox` opcional, mesma semântica de `/api/eventos-geo`.
+- O frontend identifica cada ponto como "cidade natal de [nome] — origem da vítima, não o
+  local do crime" (tooltip definido na ADR-016).
 
 ### GET /api/eventos-geo/[id] (Fase 6)
 - Response: `EventoGeo` completo. O bloco `justica` é **opcional**: só é servido
@@ -157,9 +203,24 @@ Citacao    = { n: number, fonte_id, titulo, autor_orgao, tipo_fonte, confiabilid
                data_documento?, paginas?, secao?, trecho: string, url_origem,
                nota_contexto?, tipo_chunk: "corpo" | "nota_rodape" }
 Marcador   = { marcador: string, fonte: Citacao }   // ADR-001: marcador sempre com fonte, nunca por inferência
-BiografiaResumo = { slug, nome, tipo, resumo_1_linha, municipio?, uf? }
+BiografiaResumo = { slug, nome, tipo, resumo_1_linha, municipio?, uf?,
+               // ADR-016: naturalidade (município de nascimento) e período de
+               // atuação/perseguição documentado — distintos de municipio/uf (local
+               // do crime) e de datas de nascimento/morte. Ausentes → omitidos.
+               municipio_natal?, uf_natal?, data_inicio?, data_fim? }
 Biografia  = BiografiaResumo + { texto_md, marcadores: Marcador[], fontes: Citacao[],
-               eventos: [evento_id], status_curadoria }
+               eventos: [evento_id], status_curadoria,
+               lat_natal?, lng_natal?,           // sede do município natal (ADR-016)
+               organizacoes: VinculoOrganizacao[] }  // vínculos documentados (ADR-016)
+// ADR-016 decisão 3: vínculo só com fonte identificada e independente do aparato
+// repressivo (ou, se de doc. de inteligência, corroborada). fonte_id sempre presente.
+VinculoOrganizacao = { organizacao_slug, organizacao_nome, nota_vinculo?, fonte: Citacao }
+// nota_vinculo obrigatória quando a pessoa é perpetrador (vínculo a órgão repressivo)
+Faceta     = { valor: string, total: number }
+Facetas    = { tipos: Faceta[],
+               ufs_natais: { uf: string, total: number }[],
+               organizacoes: { slug, nome, total: number }[],
+               periodo: { min: string | null, max: string | null } }
 EventoGeo  = { evento_id, titulo, data, municipio, uf,
                geometria: GeoJSON.Point | GeoJSON.Polygon | GeoJSON.MultiPolygon, // ADR-003
                descricao_md, vitimas: [slug], tipos_crime: [string],
