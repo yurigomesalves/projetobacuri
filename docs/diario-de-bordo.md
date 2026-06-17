@@ -765,6 +765,46 @@ Ditadura (2009).
 **Pendências que permanecem:** coordenadas históricas finas; data exata do
 desaparecimento; dados biográficos completos (aguarda Tomo II); marcador
 `estrangeiro_imigrante` (ascendência judia polonesa — aguarda confirmação
-documental nos chunks). Casos de mulheres não desenvolvidos: Rosalina Santa
-Cruz, Maria Auxiliadora Lara Barcelos, Ieda de Seixas. Pendências anteriores:
-Araguaia/CEV-Rio, BNM, módulo crimes e justiça (Fase 7).
+documental nos chunks). Pendências anteriores: Araguaia/CEV-Rio, BNM, módulo
+crimes e justiça (Fase 7).
+
+## 2026-06-17 — Lote SP/mulheres: sobreviventes e testemunhas (CEV-SP)
+
+**Migração aplicada:** `0011_tipo_sobrevivente.sql` — adicionado o valor
+`sobrevivente` ao check constraint de `biografias.tipo`.
+
+**Decisões do Yuri:**
+- Maria Auxiliadora Lara Barcelos: inserir com nota de lacuna (sem aguardar Tomo II).
+- Ieda Akselrud de Seixas: não atribuir marcador de origem judaica (sem autodeclaração explícita nos chunks).
+- Marcador `militante_politica` não existe na taxonomia; omitido para Rosalina.
+
+**O que foi inserido:**
+- **Rosalina Santa Cruz** (Recife/PE — `sobrevivente`) — irmã de Fernando Santa Cruz,
+  presa e torturada pelo DOI-CODI/RJ, desaparecida por 45 dias, sofreu aborto na
+  prisão, declarou violência sexual publicamente. Marcador: `mulher`. Evento: DOI-CODI/RJ,
+  Rio de Janeiro, 1974-02-23 (data aproximada — mesma do desaparecimento do irmão).
+  - `biografia_id`: 3e017152-a373-45ad-9099-a3fc00293ff3
+  - `evento_id`: dc4d98c2-f035-4c25-967c-dd7c198cdf61
+
+- **Ieda Akselrud de Seixas** (São Paulo/SP — `sobrevivente`) — presa sem ser militante,
+  estuprada pelo delegado Davi dos Santos Araújo (nomeado), presenciou morte do pai
+  Joaquim Alencar de Seixas e de jovem anônimo na OBAN/SP. Marcadores: `mulher`,
+  `estudante`. Evento: OBAN, Rua Tomás Carvalhal, SP, 16/04/1971.
+  - `biografia_id`: 197d517e-5f66-40ac-a76e-a733c26ec66f
+  - `evento_id`: 11328b17-c774-464c-a1f8-a37059f8bd73
+
+- **Maria Auxiliadora Lara Barcelos** (município desconhecido — `vitima`) — estudante
+  que testemunhou e denunciou perante a Auditoria Militar o assassinato de Chael
+  Schreier na OBAN/SP (1969); faleceu por suicídio como sequela da tortura. Sem
+  marcadores (sem base documental nos chunks). Sem evento no mapa (dados insuficientes).
+  Nota de lacuna pública no texto_md.
+  - `biografia_id`: 86a91ba4-ee4c-49c7-b28d-a9293e19305c
+
+**Correção editorial:** o lead do garimpo anterior indicava "21ª Audiência" para Rosalina
+— os chunks mostram que ela depôs na 6ª Audiência (caso Fernando Santa Cruz) e no
+2º Prêmio Beth Lobo. Corrigido no dossiê de auditoria.
+
+**Próximo lote identificado (material suficiente nos chunks):** Damaris Lucena, Ilda
+Martins da Silva, Elza Lobo, Joana D'Arc Gontijo — todos com depoimentos nos
+Tomos III/IV da CEV-SP. Pendências anteriores: Araguaia/CEV-Rio, BNM, módulo
+crimes e justiça (Fase 7).
