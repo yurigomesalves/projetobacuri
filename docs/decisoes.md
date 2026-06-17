@@ -185,3 +185,18 @@
 - **Recomendação aberta (não implementada)**: campos estruturados
   `orgao_vinculo`, `patente`, `funcao` e `periodo_atuacao` para perpetradores —
   exigiriam migração + ajuste do validador e do contrato de API. Decisão do Yuri.
+
+## ADR-014 — Grafia padronizada "Fiuza" (sem acento) para Adyr Fiuza de Castro
+- **Data**: 17/06/2026
+- **Decisão (Yuri)**: adotar a grafia **"Fiuza"** (sem acento) como forma
+  canônica do nome (campo `nome` e prosa do `texto_md`), por ser a usada no
+  Capítulo 16 do Relatório da CNV, vol. I — capítulo de autoria das graves
+  violações e fonte primária da biografia.
+- **Justificativa**: o vol. III do mesmo relatório grafa "Fiúza" (com acento)
+  nas fichas de responsabilização; diante da divergência interna da própria
+  fonte, padroniza-se pela seção que fundamenta o enquadramento. A grafia
+  original com acento é **preservada dentro da citação literal** do vol. III
+  (campo `trecho`), que não se altera.
+- **Impacto**: biografia `adyr-fiuza-de-castro`; regra geral para futuros casos
+  de divergência de grafia entre volumes de uma mesma fonte (preferir a seção
+  que fundamenta a responsabilização; preservar o original nos `trecho`).
