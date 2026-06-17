@@ -206,11 +206,10 @@ def main():
         paginas_cobertas = sorted({u[2] for u in buffer_unidades})
         chunks.append(
             {
-                "fonte_slug": SLUG,
                 "secao": secao_buffer,
                 "paginas": [paginas_cobertas[0], paginas_cobertas[-1]],
                 "tipo_chunk": "corpo",
-                "texto": texto_chunk,
+                "conteudo": texto_chunk,
                 "n_tokens": contar_tokens(texto_chunk),
             }
         )
@@ -278,7 +277,7 @@ def main():
             chunks_finais.append(chunk)
             continue
 
-        pedacos = re.split(r"(?<=[.!?])\s+", chunk["texto"])
+        pedacos = re.split(r"(?<=[.!?])\s+", chunk["conteudo"])
         grupo_atual = []
         tokens_grupo = 0
         for pedaco in pedacos:
@@ -287,14 +286,14 @@ def main():
             tokens_pedaco = len(tokenizer.encode(pedaco, add_special_tokens=False))
             if tokens_grupo + tokens_pedaco > LIMITE_MAXIMO_TOKENS - 2 and grupo_atual:
                 novo_texto = " ".join(grupo_atual)
-                chunks_finais.append({**chunk, "texto": novo_texto, "n_tokens": contar_tokens(novo_texto)})
+                chunks_finais.append({**chunk, "conteudo": novo_texto, "n_tokens": contar_tokens(novo_texto)})
                 grupo_atual = []
                 tokens_grupo = 0
             grupo_atual.append(pedaco)
             tokens_grupo += tokens_pedaco
         if grupo_atual:
             novo_texto = " ".join(grupo_atual)
-            chunks_finais.append({**chunk, "texto": novo_texto, "n_tokens": contar_tokens(novo_texto)})
+            chunks_finais.append({**chunk, "conteudo": novo_texto, "n_tokens": contar_tokens(novo_texto)})
 
     chunks = chunks_finais
 
@@ -302,8 +301,10 @@ def main():
     tamanhos = [c["n_tokens"] for c in chunks]
 
     with open(saida, "w", encoding="utf-8") as f:
-        for chunk in chunks:
-            f.write(json.dumps(chunk, ensure_ascii=False) + "\n")
+        for ordem, chunk in enumerate(chunks):
+            registro = {"ordem": ordem, **chunk}
+            registro.pop("n_tokens", None)
+            f.write(json.dumps(registro, ensure_ascii=False) + "\n")
 
     print(f"Chunks gerados: {len(chunks)}")
     if tamanhos:

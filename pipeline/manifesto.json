@@ -117,5 +117,85 @@
     "sha256": "10607abcb9bb6f020f319ddb9d85bf01ba50fb5f8371c1bb608a4f1ec882a6e4",
     "tamanho_bytes": 839555,
     "descricao": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva', Tomo II (Dossiê Ditadura: Mortos e Desaparecidos Políticos no Brasil 1964-1985) — versão de síntese disponível no portal oficial, ~16 p., 839 KB. NÃO é o dossiê completo (que não foi localizado em versão oficial digital). Baixado diretamente de https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-ii/downloads/II_Tomo_Dossie-ditadura-mortos-e-desparecidos-politicos-no-brasil-1964-1985.pdf."
+  },
+  {
+    "slug": "cev-am-waimiri-atroari",
+    "url": "http://web.archive.org/web/20250805134544/https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/1r_cv_am_waimiri_atroari.pdf",
+    "url_original": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/1r_cv_am_waimiri_atroari.pdf",
+    "arquivo_local": "dados/brutos/cev-am-waimiri-atroari.pdf",
+    "data_download": "2026-06-17T04:49:18.743894+00:00",
+    "sha256": "cf5eaa73ebd54a8749c020a6f182a570927cbf0a44623e03a7a7fe4498e3e535",
+    "tamanho_bytes": 1619782,
+    "descricao": "Relatório da Comissão Estadual da Verdade do Amazonas sobre os Waimiri-Atroari. Documento original do portal Memórias Reveladas/Arquivo Nacional (https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/1r_cv_am_waimiri_atroari.pdf), obtido via cópia arquivada pelo Internet Archive (Wayback Machine) em 05/08/2025, pois o portal oficial bloqueia downloads automatizados (proteção anti-robô)."
+  },
+  {
+    "slug": "cev-es-relatorio-final",
+    "url": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/RelatriodaComissoEstadualdaMemriaeVerdade1.pdf/@@display-file/file",
+    "url_original": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/RelatriodaComissoEstadualdaMemriaeVerdade1.pdf",
+    "arquivo_local": "dados/brutos/cev-es-relatorio-final.pdf",
+    "data_download": "2026-06-17T04:50:05.669889+00:00",
+    "sha256": "73325653cf6bf13320db70289e6243054b2a510fe66468c70e2a95123d2eaf18",
+    "tamanho_bytes": 11716707,
+    "descricao": "Relatório Final da Comissão Estadual da Memória e Verdade do Espírito Santo. Baixado diretamente do portal Memórias Reveladas/Arquivo Nacional."
+  },
+  {
+    "slug": "cev-pb-relatorio-final",
+    "url": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/PBrelatorio_comissao_estadual_da_verdade_pbcompactado.pdf/@@display-file/file",
+    "url_original": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/PBrelatorio_comissao_estadual_da_verdade_pbcompactado.pdf",
+    "arquivo_local": "dados/brutos/cev-pb-relatorio-final.pdf",
+    "data_download": "2026-06-17T04:50:32.304242+00:00",
+    "sha256": "5000bff4c30829d75160df09846e804e0cdd64fd01de2f92c2a19bf5fefa1fdb",
+    "tamanho_bytes": 6456488,
+    "descricao": "Relatório Final da Comissão Estadual da Verdade da Paraíba. Baixado diretamente do portal Memórias Reveladas/Arquivo Nacional."
+  },
+  {
+    "slug": "cev-pr-relatorio-vol1",
+    "url": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/comissao_da_verdade_v1_2versao.pdf/@@display-file/file",
+    "url_original": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/comissao_da_verdade_v1_2versao.pdf",
+    "arquivo_local": "dados/brutos/cev-pr-relatorio-vol1.pdf",
+    "data_download": "2026-06-17T04:51:47.243576+00:00",
+    "sha256": "186e2147a53bbc57dd460d3ac2623735a4befa2667579589ca58100317dcfc42",
+    "tamanho_bytes": 21488229,
+    "descricao": "Relatório Final da Comissão da Verdade do Paraná, volume 1. Baixado diretamente do portal Memórias Reveladas/Arquivo Nacional."
+  },
+  {
+    "slug": "cev-pr-relatorio-vol2",
+    "url": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/comissao_da_verdade_v2_2versao.pdf/@@display-file/file",
+    "url_original": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/comissao_da_verdade_v2_2versao.pdf",
+    "arquivo_local": "dados/brutos/cev-pr-relatorio-vol2.pdf",
+    "data_download": "2026-06-17T04:52:15.007935+00:00",
+    "sha256": "136f7b5aada5946f902bf9f0626a2454d307020f6f59821492b7e21aae1404f8",
+    "tamanho_bytes": 6561081,
+    "descricao": "Relatório Final da Comissão da Verdade do Paraná, volume 2. Baixado diretamente do portal Memórias Reveladas/Arquivo Nacional."
+  },
+  {
+    "slug": "cev-pe-relatorio-final",
+    "url": "http://web.archive.org/web/20260307180552/https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/CEV_PE_Relatorio_final_vol_1_Web.pdf",
+    "url_original": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/CEV_PE_Relatorio_final_vol_1_Web.pdf",
+    "arquivo_local": "dados/brutos/cev-pe-relatorio-final.pdf",
+    "data_download": "2026-06-17T04:52:24.807225+00:00",
+    "sha256": "2f6e9192e746b105c68ebf8f1b420a5296a48af551450c5d094d4bdf36a467d2",
+    "tamanho_bytes": 5242880,
+    "descricao": "Relatório Final da Comissão Estadual da Verdade de Pernambuco, volume 1. Documento original do portal Memórias Reveladas/Arquivo Nacional (https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/CEV_PE_Relatorio_final_vol_1_Web.pdf), obtido via cópia arquivada pelo Internet Archive (Wayback Machine) em 07/03/2026, pois o portal oficial bloqueia downloads automatizados (proteção anti-robô)."
+  },
+  {
+    "slug": "cev-rs-relatorio-final",
+    "url": "http://web.archive.org/web/20230321145625/https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/RSRelatrioSubcomissaoVerdadeMemriaeJustia.pdf",
+    "url_original": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/RSRelatrioSubcomissaoVerdadeMemriaeJustia.pdf",
+    "arquivo_local": "dados/brutos/cev-rs-relatorio-final.pdf",
+    "data_download": "2026-06-17T04:52:31.147812+00:00",
+    "sha256": "ce0fb0a8312bc888dc1e8fd4406467400ff2e3bef9605d56e56d60ab779c80c3",
+    "tamanho_bytes": 2538832,
+    "descricao": "Relatório da Subcomissão Verdade, Memória e Justiça da Assembleia Legislativa do Rio Grande do Sul. Documento original do portal Memórias Reveladas/Arquivo Nacional (https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/RSRelatrioSubcomissaoVerdadeMemriaeJustia.pdf), obtido via cópia arquivada pelo Internet Archive (Wayback Machine) em 21/03/2023, pois o portal oficial bloqueia downloads automatizados (proteção anti-robô)."
+  },
+  {
+    "slug": "cev-sc-relatorio-final",
+    "url": "http://web.archive.org/web/20251002191639/https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/389fa27327d13645e1c7627cdf1c232a.pdf",
+    "url_original": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/389fa27327d13645e1c7627cdf1c232a.pdf",
+    "arquivo_local": "dados/brutos/cev-sc-relatorio-final.pdf",
+    "data_download": "2026-06-17T04:52:36.369724+00:00",
+    "sha256": "e3329dc60056712f46e5fe12ece590c014648bf4e12f1bd09024b1878701ee1c",
+    "tamanho_bytes": 1490186,
+    "descricao": "Relatório Final da Comissão Estadual da Verdade de Santa Catarina. Documento original do portal Memórias Reveladas/Arquivo Nacional (https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/389fa27327d13645e1c7627cdf1c232a.pdf), obtido via cópia arquivada pelo Internet Archive (Wayback Machine) em 02/10/2025, pois o portal oficial bloqueia downloads automatizados (proteção anti-robô)."
   }
 ]

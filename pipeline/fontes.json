@@ -192,5 +192,133 @@
       "url_origem": "https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_3_digital.pdf",
       "licenca": "documento público oficial"
     }
+  },
+  "cev-am-waimiri-atroari": {
+    "url_oficial": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/1r_cv_am_waimiri_atroari.pdf",
+    "url_download": "http://web.archive.org/web/20250805134544/https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/1r_cv_am_waimiri_atroari.pdf",
+    "data_captura_wayback": "05/08/2025",
+    "descricao_curta": "Relatório da Comissão Estadual da Verdade do Amazonas sobre os Waimiri-Atroari, 2012, 92 p., PDF com camada de texto.",
+    "fonte": {
+      "titulo": "1º Relatório do Comitê Estadual da Verdade do Amazonas — O Genocídio do Povo Waimiri-Atroari",
+      "autor_orgao": "Comitê Estadual da Verdade do Amazonas",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2012-01-01",
+      "periodo": "pos_1985",
+      "url_origem": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/1r_cv_am_waimiri_atroari.pdf",
+      "licenca": "documento público oficial"
+    }
+  },
+  "cev-sc-relatorio-final": {
+    "url_oficial": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/389fa27327d13645e1c7627cdf1c232a.pdf",
+    "url_download": "http://web.archive.org/web/20251002191639/https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/389fa27327d13645e1c7627cdf1c232a.pdf",
+    "data_captura_wayback": "02/10/2025",
+    "descricao_curta": "Relatório Final da Comissão Estadual da Verdade Paulo Stuart Wright — Santa Catarina, nov/2014, 208 p., PDF com camada de texto.",
+    "fonte": {
+      "titulo": "Relatório Final da Comissão Estadual da Verdade Paulo Stuart Wright — Santa Catarina",
+      "autor_orgao": "Comissão Estadual da Verdade Paulo Stuart Wright — governo do Estado de Santa Catarina",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2014-11-01",
+      "periodo": "pos_1985",
+      "url_origem": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/389fa27327d13645e1c7627cdf1c232a.pdf",
+      "licenca": "documento público oficial"
+    }
+  },
+  "cev-rs-relatorio-final": {
+    "url_oficial": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/RSRelatrioSubcomissaoVerdadeMemriaeJustia.pdf",
+    "url_download": "http://web.archive.org/web/20230321145625/https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/RSRelatrioSubcomissaoVerdadeMemriaeJustia.pdf",
+    "data_captura_wayback": "21/03/2023",
+    "descricao_curta": "Relatório Final da Subcomissão Verdade, Memória e Justiça da Assembleia Legislativa do Rio Grande do Sul, 2017, 152 p., PDF com camada de texto.",
+    "fonte": {
+      "titulo": "Relatório Final da Subcomissão da Memória, Verdade e Justiça — Assembleia Legislativa do Rio Grande do Sul",
+      "autor_orgao": "Subcomissão da Memória, Verdade e Justiça (Comissão de Cidadania e Direitos Humanos) — Assembleia Legislativa do Rio Grande do Sul",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2017-01-01",
+      "periodo": "pos_1985",
+      "url_origem": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/RSRelatrioSubcomissaoVerdadeMemriaeJustia.pdf",
+      "licenca": "documento público oficial"
+    }
+  },
+  "cev-pb-relatorio-final": {
+    "url_oficial": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/PBrelatorio_comissao_estadual_da_verdade_pbcompactado.pdf",
+    "url_download": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/PBrelatorio_comissao_estadual_da_verdade_pbcompactado.pdf/@@display-file/file",
+    "data_captura_wayback": null,
+    "descricao_curta": "Relatório Final da Comissão Estadual da Verdade e da Preservação da Memória da Paraíba, 117 p., PDF com camada de texto.",
+    "fonte": {
+      "titulo": "Relatório Final da Comissão Estadual da Verdade e da Preservação da Memória — Paraíba",
+      "autor_orgao": "Comissão Estadual da Verdade e da Preservação da Memória — governo do Estado da Paraíba",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2014-01-01",
+      "periodo": "pos_1985",
+      "url_origem": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/PBrelatorio_comissao_estadual_da_verdade_pbcompactado.pdf",
+      "licenca": "documento público oficial"
+    }
+  },
+  "cev-pe-relatorio-final": {
+    "url_oficial": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/CEV_PE_Relatorio_final_vol_1_Web.pdf",
+    "url_download": "http://web.archive.org/web/20260307180552/https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/CEV_PE_Relatorio_final_vol_1_Web.pdf",
+    "data_captura_wayback": "07/03/2026",
+    "descricao_curta": "Relatório Final da Comissão Estadual da Memória e Verdade Dom Helder Câmara — Pernambuco, volume I, 2017, 408 p., PDF com camada de texto.",
+    "fonte": {
+      "titulo": "Relatório Final da Comissão Estadual da Memória e Verdade Dom Helder Câmara — Pernambuco, Volume I",
+      "autor_orgao": "Comissão Estadual da Memória e Verdade Dom Helder Câmara (CEMVDHC) — Secretaria da Casa Civil, governo do Estado de Pernambuco",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2017-01-01",
+      "periodo": "pos_1985",
+      "url_origem": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/CEV_PE_Relatorio_final_vol_1_Web.pdf",
+      "licenca": "documento público oficial"
+    }
+  },
+  "cev-es-relatorio-final": {
+    "url_oficial": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/RelatriodaComissoEstadualdaMemriaeVerdade1.pdf",
+    "url_download": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/RelatriodaComissoEstadualdaMemriaeVerdade1.pdf/@@display-file/file",
+    "data_captura_wayback": null,
+    "descricao_curta": "Relatório Final da Comissão Estadual da Memória e Verdade Orlando Bomfim — Espírito Santo, dez/2016, 364 p., PDF com camada de texto.",
+    "fonte": {
+      "titulo": "Relatório Final da Comissão Estadual da Memória e Verdade Orlando Bomfim — Espírito Santo",
+      "autor_orgao": "Comissão Estadual da Memória e Verdade Orlando Bomfim (Cemvob) — governo do Estado do Espírito Santo",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2016-12-01",
+      "periodo": "pos_1985",
+      "url_origem": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/RelatriodaComissoEstadualdaMemriaeVerdade1.pdf",
+      "licenca": "documento público oficial"
+    }
+  },
+  "cev-pr-relatorio-vol1": {
+    "url_oficial": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/comissao_da_verdade_v1_2versao.pdf",
+    "url_download": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/comissao_da_verdade_v1_2versao.pdf/@@display-file/file",
+    "data_captura_wayback": null,
+    "descricao_curta": "Relatório Final da Comissão Estadual da Verdade do Paraná Teresa Urban, volume 1, set/2017, 416 p., PDF com camada de texto.",
+    "fonte": {
+      "titulo": "Relatório Final da Comissão Estadual da Verdade do Paraná Teresa Urban — Volume 1",
+      "autor_orgao": "Comissão Estadual da Verdade do Paraná Teresa Urban (CEV-PR) — Secretaria de Estado da Justiça, Trabalho e Direitos Humanos do Paraná",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2017-09-01",
+      "periodo": "pos_1985",
+      "url_origem": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/comissao_da_verdade_v1_2versao.pdf",
+      "licenca": "documento público oficial"
+    }
+  },
+  "cev-pr-relatorio-vol2": {
+    "url_oficial": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/comissao_da_verdade_v2_2versao.pdf",
+    "url_download": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/comissao_da_verdade_v2_2versao.pdf/@@display-file/file",
+    "data_captura_wayback": null,
+    "descricao_curta": "Relatório Final da Comissão Estadual da Verdade do Paraná Teresa Urban, volume 2, set/2017, 444 p., PDF com camada de texto.",
+    "fonte": {
+      "titulo": "Relatório Final da Comissão Estadual da Verdade do Paraná Teresa Urban — Volume 2",
+      "autor_orgao": "Comissão Estadual da Verdade do Paraná Teresa Urban (CEV-PR) — Secretaria de Estado da Justiça, Trabalho e Direitos Humanos do Paraná",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2017-09-01",
+      "periodo": "pos_1985",
+      "url_origem": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/comissao_da_verdade_v2_2versao.pdf",
+      "licenca": "documento público oficial"
+    }
   }
 }
