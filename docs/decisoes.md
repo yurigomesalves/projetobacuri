@@ -200,3 +200,28 @@
 - **Impacto**: biografia `adyr-fiuza-de-castro`; regra geral para futuros casos
   de divergência de grafia entre volumes de uma mesma fonte (preferir a seção
   que fundamenta a responsabilização; preservar o original nos `trecho`).
+
+## ADR-015 — Dois tipos_crime para a violência colonial (caso Waimiri-Atroari)
+- **Data**: 17/06/2026
+- **Decisão (Yuri)**: ampliar o vocabulário fechado de `tipos_crime`
+  (`eventos_geo`) com dois termos, motivados pelo aprofundamento do 1º Relatório
+  do Comitê Estadual da Verdade do Amazonas ("O Genocídio do Povo
+  Waimiri-Atroari"):
+  1. **`grilagem_de_territorio_indigena`** — apropriação fraudulenta/forçada de
+     terras indígenas (a "Grilagem Paulista" e o desmembramento de 526.800 ha da
+     reserva em favor da mineração, p. 29–34 do relatório).
+  2. **`apagamento_de_registros_e_testemunhos`** — ocultação deliberada da
+     verdade: expulsão de pesquisadores e testemunhas, cassação de autorizações,
+     perseguição de quem documentava os crimes (expulsão dos Schwade, de Baines e
+     de Márcio Silva na Nova República, p. 65–73).
+- **Justificativa**: o vocabulário derivado das graves violações nucleares da
+  CNV não nomeava a dimensão colonial e a continuidade da violência por
+  ocultação — classificá-las só como `violencia_contra_povos_indigenas`
+  apagaria o que o próprio relatório identifica como invisibilização do povo
+  pelo Estado. Mesmo critério do ADR-008. Os termos são reutilizáveis por outros
+  eventos do acervo.
+- **Impacto**: migração `0013_tipos_crime_invisibilizacao_indigena.sql`
+  (aditiva, amplia o check; nenhum dado alterado); vocabulário do seed
+  `pipeline/06_semear_curadoria.py` e `docs/taxonomia.md` (seção 6) atualizados.
+  Etiquetagem do evento `violencia-waimiri-atroari` com os novos termos fica
+  pendente da aplicação da migração no banco.

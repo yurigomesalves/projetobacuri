@@ -140,6 +140,17 @@ Vocabulário fechado, baseado na nomenclatura da CNV:
   derivado das graves violações nucleares da CNV, não classificava corretamente
   esse tipo de evento — usar `tortura` como aproximação seria factualmente
   incorreto
+- `grilagem_de_territorio_indigena` — apropriação fraudulenta ou forçada de
+  terras indígenas (títulos forjados, desmembramento de reservas em favor de
+  empresas), como a "Grilagem Paulista" sobre o território Waimiri-Atroari
+  documentada pelo Comitê Estadual da Verdade do Amazonas. **Decisão ADR-015
+  (17/06/2026).**
+- `apagamento_de_registros_e_testemunhos` — ocultação deliberada da verdade
+  sobre as violações: expulsão de pesquisadores e testemunhas, cassação de
+  autorizações, destruição ou supressão de registros, perseguição de quem
+  documentava os crimes. No caso Waimiri-Atroari, a continuidade do genocídio
+  "por outros meios" na Nova República (expulsão dos Schwade, de Baines e de
+  Márcio Silva). **Decisão ADR-015 (17/06/2026).**
 
 ### 6.1 Campo `status_caso` (em `BlocoJustica`, módulo crimes e justiça)
 - `nao_investigado`
