@@ -806,5 +806,38 @@ crimes e justiça (Fase 7).
 
 **Próximo lote identificado (material suficiente nos chunks):** Damaris Lucena, Ilda
 Martins da Silva, Elza Lobo, Joana D'Arc Gontijo — todos com depoimentos nos
-Tomos III/IV da CEV-SP. Pendências anteriores: Araguaia/CEV-Rio, BNM, módulo
-crimes e justiça (Fase 7).
+Tomos III/IV da CEV-SP. → Concluído no lote seguinte.
+
+## 2026-06-17 — Lote 3 SP/mulheres: Damaris, Ilda, Elza e Joana D'Arc (CEV-SP)
+
+**Decisões do Yuri:**
+- Ilda Martins: NÃO atribuir `classe_trabalhadora` (refere-se ao marido, não a ela).
+- Virgílio Gomes da Silva: formulação "morto na OBAN (29/09/1969)".
+- Joana D'Arc Gontijo: inserir identificação parcial com nota de lacuna, sem evento no mapa.
+
+**O que foi inserido:**
+- **Damaris Lucena** (Atibaia/SP — `sobrevivente`) — militante VPR, presa 20/02/1970 em
+  Atibaia, marido assassinado na frente da família, filho Ariston condenado à morte,
+  barbaramente torturada, libertada na troca pelo cônsul japonês Nobuo Okuchi, exílio no
+  México e Cuba. Marcador: `mulher`.
+  - `biografia_id`: 8675e0b1 | `evento_id`: e221c1c8 (Atibaia, 1970-02-20)
+
+- **Ilda Martins da Silva** (São Paulo/SP — `sobrevivente`) — viúva de Virgílio Gomes da
+  Silva (ALN, morto na OBAN 29/09/1969), presa com filhos (mais novo com 4 meses),
+  torturada, 4 meses incomunicável, exílio no Chile e Cuba. Marcador: `mulher`.
+  - `biografia_id`: 862dabf2 | `evento_id`: fff2ada1 (SP, 1969-10-01 aprox.)
+
+- **Elza Lobo** (São Paulo/SP — `sobrevivente`) — funcionária da Secretaria da Fazenda/SP,
+  presa 10/11/1969 pela equipe do cap. Maurício, torturada no DOPS, transferida ao
+  Tiradentes sob exposição pública, submetida a nudez forçada e agachamentos. Conexão
+  com TUCA e Heleny Guariba documentada. Marcador: `mulher`.
+  - `biografia_id`: 1d0841ef | `evento_id`: b74f6bd6 (DOPS/SP, 1969-11-10)
+
+- **Joana D'Arc Gontijo** (São Paulo/SP — `sobrevivente`) — identificação parcial; presa
+  no DOI-CODI/OBAN, companheira de cela de Ieda de Seixas, testemunha de torturas e
+  mortes. Sem evento (dados insuficientes). Marcador: `mulher`.
+  - `biografia_id`: 1431346f
+
+**Próximo lote possível (chunks disponíveis):** Cidinha Santos, Derlei Catarina de Luca,
+Nasaindy Barret de Araujo, Izaura Coqueiro, Heleny Guariba (caso autônomo). Pendências
+anteriores: Araguaia/CEV-Rio, BNM, módulo crimes e justiça (Fase 7).
