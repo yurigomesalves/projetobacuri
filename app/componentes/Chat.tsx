@@ -15,6 +15,12 @@ const MIN_CARACTERES = 3;
 const MAX_CARACTERES = 1000;
 const MAX_HISTORICO = 6;
 
+// Velocidade do efeito de digitação: caracteres por intervalo.
+// Valor calibrado para texto longo (respostas de 500–2000 chars) terminar
+// em ~5–10 segundos — confortável sem parecer lento demais.
+const TYPEWRITER_INTERVALO_MS = 16; // ~60fps
+const TYPEWRITER_CHARS_POR_TICK = 6;
+
 const PERGUNTAS_EXEMPLO = [
   "O que foi o Relatório da Comissão Nacional da Verdade?",
   "Quais métodos de tortura são documentados no relatório da CNV?",
@@ -61,22 +67,201 @@ function linkificarMarcadores(texto: string): string {
   return texto.replace(/\[(\d+)\]/g, "[[$1]](#$1)");
 }
 
+/**
+ * Detecta se o usuário pediu menos movimento no sistema operacional.
+ * Lido uma vez ao montar — não muda durante a sessão.
+ */
+function prefereReducaoDeMovimento(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+/**
+ * Hook que anima a exibição progressiva de um texto (efeito typewriter).
+ * — Se `prefers-reduced-motion` estiver ativo, devolve o texto completo imediatamente.
+ * — `ativo` permite acionar o efeito só quando a resposta está pronta.
+ * — `aoTerminar` é chamado quando o texto completo foi exibido.
+ */
+function useTypewriter(
+  textoCompleto: string,
+  ativo: boolean,
+  aoTerminar?: () => void
+): string {
+  const [textoVisivel, setTextoVisivel] = useState("");
+  const semMovimento = useRef(prefereReducaoDeMovimento());
+  const aoTerminarRef = useRef(aoTerminar);
+  aoTerminarRef.current = aoTerminar;
+
+  useEffect(() => {
+    if (!ativo || !textoCompleto) return;
+
+    // Acessibilidade: sem animação se o usuário pediu menos movimento.
+    if (semMovimento.current) {
+      setTextoVisivel(textoCompleto);
+      aoTerminarRef.current?.();
+      return;
+    }
+
+    // Reinicia para nova resposta.
+    setTextoVisivel("");
+    let posicao = 0;
+
+    const intervalo = setInterval(() => {
+      posicao = Math.min(posicao + TYPEWRITER_CHARS_POR_TICK, textoCompleto.length);
+      setTextoVisivel(textoCompleto.slice(0, posicao));
+
+      if (posicao >= textoCompleto.length) {
+        clearInterval(intervalo);
+        aoTerminarRef.current?.();
+      }
+    }, TYPEWRITER_INTERVALO_MS);
+
+    return () => clearInterval(intervalo);
+  }, [textoCompleto, ativo]);
+
+  return textoVisivel;
+}
+
+// ---------------------------------------------------------------------------
+// Sub-componente: mensagem do assistente com efeito de digitação
+// ---------------------------------------------------------------------------
+
+type MensagemAssistenteProps = {
+  mensagem: MensagemExibida;
+  /** Indica se esta é a mensagem mais recente (única que anima). */
+  ehAMaisRecente: boolean;
+};
+
+function MensagemAssistente({ mensagem, ehAMaisRecente }: MensagemAssistenteProps) {
+  // Citações e sugestões só aparecem após o texto terminar de "digitar".
+  const [digitacaoConcluida, setDigitacaoConcluida] = useState(!ehAMaisRecente);
+
+  const textoExibido = useTypewriter(
+    mensagem.conteudo,
+    // Só anima se for a mensagem mais recente; as antigas já aparecem completas.
+    ehAMaisRecente,
+    () => setDigitacaoConcluida(true)
+  );
+
+  // Se não for a mais recente, mostra o texto completo direto.
+  const conteudoFinal = ehAMaisRecente ? textoExibido : mensagem.conteudo;
+  const mostrarRodape = !ehAMaisRecente || digitacaoConcluida;
+
+  return (
+    <div className="w-full rounded-md border border-papel-200 bg-papel-50 px-3 py-3 text-sm dark:border-tinta-900 dark:bg-tinta-950">
+      <span className="mb-2 block text-xs font-medium text-neutral-500 dark:text-neutral-400">
+        Projeto Bacuri
+      </span>
+
+      {mensagem.erro ? (
+        <p role="alert" className="text-red-700 dark:text-red-400">
+          {mensagem.erro}
+        </p>
+      ) : (
+        <>
+          {/* O resumo já estava disponível antes do typewriter — exibe completo. */}
+          {mensagem.resumo && (
+            <div className="mb-3 rounded-md border-l-2 border-carmim-700 bg-papel-100 px-3 py-2 dark:bg-tinta-900">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-600 dark:text-neutral-400">
+                Resumo
+              </h3>
+              <p className="mt-1 text-sm text-neutral-800 dark:text-neutral-200">
+                {mensagem.resumo}
+              </p>
+            </div>
+          )}
+
+          <div
+            className="prose prose-neutral prose-sm max-w-none font-serif dark:prose-invert prose-a:font-sans prose-a:font-semibold prose-a:text-carmim-700 dark:prose-a:text-carmim-700"
+            // Anuncia ao leitor de tela que o conteúdo está sendo atualizado.
+            aria-live={ehAMaisRecente ? "polite" : undefined}
+            aria-atomic={ehAMaisRecente ? "false" : undefined}
+          >
+            <ReactMarkdown
+              components={{ a: criarLinkMarcador(mensagem.id) }}
+            >
+              {linkificarMarcadores(conteudoFinal)}
+            </ReactMarkdown>
+          </div>
+
+          {/* Cursor piscante durante a digitação */}
+          {ehAMaisRecente && !digitacaoConcluida && (
+            <span
+              aria-hidden="true"
+              className="inline-block h-3.5 w-0.5 animate-pulse bg-tinta-700 align-middle dark:bg-papel-300"
+            />
+          )}
+
+          {/* Rodapé só aparece após a digitação terminar, para não distrair. */}
+          {mostrarRodape && (
+            <>
+              {mensagem.sugestoesPesquisa &&
+                mensagem.sugestoesPesquisa.length > 0 && (
+                  <div className="mt-3 rounded-md border border-papel-200 bg-papel-50 p-3 dark:border-tinta-800 dark:bg-tinta-900">
+                    <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-600 dark:text-neutral-400">
+                      Para aprofundar a pesquisa
+                    </h3>
+                    <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-neutral-700 dark:text-neutral-300">
+                      {mensagem.sugestoesPesquisa.map((sugestao) => (
+                        <li key={sugestao}>{sugestao}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+              {mensagem.citacoes && (
+                <Citacoes
+                  citacoes={mensagem.citacoes}
+                  idResposta={mensagem.id}
+                />
+              )}
+
+              {mensagem.interacaoId && (
+                <Feedback interacaoId={mensagem.interacaoId} />
+              )}
+            </>
+          )}
+        </>
+      )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Componente principal do Chat
+// ---------------------------------------------------------------------------
+
 export default function Chat() {
   const [mensagens, setMensagens] = useState<MensagemExibida[]>([]);
   const [entrada, setEntrada] = useState("");
   const [carregando, setCarregando] = useState(false);
   const [erroGeral, setErroGeral] = useState<string | null>(null);
   const idBase = useId();
-  const listaRef = useRef<HTMLDivElement>(null);
-  const fimRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    fimRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
-  }, [mensagens, carregando]);
+  // Ref para a área de scroll (o "log" da conversa).
+  const listaRef = useRef<HTMLDivElement>(null);
+
+  // Ref para a ÚLTIMA mensagem do usuário — usamos para rolar até ela.
+  const ultimaPerguntaRef = useRef<HTMLDivElement>(null);
 
   const tamanhoValido =
     entrada.trim().length >= MIN_CARACTERES &&
     entrada.length <= MAX_CARACTERES;
+
+  // Sempre que `mensagens` muda e a última é do usuário, rola até ela.
+  // Quando a resposta chega, ela fica abaixo — o usuário a descobre rolando,
+  // mas a pergunta permanece visível no topo da área.
+  useEffect(() => {
+    if (mensagens.length === 0) return;
+    const ultima = mensagens[mensagens.length - 1];
+    if (ultima.papel === "usuario") {
+      // Posiciona a pergunta no topo do contêiner de scroll.
+      ultimaPerguntaRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [mensagens]);
 
   async function enviarMensagem(texto: string) {
     const conteudo = texto.trim();
@@ -158,12 +343,21 @@ export default function Chat() {
     }
   }
 
+  // Índice da última mensagem do assistente — só ela recebe o efeito de digitação.
+  const indiceMaisRecente = (() => {
+    for (let i = mensagens.length - 1; i >= 0; i--) {
+      if (mensagens[i].papel === "assistente") return i;
+    }
+    return -1;
+  })();
+
   return (
     <div className="flex w-full flex-1 flex-col">
       <div
         ref={listaRef}
         role="log"
         aria-label="Conversa com o assistente"
+        aria-live="off"
         className="flex flex-1 flex-col gap-4 overflow-y-auto px-4 py-4 sm:px-6"
       >
         {mensagens.length === 0 && (
@@ -192,9 +386,16 @@ export default function Chat() {
           </div>
         )}
 
-        {mensagens.map((mensagem) => (
+        {mensagens.map((mensagem, indice) => (
           <div
             key={mensagem.id}
+            // O ref da última pergunta do usuário fica no container dela.
+            ref={
+              mensagem.papel === "usuario" &&
+              indice === mensagens.length - 1
+                ? ultimaPerguntaRef
+                : undefined
+            }
             className={`mx-auto w-full max-w-2xl ${
               mensagem.papel === "usuario" ? "flex justify-end" : ""
             }`}
@@ -209,62 +410,10 @@ export default function Chat() {
                 </p>
               </div>
             ) : (
-              <div className="w-full rounded-md border border-papel-200 bg-papel-50 px-3 py-3 text-sm dark:border-tinta-900 dark:bg-tinta-950">
-                <span className="mb-2 block text-xs font-medium text-neutral-500 dark:text-neutral-400">
-                  Projeto Bacuri
-                </span>
-                {mensagem.erro ? (
-                  <p role="alert" className="text-red-700 dark:text-red-400">
-                    {mensagem.erro}
-                  </p>
-                ) : (
-                  <>
-                    {mensagem.resumo && (
-                      <div className="mb-3 rounded-md border-l-2 border-carmim-700 bg-papel-100 px-3 py-2 dark:bg-tinta-900">
-                        <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-600 dark:text-neutral-400">
-                          Resumo
-                        </h3>
-                        <p className="mt-1 text-sm text-neutral-800 dark:text-neutral-200">
-                          {mensagem.resumo}
-                        </p>
-                      </div>
-                    )}
-
-                    <div className="prose prose-neutral prose-sm max-w-none font-serif dark:prose-invert prose-a:font-sans prose-a:font-semibold prose-a:text-carmim-700 dark:prose-a:text-carmim-700">
-                      <ReactMarkdown
-                        components={{ a: criarLinkMarcador(mensagem.id) }}
-                      >
-                        {linkificarMarcadores(mensagem.conteudo)}
-                      </ReactMarkdown>
-                    </div>
-
-                    {mensagem.sugestoesPesquisa &&
-                      mensagem.sugestoesPesquisa.length > 0 && (
-                        <div className="mt-3 rounded-md border border-papel-200 bg-papel-50 p-3 dark:border-tinta-800 dark:bg-tinta-900">
-                          <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-600 dark:text-neutral-400">
-                            Para aprofundar a pesquisa
-                          </h3>
-                          <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-neutral-700 dark:text-neutral-300">
-                            {mensagem.sugestoesPesquisa.map((sugestao) => (
-                              <li key={sugestao}>{sugestao}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-
-                    {mensagem.citacoes && (
-                      <Citacoes
-                        citacoes={mensagem.citacoes}
-                        idResposta={mensagem.id}
-                      />
-                    )}
-
-                    {mensagem.interacaoId && (
-                      <Feedback interacaoId={mensagem.interacaoId} />
-                    )}
-                  </>
-                )}
-              </div>
+              <MensagemAssistente
+                mensagem={mensagem}
+                ehAMaisRecente={indice === indiceMaisRecente}
+              />
             )}
           </div>
         ))}
@@ -275,7 +424,7 @@ export default function Chat() {
               role="status"
               className="flex items-center gap-2 rounded-md border border-papel-200 bg-papel-50 px-3 py-2 text-sm text-neutral-600 dark:border-tinta-900 dark:bg-tinta-950 dark:text-neutral-400"
             >
-              <span className="flex gap-1">
+              <span className="flex gap-1" aria-hidden="true">
                 <span className="size-1.5 animate-bounce rounded-full bg-tinta-700 [animation-delay:-0.3s] dark:bg-papel-200" />
                 <span className="size-1.5 animate-bounce rounded-full bg-tinta-700 [animation-delay:-0.15s] dark:bg-papel-200" />
                 <span className="size-1.5 animate-bounce rounded-full bg-tinta-700 dark:bg-papel-200" />
@@ -296,8 +445,6 @@ export default function Chat() {
             </p>
           </div>
         )}
-
-        <div ref={fimRef} />
       </div>
 
       <form
