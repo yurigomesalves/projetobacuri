@@ -918,3 +918,19 @@ curador-historiador.
 
 **Pendência pipeline:** chunking + embeddings do Dossiê Ditadura
 (`pipeline/dados/dossie-ditadura-cevsp.txt`, 2,8 MB) — fazer quando houver orçamento.
+
+## 2026-06-16 — Lote SP/mulheres: Maria Augusta Thomaz (Dossiê Ditadura)
+
+- **Maria Augusta Thomaz** (`3b04e52a`) — Leme/SP, estudante da PUC/SP, militante do
+  Molipo, codinome "Neuza". Desaparecida em 17/05/1973 em Rio Verde/GO junto com Márcio
+  Beck Machado. Restos mortais exumados clandestinamente por agentes do CIE (1980) para
+  impedir identificação.
+  - Marcadores: `mulher`, `estudante` — fonte: Dossiê Ditadura CEV-SP, p. 437.
+  - Evento `4bfcabb1` — Rio Verde/GO, 17/05/1973, tipos_crime:
+    execucao_sumaria + desaparecimento_forcado + ocultacao_de_cadaver.
+  - Fonte do evento: Dossiê Ditadura CEV-SP (d6f2e787), p. 437–438.
+  - CEMDP: caso 039/96.
+
+**Próximo lote possível:** Cidinha Santos (Maria Aparecida Santos), Derlei Catarina de
+Luca, Nasaindy Barret de Araujo, Izaura Coqueiro, Heleny Guariba (aprofundamento).
+Fase Araguaia/CEV-Rio e BNM também pendentes.
