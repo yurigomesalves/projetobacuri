@@ -161,6 +161,22 @@
       "nota_contexto": "O URL registrado aponta para o portal da CEV-SP, onde está disponível a versão de síntese do Tomo II (16 p., 839 KB), já indexada separadamente como 'cev-sp-rubens-paiva-tomo2'. O arquivo PDF processado nesta entrada (dossie-ditadura-cevsp.pdf, 75 MB, 762 páginas) é a versão COMPLETA do dossiê, edição de 2009, com artefatos de produção gráfica do software InDesign (marcadores 'Livro DH Final.indd N' e timestamps). Esse PDF não foi localizado em URL oficial distinto; o URL da CEV-SP é usado como referência canônica da fonte primária."
     }
   },
+  "cev-rj-relatorio-final": {
+    "url_oficial": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/CEVRioRelatorioFinal.pdf",
+    "url_download": "http://web.archive.org/web/20250716141618/https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/CEVRioRelatorioFinal.pdf",
+    "data_captura_wayback": "16/07/2025",
+    "descricao_curta": "Relatório Final da Comissão da Verdade do Rio (CEV-Rio), dez/2015, 229 p., 6,7 MB, PDF com camada de texto.",
+    "fonte": {
+      "titulo": "Relatório Final da Comissão da Verdade do Rio (CEV-Rio)",
+      "autor_orgao": "Comissão da Verdade do Rio (CEV-Rio) — comissão estadual, governo do Estado do Rio de Janeiro",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2015-12-01",
+      "periodo": "pos_1985",
+      "url_origem": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/CEVRioRelatorioFinal.pdf",
+      "licenca": "documento público oficial, reprodução autorizada citando a fonte"
+    }
+  },
   "cnv-vol3": {
     "url_oficial": "https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_3_digital.pdf",
     "url_download": "http://web.archive.org/web/20250825070448/https://cnv.memoriasreveladas.gov.br./images/pdf/relatorio/volume_3_digital.pdf",

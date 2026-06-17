@@ -99,6 +99,16 @@
     "descricao": "Dossiê Ditadura: Mortos e Desaparecidos Políticos no Brasil (1964-1985), edição 2009, 762 p., PDF com camada de texto. Fonte obtida do portal da CEV-SP. O URL registrado é o da versão de síntese do portal (16 p.); este arquivo é a versão completa (75 MB) com artefatos de produção gráfica InDesign, não localizada em URL oficial distinto."
   },
   {
+    "slug": "cev-rj-relatorio-final",
+    "url": "http://web.archive.org/web/20250716141618/https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/CEVRioRelatorioFinal.pdf",
+    "url_original": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/CEVRioRelatorioFinal.pdf",
+    "arquivo_local": "dados/brutos/cev-rj-relatorio-final.pdf",
+    "data_download": "2026-06-17T00:00:00+00:00",
+    "sha256": "e24219c368dd3dc261a7fddd4472666db413c5a770786e3be679f17b804b96d5",
+    "tamanho_bytes": 7006446,
+    "descricao": "Relatório Final da Comissão da Verdade do Rio (CEV-Rio), dez/2015, 229 p., 6,7 MB, PDF com camada de texto. Documento original do portal Memórias Reveladas (https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/CEVRioRelatorioFinal.pdf), obtido via cópia arquivada pelo Internet Archive (Wayback Machine) em 16/07/2025, pois o portal oficial bloqueia downloads automatizados (React SPA com proteção anti-robô). Extração: 229 páginas totais, 3 páginas vazias (< 50 caracteres), 1.331.366 caracteres extraídos."
+  },
+  {
     "slug": "cev-sp-rubens-paiva-tomo2",
     "url": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-ii/downloads/II_Tomo_Dossie-ditadura-mortos-e-desparecidos-politicos-no-brasil-1964-1985.pdf",
     "url_original": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-ii/downloads/II_Tomo_Dossie-ditadura-mortos-e-desparecidos-politicos-no-brasil-1964-1985.pdf",
