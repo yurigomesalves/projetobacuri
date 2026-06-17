@@ -14,6 +14,7 @@ Uso:
 
 import json
 import os
+import re
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -63,6 +64,24 @@ def validar_biografia(d: dict, origem: str) -> None:
         if m["marcador"] not in MARCADORES:
             raise SystemExit(f"{origem}: marcador inválido '{m['marcador']}'.")
         validar_citacao(m, origem)  # ADR-001: marcador sempre com fonte
+    validar_naturalidade_periodo(d, origem)
+
+
+def validar_naturalidade_periodo(d: dict, origem: str) -> None:
+    """Checagens leves dos campos do ADR-016 (todos opcionais)."""
+    if d.get("municipio_natal") and not d.get("uf_natal"):
+        # Sem UF não dá para casar com a municipios_ibge nem desambiguar homônimos.
+        raise SystemExit(f"{origem}: 'municipio_natal' exige 'uf_natal' (ADR-016).")
+    uf = d.get("uf_natal")
+    if uf and not (isinstance(uf, str) and len(uf) == 2 and uf.isalpha()):
+        raise SystemExit(f"{origem}: 'uf_natal' deve ter 2 letras (recebido '{uf}').")
+    for campo in ("data_inicio", "data_fim"):
+        v = d.get(campo)
+        if v is not None and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(v)):
+            raise SystemExit(f"{origem}: '{campo}' deve ser YYYY-MM-DD (recebido '{v}').")
+    ini, fim = d.get("data_inicio"), d.get("data_fim")
+    if ini and fim and ini > fim:
+        raise SystemExit(f"{origem}: 'data_inicio' ({ini}) posterior a 'data_fim' ({fim}).")
 
 
 def validar_evento(d: dict, origem: str, slugs_biografias: set) -> None:
@@ -139,6 +158,13 @@ def main() -> None:
             "slug": d["slug"], "nome": d["nome"], "tipo": d["tipo"],
             "resumo_1_linha": d["resumo_1_linha"], "texto_md": d["texto_md"],
             "municipio": d.get("municipio"), "uf": d.get("uf"),
+            # ADR-016: naturalidade e período de atuação/perseguição (curadoria,
+            # opcionais). As coordenadas lat_natal/lng_natal NÃO vêm do JSON —
+            # são derivadas da municipios_ibge pelo 10_preencher_naturalidades.py.
+            "municipio_natal": d.get("municipio_natal"),
+            "uf_natal": d["uf_natal"].upper() if d.get("uf_natal") else None,
+            "data_inicio": d.get("data_inicio"),
+            "data_fim": d.get("data_fim"),
             "status_curadoria": d.get("status_curadoria", "rascunho"),
         }
         resp = supabase.table("biografias").upsert(registro, on_conflict="slug").execute()

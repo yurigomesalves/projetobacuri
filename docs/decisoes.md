@@ -283,6 +283,15 @@
     preferida ao cadastro de 2010 por já incluir os municípios criados depois de 2010
     (sem coordenada preenchida à mão). Carga pelo script idempotente
     `pipeline/09_semear_municipios_ibge.py`; 5.570 municípios, todos com coordenada.
+  - Preenchimento das coordenadas de naturalidade nas biografias (decisão 1/4): a
+    naturalidade (`municipio_natal`/`uf_natal`) é curadoria e vem dos JSONs em
+    `pipeline/dados/curadoria/biografias/*.json`, gravada pelo
+    `06_semear_curadoria.py` (que passou a persistir também `data_inicio`/`data_fim`).
+    O script idempotente `pipeline/10_preencher_naturalidades.py` faz só a parte
+    mecânica: casa município+UF com a `municipios_ibge` (ignorando acento/maiúscula;
+    `(UF, nome)` desambigua) e grava `lat_natal`/`lng_natal` da **sede**. Não infere
+    naturalidade (ADR proíbe): o que não casa é reportado como provável erro de grafia
+    para a curadoria corrigir no JSON, e fica sem coordenada (nunca chuta a sede).
   - `docs/contrato-api.md`: novos campos em `BiografiaResumo`/`Biografia`; novos
     parâmetros de filtro em `GET /api/biografias`; período em `GET /api/eventos-geo`;
     novos endpoints `GET /api/biografias/facetas` e `GET /api/naturalidades` (camada

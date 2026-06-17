@@ -37,6 +37,23 @@ export type BiografiaResumo = {
   resumo_1_linha: string;
   municipio?: string;
   uf?: string;
+  // ADR-016: naturalidade (município de nascimento) e período de
+  // atuação/perseguição documentado — distintos de municipio/uf (local do
+  // crime) e de datas de nascimento/morte. Ausentes → omitidos.
+  municipio_natal?: string;
+  uf_natal?: string;
+  data_inicio?: string;
+  data_fim?: string;
+};
+
+// ADR-016 decisão 3: vínculo só com fonte identificada e independente do
+// aparato repressivo (ou, se de documento de inteligência, corroborada).
+// `nota_vinculo` é obrigatória quando a pessoa é perpetrador.
+export type VinculoOrganizacao = {
+  organizacao_slug: string;
+  organizacao_nome: string;
+  nota_vinculo?: string;
+  fonte: Citacao;
 };
 
 export type Biografia = BiografiaResumo & {
@@ -45,6 +62,20 @@ export type Biografia = BiografiaResumo & {
   fontes: Citacao[];
   eventos: string[];
   status_curadoria: string;
+  // Sede do município natal (ADR-016) — nunca endereço preciso.
+  lat_natal?: number;
+  lng_natal?: number;
+  organizacoes: VinculoOrganizacao[];
+};
+
+// Facetas para montar os filtros de "Nomes e Histórias" (ADR-016).
+export type Faceta = { valor: string; total: number };
+
+export type Facetas = {
+  tipos: Faceta[];
+  ufs_natais: { uf: string; total: number }[];
+  organizacoes: { slug: string; nome: string; total: number }[];
+  periodo: { min: string | null; max: string | null };
 };
 
 export type EventoGeo = {

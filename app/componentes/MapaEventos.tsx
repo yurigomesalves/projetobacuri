@@ -2,7 +2,15 @@
 
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { MapContainer, TileLayer, Marker, Polygon } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Polygon,
+  CircleMarker,
+  Tooltip,
+  Popup,
+} from "react-leaflet";
 import type { Feature } from "geojson";
 
 // Corrige o problema clássico dos ícones padrão do Leaflet com bundlers:
@@ -18,10 +26,16 @@ const CENTRO_BRASIL: [number, number] = [-15.8, -47.9];
 
 type Props = {
   features: Feature[];
+  // Camada de ORIGEM (ADR-016, decisão 4): cidades natais das vítimas, em
+  // camada separada da de eventos (local do crime). Vazio = camada desligada.
+  origem?: Feature[];
   onSelecionar: (eventoId: string) => void;
 };
 
-export default function MapaEventos({ features, onSelecionar }: Props) {
+// Cor sóbria e distinta dos pinos de evento, para marcar a camada de origem.
+const COR_ORIGEM = "#1d4ed8";
+
+export default function MapaEventos({ features, origem = [], onSelecionar }: Props) {
   return (
     <MapContainer
       center={CENTRO_BRASIL}
@@ -66,6 +80,45 @@ export default function MapaEventos({ features, onSelecionar }: Props) {
           ));
         }
         return null;
+      })}
+
+      {origem.map((feature, i) => {
+        if (feature.geometry.type !== "Point") return null;
+        const [lng, lat] = feature.geometry.coordinates as [number, number];
+        const props = feature.properties as {
+          slug: string;
+          nome: string;
+          municipio_natal?: string;
+          uf_natal?: string;
+        };
+        const local = [props.municipio_natal, props.uf_natal]
+          .filter(Boolean)
+          .join(" — ");
+        return (
+          <CircleMarker
+            key={`origem-${props.slug}-${i}`}
+            center={[lat, lng]}
+            radius={6}
+            pathOptions={{
+              color: COR_ORIGEM,
+              weight: 2,
+              fillColor: COR_ORIGEM,
+              fillOpacity: 0.6,
+            }}
+          >
+            <Tooltip>
+              cidade natal de {props.nome} — origem da vítima, não o local do
+              crime
+            </Tooltip>
+            <Popup>
+              <span className="block font-medium">{props.nome}</span>
+              {local && <span className="block">Cidade natal: {local}</span>}
+              <a href={`/biografias/${props.slug}`} className="underline">
+                Ver biografia
+              </a>
+            </Popup>
+          </CircleMarker>
+        );
       })}
     </MapContainer>
   );

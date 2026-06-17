@@ -132,6 +132,7 @@ describe("GET /api/biografias/[slug] (detalhe)", () => {
         biografia_fontes: { data: [linhaFonteJoin(), linhaFonteJoin({ paginas: "121" })] },
         biografia_marcadores: { data: [linhaMarcadorJoin()] },
         evento_vitimas: { data: [{ evento_id: UUID_EVENTO }] },
+        pessoa_organizacoes: { data: [] },
       },
     });
 

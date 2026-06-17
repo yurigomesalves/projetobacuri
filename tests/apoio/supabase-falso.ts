@@ -67,6 +67,8 @@ export function criarSupabaseFalso(config: ConfiguracaoFalsa = {}) {
       "in",
       "ilike",
       "contains",
+      "not",
+      "or",
       "order",
       "range",
       "limit",
@@ -97,7 +99,7 @@ export function criarSupabaseFalso(config: ConfiguracaoFalsa = {}) {
           : { error: { message: `tabela não configurada no teste: ${tabela}` } };
       return criarConsulta(tabela, resultado);
     }),
-    rpc: vi.fn((nome: string) => {
+    rpc: vi.fn((nome: string, _args?: unknown) => {
       const resultado =
         filaRpc.length > 0
           ? filaRpc.shift()!

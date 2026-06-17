@@ -74,6 +74,14 @@ function MapaConteudo() {
   const [mostrarCasos, setMostrarCasos] = useState(true);
   const [mostrarIndigena, setMostrarIndigena] = useState(true);
 
+  // Camada de origem (ADR-016, decisão 4): desligada por padrão. Os pontos só
+  // são buscados quando o usuário ativa a camada pela primeira vez.
+  const [mostrarOrigem, setMostrarOrigem] = useState(false);
+  const [origem, setOrigem] = useState<Feature[]>([]);
+  const [origemCarregada, setOrigemCarregada] = useState(false);
+  const [carregandoOrigem, setCarregandoOrigem] = useState(false);
+  const [erroOrigem, setErroOrigem] = useState<string | null>(null);
+
   const [eventoSelecionado, setEventoSelecionado] = useState<EventoGeo | null>(null);
   const [carregandoEvento, setCarregandoEvento] = useState(false);
   const [erroEvento, setErroEvento] = useState<string | null>(null);
@@ -113,6 +121,47 @@ function MapaConteudo() {
       selecionarEvento(eventoInicial);
     }
   }, [eventoInicial]);
+
+  // Busca a camada de origem só na primeira ativação (cache em `origem`).
+  useEffect(() => {
+    if (!mostrarOrigem || origemCarregada) return;
+    let cancelado = false;
+    async function carregarOrigem() {
+      setCarregandoOrigem(true);
+      setErroOrigem(null);
+      try {
+        const res = await fetch("/api/naturalidades");
+        if (!res.ok) {
+          const dados: RespostaErro = await res.json();
+          if (!cancelado) {
+            setErroOrigem(
+              dados.erro?.mensagem ?? "Não foi possível carregar a camada de origem."
+            );
+          }
+          return;
+        }
+        const dados: FeatureCollection = await res.json();
+        if (!cancelado) {
+          setOrigem(dados.features ?? []);
+          setOrigemCarregada(true);
+        }
+      } catch {
+        if (!cancelado) {
+          setErroOrigem(
+            "Não foi possível carregar a camada de origem. Verifique sua conexão."
+          );
+        }
+      } finally {
+        // Sempre desliga o indicador: é um sinal de interface, seguro de
+        // resetar mesmo se esta execução do efeito foi cancelada (StrictMode).
+        setCarregandoOrigem(false);
+      }
+    }
+    carregarOrigem();
+    return () => {
+      cancelado = true;
+    };
+  }, [mostrarOrigem, origemCarregada]);
 
   async function selecionarEvento(eventoId: string) {
     setCarregandoEvento(true);
@@ -189,7 +238,41 @@ function MapaConteudo() {
               />
               Violência contra povos indígenas
             </label>
+            <label className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                checked={mostrarOrigem}
+                onChange={(e) => setMostrarOrigem(e.target.checked)}
+              />
+              Cidades natais das vítimas (origem)
+            </label>
           </fieldset>
+
+          {mostrarOrigem && (
+            <p className="text-xs leading-relaxed text-neutral-500 dark:text-neutral-500">
+              Esta camada mostra a cidade natal (origem) de cada vítima com ficha
+              publicada, não o local do crime. Vítimas sem naturalidade
+              documentada não aparecem.
+            </p>
+          )}
+
+          {carregandoOrigem && (
+            <p className="text-sm text-neutral-600 dark:text-neutral-400">
+              Carregando camada de origem...
+            </p>
+          )}
+
+          {erroOrigem && (
+            <p role="alert" className="text-sm text-red-700 dark:text-red-400">
+              {erroOrigem}
+            </p>
+          )}
+
+          {mostrarOrigem && origemCarregada && origem.length === 0 && (
+            <p className="text-sm text-neutral-600 dark:text-neutral-400">
+              Ainda não há vítimas com cidade natal documentada no acervo.
+            </p>
+          )}
 
           {erroLista && (
             <p role="alert" className="text-sm text-red-700 dark:text-red-400">
@@ -203,7 +286,11 @@ function MapaConteudo() {
             </p>
           ) : (
             <div className="h-[60vh] min-h-[320px] overflow-hidden rounded-md border border-papel-200 dark:border-tinta-900">
-              <MapaEventos features={featuresVisiveis} onSelecionar={selecionarEvento} />
+              <MapaEventos
+                features={featuresVisiveis}
+                origem={mostrarOrigem ? origem : []}
+                onSelecionar={selecionarEvento}
+              />
             </div>
           )}
         </div>
