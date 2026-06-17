@@ -169,3 +169,19 @@
   `sobrevivente` → `vitima`; 11 marcadores `camponesado` → `campesinato`;
   nenhum dado usava `pardo`); vocabulários do seed
   `pipeline/06_semear_curadoria.py` e arquivos de curadoria atualizados.
+
+## ADR-013 — Critério editorial para biografias de perpetradores
+- **Data**: 17/06/2026
+- **Decisão**: estabelecer critério formal de como o projeto descreve, cita e
+  responsabiliza agentes da repressão em `tipo: "perpetrador"`. Texto completo
+  em `docs/taxonomia.md`, seção 11.
+- **Princípio central**: perpetrador não é "outro lado de um debate"; é agente
+  cuja autoria está documentada. Linguagem sempre referenciada nas comissões da
+  verdade; `marcadores` vazio para perpetradores (seção 6.2 não se aplica);
+  `status_curadoria: "rascunho"` obrigatório até revisão humana. Dado
+  biográfico verificável fora do acervo (ex.: data de morte) entra só na prosa
+  do `texto_md`, nunca como `trecho` de fonte.
+- **Impacto**: pipeline de curadoria, interface pública, notas de transparência.
+- **Recomendação aberta (não implementada)**: campos estruturados
+  `orgao_vinculo`, `patente`, `funcao` e `periodo_atuacao` para perpetradores —
+  exigiriam migração + ajuste do validador e do contrato de API. Decisão do Yuri.

@@ -238,3 +238,17 @@ Nenhuma pendência aberta. Todas as decisões iniciais foram tomadas em
   classe, com camada própria no mapa (seção 6).
 - ADR-004 — materiais de outras iniciativas (museus, ONGs de memória) entram
   como fonte citável (seção 2).
+
+## 11. Biografias de perpetradores — critérios editoriais
+
+Perpetradores são agentes do Estado cujo envolvimento em graves violações de direitos humanos foi documentado pela Comissão Nacional da Verdade (CNV), pela CEMDP, por comissões estaduais da verdade ou por decisões judiciais. Não são "o outro lado de um debate": são sujeitos históricos cuja autoria de crimes está estabelecida por fontes identificadas. O tratamento editorial segue os princípios abaixo.
+
+**Linguagem e atribuição.** Toda afirmação factual sobre um perpetrador exige fonte recuperada (autor, documento, página, trecho). Usa-se a linguagem das próprias comissões: "reconhecido pela CNV como responsável por", "apontado como autor de", "segundo depoimento prestado à CNV". Adjetivos avaliativos são proscritos; descrevem-se cargos, órgãos, atos e responsabilizações, sempre com referência.
+
+**Fontes e verificação.** A fonte principal para perpetradores é o Capítulo 16 do Relatório da CNV (vol. I, 2014), especialmente as Seções A (dirigentes do regime), B (gestores de estruturas repressivas) e C (autores diretos de graves violações). Depoimentos de sobreviventes e ex-agentes registrados pela CNV são citáveis quando identificados no relatório. Documentos dos próprios órgãos de repressão têm `tipo_fonte: documento_repressao` e `confiabilidade: alta_como_evidencia_de_autoria` — o conteúdo sobre vítimas é hostil por definição e deve ser contextualizado. Dados biográficos verificáveis que não constem do acervo (ex.: data de morte posterior aos relatórios) podem figurar na prosa do `texto_md` sob responsabilidade do curador, mas nunca como `trecho` atribuído a uma fonte.
+
+**Marcadores.** Os marcadores de interseccionalidade (seção 6.2) voltam-se a vítimas. Para perpetradores, os campos `orgao_vinculo`, `patente` e `funcao` devem constar no `resumo_1_linha` e no `texto_md`; `marcadores` fica vazio (`[]`).
+
+**Status e revisão.** Toda biografia de perpetrador é criada com `status_curadoria: "rascunho"` e só vai a `"publicada"` após revisão humana do curador (Yuri). O conteúdo é sensível: envolve nomes de pessoas eventualmente vivas e familiares.
+
+**Anti-negacionismo.** A existência de Lei de Anistia (1979) e o entendimento do STF na ADPF 153 (2010) não alteram os fatos históricos documentados. Quando pertinente, o texto menciona o estado de responsabilização jurídica (tipicamente `reconhecido_pela_cnv_sem_responsabilizacao_penal`), sem relativizar os crimes.
