@@ -876,3 +876,45 @@ anteriores. Documentos depositados em `pipeline/dados/fontes-extras/`.
 
 **Pendência:** indexar os PDFs de `fontes-extras/` como chunks (especialmente o artigo
 ADUSP e a transcrição CNV) quando houver orçamento de pipeline.
+
+## 2026-06-16 — Dossiê Ditadura CEV-SP: ingestão e atualização em massa
+
+Processado o livro "Dossiê Ditadura: Mortos e Desaparecidos Políticos no Brasil de 1964
+a 1985" (CEV-SP, 2013, 762 p., 77 MB) via pipeline Python (`pdftotext`) e auditoria do
+curador-historiador.
+
+**Fonte registrada no banco:**
+- `fonte_id`: d6f2e787 — Dossiê Ditadura CEV-SP (relatorio_oficial, confiabilidade alta)
+
+**Novo verbete inserido:**
+- **Wilson Silva** (`f49cba3b`) — físico da USP, militante ALN, codinome "Rodrigues",
+  nascido 21/04/1942 em Taubaté/SP. Vinculado ao evento de Ana Rosa (evento 5db9d57f)
+  via `evento_vitimas`. Verbete autônomo por decisão do Yuri.
+
+**Biografie atualizadas com dados do Dossiê (17 registros):**
+- Ana Rosa Kucinski: agente José Rodrigues Gonçalves, transferência Petrópolis, CEMDP 036/96, doutorado USP 1972
+- Heleny Guariba: CEMDP 293/96; 12/07/1971 é data da 2ª prisão (Rio), não do telefonema
+- Sônia Angel Jones: nasceu em Santiago do Boqueirão/RS; sepultamento Perus→Jardim da Saudade/RJ; cassetete enviado pelo general Fiúza à família
+- Devanir Carvalho: nascido Muriaé/MG; irmãos Daniel e Joel também desaparecidos; CEMDP 127/96
+- Iara Iavelberg: nascida SP/Ipiranga, família judaica; dois processos CEMDP; ressepultada 2006 fora do setor dos suicidas
+- Vladimir Herzog: nasceu em Osijek, Iugoslávia (hoje Croácia); naturalizado; Operações Jacarta/Radar; CEMDP 210/96
+- Manoel Fiel Filho: nasceu Quebrângulo/AL; sem meias (contradiz versão oficial); relatório SNI confirma estrangulamento
+- Stuart Angel Jones: nasceu Salvador/BA; CISA 14/05/1971; tortura por gás de escapamento; contradição data Marinha
+- Frei Tito: 40 dias de tortura; banido na troca pelo embaixador suíço (13/01/1971); Eveux; CEMDP 126/04
+- Ângelo Arroyo: nasceu SP; autor do Relatório Arroyo; Chacina da Lapa 16/12/1976
+- Rubens Paiva: nasceu Santos/SP; engenheiro Mackenzie; Eunice não requereu indenização; restos nunca localizados
+- Mário Alves: modo de morte documentado; primeiro caso de responsabilidade civil da União reconhecida judicialmente (1987)
+- Joaquim Câmara Ferreira: PCB desde 1933; vereador Jaboticabal 1946; sítio do Fleury
+- Hélcio Fortes: nasceu Ouro Preto 24/01/1948; preso Rio 22/01/1972; trasladado Perus→Ouro Preto
+- Eremias Delizoicov: nasceu SP 27/03/1951; enterrado sob identidade falsa (José Araújo Nóbrega)
+- Devanir: dois irmãos vítimas (Daniel e Joel)
+- Marighella: marcador `negro` já existia no banco — confirmado pela base literal do Dossiê (p. 160)
+
+**Decisões registradas:**
+- Wilson Silva: verbete autônomo (aprovado pelo Yuri)
+- Marighella `negro`: confirmado (Dossiê p. 160: "Filho de uma negra e um imigrante italiano")
+- Maria Augusta Thomaz: entra no próximo lote de ingestão
+- Suely Yumiko Kanayama: fase do Araguaia/CEV-Rio
+
+**Pendência pipeline:** chunking + embeddings do Dossiê Ditadura
+(`pipeline/dados/dossie-ditadura-cevsp.txt`, 2,8 MB) — fazer quando houver orçamento.
