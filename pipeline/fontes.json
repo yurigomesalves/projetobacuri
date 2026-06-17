@@ -144,6 +144,23 @@
       "nota_contexto": "Este documento é o Relatório Técnico de Recomendações do Centro de Estudos sobre Justiça de Transição da Faculdade de Direito da UFMG, anexado ao Relatório Final da Comissão da Verdade em Minas Gerais (Covemg). Trata-se de texto de fundamentação teórica e conceitual sobre justiça de transição em geral — não de um levantamento de casos, vítimas ou eventos ocorridos em Minas Gerais — e não deve ser citado como fonte factual sobre fatos específicos do estado."
     }
   },
+  "dossie-ditadura-cevsp": {
+    "url_oficial": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-ii/downloads/II_Tomo_Dossie-ditadura-mortos-e-desparecidos-politicos-no-brasil-1964-1985.pdf",
+    "url_download": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-ii/downloads/II_Tomo_Dossie-ditadura-mortos-e-desparecidos-politicos-no-brasil-1964-1985.pdf",
+    "data_captura_wayback": null,
+    "descricao_curta": "Dossiê Ditadura: Mortos e Desaparecidos Políticos no Brasil (1964-1985) — edição 2009 publicada pela Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' como Tomo II do relatório final; 762 p., 75 MB, PDF com camada de texto.",
+    "fonte": {
+      "titulo": "Dossiê Ditadura: Mortos e Desaparecidos Políticos no Brasil (1964-1985)",
+      "autor_orgao": "Grupo Tortura Nunca Mais — RJ, Comissão de Familiares de Mortos e Desaparecidos Políticos (IEVE-SP) e Instituto de Estudos sobre a Violência do Estado (IEVE); incorporado ao Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' como Tomo II",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2009-03-02",
+      "periodo": "pos_1985",
+      "url_origem": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-ii/downloads/II_Tomo_Dossie-ditadura-mortos-e-desparecidos-politicos-no-brasil-1964-1985.pdf",
+      "licenca": "documento público oficial",
+      "nota_contexto": "O URL registrado aponta para o portal da CEV-SP, onde está disponível a versão de síntese do Tomo II (16 p., 839 KB), já indexada separadamente como 'cev-sp-rubens-paiva-tomo2'. O arquivo PDF processado nesta entrada (dossie-ditadura-cevsp.pdf, 75 MB, 762 páginas) é a versão COMPLETA do dossiê, edição de 2009, com artefatos de produção gráfica do software InDesign (marcadores 'Livro DH Final.indd N' e timestamps). Esse PDF não foi localizado em URL oficial distinto; o URL da CEV-SP é usado como referência canônica da fonte primária."
+    }
+  },
   "cnv-vol3": {
     "url_oficial": "https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_3_digital.pdf",
     "url_download": "http://web.archive.org/web/20250825070448/https://cnv.memoriasreveladas.gov.br./images/pdf/relatorio/volume_3_digital.pdf",
