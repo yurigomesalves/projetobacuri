@@ -841,3 +841,38 @@ Tomos III/IV da CEV-SP. → Concluído no lote seguinte.
 **Próximo lote possível (chunks disponíveis):** Cidinha Santos, Derlei Catarina de Luca,
 Nasaindy Barret de Araujo, Izaura Coqueiro, Heleny Guariba (caso autônomo). Pendências
 anteriores: Araguaia/CEV-Rio, BNM, módulo crimes e justiça (Fase 7).
+
+## 2026-06-16 — Complemento documental: Ana Rosa e Ilda (fontes externas CEV-SP)
+
+Baixados cinco documentos pequenos do repositório da CEV-SP
+(`comissaodaverdade.al.sp.gov.br/upload/`) para completar lacunas identificadas nos lotes
+anteriores. Documentos depositados em `pipeline/dados/fontes-extras/`.
+
+**Atualizações realizadas no banco (SQL UPDATE — sem novo chunk):**
+
+- **Ana Rosa Kucinski Silva** (`d8186043`):
+  - `texto_md` reescrito com: nascimento em 12/01/1942 em SP/SP, filiação Majer e Esther
+    Kucinski (certidão de óbito), data exata do desaparecimento **22/04/1974** (4º
+    aniversário de casamento), Wilson Silva identificado como **físico**, origem judaica
+    confirmada (Folha de S.Paulo, 18/10/2012). Nota de transparência sobre lacunas
+    removida — dados agora confirmados documentalmente.
+  - Evento `5db9d57f`: data corrigida de `1974-04-01` para **`1974-04-22`**.
+  - Fontes: certidão de óbito (Lei 9.140/1995, lavrada em 26/02/1996); Folha de S.Paulo,
+    18/10/2012; transcrição da cerimônia CNV/CEV-SP, 17/10/2012.
+
+- **Ilda Martins da Silva** (`862dabf2`):
+  - `texto_md` reescrito com: ela própria era operária da NitroQuímica, conheceu Virgílio
+    na greve de 1957, casaram em 1960, filhos Vladimir/Virgílio/Gregório/Isabel (4 meses
+    quando Ilda foi presa), presa em **30/09/1969** (dia seguinte ao de Virgílio),
+    torturada com ameaça de tortura dos filhos na sua frente, 4 meses incomunicável, Rose
+    Nogueira a ajudou a sair, 1 ano Chile + 18 anos Cuba.
+  - Evento `fff2ada1`: data corrigida de `1969-10-01` para **`1969-09-30`**.
+  - Marcador `classe_trabalhadora` adicionado: base documental literal da Revista ADUSP
+    (out. 2011) — "operária consciente e combativa". Fonte âncora no banco: CEV-SP Tomo
+    III; nota da fonte suplementar no campo `secao`.
+  - Fonte: Revista ADUSP, out. 2011, "Em memória de Virgílio Gomes da Silva, cidadão
+    brasileiro, operário" — **não indexada no acervo RAG** (arquivo em
+    `pipeline/dados/fontes-extras/017-Materia-revista-ADUSP-Virgilio.pdf`).
+
+**Pendência:** indexar os PDFs de `fontes-extras/` como chunks (especialmente o artigo
+ADUSP e a transcrição CNV) quando houver orçamento de pipeline.
