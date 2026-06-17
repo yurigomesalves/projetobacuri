@@ -23,12 +23,13 @@ RAIZ = Path(__file__).resolve().parent
 DIR_BIOGRAFIAS = RAIZ / "dados" / "curadoria" / "biografias"
 DIR_EVENTOS = RAIZ / "dados" / "curadoria" / "eventos"
 
-# Vocabulários fechados — docs/taxonomia.md (seções 6, 6.2 e 6.3) e migrações 0006/0007/0011.
-# `tipo` espelha o constraint biografias_tipo_check (migração 0011: inclui 'sobrevivente').
-TIPOS_BIOGRAFIA = {"vitima", "sobrevivente", "local", "organizacao"}
+# Vocabulários fechados — docs/taxonomia.md (seções 6, 6.2 e 6.3) e migrações 0006/0007/0008/0012.
+# `tipo` espelha o constraint biografias_tipo_check (migração 0012: 'sobrevivente'
+# unificado em 'vitima'; 'perpetrador' habilitado para a fase de agentes da repressão).
+TIPOS_BIOGRAFIA = {"vitima", "perpetrador", "local", "organizacao"}
 MARCADORES = {
-    "classe_trabalhadora", "camponesado", "classe_media",
-    "negro", "indigena", "pardo", "mulher", "lgbt", "estrangeiro_imigrante",
+    "classe_trabalhadora", "campesinato", "classe_media",
+    "negro", "indigena", "mulher", "lgbt", "estrangeiro_imigrante",
     "estudante", "religioso_a", "militar_oposicao", "jornalista", "advogado_a",
 }
 TIPOS_CRIME = {

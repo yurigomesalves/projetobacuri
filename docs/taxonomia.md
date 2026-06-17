@@ -153,11 +153,13 @@ Campo central para a perspectiva classista e suas intersecções (princípio 6).
 Preencher **somente com base em fonte documentada** (CNV, biografia publicada,
 testemunho) — nunca inferir.
 
-- `classe_trabalhadora` / `camponesado` / `classe_media` (origem de classe quando
+- `classe_trabalhadora` / `campesinato` / `classe_media` (origem de classe quando
   documentada e relevante ao caso — ex.: perseguição sindical)
-- `negro` / `indigena` / `pardo` (autodeclaração ou classificação de fonte
+- `negro` / `indigena` (autodeclaração ou classificação de fonte
   histórica — registrar a fonte da classificação, tema sensível e historicamente
-  invisibilizado nos registros oficiais da época)
+  invisibilizado nos registros oficiais da época). **`negro` agrega pretos e
+  pardos** (critério do IBGE para população negra); não há marcador `pardo`
+  separado.
 - `mulher` — atenção a violência de gênero específica (ver `violencia_sexual`)
 - `lgbt` — perseguição associada a orientação sexual/identidade de gênero,
   frequentemente dupla invisibilização (nem sempre nomeada nos documentos da época

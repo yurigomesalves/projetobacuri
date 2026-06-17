@@ -151,3 +151,21 @@
   metadados permitem citar página e construir link (DHnet) para cada chunk, e
   a obra é tratada como documento oficial/historiografia consolidada, não como
   "lado de debate".
+
+## ADR-012 — Tipologia de biografias e correção de marcadores
+- **Data**: 17/06/2026
+- **Decisão (Yuri)**:
+  1. **Unificar `vitima` e `sobrevivente`** num único tipo de biografia. A
+     distinção entre quem foi morto/desaparecido e quem sobreviveu à repressão
+     era problemática como tipologia; ambas as situações passam a `vitima`.
+  2. **Habilitar o tipo `perpetrador`** (agentes da repressão), já previsto em
+     `docs/contrato-api.md` mas ausente da constraint do banco, para uma fase
+     dedicada de ingestão desses dados.
+  3. **`camponesado` → `campesinato`** (forma correta do termo).
+  4. **Remover o marcador `pardo`**: negros e pardos são registrados como
+     `negro` (critério do IBGE para população negra). Ver `docs/taxonomia.md`,
+     seção 6.2.
+- **Impacto**: migração `0012_unifica_vitima_marcadores.sql` (6 biografias
+  `sobrevivente` → `vitima`; 11 marcadores `camponesado` → `campesinato`;
+  nenhum dado usava `pardo`); vocabulários do seed
+  `pipeline/06_semear_curadoria.py` e arquivos de curadoria atualizados.
