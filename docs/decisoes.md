@@ -299,3 +299,39 @@
   - `docs/taxonomia.md`: semântica de `data_inicio`/`data_fim` e critérios de
     vínculo registrados. Rótulos de interface e nota de transparência ao usuário
     definidos nesta ADR.
+
+## ADR-017 — Ingestão de vínculos pessoa↔organização e atuação em mais de um estado
+- **Data**: 17/06/2026
+- **Contexto**: as biografias de perpetradores estavam concentradas em poucos
+  estados (RJ, SP, BA), cada uma presa a **uma única UF** (`uf`). O aparato
+  repressivo era nacional e os mesmos agentes circulavam entre unidades de estados
+  diferentes. A ADR-016 (decisão 3) projetou a tabela `pessoa_organizacoes` e o
+  `docs/contrato-api.md` já definia a **saída** dos vínculos, mas faltava o **lado
+  da ingestão** — nenhum script populava a tabela e não havia formato de curadoria.
+- **Decisão (Yuri)**: representar a atuação de um perpetrador em **mais de um
+  estado** **via vínculos a organizações** (a UF vem da organização), sem migração
+  nova. Adicionar novos perpetradores ampliando a cobertura geográfica; primeiro
+  lote: **Pernambuco**.
+- **Formato de entrada** (bloco opcional na biografia JSON de curadoria), lido pelo
+  `pipeline/06_semear_curadoria.py`:
+  ```json
+  "organizacoes": [
+    { "slug": "<biografia tipo=organizacao>", "fonte_id": "<uuid>",
+      "paginas": "...", "trecho": "...", "secao": "...", "nota_vinculo": "..." }
+  ]
+  ```
+  `fonte_id`/`paginas`/`trecho` obrigatórios (princípio 3); `nota_vinculo`
+  **obrigatória quando a pessoa é `perpetrador`** (espelha a constraint da migração
+  0014). Os vínculos são gravados num **segundo passo** do seed (após o upsert de
+  todas as biografias, para os ids das organizações já existirem) e de forma
+  **idempotente** (regrava as linhas da própria pessoa).
+- **Organização = `tipo: "organizacao"`**: a FK composta de `pessoa_organizacoes`
+  exige `organizacao_tipo = 'organizacao'`. As novas unidades repressivas (ex.:
+  DOPS-PE, DOI-CODI/IV Exército) entram com esse tipo. As unidades antigas gravadas
+  como `tipo: "local"` (`doi-codi-sp`, `dops-mg`) **não** servem de alvo de vínculo
+  enquanto forem `local`; sua reconciliação fica como **item futuro**, fora deste lote.
+- **Impacto**: `pipeline/06_semear_curadoria.py` (validação + segundo passo de
+  vínculos); novos JSONs de curadoria em `pipeline/dados/curadoria/biografias/`;
+  nota de formato de entrada no `docs/contrato-api.md`. Sem migração de banco.
+  Perpetradores entram como `status_curadoria: "rascunho"` (ADR-013) — não aparecem
+  na API pública até revisão humana.

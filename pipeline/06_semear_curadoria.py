@@ -65,6 +65,27 @@ def validar_biografia(d: dict, origem: str) -> None:
             raise SystemExit(f"{origem}: marcador inválido '{m['marcador']}'.")
         validar_citacao(m, origem)  # ADR-001: marcador sempre com fonte
     validar_naturalidade_periodo(d, origem)
+    validar_vinculos(d, origem)
+
+
+def validar_vinculos(d: dict, origem: str) -> None:
+    """Vínculos a organizações (ADR-016, decisão 3; ADR-017).
+
+    Cada vínculo cita uma fonte (princípio 3) e aponta para o `slug` de uma
+    biografia tipo='organizacao'. `nota_vinculo` é obrigatória para perpetradores
+    (vínculo a órgão repressivo) — espelha a constraint do banco (migração 0014).
+    A existência e o tipo da organização são checados no segundo passo, quando os
+    ids já estão resolvidos.
+    """
+    for v in d.get("organizacoes", []):
+        if not v.get("slug"):
+            raise SystemExit(f"{origem}: vínculo sem 'slug' de organização.")
+        validar_citacao(v, origem)
+        if d["tipo"] == "perpetrador" and not v.get("nota_vinculo"):
+            raise SystemExit(
+                f"{origem}: vínculo a '{v['slug']}' sem 'nota_vinculo' "
+                f"(obrigatória para perpetrador — ADR-016)."
+            )
 
 
 def validar_naturalidade_periodo(d: dict, origem: str) -> None:
@@ -118,6 +139,35 @@ def regravar_ligacoes(supabase, tabela: str, coluna_id: str, valor_id: str, linh
         supabase.table(tabela).insert(linhas).execute()
 
 
+def resolver_organizacao(supabase, slug: str, ids: dict, tipos: dict, origem: str) -> str:
+    """Resolve o slug de uma organização para seu id, exigindo tipo='organizacao'.
+
+    Procura primeiro no lote em processamento; se não estiver, consulta o banco
+    (a organização pode já existir de uma rodada anterior). A FK composta de
+    pessoa_organizacoes também barra organizações de outro tipo no banco; esta
+    checagem dá uma mensagem de erro clara antes do insert.
+    """
+    if slug in ids:
+        if tipos.get(slug) != "organizacao":
+            raise SystemExit(
+                f"{origem}: vínculo aponta para '{slug}', que é "
+                f"'{tipos.get(slug)}', não 'organizacao'."
+            )
+        return ids[slug]
+    resp = (
+        supabase.table("biografias").select("biografia_id, tipo")
+        .eq("slug", slug).execute()
+    )
+    if not resp.data:
+        raise SystemExit(f"{origem}: organização '{slug}' não existe (nem no lote nem no banco).")
+    if resp.data[0]["tipo"] != "organizacao":
+        raise SystemExit(
+            f"{origem}: vínculo aponta para '{slug}', que é "
+            f"'{resp.data[0]['tipo']}', não 'organizacao'."
+        )
+    return resp.data[0]["biografia_id"]
+
+
 def citacoes(linhas: list[dict], coluna_id: str, valor_id: str, com_ordem: bool) -> list[dict]:
     saida = []
     for i, c in enumerate(linhas, start=1):
@@ -153,6 +203,7 @@ def main() -> None:
     print(f"Validação ok: {len(biografias)} biografias, {len(eventos)} eventos.")
 
     ids_biografias: dict[str, str] = {}
+    tipos_biografias: dict[str, str] = {}
     for origem, d in biografias:
         registro = {
             "slug": d["slug"], "nome": d["nome"], "tipo": d["tipo"],
@@ -170,11 +221,38 @@ def main() -> None:
         resp = supabase.table("biografias").upsert(registro, on_conflict="slug").execute()
         bid = resp.data[0]["biografia_id"]
         ids_biografias[d["slug"]] = bid
+        tipos_biografias[d["slug"]] = d["tipo"]
         regravar_ligacoes(supabase, "biografia_fontes", "biografia_id", bid,
                           citacoes(d["fontes"], "biografia_id", bid, com_ordem=True))
         regravar_ligacoes(supabase, "biografia_marcadores", "biografia_id", bid,
                           citacoes(d.get("marcadores", []), "biografia_id", bid, com_ordem=False))
         print(f"  biografia: {d['slug']} ({d['status_curadoria']})")
+
+    # Segundo passo: vínculos pessoa→organização (ADR-016 decisão 3; ADR-017).
+    # Feito após o upsert de todas as biografias, para que os ids das organizações
+    # já existam. Idempotente: regrava as linhas da própria pessoa.
+    for origem, d in biografias:
+        if not d.get("organizacoes"):
+            continue
+        pessoa_id = ids_biografias[d["slug"]]
+        linhas = []
+        for v in d["organizacoes"]:
+            org_id = resolver_organizacao(
+                supabase, v["slug"], ids_biografias, tipos_biografias, origem
+            )
+            linhas.append({
+                "pessoa_id": pessoa_id,
+                "pessoa_tipo": d["tipo"],
+                "organizacao_id": org_id,
+                "organizacao_tipo": "organizacao",
+                "fonte_id": v["fonte_id"],
+                "paginas": v["paginas"],
+                "trecho": v["trecho"],
+                "secao": v.get("secao"),
+                "nota_vinculo": v.get("nota_vinculo"),
+            })
+        regravar_ligacoes(supabase, "pessoa_organizacoes", "pessoa_id", pessoa_id, linhas)
+        print(f"  vínculos: {d['slug']} → {len(linhas)} organização(ões)")
 
     for origem, d in eventos:
         registro = {

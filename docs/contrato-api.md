@@ -216,6 +216,11 @@ Biografia  = BiografiaResumo + { texto_md, marcadores: Marcador[], fontes: Citac
 // repressivo (ou, se de doc. de inteligência, corroborada). fonte_id sempre presente.
 VinculoOrganizacao = { organizacao_slug, organizacao_nome, nota_vinculo?, fonte: Citacao }
 // nota_vinculo obrigatória quando a pessoa é perpetrador (vínculo a órgão repressivo)
+// Entrada de curadoria (ADR-017): bloco opcional "organizacoes" na biografia JSON —
+//   [{ slug (de uma biografia tipo=organizacao), fonte_id, paginas, trecho, secao?,
+//      nota_vinculo? }] — lido pelo pipeline/06_semear_curadoria.py e gravado em
+//   pessoa_organizacoes. A atuação em mais de um estado é representada por vínculos a
+//   organizações de UFs distintas (a UF vem da organização).
 Faceta     = { valor: string, total: number }
 Facetas    = { tipos: Faceta[],
                ufs_natais: { uf: string, total: number }[],
