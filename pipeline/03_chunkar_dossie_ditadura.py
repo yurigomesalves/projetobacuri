@@ -304,7 +304,10 @@ def _eh_nome_perfil(linha):
     - Não está na lista de não-perfis
     - Não é apenas uma palavra (exceto "Apresentação", já filtrada acima)
     - Não começa com artigo/preposição minúsculo
-    - Não contém verbos auxiliares típicos de prosa corrida
+    - Não termina em pontuação de frase (descarta prosa)
+    - TODO token é Capitalizado ou um conectivo de nome (de, da, do, e…)
+      — isso é o que separa um cabeçalho ("Sebastião Tomé da Silva") de uma
+      linha de prosa em Caso Título ("Tereza da Rocha. Era alfaiate.").
     """
     linha = linha.strip()
     if not linha:
@@ -320,13 +323,71 @@ def _eh_nome_perfil(linha):
     # Deve ter ao menos um espaço (nome composto)
     if " " not in linha:
         return False
+    # Não pode terminar em pontuação de frase (prosa, não cabeçalho)
+    if linha[-1] in ".,:;!?":
+        return False
+
+    # Remove um apelido entre parênteses no fim ("Carlos Marighella (Miguel)")
+    # antes de validar os tokens do nome propriamente dito.
+    nome = re.sub(r"\s*\([^)]*\)\s*$", "", linha).strip()
+
+    # Pontuação de frase no meio do nome indica referência/título, não cabeçalho
+    # (ex.: "Sérgio Paranhos Fleury. São", "Exmo. Sr. Ministro Armando Falcão").
+    if any(ch in ".,:;!?" for ch in nome):
+        return False
+
+    partes = nome.split()
+
     # Não pode começar com artigo ou preposição
-    partes = linha.split()
     if partes[0].lower() in {"a", "o", "as", "os", "de", "da", "do",
                               "em", "na", "no", "para", "com", "por",
                               "e", "ou", "que", "se"}:
         return False
+
+    # Quantidade plausível de palavras para um nome (evita linhas longas de prosa)
+    if not (2 <= len(partes) <= 6):
+        return False
+
+    # Cada palavra precisa ser Capitalizada (começa maiúscula) ou um conectivo
+    # minúsculo de nome. Uma única palavra fora desse padrão (um verbo, um
+    # substantivo comum) já indica prosa, não cabeçalho.
+    conectivos = {"de", "da", "do", "dos", "das", "e"}
+    for palavra in partes:
+        if palavra.lower() in conectivos:
+            continue
+        if not palavra[0].isupper():
+            return False
     return True
+
+
+def isolar_cabecalhos_de_perfil(texto):
+    """Garante que todo cabeçalho de perfil fique numa linha isolada por linhas
+    em branco.
+
+    Motivo: a detecção de seção no main() olha só a primeira linha de cada
+    parágrafo (bloco separado por linha em branco). No corpo do dossiê os perfis
+    vêm em fluxo contínuo — o nome da vítima está numa linha própria, mas SEM
+    linha em branco antes (ver pág. 54: "vado por unanimidade." seguido direto de
+    "Sebastião Tomé da Silva"). Sem este isolamento, o cabeçalho fica embutido no
+    meio do parágrafo e a seção da vítima anterior vaza para a seguinte.
+
+    Espelha a função homônima de 03_chunkar_cemdp.py, mas usa o _eh_nome_perfil()
+    já apertado (nomes em Caso Título colidem com prosa) e NÃO tenta remontar
+    nomes quebrados em duas linhas físicas — lógica que no CEMDP dependia de
+    caixa-alta e que aqui geraria junções erradas.
+    """
+    linhas = texto.split("\n")
+    saida = []
+    for linha in linhas:
+        if not _eh_nome_perfil(linha.strip()):
+            saida.append(linha)
+            continue
+        # isola o cabeçalho com linhas em branco antes e depois
+        if saida and saida[-1].strip():
+            saida.append("")
+        saida.append(linha.strip())
+        saida.append("")
+    return "\n".join(saida)
 
 
 def main():
@@ -365,6 +426,12 @@ def main():
 
             if not valido:
                 continue
+
+            # Isola cabeçalhos de perfil embutidos no meio dos parágrafos
+            # (só no corpo de perfis), para que a detecção por-parágrafo abaixo
+            # consiga enxergá-los e não deixe a seção da vítima anterior vazar.
+            if em_corpo_principal:
+                texto_limpo = isolar_cabecalhos_de_perfil(texto_limpo)
 
             # Divide a página em parágrafos
             paragrafos_brutos = [p.strip() for p in texto_limpo.split("\n\n") if p.strip()]
