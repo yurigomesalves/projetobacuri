@@ -26,7 +26,9 @@ ARQ_MANIFESTO = RAIZ / "manifesto.json"
 
 MODELO = "intfloat/multilingual-e5-small"
 LOTE_EMBEDDINGS = 64
-LOTE_INSERCAO = 100
+# Lote pequeno: cada linha carrega um vetor de 384 dimensões; lotes grandes
+# estouram o statement timeout do Supabase free tier (erro 57014).
+LOTE_INSERCAO = 25
 
 
 def montar_proveniencia(url_oficial: str) -> str:

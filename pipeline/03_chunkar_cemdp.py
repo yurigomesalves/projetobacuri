@@ -129,6 +129,18 @@ PERFIL_ORGANIZACAO = re.compile(
     r"^([A-ZÀ-Ý][A-ZÀ-Ý0-9/\-]{1,15}\s*-\s*[A-ZÀ-Üa-zà-ü].{3,90})$", re.MULTILINE
 )
 
+# Linha que é apenas a continuação de um nome quebrado em duas linhas físicas
+# (só maiúsculas e pontuação de nome, sem dígitos, sem dois-pontos): nas páginas
+# do CEMDP, nomes longos às vezes ocupam duas linhas e a primeira fica sozinha
+# antes do cabeçalho com os anos. Ex.: "ANTÔNIO EXPEDITO CARVALHO" + "PERERA (1931 – 1971)".
+CONTINUACAO_NOME = re.compile(r"^[A-ZÀ-Ý][A-ZÀ-Ý \.\-'çÇ]{1,60}$")
+
+# Subtítulos do Capítulo 4 que aparecem em caixa-alta e poderiam ser confundidos
+# com um fragmento de nome quando precedem o cabeçalho de uma vítima (ex.: o
+# subtítulo "ARGENTINOS DESAPARECIDOS NO BRASIL" vem logo antes de NORBERTO
+# ARMANDO HABEGGER). Não devem ser anexados ao nome da vítima.
+SUBTITULOS_CAP4 = {"ARGENTINOS DESAPARECIDOS NO BRASIL"}
+
 ABERTURA_ORGANIZACOES = re.compile(r"^As Organizações de Esquerda\s*$", re.MULTILINE)
 ABERTURA_GLOSSARIO_PAGINA = 485  # JSONL: glossário começa na página 485
 ABERTURA_ANEXOS = re.compile(r"^ANEXOS\s*$", re.MULTILINE)
@@ -185,6 +197,50 @@ def limpar_pagina(texto, numero_pagina):
         return "", secao_detectada, False
 
     return texto_limpo, secao_detectada, True
+
+
+def isolar_cabecalhos_de_perfil(texto, organizacoes):
+    """Garante que todo cabeçalho de perfil (pessoa/organização) fique numa
+    linha isolada por linhas em branco.
+
+    Motivo: a detecção de seção olha só a primeira linha de cada parágrafo
+    (bloco separado por linha em branco). Muitas páginas do CEMDP usam quebra
+    de linha simples e não deixam linha em branco antes do cabeçalho do próximo
+    perfil; sem este isolamento, o cabeçalho fica embutido no meio do parágrafo
+    e a seção do perfil anterior vaza para a vítima seguinte.
+
+    Também junta o fragmento anterior quando um nome longo foi quebrado em duas
+    linhas físicas (a primeira só com maiúsculas, a segunda com os anos)."""
+    linhas = texto.split("\n")
+    saida = []
+    for linha in linhas:
+        s = linha.strip()
+        eh_perfil = PERFIL_PESSOA.match(s) or (
+            organizacoes and PERFIL_ORGANIZACAO.match(s)
+        )
+        if not eh_perfil:
+            saida.append(linha)
+            continue
+
+        # nome quebrado em duas linhas: anexa o fragmento em maiúsculas anterior
+        j = len(saida) - 1
+        while j >= 0 and not saida[j].strip():
+            j -= 1
+        if (
+            j >= 0
+            and CONTINUACAO_NOME.match(saida[j].strip())
+            and saida[j].strip() not in SUBTITULOS_CAP4
+        ):
+            fragmento = saida[j].strip()
+            del saida[j:]
+            s = f"{fragmento} {s}"
+
+        # isola o cabeçalho com linhas em branco antes e depois
+        if saida and saida[-1].strip():
+            saida.append("")
+        saida.append(s)
+        saida.append("")
+    return "\n".join(saida)
 
 
 def detectar_perfis_na_pagina(texto_limpo, em_capitulo4_ou_organizacoes):
@@ -245,6 +301,12 @@ def main():
                 continue
 
             em_perfis = capitulo4_iniciado or organizacoes_iniciado
+
+            # isola cabeçalhos de perfil embutidos no meio de parágrafos
+            if em_perfis:
+                texto_limpo = isolar_cabecalhos_de_perfil(
+                    texto_limpo, organizacoes_iniciado
+                )
 
             # divide a página em parágrafos
             paragrafos_brutos = [p.strip() for p in texto_limpo.split("\n\n") if p.strip()]
