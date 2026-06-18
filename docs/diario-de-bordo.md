@@ -934,3 +934,37 @@ curador-historiador.
 **Próximo lote possível:** Cidinha Santos (Maria Aparecida Santos), Derlei Catarina de
 Luca, Nasaindy Barret de Araujo, Izaura Coqueiro, Heleny Guariba (aprofundamento).
 Fase Araguaia/CEV-Rio e BNM também pendentes.
+
+## 2026-06-17 — Correção do chunking do CEMDP (vazamento de seção)
+
+Auditoria do chunk do Bacuri (anotada na memória) revelou um defeito **sistêmico**, não
+pontual: no chunking do CEMDP (`pipeline/03_chunkar_cemdp.py`), dos **448** perfis de
+vítimas do Capítulo 4, só **79** tinham `secao` correta — os outros 369 herdavam o nome
+da vítima anterior.
+
+**Causa:** a detecção de seção só olhava a primeira linha de cada parágrafo (bloco
+separado por linha em branco). Páginas com quebra de linha simples e sem linha em branco
+antes do cabeçalho deixavam o nome da próxima vítima embutido no meio do parágrafo,
+invisível ao detector.
+
+**Correção:** função `isolar_cabecalhos_de_perfil()` isola cada cabeçalho como parágrafo
+próprio e remonta nomes longos quebrados em duas linhas físicas (ANTÔNIO EXPEDITO
+CARVALHO PERERA; JOÃO FERREIRA DE MACEDO SOBRINHO), com exclusão de subtítulos em
+caixa-alta (`SUBTITULOS_CAP4`, ex.: "ARGENTINOS DESAPARECIDOS NO BRASIL").
+Resultado: **79 → 474** seções de perfil. Bacuri agora em "Perfil – EDUARDO COLLEN LEITE".
+
+**Re-indexação no Supabase (fonte 067ba85a):** a 1ª tentativa apagou os 1400 chunks
+antigos mas estourou o *statement timeout* no INSERT (free tier, erro 57014), deixando a
+fonte com 0 chunks por alguns minutos. Resolvido reduzindo `LOTE_INSERCAO` de 100 para 25
+em `04_indexar.py`. Reindexados **1562 chunks / 474 perfis**; busca de teste confirmou o
+trecho do Forte dos Andradas (pp. 137-138) retornando sob a seção certa.
+
+**Commit:** `a25ad15` — "Corrige vazamento de seção no chunking do CEMDP".
+
+**Diagnóstico aberto (próxima fase — indexar o Dossiê Ditadura CEV-SP):** o chunker
+`03_chunkar_dossie_ditadura.py` tem a **mesma arquitetura** (só checa a 1ª linha do
+parágrafo, linhas 375-378). Impacto menor que o CEMDP — 355 seções "Perfil –" detectadas,
+maioria dos conhecidos OK — mas há vazamentos reais (ex.: conteúdo de **Rubens Paiva** sob
+`Perfil – Celso Gilberto de Oliveira`, pág. 210; Wilson Silva, Herzog e Frei Tito a
+verificar). Plano: portar `isolar_cabecalhos_de_perfil` adaptada ao padrão de nome em
+caixa mista do Dossiê, re-chunkar, indexar (fonte `d6f2e787`, com `LOTE_INSERCAO=25`).

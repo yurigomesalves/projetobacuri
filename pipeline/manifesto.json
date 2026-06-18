@@ -197,5 +197,55 @@
     "sha256": "e3329dc60056712f46e5fe12ece590c014648bf4e12f1bd09024b1878701ee1c",
     "tamanho_bytes": 1490186,
     "descricao": "Relatório Final da Comissão Estadual da Verdade de Santa Catarina. Documento original do portal Memórias Reveladas/Arquivo Nacional (https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/389fa27327d13645e1c7627cdf1c232a.pdf), obtido via cópia arquivada pelo Internet Archive (Wayback Machine) em 02/10/2025, pois o portal oficial bloqueia downloads automatizados (proteção anti-robô)."
+  },
+  {
+    "slug": "cev-ap-relatorio-final",
+    "url": "https://www.dhnet.org.br/verdade/cv/cev_ap_relatorio_r_2017.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cev_ap_relatorio_r_2017.pdf",
+    "arquivo_local": "dados/brutos/cev-ap-relatorio-final.pdf",
+    "data_download": "2026-06-18T12:36:42.778843+00:00",
+    "sha256": "db63eb190e91ea53a30e1bde27fa8d716b11f811393b33d35d8757cc1108c330",
+    "tamanho_bytes": 2756535,
+    "descricao": "Relatório Final da Comissão Estadual da Verdade do Amapá 'Chaguinha', 2017. O DHnet (ONG de referência em direitos humanos) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cev_ap_relatorio_r_2017.pdf."
+  },
+  {
+    "slug": "cev-ba-relatorio-vol1",
+    "url": "https://www.dhnet.org.br/verdade/cv/cev_ba_volume_01_r_2016.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cev_ba_volume_01_r_2016.pdf",
+    "arquivo_local": "dados/brutos/cev-ba-relatorio-vol1.pdf",
+    "data_download": "2026-06-18T12:37:05.260577+00:00",
+    "sha256": "872205660fbb737a88c1d217c7a915ed5e7e01a77c510b40f40f894636dad9eb",
+    "tamanho_bytes": 39814385,
+    "descricao": "Relatório Final da Comissão da Verdade do Estado da Bahia, volume 1, 2016. O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cev_ba_volume_01_r_2016.pdf."
+  },
+  {
+    "slug": "cev-ba-relatorio-vol2",
+    "url": "https://www.dhnet.org.br/verdade/cv/cev_ba_volume_02_r_2016.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cev_ba_volume_02_r_2016.pdf",
+    "arquivo_local": "dados/brutos/cev-ba-relatorio-vol2.pdf",
+    "data_download": "2026-06-18T12:37:16.548199+00:00",
+    "sha256": "bd147beb58f8657c727a22854fa265447f17d3c25c4a6260d4b08034e47d1496",
+    "tamanho_bytes": 16386087,
+    "descricao": "Relatório Final da Comissão da Verdade do Estado da Bahia, volume 2, 2016. O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cev_ba_volume_02_r_2016.pdf."
+  },
+  {
+    "slug": "cev-se-relatorio-final",
+    "url": "https://www.dhnet.org.br/verdade/cv/cev_se_r_final_2020.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cev_se_r_final_2020.pdf",
+    "arquivo_local": "dados/brutos/cev-se-relatorio-final.pdf",
+    "data_download": "2026-06-18T12:37:34.792246+00:00",
+    "sha256": "4bb18fbeef16de72b000ca1a10755653e442adab9ab1c0c95e49fa211451fe42",
+    "tamanho_bytes": 23985935,
+    "descricao": "Relatório Final da Comissão Estadual da Verdade de Sergipe 'Paulo Barbosa de Araújo', 2020, ~24 MB. O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Principal suspeito de ser PDF escaneado sem camada de texto (a verificar na extração). Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cev_se_r_final_2020.pdf."
+  },
+  {
+    "slug": "cev-mg-triangulo-mineiro",
+    "url": "https://www.dhnet.org.br/verdade/cv/cev_mg_triangulo_mineiro_r_2016.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cev_mg_triangulo_mineiro_r_2016.pdf",
+    "arquivo_local": "dados/brutos/cev-mg-triangulo-mineiro.pdf",
+    "data_download": "2026-06-18T12:37:42.917198+00:00",
+    "sha256": "e8af9f8d73792020fec03f020f2ace42a8c4daf5c3dd675f3b60801ef445d129",
+    "tamanho_bytes": 5506968,
+    "descricao": "Relatório da Comissão da Verdade Regional do Triângulo Mineiro (Minas Gerais), 2016. O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cev_mg_triangulo_mineiro_r_2016.pdf."
   }
 ]

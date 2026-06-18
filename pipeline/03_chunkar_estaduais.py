@@ -9,6 +9,12 @@ Chunking das comissões estaduais da verdade ainda não processadas:
   cev-es-relatorio-final    364 p.   CEV Orlando Bomfim – Espírito Santo
   cev-pr-relatorio-vol1     416 p.   CEV Teresa Urban – Paraná, vol. 1
   cev-pr-relatorio-vol2     444 p.   CEV Teresa Urban – Paraná, vol. 2
+  cev-ap-relatorio-final    129 p.   CEV do Amapá "Chaguinha", 2017
+  cev-ba-relatorio-vol1     828 p.   CEV da Bahia, vol. 1 (Relatório de Atividades), 2016
+  cev-ba-relatorio-vol2     980 p.   CEV da Bahia, vol. 2 "Íntegra dos Depoimentos", 2016
+  cev-se-relatorio-final    428 p.   CEV de Sergipe "Paulo Barbosa de Araújo", 2020
+  cev-mg-triangulo-mineiro  136 p.   Comissão da Verdade do Triângulo Mineiro e Alto
+                                     Paranaíba "Ismene Mendes" (UFU/EDUFU), 2016
 
 Uso: python 03_chunkar_estaduais.py [slug...]
      sem argumento → processa todos
@@ -26,17 +32,24 @@ Seções mapeadas manualmente pelo sumário impresso:
   • ES  — seções I a VIII confirmadas lendo o conteúdo das páginas divisórias
   • PR-vol1 — 6 capítulos, identificados pelas páginas de rosto em caixa alta
   • PR-vol2 — 4 capítulos, identificados pelas páginas de rosto em caixa alta
-  Para os demais (AM, SC, RS, PB, PE) secao = None: documentos curtos ou
-  estrutura interna muito fragmentada para mapeamento auditável sem risco
-  de introduzir erros.
+  • AP  — 3 partes + Recomendações (pags 17, 28, 104, 110 do jsonl verificadas)
+  • BA-vol1 — 7 capítulos (pags 17, 41, 71, 109, 191, 297, 355 verificadas)
+  • SE  — Introdução + Partes I/II/III/VI (pags 26, 75, 93, 283, 373 verificadas)
+  • MG-Triângulo — Apresentação + Introdução + 6 capítulos + 4 Anexos (índice
+    verificado e páginas divisórias confirmadas no jsonl)
+  Para os demais (AM, SC, RS, PB, PE) e BA-vol2 secao = None: documentos
+  curtos, estrutura fragmentada ou volume de depoimentos sem capítulos formais.
 
 Limpeza de cabeçalhos/rodapés:
   AM  — "Página N de 92" no início de cada página
   SC  — "RELATÓRIO FINAL" no início de cada página
-  RS/PB/PE/PR — número de página isolado no início (^\d+\s*\n) e, no PR,
-                 o rodapé corrido "COMISSÃO ESTADUAL DA VERDADE DO PARANÁ –
-                 TERESA URBAN"
+  RS/PB/PE/PR/AP/BA-vol1/BA-vol2 — número de página isolado no início
+        (^\d+\s*\n); no PR também rodapé "COMISSÃO ESTADUAL DA VERDADE DO
+        PARANÁ – TERESA URBAN"
   ES  — sem cabeçalho corrido detectado; apenas normalização padrão
+  SE  — cabeçalho corrido "NN | SEÇÃO" ou "SEÇÃO | NN" em cada página
+  MG-Triângulo — cabeçalho corrido com nome da comissão + número de página
+        ("comissão da verdade do triângulo mineiro… dezembro 2016\nNN")
 
 Todas as decisões de curadoria deste script podem ser conferidas comparando
 o mapa de capítulos com os sumários dos PDFs originais.
@@ -268,6 +281,52 @@ def limpar_pe(texto):
     return limpar_numero_pagina(texto)
 
 
+# --- AP: número de página isolado no topo (mesmo padrão RS/PB/PE) ---
+def limpar_ap(texto):
+    return limpar_numero_pagina(texto)
+
+
+# --- BA-vol1: número de página isolado no topo ---
+def limpar_ba_vol1(texto):
+    return limpar_numero_pagina(texto)
+
+
+# --- BA-vol2: número de página isolado no topo ---
+# Páginas 1 e 3 têm encoding corrompido (fonte proprietária não-embutida);
+# o filtro MINIMO_CARACTERES/ALFA as descarta automaticamente.
+def limpar_ba_vol2(texto):
+    return limpar_numero_pagina(texto)
+
+
+# --- SE: cabeçalho corrido "NN | SEÇÃO" ou "SEÇÃO | NN" em cada página ---
+# Exemplos reais: "24 | INTRODUÇÃO", "INTRODUÇÃO | 25", "74 | PARTE I",
+# "PARTE I | 75", "100 | PARTE II".
+_RE_SE_HEADER = re.compile(
+    r"^(?:\d+\s*\|\s*[\w\s]+|[\w\s]+\|\s*\d+)\s*\n",
+    re.UNICODE,
+)
+
+def limpar_se(texto):
+    return _RE_SE_HEADER.sub("", texto).strip()
+
+
+# --- MG-Triângulo: cabeçalho corrido com nome da comissão + número de página ---
+# Aparece em páginas ímpares: "comissão da verdade do triângulo mineiro e alto
+# paranaíba – relatório I – caso ismene mendes – dezembro 2016\nNN"
+# Em páginas pares: "NN\n<seção em minúsculas>"  → o número de página solto
+# já é capturado por _RE_NUM_PAG; o rótulo de seção em minúsculas (ex:
+# "apresentação", "caso ismene: ...") permanece no texto — é conteúdo legítimo.
+_RE_MG_TRIG_HEADER = re.compile(
+    r"^comiss[aã]o da verdade do tri[aâ]ngulo mineiro.*?dezembro 2016\s*\n\d*\s*\n?",
+    re.IGNORECASE | re.DOTALL,
+)
+
+def limpar_mg_triangulo(texto):
+    texto = _RE_MG_TRIG_HEADER.sub("", texto)
+    texto = _RE_NUM_PAG.sub("", texto)
+    return texto.strip()
+
+
 # =============================================================================
 # MAPAS DE SEÇÕES (capítulo → página inicial no .jsonl, 1-based)
 # Cada mapa foi construído lendo o sumário do PDF e verificando o conteúdo
@@ -304,6 +363,70 @@ _SECOES_PR2 = [
     (160, "2. Outras Graves Violações de Direitos Humanos"),
     (288, "3. Partidos Políticos, Sindicatos e Ditadura"),
     (394, "4. Textos Temáticos"),
+]
+
+# AP: 3 partes + Recomendações
+# Verificadas lendo sumário (pag 10) e conteúdo real das páginas divisórias no jsonl.
+_SECOES_AP = [
+    (17,  "I Parte – Organização e Funcionamento"),
+    (28,  "II Parte – Ditadura Civil-Militar no Amapá (1964-1988)"),
+    (104, "III Parte – Projeto A Memória Vai à Escola"),
+    (110, "IV Parte – Recomendações"),
+]
+
+# BA-vol1: 7 capítulos
+# Verificados lendo o sumário (pags 5-10) e as páginas divisórias reais no jsonl
+# (pags 17, 41, 71, 109, 191, 297, 355 — cada uma começa com "NN \n\nCAPÍTULO N").
+_SECOES_BA1 = [
+    (17,  "Capítulo 1 – A Comissão Estadual da Verdade-BA e o Trabalho Realizado"),
+    (41,  "Capítulo 2 – O Impacto Imediato do Golpe"),
+    (71,  "Capítulo 3 – Sistema de Segurança e de Justiça: Estrutura da Repressão"),
+    (109, "Capítulo 4 – Cultura e Meios de Comunicação: Repressão e Resistência"),
+    (191, "Capítulo 5 – Vítimas da Ditadura: Perseguidos, Cassados, Exilados, Torturados, Mortos e Desaparecidos"),
+    (297, "Capítulo 6 – Igrejas e Ditadura Militar na Bahia"),
+    (355, "Capítulo 7 – Considerações e Recomendações"),
+]
+
+# SE: Introdução + 7 Partes
+# Verificados lendo o sumário (pags 21-24 do jsonl) e confirmando as páginas divisórias
+# reais no jsonl: cabeçalhos "NN | PARTE X" / "PARTE X | NN" confirmam cada entrada.
+# Partes IV e V estavam ausentes no mapa anterior (mapeamento errôneo que pulava III→VI).
+# jsonl pag 26 = "24 | INTRODUÇÃO"
+# jsonl pag 75 = "74 | PARTE I"
+# jsonl pag 91 = "90 | PARTE II"
+# jsonl pag 283 = "282 | PARTE III"
+# jsonl pag 315 = "314 | PARTE IV"
+# jsonl pag 343 = "342 | PARTE V"
+# jsonl pag 373 = "372 | PARTE VI"
+# jsonl pag 380 = "PÓS TEXTUAIS| 379" (Parte VII)
+_SECOES_SE = [
+    (26,  "Introdução"),
+    (75,  "Parte I – O Estado de Segurança Nacional e as Estruturas de Repressão Política"),
+    (91,  "Parte II – A Cronologia da Repressão Política em Sergipe de 1946 a 1988"),
+    (283, "Parte III – Verdade e Memória: Temas Diversos"),
+    (315, "Parte IV – Pessoas Atingidas pela Repressão Política em Sergipe"),
+    (343, "Parte V – A Repressão Política em Sergipe"),
+    (373, "Parte VI – Recomendações"),
+    (380, "Parte VII – Pós-Textuais"),
+]
+
+# MG-Triângulo: Apresentação + Introdução + 6 capítulos + 4 Anexos
+# Documento gira inteiramente em torno do Caso Ismene Mendes.
+# Páginas verificadas lendo o índice (pag 6) e o conteúdo real de cada divisória.
+_SECOES_MG_TRIG = [
+    (9,   "Apresentação – As Comissões da Verdade"),
+    (14,  "Introdução – Justiça de Transição e Consolidação Democrática"),
+    (17,  "Biografia de Ismene Mendes"),
+    (19,  "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos"),
+    (25,  "Capítulo II – A Ditadura e os seus Suicidados"),
+    (28,  "Capítulo III – Repressão aos Sindicalistas Rurais no Final da Ditadura"),
+    (33,  "Capítulo IV – Ditadura Civil-Militar e a Questão de Gênero"),
+    (46,  "Capítulo V – Das Ligas Camponesas ao MST"),
+    (53,  "Capítulo VI – Ismênia: o Caso Ismene Mendes e a Justiça de Transição pela Arte"),
+    (61,  "Anexo I – Perfil CNV: Mortos e Desaparecidos Políticos"),
+    (68,  "Anexo II – A Vida de Ismene Mendes"),
+    (75,  "Anexo III – Inquérito Caso Ismene Mendes"),
+    (110, "Anexo IV – Principais Depoimentos"),
 ]
 
 
@@ -356,6 +479,13 @@ DOCUMENTOS = {
     "cev-es-relatorio-final":   (limpar_es,  _secao_fn(_SECOES_ES)),
     "cev-pr-relatorio-vol1":    (limpar_pr,  _secao_fn(_SECOES_PR1)),
     "cev-pr-relatorio-vol2":    (limpar_pr,  _secao_fn(_SECOES_PR2)),
+    # --- novos slugs (2025-06) ---
+    "cev-ap-relatorio-final":   (limpar_ap,       _secao_fn(_SECOES_AP)),
+    "cev-ba-relatorio-vol1":    (limpar_ba_vol1,  _secao_fn(_SECOES_BA1)),
+    # vol2 = íntegra de depoimentos; sem capítulos formais → secao=None
+    "cev-ba-relatorio-vol2":    (limpar_ba_vol2,  None),
+    "cev-se-relatorio-final":   (limpar_se,       _secao_fn(_SECOES_SE)),
+    "cev-mg-triangulo-mineiro": (limpar_mg_triangulo, _secao_fn(_SECOES_MG_TRIG)),
 }
 
 

@@ -320,5 +320,91 @@
       "url_origem": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/comissao_da_verdade_v2_2versao.pdf",
       "licenca": "documento público oficial"
     }
+  },
+  "cev-ap-relatorio-final": {
+    "url_oficial": "https://www.dhnet.org.br/verdade/cv/cev_ap_relatorio_r_2017.pdf",
+    "url_download": "https://www.dhnet.org.br/verdade/cv/cev_ap_relatorio_r_2017.pdf",
+    "data_captura_wayback": null,
+    "descricao_curta": "Relatório Final da Comissão Estadual da Verdade do Amapá 'Francisco das Chagas Bezerra – Chaguinha', Macapá, 2017, 129 p., PDF com camada de texto. Organizado em 4 partes: Organização e Funcionamento; Ditadura Civil-Militar no Amapá; Projeto A Memória Vai à Escola; Recomendações. O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo.",
+    "fonte": {
+      "titulo": "Relatório Final da Comissão Estadual da Verdade do Amapá Francisco das Chagas Bezerra – Chaguinha",
+      "autor_orgao": "Comissão Estadual da Verdade do Amapá Francisco das Chagas Bezerra – Chaguinha — governo do Estado do Amapá",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2017-01-01",
+      "periodo": "pos_1985",
+      "url_origem": "https://www.dhnet.org.br/verdade/cv/cev_ap_relatorio_r_2017.pdf",
+      "licenca": "documento público oficial",
+      "nota_contexto": "Primeira comissão da verdade criada na Amazônia (Lei estadual 1.756/2013). O Amapá foi Território Federal até 1988, governado diretamente pela União, o que moldou de forma específica a repressão local e a escassez de arquivos públicos estaduais. O relatório apoia-se sobretudo em testemunhos orais (38 oitivas) e documenta especialmente a Operação Engasga (1973) e os reflexos da Guerrilha do Araguaia na região. Alcance geográfico restrito ao antigo Território Federal do Amapá."
+    }
+  },
+  "cev-ba-relatorio-vol1": {
+    "url_oficial": "https://www.dhnet.org.br/verdade/cv/cev_ba_volume_01_r_2016.pdf",
+    "url_download": "https://www.dhnet.org.br/verdade/cv/cev_ba_volume_01_r_2016.pdf",
+    "data_captura_wayback": null,
+    "descricao_curta": "Relatório de Atividades da Comissão Estadual da Verdade – BA, agosto/2013–abril/2016, Volume 1 (narrativas temáticas e estrutura repressiva na Bahia), 828 p., PDF com camada de texto. O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. ATENÇÃO: título confirmado pelo sumário (p. 5); capa (pp. 1–4) é imagem sem camada de texto.",
+    "fonte": {
+      "titulo": "Relatório Final de Atividades da Comissão Estadual da Verdade – Bahia — Volume 1 (agosto/2013–abril/2016)",
+      "autor_orgao": "Comissão Estadual da Verdade – Bahia (CEV-BA) — governo do Estado da Bahia (Decreto estadual 14.227/2012)",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2016-04-01",
+      "periodo": "pos_1985",
+      "url_origem": "https://www.dhnet.org.br/verdade/cv/cev_ba_volume_01_r_2016.pdf",
+      "licenca": "documento público oficial",
+      "nota_contexto": "A Comissão Estadual da Verdade – Bahia (CEV-BA), criada pelo Decreto estadual 14.227/2012, funcionou entre agosto de 2013 e abril de 2016. O Volume 1 reúne os capítulos temáticos sobre a estrutura da repressão na Bahia, o impacto do golpe, cultura e meios de comunicação, vítimas, a atuação de igrejas e as recomendações finais; abarca todo o estado, inclusive o interior, e baianos mortos ou desaparecidos em outros estados. Os próprios comissários registram que o acesso a arquivos militares foi recusado."
+    }
+  },
+  "cev-ba-relatorio-vol2": {
+    "url_oficial": "https://www.dhnet.org.br/verdade/cv/cev_ba_volume_02_r_2016.pdf",
+    "url_download": "https://www.dhnet.org.br/verdade/cv/cev_ba_volume_02_r_2016.pdf",
+    "data_captura_wayback": null,
+    "descricao_curta": "Relatório de Atividades da Comissão Estadual da Verdade – BA, agosto/2013–abril/2016, Volume 2 (íntegra dos depoimentos), 980 p., PDF com camada de texto. O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. ATENÇÃO: capa (pp. 1–3) tem texto corrompido por fonte proprietária embutida (encoding não-padrão); título confirmado pela página 4 (ficha técnica) e sumário (p. 5).",
+    "fonte": {
+      "titulo": "Relatório Final de Atividades da Comissão Estadual da Verdade – Bahia — Volume 2: Íntegra dos Depoimentos (agosto/2013–abril/2016)",
+      "autor_orgao": "Comissão Estadual da Verdade – Bahia (CEV-BA) — governo do Estado da Bahia (Decreto estadual 14.227/2012)",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2016-04-01",
+      "periodo": "pos_1985",
+      "url_origem": "https://www.dhnet.org.br/verdade/cv/cev_ba_volume_02_r_2016.pdf",
+      "licenca": "documento público oficial",
+      "subtipo": "volume_de_testemunhos",
+      "nota_contexto": "Segundo volume da CEV-BA: transcrições integrais de 74 depoimentos colhidos em audiências públicas, tomadas de depoimento e entrevistas. Os depoentes (sindicalistas, estudantes, artistas, exilados, familiares de vítimas) são identificados por nome no corpo do texto. São transcrições de fala, com marcas de oralidade; parte foi revisada pelos depoentes antes da publicação, parte não. Trata-se de relato em primeira pessoa: valor histórico e probatório alto, mas sujeito às limitações de memória, trauma e tempo próprias do testemunho — não deve ser lido com o mesmo peso de um relatório analítico."
+    }
+  },
+  "cev-se-relatorio-final": {
+    "url_oficial": "https://www.dhnet.org.br/verdade/cv/cev_se_r_final_2020.pdf",
+    "url_download": "https://www.dhnet.org.br/verdade/cv/cev_se_r_final_2020.pdf",
+    "data_captura_wayback": null,
+    "descricao_curta": "Relatório Final da Comissão Estadual da Verdade de Sergipe 'Paulo Barbosa de Araújo', Aracaju, 2020, 428 p., PDF com camada de texto. Organizado em 7 partes (numeração contínua): I – Estruturas de Repressão; II – Cronologia da Repressão (1946–1988); III – Verdade e Memória; IV – Pessoas Atingidas; V – A Repressão Política; VI – Recomendações; VII – Pós-Textuais. O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo.",
+    "fonte": {
+      "titulo": "Relatório Final da Comissão Estadual da Verdade de Sergipe 'Paulo Barbosa de Araújo'",
+      "autor_orgao": "Comissão Estadual da Verdade de Sergipe 'Paulo Barbosa de Araújo' — governo do Estado de Sergipe",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2020-01-01",
+      "periodo": "pos_1985",
+      "url_origem": "https://www.dhnet.org.br/verdade/cv/cev_se_r_final_2020.pdf",
+      "licenca": "documento público oficial",
+      "nota_contexto": "A CEV/SE 'Paulo Barbosa de Araújo' (Decreto estadual 30.030/2015) trabalhou de 2016 a 2019 e publicou o relatório em 2020 — uma das últimas comissões estaduais do ciclo aberto pela CNV. Cobre o período 1946–1988, documentando a repressão ao PCB nos anos 1950 como antecedente estrutural da ditadura. É de natureza analítico-documental (não um volume de testemunhos); inclui glossário extenso de siglas e órgãos de repressão, útil como referência mas não como fonte factual isolada."
+    }
+  },
+  "cev-mg-triangulo-mineiro": {
+    "url_oficial": "https://www.dhnet.org.br/verdade/cv/cev_mg_triangulo_mineiro_r_2016.pdf",
+    "url_download": "https://www.dhnet.org.br/verdade/cv/cev_mg_triangulo_mineiro_r_2016.pdf",
+    "data_captura_wayback": null,
+    "descricao_curta": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da ditadura civil-militar, Uberlândia/MG, EDUFU, 2016, 136 p., PDF com camada de texto. Comissão de âmbito regional (não estadual), vinculada à UFU. O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo.",
+    "fonte": {
+      "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+      "autor_orgao": "Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — subcomissão regional vinculada à Comissão da Verdade em Minas Gerais (Covemg) e à Universidade Federal de Uberlândia (UFU); pesquisa de docentes e discentes da UFU em regime voluntário; publicada pela EDUFU (Editora da UFU), ISBN 978-85-7078-449-0",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2016-01-01",
+      "periodo": "pos_1985",
+      "url_origem": "https://www.dhnet.org.br/verdade/cv/cev_mg_triangulo_mineiro_r_2016.pdf",
+      "licenca": "documento público oficial",
+      "nota_contexto": "Trabalho de uma subcomissão regional e universitária — não de um órgão governamental estadual. Vinculada à Covemg por acordo de cooperação e sediada na UFU (Uberlândia/MG), focou o caso da advogada e vereadora Ismene Mendes, morta em 1985 em circunstâncias documentadas pelo relatório como assassinato de motivação política, contra a versão do inquérito original. O caso revela a continuidade da repressão após a Anistia (1979) e o papel do poder civil local (latifúndio, elites agroindustriais) na violência contra trabalhadores rurais. Natureza híbrida entre relatório oficial e produção acadêmica. NÃO confundir com o Relatório Final da Covemg (comissão estadual do governo de MG), já no acervo como 'cev-mg-covemg-relatorio-final-2017'."
+    }
   }
 }

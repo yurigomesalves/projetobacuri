@@ -21,6 +21,35 @@ Nota: todos os PDFs do Memórias Reveladas bloqueiam download automatizado (Reac
 **Comissão da Verdade em Minas Gerais (Covemg)**, comissão ESTADUAL ligada ao governo de Minas Gerais (não confundir com a comissão municipal de Belo Horizonte). ✅ Ingerido (jun/2026): **Relatório Final 2017** (1781 p., ~67 MB), PDF com camada de texto, baixado do repositório DSpace institucional `comissaodaverdade.mg.gov.br/bitstream/handle/123456789/2736/` — 1781 páginas extraídas em `pipeline/dados/extraido/cev-mg-covemg-relatorio-final-2017.jsonl` (3 páginas vazias, ~4,27 milhões de caracteres). Hash SHA-256 verificado contra valor previamente conhecido. **Anexo — Relatório Técnico de Recomendações do Centro de Estudos sobre Justiça de Transição da UFMG** (5 p., ~271 KB), PDF com camada de texto, baixado de `comissaodaverdade.mg.gov.br/bitstream/handle/123456789/2743/` — extraído em `pipeline/dados/extraido/cev-mg-covemg-anexo-justica-transicao-ufmg.jsonl` (0 páginas vazias, ~14,3 mil caracteres). Hash e proveniência de ambos em `pipeline/manifesto.json`.
 - **Comissão Especial sobre Mortos e Desaparecidos Políticos (CEMDP)** — livro "Direito à Memória e à Verdade" (2007). ✅ Ingerido (jun/2026): PDF com camada de texto (502 p.), 502 páginas extraídas em `pipeline/dados/extraido/cemdp-direito-memoria-verdade.jsonl`. Não foi localizada cópia hospedada em domínio gov.br ainda ativa; usamos a cópia mantida pelo DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência em direitos humanos), que distribui o PDF original da Secretaria Especial dos Direitos Humanos da Presidência da República/CEMDP (2007) sem alterações — URL e hash registrados em `pipeline/manifesto.json`. Se uma cópia oficial gov.br for encontrada no futuro, atualizar a fonte e re-registrar a proveniência.
 
+### Catálogo DHnet de comissões da verdade (estaduais, municipais, universitárias e temáticas)
+O **DHnet** (Rede Direitos Humanos e Cultura Democrática, ONG de referência) mantém em
+`https://www.dhnet.org.br/verdade/estados/index.htm` um catálogo de ~44 relatórios de comissões
+da verdade e **hospeda os PDFs diretamente** em `https://www.dhnet.org.br/verdade/cv/` — sem o
+bloqueio anti-robô do Memórias Reveladas (mesmo host de onde já veio o CEMDP). É a via preferencial
+para os documentos que o portal oficial trava. Proveniência: o DHnet redistribui o PDF original da
+comissão sem alterações (registrar URL + hash no manifesto, como no CEMDP).
+
+✅ **1º lote ingerido (jun/2026) — estaduais faltantes + regional do Triângulo Mineiro** (todos PDF
+com camada de texto, extração direta; chunking em `pipeline/03_chunkar_estaduais.py`, indexados no
+Supabase com `nota_contexto` editorial):
+- **Amapá** "Chaguinha" (2017, 129 p.) → `cev-ap-relatorio-final` — 173 chunks, 4 partes.
+- **Bahia** vol. 1 (Relatório Final de Atividades, 2016, 828 p.) → `cev-ba-relatorio-vol1` — 1071 chunks, 7 capítulos.
+- **Bahia** vol. 2 (Íntegra dos Depoimentos, 2016, 980 p.) → `cev-ba-relatorio-vol2` — 1972 chunks; `subtipo=volume_de_testemunhos` (relato em 1ª pessoa). Capa pp. 1–3 com encoding corrompido, descartada na limpeza.
+- **Sergipe** "Paulo Barbosa de Araújo" (2020, 428 p.) → `cev-se-relatorio-final` — 754 chunks, 7 partes (I–VII) + Introdução.
+- **Triângulo Mineiro e Alto Paranaíba** "Ismene Mendes" / Caso Ismene Mendes (UFU/EDUFU, 2016, 136 p.) → `cev-mg-triangulo-mineiro` — 177 chunks, 13 seções. Subcomissão **regional/universitária** ligada à Covemg+UFU — NÃO confundir com a Covemg estadual (`cev-mg-covemg-relatorio-final-2017`).
+
+**Lotes futuros do catálogo DHnet** (ainda NÃO ingeridos; arquivos em `/verdade/cv/`):
+- *Municipais (8):* Juiz de Fora (`cmv_mg_juiz_de_fora_r_2015`), João Pessoa (`cmv_pb_joao_pessoa_r_2020`), Niterói (`cmv_rj_niteroi_r_preliminar_2015`), Petrópolis (`cmv_rj_petropolis_r_2018`), Volta Redonda (`cmv_rj_volta_redonda_r_2015`), Mauá (`cmv_sp_maua_r_final_2014`), Osasco (`cmv_sp_osasco_dossier_lex_2014`), São Paulo/Herzog (`cmv_sp_sao_paulo_r_2016`).
+- *Universitárias (8):* UFBA (`cuv_ba_ufba_r_2014`), UnB (`cuv_df_unb_r_2015`), UFES (`cuv_es_ufes_r_2016`), UFOP (`cuv_mg_ufop_2017`), UFCG (`cuv_pb_ufcg_r_parcial_2015`), Unicamp (`cuv_sp_unicamp_r_2015`), UNIFESP (`cuv_sp_unifesp_r_2015`), UFRN (`cuv_ufrn_r_final_2015`).
+- *Temáticas/setoriais (9):* Comissão Camponesa (`cv_camponesa_r_2016`), bancários DF (`cv_df_bancarios_r_2015`), jornalistas FENAJ (`cv_df_fenaj_jornalistas_anexo_1`), UNE (`cv_df_une_r_2015`), jornalistas MG (`cv_mg_jornalistas_r_2013`), jornalistas SC (`cv_sc_jornalistas_r_2014`), CUT-SP (`cv_sp_cut_r_2015`), jornalistas SP (`cv_sp_jornalistas_r_2017`), ANDES (`cv_universidades_andes_2020`).
+- *Já no acervo por outras vias (duplicatas no DHnet, ignorar):* CNV, CEV-SP Rubens Paiva, CEV-RJ, CEV-MG/Covemg, estaduais AM, ES, PB, PE, PR, RS, SC.
+
+**Backlog de qualidade do 1º lote** (apontado pela curadoria, não bloqueante — tratar em ciclo
+futuro): (a) reclassificar chunks de sumário/índice e o poema de abertura do Triângulo como
+`tipo_chunk` não-`corpo` (ex.: `paratexto`/`indice`) — hoje todos entram como `corpo`; (b) extrair
+metadado `depoente` por chunk no vol. 2 da Bahia (hoje o nome do depoente fica só no corpo do texto);
+(c) duplicação de capa em chunks 0–1 do Triângulo; (d) typo de OCR "1288"→"128" em chunk do Amapá.
+
 ## 2. Brasil: Nunca Mais
 - **BNM Digital** (Ministério Público Federal + Arquivo Edgard Leuenroth/Unicamp): cópias digitalizadas dos processos do STM usados no projeto BNM. https://bnmdigital.mpf.mp.br — atenção: muitos documentos são escaneados (exigem OCR) e o acervo é enorme; começar pelos tomos do "Projeto A".
 
