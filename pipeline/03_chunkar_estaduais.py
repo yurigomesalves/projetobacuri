@@ -16,6 +16,16 @@ Chunking das comissões estaduais e municipais da verdade:
   cev-mg-triangulo-mineiro  136 p.   Comissão da Verdade do Triângulo Mineiro e Alto
                                      Paranaíba "Ismene Mendes" (UFU/EDUFU), 2016
 
+  --- Comissões Universitárias (adicionadas 2026-06) ---
+  cuv-ba-ufba        174 p.   UFBA – Comissão Milton Santos, 2014
+  cuv-df-unb         363 p.   UnB – Comissão Anísio Teixeira, 2015
+  cuv-es-ufes        190 p.   UFES – CVUfes, 2016
+  cuv-mg-ufop        258 p.   UFOP – GT UFOP/COVEMG, 2017
+  cuv-pb-ufcg         30 p.   UFCG – CVMJER/UFCG (relatório parcial), 2015
+  cuv-sp-unicamp      61 p.   Unicamp – Comissão "Octávio Ianni", 2015
+  cuv-sp-unifesp      84 p.   UNIFESP – Comissão "Marcos Lindenberg", 2015
+  cuv-rn-ufrn        491 p.   UFRN – Comissão da Verdade da UFRN, 2015
+
   --- Comissões Municipais (adicionadas 2026-06) ---
   cmv-mg-juiz-de-fora       272 p.   CMV Juiz de Fora – "Memórias da Repressão", 2015
   cmv-pb-joao-pessoa        345 p.   CMV João Pessoa, 2020
@@ -49,6 +59,27 @@ Seções mapeadas manualmente pelo sumário impresso:
   • SE  — Introdução + Partes I/II/III/VI (pags 26, 75, 93, 283, 373 verificadas)
   • MG-Triângulo — Apresentação + Introdução + 6 capítulos + 4 Anexos (índice
     verificado e páginas divisórias confirmadas no jsonl)
+  • UFBA — Introdução + 8 caps + Recomendações + Anexos (sumário pag 7;
+    campo pagina == jsonl pos; nº impresso = pag − 2; caps verificados:
+    8,11,22,36,42,50,57,142,143,145)
+  • UnB  — Sumário Executivo + Apresentação + Atividades + Justiça de Transição
+    + Repressão/Resistência + Depoentes + UnB Projeto + PARTE I (cronologia)
+    + PARTE II + PARTE II.3 + PARTE IV + Referências (cabeçalho corrido alternado;
+    pags 13,15,14,20,22,29,32,59,237,255,296,357 verificadas)
+  • UFES — Apresentação + Introdução + UFES Criação ao Golpe + Nota Metod. +
+    4 ondas repressivas + Conclusões (sumário pag 7; offset +2; pags
+    11,13,15,20,24,51,79,122,181 verificadas)
+  • UFOP — Agradecimentos + Introdução + Parte I + Parte II +
+    Considerações Finais + Recomendações + Anexos (sumário pag 5;
+    campo pagina == jsonl pos; pags 7,8,11,136,224,231,235,247,256 verificadas)
+  • UFCG — relatório parcial curto (30 pags), sem sumário estruturado → secao=None
+  • Unicamp — Introdução + 2 caps + Linha do Tempo + Recomendações + Anexos
+    (sumário pag 4; offset +1; pags 5,9,17,49,51,53 verificadas)
+  • UNIFESP — Apresentação + 6 caps (sumário pags 7-8; offset +8;
+    pags 11,15,27,45,55,61,79 verificadas)
+  • UFRN — Agradecimentos + Apresentação + Caps I–XII + Referências + Lista +
+    Anexos (sumário pag 5; campo pagina == jsonl pos;
+    pags 7,9,11,31,67,85,101,115,121,143,325,385,399,411,429,441,445 verificadas)
   • JF  — Apresentação + 6 capítulos + Apêndices + Anexos (sumário na pag 11;
     páginas divisórias 12,14,42,80,110,128,204,216,251 são em branco; conteúdo
     começa 2 páginas depois: 12,16,44,82,112,130,206,216,251 verificadas)
@@ -362,6 +393,224 @@ def limpar_mg_triangulo(texto):
 
 
 # =============================================================================
+# LIMPEZA — COMISSÕES UNIVERSITÁRIAS (adicionadas 2026-06)
+# =============================================================================
+
+# --- cuv-ba-ufba: número de página solto no topo ("N\n" ou "NN\n") ---
+# Cada página começa com o número impresso (ex: "8\n", "17\n").
+# Mesmo padrão de RS/PB/PE — reutiliza _RE_NUM_PAG.
+def limpar_cuv_ufba(texto):
+    return _RE_NUM_PAG.sub("", texto).strip()
+
+
+# --- cuv-df-unb: cabeçalho corrido alternado em páginas pares e ímpares ---
+# Pares:   "NN \nUniversidade de Brasília\n"
+# Ímpares: "Relatório da Comissão Anísio Teixeira de Memória e Verdade \nNN\n"
+_RE_UNB_PAR = re.compile(
+    r"^\d+\s*\nUniversidade de Bras[ií]lia\s*\n",
+    re.IGNORECASE,
+)
+_RE_UNB_IMPAR = re.compile(
+    r"^Relat[oó]rio da Comiss[aã]o An[ií]sio Teixeira de Mem[oó]ria e Verdade\s*\n\d+\s*\n",
+    re.IGNORECASE,
+)
+
+def limpar_cuv_unb(texto):
+    texto = _RE_UNB_PAR.sub("", texto)
+    texto = _RE_UNB_IMPAR.sub("", texto)
+    return texto.strip()
+
+
+# --- cuv-es-ufes: cabeçalho corrido alternado ---
+# Pares:   "NN\nRelatório Final da Comissão da Verdade\n"
+# Ímpares: "NN\nUniversidade Federal do Espírito Santo\n"
+_RE_UFES_HEADER = re.compile(
+    r"^\d+\s*\n(?:Relat[oó]rio Final da Comiss[aã]o da Verdade|"
+    r"Universidade Federal do Esp[ií]rito Santo)\s*\n",
+    re.IGNORECASE,
+)
+
+def limpar_cuv_ufes(texto):
+    return _RE_UFES_HEADER.sub("", texto).strip()
+
+
+# --- cuv-mg-ufop: sem cabeçalho corrido detectado ---
+# Documento extraído sem número de página no início de cada bloco.
+def limpar_cuv_ufop(texto):
+    return texto.strip()
+
+
+# --- cuv-pb-ufcg: cabeçalho corrido de contatos em todas as páginas ---
+# Linha: "Contatos: cvmjufcg@hotmail.com - ADUFCG: 3333-1032/ ADUC: 3531-2255 / \n
+#         Sintespb/UFCG: 3333-1048/ ADUFCG-Patos: 3423-9513 / DCE-UFCG: 2101-1378/1251 \n"
+_RE_UFCG_HEADER = re.compile(
+    r"^Contatos:\s*cvmjufcg@hotmail\.com.*?DCE-UFCG:\s*2101-1378/1251\s*\n",
+    re.DOTALL | re.IGNORECASE,
+)
+
+def limpar_cuv_ufcg(texto):
+    return _RE_UFCG_HEADER.sub("", texto).strip()
+
+
+# --- cuv-sp-unicamp: número de página isolado no topo ("N \n") ---
+# Mesmo padrão de RS/PB/PE — reutiliza _RE_NUM_PAG.
+def limpar_cuv_unicamp(texto):
+    return _RE_NUM_PAG.sub("", texto).strip()
+
+
+# --- cuv-sp-unifesp: número de página + linha de crédito da universidade ---
+# "NN\nUniversidade Federal de São Paulo | Unifesp | Comissão da Verdade\n"
+_RE_UNIFESP_HEADER = re.compile(
+    r"^\d+\s*\nUniversidade Federal de S[aã]o Paulo\s*\|\s*Unifesp\s*\|\s*Comiss[aã]o da Verdade\s*\n",
+    re.IGNORECASE,
+)
+
+def limpar_cuv_unifesp(texto):
+    return _RE_UNIFESP_HEADER.sub("", texto).strip()
+
+
+# --- cuv-rn-ufrn: cabeçalho "Comissão da Verdade da UFRN\nNN\n" ---
+# Aparece no topo de cada página: "Comissão da Verdade da UFRN\n10\n"
+_RE_UFRN_HEADER = re.compile(
+    r"^Comiss[aã]o da Verdade da UFRN\s*\n\d+\s*\n",
+    re.IGNORECASE,
+)
+
+def limpar_cuv_ufrn(texto):
+    texto = _RE_UFRN_HEADER.sub("", texto)
+    # algumas páginas começam com o número antes da linha da comissão
+    texto = _RE_NUM_PAG.sub("", texto)
+    return texto.strip()
+
+
+# =============================================================================
+# MAPAS DE SEÇÕES — COMISSÕES UNIVERSITÁRIAS (adicionados 2026-06)
+# =============================================================================
+
+# cuv-ba-ufba: 9 caps + Recomendações + Anexos
+# Sumário pag 7 do jsonl. Campo pagina == jsonl pos; nº impresso = campo − 2.
+# Caps verificados lendo o conteúdo real de cada posição no jsonl:
+# jsonl 8 = cap 1 (intro, pag impressa 6), jsonl 11 = cap 2 (pag 9),
+# jsonl 22 = cap 3 (pag 20), jsonl 36 = cap 4 (pag 34),
+# jsonl 42 = cap 5 (pag 40), jsonl 50 = cap 6 (pag 48),
+# jsonl 57 = cap 7 (pag 55), jsonl 142 = cap 8 conclusão (pag 140),
+# jsonl 143 = cap 9 recomendações, jsonl 145 = Anexos.
+_SECOES_UFBA = [
+    (8,   "1. Introdução"),
+    (11,  "2. O Golpe, os Aplausos e a Resistência"),
+    (22,  "3. A Repressão do Movimento Estudantil"),
+    (36,  "4. O Controle Ideológico da Instituição"),
+    (42,  "5. O Avanço da Resistência e da Luta pela Democracia"),
+    (50,  "6. Estrutura e Funcionamento do Sistema de Vigilância e Submissão"),
+    (57,  "7. Os Perseguidos"),
+    (142, "8. Conclusão"),
+    (143, "9. Recomendações"),
+    (145, "Anexos"),
+]
+
+# cuv-df-unb: seções conforme sumário executivo e divisões explícitas no texto.
+# Pags verificadas lendo o conteúdo real de cada posição no jsonl.
+# Nota: PARTE III não existe neste documento (salta de II.3 para IV).
+# Pag 14 é continuação da pag 13 (Sumário Executivo) — não é seção nova.
+_SECOES_UNB = [
+    (13,  "Sumário Executivo e Atividades da Comissão"),
+    (15,  "Apresentação"),
+    (20,  "A Justiça de Transição e as Comissões da Verdade"),
+    (22,  "Repressão e Resistência na Universidade: a Luta das Gerações"),
+    (29,  "Relação de Depoentes à CATMV-UnB"),
+    (32,  "UnB: Projeto Inicial Interrompido e o CIEM"),
+    (59,  "Parte I – Organização Cronológica: UnB, Ditadura, Resistência (1962-1988)"),
+    (237, "Parte II – Eixos Temáticos"),
+    (255, "Parte II.3 – Vidas: Desaparecidos Políticos da UnB"),
+    (296, "Parte IV – Conclusões e Recomendações"),
+    (357, "Referências Bibliográficas"),
+]
+
+# cuv-es-ufes: Apresentação + Introdução + seção histórica + Nota + 4 ondas + Conclusões
+# Sumário pag 7. Campo pagina == jsonl pos; nº impresso = campo − 2.
+# Pags verificadas (jsonl pos): 11, 13, 15, 20, 24, 51, 79, 122, 181.
+_SECOES_UFES = [
+    (11,  "Apresentação"),
+    (13,  "Introdução"),
+    (15,  "Universidade Federal do Espírito Santo: da Criação ao Golpe de 1964"),
+    (20,  "Nota Metodológica"),
+    (24,  "A Primeira Onda Repressiva na UFES: o Golpe e a Universidade"),
+    (51,  "A Segunda Onda Repressiva na UFES: a Ditadura se Fecha"),
+    (79,  "A Terceira Onda Repressiva na UFES: Graves Violações dos Direitos Humanos no Espírito Santo"),
+    (122, "A Quarta Onda Repressiva na UFES: a Universidade sob o Olhar da Repressão Política (1975-1985)"),
+    (181, "Conclusões"),
+]
+
+# cuv-mg-ufop: Agradecimentos + Introdução + Parte I (6 caps) + Parte II (3 caps) +
+# Considerações Finais + Recomendações + Anexos
+# Sumário pag 5. Campo pagina == jsonl pos.
+# Pags verificadas: 7, 8, 11, 136, 224, 231, 235, 247, 256.
+# Caps internos não têm páginas divisórias separadas — a granularidade das Partes é suficiente.
+_SECOES_UFOP = [
+    (7,   "Agradecimentos"),
+    (8,   "Introdução"),
+    (11,  "Parte I – A Universidade no Interior da Cidade e o Contexto Político do Pré e Pós-Golpe de 1964"),
+    (136, "Parte II – A Cidade e o Contexto Dentro da Universidade"),
+    (224, "Considerações Finais"),
+    (231, "Recomendações"),
+    (235, "Anexo 1 – Os Festivais de Inverno e a Repressão em Ouro Preto"),
+    (247, "Anexo 2 – O ICHS/UFOP no Processo de Redemocratização"),
+    (256, "Anexo 3 – Fotos do Protesto em Ouro Preto (19/03/1984)"),
+]
+
+# cuv-sp-unicamp: Introdução + 2 capítulos + Linha do Tempo + Recomendações + Anexos
+# Sumário pag 4. Campo pagina == jsonl pos (offset +1 vs nº impresso).
+# Pags verificadas: 5 (intro), 9 (cap 1), 17 (cap 2), 49 (linha do tempo),
+# 51 (recomendações), 53 (anexos).
+_SECOES_UNICAMP = [
+    (5,   "Introdução"),
+    (9,   "1. \"Por uma Comissão da Verdade e Memória na Unicamp\""),
+    (17,  "2. Efeitos da Ditadura Militar sobre a Comunidade Acadêmica"),
+    (49,  "3. Linha do Tempo"),
+    (51,  "4. Recomendações"),
+    (53,  "Anexos"),
+]
+
+# cuv-sp-unifesp: Apresentação + 6 capítulos
+# Sumário pags 7-8. Campo pagina == jsonl pos (offset +8 vs nº impresso).
+# Pags verificadas: 11 (apresentação), 15 (cap 1), 27 (cap 2),
+# 45 (cap 3 biografias), 55 (cap 4 depoimento), 61 (cap 5 reflexões),
+# 79 (cap 6 sumário do relatório).
+_SECOES_UNIFESP = [
+    (11,  "Apresentação"),
+    (15,  "Capítulo 1 – À Guisa de Abertura: entre a História, a Memória, o Tempo e a Verdade"),
+    (27,  "Capítulo 2 – 1972: Estudantes no Olho do Furacão"),
+    (45,  "Capítulo 3 – Biografias"),
+    (55,  "Capítulo 4 – Depoimento: Nestor Schor"),
+    (61,  "Capítulo 5 – Reflexões"),
+    (79,  "Capítulo 6 – Sumário do Relatório da Comissão da Verdade Marcos Lindenberg da Unifesp"),
+]
+
+# cuv-rn-ufrn: Agradecimentos + Apresentação + 12 capítulos + Referências + Lista + Anexos
+# Sumário pag 5. Campo pagina == jsonl pos == nº impresso (sem offset).
+# Pags verificadas: 7, 9, 11, 31, 67, 85, 101, 115, 121, 143, 325, 385, 399, 411, 429, 441, 445.
+_SECOES_UFRN = [
+    (7,   "Agradecimentos"),
+    (9,   "Apresentação"),
+    (11,  "I – Introdução"),
+    (31,  "II – Antecedentes, Registros Históricos, Dados e Resultados da Comissão da Verdade na UFRN"),
+    (67,  "III – Arcabouço Histórico da Ditadura Militar no Brasil: Eclosão da Ditadura e os Reflexos no RN e na UFRN"),
+    (85,  "IV – A Assessoria de Segurança e Informações do MEC na UFRN (ASI/UFRN): o Braço da Repressão nas Universidades"),
+    (101, "V – Diligências para Localização do Acervo Documental da Extinta ASI/UFRN (1970-1990)"),
+    (115, "VI – A Ação Estudantil Pré-1964 no Rio Grande do Norte"),
+    (121, "VII – Ações Repressivas Oficiais: IPMs da UFRN (1964) e do Restaurante Universitário (1968)"),
+    (143, "VIII – Resistência e Memória: Atuação Estudantil-Universitária Durante a Ditadura Militar (1964-1985)"),
+    (325, "IX – Movimento Docente: Criação da ADURN no Período de Redemocratização"),
+    (385, "X – Expurgo de Pessoal Docente"),
+    (399, "XI – Resgate Histórico da Movimentação dos Servidores Públicos Federais"),
+    (411, "XII – Considerações Finais e Recomendações"),
+    (429, "Referências"),
+    (441, "Lista de Abreviaturas"),
+    (445, "Anexos – Documentos e Iconografia"),
+]
+
+
+# =============================================================================
 # LIMPEZA — COMISSÕES MUNICIPAIS (adicionadas 2026-06)
 # =============================================================================
 
@@ -662,6 +911,16 @@ DOCUMENTOS = {
     "cev-ba-relatorio-vol2":    (limpar_ba_vol2,  None),
     "cev-se-relatorio-final":   (limpar_se,       _secao_fn(_SECOES_SE)),
     "cev-mg-triangulo-mineiro": (limpar_mg_triangulo, _secao_fn(_SECOES_MG_TRIG)),
+    # --- comissões universitárias (2026-06) ---
+    "cuv-ba-ufba":    (limpar_cuv_ufba,    _secao_fn(_SECOES_UFBA)),
+    "cuv-df-unb":     (limpar_cuv_unb,     _secao_fn(_SECOES_UNB)),
+    "cuv-es-ufes":    (limpar_cuv_ufes,    _secao_fn(_SECOES_UFES)),
+    "cuv-mg-ufop":    (limpar_cuv_ufop,    _secao_fn(_SECOES_UFOP)),
+    # UFCG: relatório parcial curto sem sumário estruturado → secao=None
+    "cuv-pb-ufcg":    (limpar_cuv_ufcg,    None),
+    "cuv-sp-unicamp": (limpar_cuv_unicamp, _secao_fn(_SECOES_UNICAMP)),
+    "cuv-sp-unifesp": (limpar_cuv_unifesp, _secao_fn(_SECOES_UNIFESP)),
+    "cuv-rn-ufrn":    (limpar_cuv_ufrn,    _secao_fn(_SECOES_UFRN)),
     # --- comissões municipais (2026-06) ---
     "cmv-mg-juiz-de-fora":  (limpar_cmv_num_pagina, _secao_fn(_SECOES_JF)),
     "cmv-pb-joao-pessoa":   (limpar_cmv_num_pagina, _secao_fn(_SECOES_JP)),

@@ -327,5 +327,85 @@
     "sha256": "b7b461f7907821c3a9c2d848cf6dfed3679f66cd5788177308706c2ecc8907ff",
     "tamanho_bytes": 3633321,
     "descricao": "Relatório Final da Comissão Municipal da Verdade de São Paulo 'Vladimir Herzog', 2016, 396 p., PDF com camada de texto. O DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cmv_sp_sao_paulo_r_2016.pdf."
+  },
+  {
+    "slug": "cuv-ba-ufba",
+    "url": "https://www.dhnet.org.br/verdade/cv/cuv_ba_ufba_r_2014.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cuv_ba_ufba_r_2014.pdf",
+    "arquivo_local": "dados/brutos/cuv-ba-ufba.pdf",
+    "data_download": "2026-06-18T19:08:01.528423+00:00",
+    "sha256": "344a6029a46f16cf95c845e692e41287686da2b8c0add1d8134d9bc348c2a43a",
+    "tamanho_bytes": 1587667,
+    "descricao": "Relatório da Comissão Milton Santos de Memória e Verdade da UFBA, 2014, PDF com camada de texto. O DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cuv_ba_ufba_r_2014.pdf."
+  },
+  {
+    "slug": "cuv-df-unb",
+    "url": "https://www.dhnet.org.br/verdade/cv/cuv_df_unb_r_2015.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cuv_df_unb_r_2015.pdf",
+    "arquivo_local": "dados/brutos/cuv-df-unb.pdf",
+    "data_download": "2026-06-18T19:08:11.816891+00:00",
+    "sha256": "e08f8ac55ce4329725c808c23c978bbbe835ecd00e400318ef382644ba7e2674",
+    "tamanho_bytes": 22298876,
+    "descricao": "Relatório Final da Comissão Anísio Teixeira de Memória e Verdade da Universidade de Brasília (UnB), setembro de 2015, PDF com camada de texto. O DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cuv_df_unb_r_2015.pdf."
+  },
+  {
+    "slug": "cuv-es-ufes",
+    "url": "https://www.dhnet.org.br/verdade/cv/cuv_es_ufes_r_2016.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cuv_es_ufes_r_2016.pdf",
+    "arquivo_local": "dados/brutos/cuv-es-ufes.pdf",
+    "data_download": "2026-06-18T19:08:16.268228+00:00",
+    "sha256": "4899408d79b9bbd18ed5c9a328a829e6e53200b9a90363f0aadf618f09de866a",
+    "tamanho_bytes": 4430508,
+    "descricao": "Relatório da Comissão da Verdade da Universidade Federal do Espírito Santo (CVUfes), 2016, PDF com camada de texto. O DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cuv_es_ufes_r_2016.pdf."
+  },
+  {
+    "slug": "cuv-mg-ufop",
+    "url": "https://www.dhnet.org.br/verdade/cv/cuv_mg_ufop_2017.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cuv_mg_ufop_2017.pdf",
+    "arquivo_local": "dados/brutos/cuv-mg-ufop.pdf",
+    "data_download": "2026-06-18T19:08:20.526617+00:00",
+    "sha256": "f1fbbd1abe4216358ca1aa60e935f40034d473b28927d47d547c0e9f875d9f90",
+    "tamanho_bytes": 4562120,
+    "descricao": "Relatório da Comissão da Verdade em Minas Gerais — GT UFOP (Grupo de Trabalho da Universidade Federal de Ouro Preto), 2017, PDF com camada de texto. O DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cuv_mg_ufop_2017.pdf."
+  },
+  {
+    "slug": "cuv-pb-ufcg",
+    "url": "https://www.dhnet.org.br/verdade/cv/cuv_pb_ufcg_r_parcial_2015.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cuv_pb_ufcg_r_parcial_2015.pdf",
+    "arquivo_local": "dados/brutos/cuv-pb-ufcg.pdf",
+    "data_download": "2026-06-18T19:08:23.996285+00:00",
+    "sha256": "bdac7cc714833799fb66af5c99143518e53e009829f44d21613b29613446c62a",
+    "tamanho_bytes": 425959,
+    "descricao": "Relatório PARCIAL da Comissão da Verdade, da Memória e da Justiça das Entidades Representativas da UFCG, 2015, PDF com camada de texto. O DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cuv_pb_ufcg_r_parcial_2015.pdf."
+  },
+  {
+    "slug": "cuv-sp-unicamp",
+    "url": "https://www.dhnet.org.br/verdade/cv/cuv_sp_unicamp_r_2015.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cuv_sp_unicamp_r_2015.pdf",
+    "arquivo_local": "dados/brutos/cuv-sp-unicamp.pdf",
+    "data_download": "2026-06-18T19:08:28.035911+00:00",
+    "sha256": "be596b405ba40e1a4df8c4fa425715b6f19c71085bbd19d3222ea9e429df0404",
+    "tamanho_bytes": 2412063,
+    "descricao": "Relatório Final da Comissão da Verdade e Memória 'Octávio Ianni' da Unicamp, 2015, PDF com camada de texto. O DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cuv_sp_unicamp_r_2015.pdf."
+  },
+  {
+    "slug": "cuv-sp-unifesp",
+    "url": "https://www.dhnet.org.br/verdade/cv/cuv_sp_unifesp_r_2015.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cuv_sp_unifesp_r_2015.pdf",
+    "arquivo_local": "dados/brutos/cuv-sp-unifesp.pdf",
+    "data_download": "2026-06-18T19:08:31.944639+00:00",
+    "sha256": "c8b808fb78a47d496682f9c4714b28f48947af3ed051ea4a662b9c972325ec66",
+    "tamanho_bytes": 1537942,
+    "descricao": "Relatório Final da Comissão da Verdade 'Marcos Lindenberg' da UNIFESP, 2015, PDF com camada de texto. O DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cuv_sp_unifesp_r_2015.pdf."
+  },
+  {
+    "slug": "cuv-rn-ufrn",
+    "url": "https://www.dhnet.org.br/verdade/cv/cuv_ufrn_r_final_2015.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cuv_ufrn_r_final_2015.pdf",
+    "arquivo_local": "dados/brutos/cuv-rn-ufrn.pdf",
+    "data_download": "2026-06-18T19:08:39.946609+00:00",
+    "sha256": "270eed983ac87f027ae8910c4f98fbdd6b2eb1587943157e4df975959568070e",
+    "tamanho_bytes": 16458204,
+    "descricao": "Relatório Final da Comissão Universitária da Verdade da UFRN, 2015, PDF com camada de texto. O DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cuv_ufrn_r_final_2015.pdf."
   }
 ]

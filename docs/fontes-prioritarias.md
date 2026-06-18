@@ -50,8 +50,21 @@ chunking em `pipeline/03_chunkar_estaduais.py`, indexação no Supabase — ver 
   300 DPI, `pipeline/02d_ocr_osasco.py`; ~190 mil chars, 2 págs. em branco). Único do lote que exigiu OCR.
 - **São Paulo "Vladimir Herzog"** (SP, 2016) → `cmv-sp-sao-paulo` — 396 p., texto nativo (~824 mil chars).
 
+✅ **3º lote ingerido (jun/2026) — 8 comissões UNIVERSITÁRIAS** (todos PDF com camada de texto,
+extração direta; nenhum exigiu OCR; chunkados em `pipeline/03_chunkar_estaduais.py`, **2.592 chunks
+indexados no Supabase** e auditados pela curadoria; notas editoriais aplicadas via
+`pipeline/aplicar_notas_universitarias.py`; UNIFESP marcada `subtipo=informe`):
+- **UFBA** "Milton Santos" (BA, 2014) → `cuv-ba-ufba` — 174 p., texto nativo (~465 mil chars, 7 págs. vazias).
+- **UnB** "Anísio Teixeira" (DF, 2015) → `cuv-df-unb` — 363 p., texto nativo (~1,017 milhão de chars, 0 págs. vazias). Maior do lote.
+- **UFES** CVUfes (ES, 2016) → `cuv-es-ufes` — 190 p., texto nativo (~440 mil chars, 5 págs. vazias).
+- **UFOP** GT UFOP / Covemg (MG, 2017) → `cuv-mg-ufop` — 258 p., texto nativo (~672 mil chars, 1 pág. vazia). Subcomissão universitária vinculada à Covemg.
+- **UFCG** (PB, 2015, relatório **parcial**) → `cuv-pb-ufcg` — 30 p., texto nativo (~58 mil chars, 0 págs. vazias). Documento mais curto do lote; usar com ressalva de parcialidade.
+- **Unicamp** "Octávio Ianni" (SP, 2015) → `cuv-sp-unicamp` — 61 p., texto nativo (~107 mil chars, 0 págs. vazias).
+- **UNIFESP** "Marcos Lindenberg" (SP, 2015) → `cuv-sp-unifesp` — 84 p., texto nativo (~206 mil chars, 0 págs. vazias).
+- **UFRN** (RN, 2015) → `cuv-rn-ufrn` — 491 p., texto nativo (~828 mil chars, 10 págs. vazias). Segundo maior do lote.
+
 **Lotes futuros do catálogo DHnet** (ainda NÃO ingeridos; arquivos em `/verdade/cv/`):
-- *Universitárias (8):* UFBA (`cuv_ba_ufba_r_2014`), UnB (`cuv_df_unb_r_2015`), UFES (`cuv_es_ufes_r_2016`), UFOP (`cuv_mg_ufop_2017`), UFCG (`cuv_pb_ufcg_r_parcial_2015`), Unicamp (`cuv_sp_unicamp_r_2015`), UNIFESP (`cuv_sp_unifesp_r_2015`), UFRN (`cuv_ufrn_r_final_2015`).
+- *Universitárias (8):* ✅ ingeridas no 3º lote (ver acima).
 - *Temáticas/setoriais (9):* Comissão Camponesa (`cv_camponesa_r_2016`), bancários DF (`cv_df_bancarios_r_2015`), jornalistas FENAJ (`cv_df_fenaj_jornalistas_anexo_1`), UNE (`cv_df_une_r_2015`), jornalistas MG (`cv_mg_jornalistas_r_2013`), jornalistas SC (`cv_sc_jornalistas_r_2014`), CUT-SP (`cv_sp_cut_r_2015`), jornalistas SP (`cv_sp_jornalistas_r_2017`), ANDES (`cv_universidades_andes_2020`).
 - *Já no acervo por outras vias (duplicatas no DHnet, ignorar):* CNV, CEV-SP Rubens Paiva, CEV-RJ, CEV-MG/Covemg, estaduais AM, ES, PB, PE, PR, RS, SC.
 
@@ -60,6 +73,20 @@ futuro): (a) reclassificar chunks de sumário/índice e o poema de abertura do T
 `tipo_chunk` não-`corpo` (ex.: `paratexto`/`indice`) — hoje todos entram como `corpo`; (b) extrair
 metadado `depoente` por chunk no vol. 2 da Bahia (hoje o nome do depoente fica só no corpo do texto);
 (c) duplicação de capa em chunks 0–1 do Triângulo; (d) typo de OCR "1288"→"128" em chunk do Amapá.
+
+**Backlog de qualidade do 3º lote** (universitárias; curadoria, não bloqueante — nenhuma fonte
+removida): (a) paratexto marcado como `corpo` nos 8 documentos (capas, fichas técnicas, listas de
+membros, sumários) — reclassificar como `paratexto`/`indice`; casos mais ruidosos: glossário de
+siglas do `cuv-df-unb` (vários chunks só de abreviaturas) e currículos dos coordenadores do
+`cuv-mg-ufop`; (b) duplicação de conteúdo na junção de chunks: lista de membros repetida em
+`cuv-es-ufes` (chunks 0–1) e cabeçalho de subseção repetido em `cuv-pb-ufcg` (chunks 2–3);
+(c) chunk atômico sem sentido isolado em `cuv-pb-ufcg` (chunk 4, uma frase) — avaliar fusão;
+(d) `secao` herdada errada em `cuv-rn-ufrn` (chunk 2 com sumário rotulado "Agradecimentos") —
+deveria ser nulo/"Sumário"; (e) vazamento de nota de rodapé para o início do chunk seguinte em
+`cuv-ba-ufba` e `cuv-sp-unicamp` (no Unicamp separa o nome do prof. Vargaftig de seu contexto);
+(f) **LGPD** — capa do `cuv-ba-ufba` (chunk 0) reproduz e-mails pessoais de membros da comissão
+(do PDF público de 2014); avaliar anonimizar/filtrar do índice vetorial ao reprocessar; (g) avaliar
+sistematicamente a dimensão de gênero (perseguição a mulheres) nas notas, ainda não coberta no lote.
 
 ## 2. Brasil: Nunca Mais
 - **BNM Digital** (Ministério Público Federal + Arquivo Edgard Leuenroth/Unicamp): cópias digitalizadas dos processos do STM usados no projeto BNM. https://bnmdigital.mpf.mp.br — atenção: muitos documentos são escaneados (exigem OCR) e o acervo é enorme; começar pelos tomos do "Projeto A".

@@ -1009,3 +1009,34 @@ do decreto do Diário Oficial nos anexos de Petrópolis; verificar se a CEV-Rio 
 relatório final de Niterói. **Lotes DHnet futuros:** 8 universitárias, 9 temáticas.
 Pendências antigas seguem: Dossiê Ditadura (vazamento de seção — `b69f9a9`),
 Araguaia, BNM, módulo crimes e justiça (Fase 7).
+
+## 2026-06-18 — Fase 5: 3º lote DHnet — 8 comissões UNIVERSITÁRIAS da verdade
+**Decisão do Yuri:** seguir o catálogo DHnet ingerindo as 8 comissões
+**universitárias** nesta sessão (das temáticas restantes para um 4º lote),
+respeitando a economia de tokens. Sequência rodada com **subagentes em segundo
+plano, um por vez, com `mode: bypassPermissions`** (a 1ª tentativa do engenheiro
+travou por falta de permissão de Bash — gotcha já conhecido, corrigido relançando).
+
+- **Engenheiro-de-dados (subagente):** baixou do DHnet (`/verdade/cv/`, assinatura
+  `%PDF` conferida via GET ranged) os 8 PDFs; proveniência (SHA-256/URL) em
+  `manifesto.json`, metadados em `fontes.json` (slugs `cuv-*`). **Os 8 são texto
+  nativo — nenhum exigiu OCR.** UFBA 174 p., UnB 363 p. (maior), UFES 190 p.,
+  UFOP 258 p., UFCG 30 p. (*parcial*), Unicamp 61 p., UNIFESP 84 p., UFRN 491 p.
+- **Cientista-de-dados (subagente):** estendeu `03_chunkar_estaduais.py` com os 8
+  slugs (limpeza + mapas de seção por sumário). **2.592 chunks**, mediana ~375
+  tokens, 0 acima de 512. Conferência sumário×mapa em todos: detectou e corrigiu um
+  bug do tipo CEV-SE em `cuv-df-unb` (entrada de seção fora de ordem silenciava a
+  "Apresentação") **antes** de indexar. Indexação no Supabase OK, sem timeout.
+- **Curador-historiador (subagente):** APTO, nada bloqueante. Redigiu as **8
+  `nota_contexto`** definitivas (fundamentadas na leitura dos documentos), auditou
+  amostra de chunks e confirmou que nenhuma das 8 é duplicata do acervo.
+- **Aplicado na sessão principal** (`pipeline/aplicar_notas_universitarias.py`,
+  idempotente — UPDATE em `fontes.json` + tabela `fontes`): 8 notas + **UNIFESP
+  `subtipo=informe`** (o arquivo do DHnet é o informe ao Consu, não o relatório
+  integral — decisão do Yuri). E-mails na capa da UFBA → backlog (decisão do Yuri).
+
+**Pendências (backlog não-bloqueante, em `fontes-prioritarias.md`):** paratexto
+marcado como `corpo` nos 8 (siglas da UnB, currículos da UFOP); duplicação de
+conteúdo (UFES, UFCG); chunk atômico na UFCG; `secao` errada na UFRN (chunk 2);
+vazamento de rodapé (UFBA, Unicamp); **LGPD** — e-mails na capa da UFBA;
+dimensão de gênero a avaliar. **Lote DHnet restante:** 9 temáticas/setoriais.
