@@ -63,9 +63,24 @@ indexados no Supabase** e auditados pela curadoria; notas editoriais aplicadas v
 - **UNIFESP** "Marcos Lindenberg" (SP, 2015) → `cuv-sp-unifesp` — 84 p., texto nativo (~206 mil chars, 0 págs. vazias).
 - **UFRN** (RN, 2015) → `cuv-rn-ufrn` — 491 p., texto nativo (~828 mil chars, 10 págs. vazias). Segundo maior do lote.
 
-**Lotes futuros do catálogo DHnet** (ainda NÃO ingeridos; arquivos em `/verdade/cv/`):
-- *Universitárias (8):* ✅ ingeridas no 3º lote (ver acima).
-- *Temáticas/setoriais (9):* Comissão Camponesa (`cv_camponesa_r_2016`), bancários DF (`cv_df_bancarios_r_2015`), jornalistas FENAJ (`cv_df_fenaj_jornalistas_anexo_1`), UNE (`cv_df_une_r_2015`), jornalistas MG (`cv_mg_jornalistas_r_2013`), jornalistas SC (`cv_sc_jornalistas_r_2014`), CUT-SP (`cv_sp_cut_r_2015`), jornalistas SP (`cv_sp_jornalistas_r_2017`), ANDES (`cv_universidades_andes_2020`).
+✅ **4º lote ingerido (jun/2026) — 9 comissões TEMÁTICAS/SETORIAIS** (todas PDF com camada de
+texto, extração direta; nenhuma exigiu OCR; chunkadas em `pipeline/03_chunkar_estaduais.py`,
+**1.937 chunks indexados no Supabase**; notas editoriais, subtipos e títulos de seção conferidos
+contra os sumários e aplicados via `pipeline/aplicar_notas_tematicas.py`). Prefixo de slug `ctv-`
+(comissão temática da verdade):
+- **Comissão Camponesa da Verdade** (nacional, Senado/CDHLP + DEX-UnB, org. Sérgio Sauer, 1946–1988) → `ctv-camponesa` — 638 p. (maior do lote, 986 chunks). Núcleo: violações no campo (Parte III).
+- **UNE** "Comissão Nacional da Verdade da UNE" (nacional, estudantes, 2015) → `ctv-une` — 136 p., 219 chunks.
+- **Jornalistas/MG** (SJPMG, 2013/2014) → `ctv-mg-jornalistas` — 148 p., 313 chunks. Setorial; majoritariamente depoimentos.
+- **CUT** "Comissão Nacional da Memória, Verdade e Justiça da CUT" (NACIONAL, sede SP, 2015) → `ctv-sp-cut` — 130 p., 155 chunks.
+- **Jornalistas/SP** (Sindicato dos Jornalistas de SP, 2017) → `ctv-sp-jornalistas` — 92 p., 120 chunks.
+- **ANDES-SN** "A ditadura empresarial-militar nas universidades públicas" (NACIONAL, docentes, 2020) → `ctv-andes` — 44 p., 89 chunks.
+- **Bancários/DF** (2013–2015) → `ctv-df-bancarios` — 23 p., 22 chunks; `subtipo=relatorio_simplificado` (é a versão simplificada).
+- **FENAJ** (jornalistas) → `ctv-fenaj-jornalistas` — 9 p., 13 chunks; `subtipo=anexo_parcial`: é APENAS o Anexo I do relatório da Comissão de Anistia/MJ à CNV dos Jornalistas, NÃO o relatório integral da FENAJ.
+- **Jornalistas/SC** (2014) → `ctv-sc-jornalistas` — 11 p., 20 chunks; texto corrido sem subdivisões (`secao=None`).
+
+**Catálogo DHnet — concluído:** os 4 lotes (estaduais/regional, municipais, universitárias e
+temáticas/setoriais) foram ingeridos. Restam no catálogo apenas as duplicatas abaixo, que já estão
+no acervo por outras vias:
 - *Já no acervo por outras vias (duplicatas no DHnet, ignorar):* CNV, CEV-SP Rubens Paiva, CEV-RJ, CEV-MG/Covemg, estaduais AM, ES, PB, PE, PR, RS, SC.
 
 **Backlog de qualidade do 1º lote** (apontado pela curadoria, não bloqueante — tratar em ciclo

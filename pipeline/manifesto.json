@@ -407,5 +407,95 @@
     "sha256": "270eed983ac87f027ae8910c4f98fbdd6b2eb1587943157e4df975959568070e",
     "tamanho_bytes": 16458204,
     "descricao": "Relatório Final da Comissão Universitária da Verdade da UFRN, 2015, PDF com camada de texto. O DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cuv_ufrn_r_final_2015.pdf."
+  },
+  {
+    "slug": "ctv-camponesa",
+    "url": "https://www.dhnet.org.br/verdade/cv/cv_camponesa_r_2016.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cv_camponesa_r_2016.pdf",
+    "arquivo_local": "dados/brutos/ctv-camponesa.pdf",
+    "data_download": "2026-06-18T21:00:16.766612+00:00",
+    "sha256": "93ae89c85bf73043360fad96ab0292230e0bd75af8d99ce1db6c7167c1a7a53e",
+    "tamanho_bytes": 6621417,
+    "descricao": "Relatório Final da Comissão Camponesa da Verdade — violações de direitos no campo (1946–1988), Brasília, 2016, 638 p., PDF com camada de texto. Comissão temática/setorial de âmbito nacional (trabalhadores e povos do campo), organizada pela Comissão de Direitos Humanos e Legislação Participativa do Senado Federal e pelo Decanato de Extensão da UnB. O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cv_camponesa_r_2016.pdf."
+  },
+  {
+    "slug": "ctv-df-bancarios",
+    "url": "https://www.dhnet.org.br/verdade/cv/cv_df_bancarios_r_2015.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cv_df_bancarios_r_2015.pdf",
+    "arquivo_local": "dados/brutos/ctv-df-bancarios.pdf",
+    "data_download": "2026-06-18T21:00:17.809325+00:00",
+    "sha256": "f639d6fe6034cb2db850a3eba783c85d3f774e4c14f2cb9fca7afeafdcfc9a0e",
+    "tamanho_bytes": 1773722,
+    "descricao": "Relatório (versão simplificada) da Comissão da Verdade dos Bancários de Brasília, 2013–2015, 23 p., PDF com camada de texto. Documento setorial breve (categoria bancária do DF). ATENÇÃO: é a versão 'Relatório Simplificado', não um relatório extenso. O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cv_df_bancarios_r_2015.pdf."
+  },
+  {
+    "slug": "ctv-fenaj-jornalistas",
+    "url": "https://www.dhnet.org.br/verdade/cv/cv_df_fenaj_jornalistas_anexo_1.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cv_df_fenaj_jornalistas_anexo_1.pdf",
+    "arquivo_local": "dados/brutos/ctv-fenaj-jornalistas.pdf",
+    "data_download": "2026-06-18T21:00:18.222950+00:00",
+    "sha256": "a80402f4c3dfb1b965eb1cc5b2ac2189947afc80559763754eb5186947a55fde",
+    "tamanho_bytes": 8307517,
+    "descricao": "ANEXO I do Relatório Final da Comissão de Anistia/Ministério da Justiça para a Comissão Nacional da Verdade dos Jornalistas (FENAJ), 9 p., PDF com camada de texto. ATENÇÃO: este arquivo é APENAS o Anexo I (síntese de processos de jornalistas) — NÃO é o relatório completo da Comissão Nacional da Verdade dos Jornalistas/FENAJ. Documento parcial; usar com ressalva de parcialidade. O DHnet redistribui o PDF original sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cv_df_fenaj_jornalistas_anexo_1.pdf."
+  },
+  {
+    "slug": "ctv-une",
+    "url": "https://www.dhnet.org.br/verdade/cv/cv_df_une_r_2015.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cv_df_une_r_2015.pdf",
+    "arquivo_local": "dados/brutos/ctv-une.pdf",
+    "data_download": "2026-06-18T21:00:18.650084+00:00",
+    "sha256": "4305afba2379f33465ed9b1b9846c7ffbff7b78d67e05fae7f53a476ba59a609",
+    "tamanho_bytes": 8981057,
+    "descricao": "Relatório da Comissão Nacional da Verdade da União Nacional dos Estudantes (UNE), 2015, 136 p., PDF com camada de texto. Comissão temática/setorial de âmbito nacional (movimento estudantil). O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cv_df_une_r_2015.pdf."
+  },
+  {
+    "slug": "ctv-mg-jornalistas",
+    "url": "https://www.dhnet.org.br/verdade/cv/cv_mg_jornalistas_r_2013.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cv_mg_jornalistas_r_2013.pdf",
+    "arquivo_local": "dados/brutos/ctv-mg-jornalistas.pdf",
+    "data_download": "2026-06-18T21:00:19.151075+00:00",
+    "sha256": "dc0ba938362a3e8d7026c600c7b4844e700ea0cac0f31dcac16c8b9be2c5c8f9",
+    "tamanho_bytes": 1119008,
+    "descricao": "Relatório da Comissão da Verdade do Sindicato dos Jornalistas Profissionais de Minas Gerais (SJPMG), Belo Horizonte, outubro/2013–janeiro/2014, 148 p., PDF com camada de texto. Documento setorial (categoria dos jornalistas de MG). O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cv_mg_jornalistas_r_2013.pdf."
+  },
+  {
+    "slug": "ctv-sc-jornalistas",
+    "url": "https://www.dhnet.org.br/verdade/cv/cv_sc_jornalistas_r_2014.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cv_sc_jornalistas_r_2014.pdf",
+    "arquivo_local": "dados/brutos/ctv-sc-jornalistas.pdf",
+    "data_download": "2026-06-18T21:00:19.751069+00:00",
+    "sha256": "98f0eb4e8d03b03ea050c45dcd30b2956a84f1b546d5de88a43193bfd35a665e",
+    "tamanho_bytes": 343543,
+    "descricao": "Relatório Final da Comissão da Verdade dos Jornalistas de Santa Catarina (Jornalistas/SC), novembro/2014, 11 p., PDF com camada de texto. Documento setorial breve (categoria dos jornalistas de SC). O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cv_sc_jornalistas_r_2014.pdf."
+  },
+  {
+    "slug": "ctv-sp-cut",
+    "url": "https://www.dhnet.org.br/verdade/cv/cv_sp_cut_r_2015.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cv_sp_cut_r_2015.pdf",
+    "arquivo_local": "dados/brutos/ctv-sp-cut.pdf",
+    "data_download": "2026-06-18T21:00:20.163891+00:00",
+    "sha256": "f730670f2ddc82c15dc7111c0a724f6630d1d56fbaf4d8ce35f4da26c2bd8f8a",
+    "tamanho_bytes": 5253645,
+    "descricao": "Relatório da Comissão Nacional da Memória, Verdade e Justiça da CUT (Central Única dos Trabalhadores), São Paulo, 2015, 130 p. (19 em branco), PDF com camada de texto. Comissão setorial de âmbito nacional (movimento sindical), sediada em São Paulo. O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cv_sp_cut_r_2015.pdf."
+  },
+  {
+    "slug": "ctv-sp-jornalistas",
+    "url": "https://www.dhnet.org.br/verdade/cv/cv_sp_jornalistas_r_2017.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cv_sp_jornalistas_r_2017.pdf",
+    "arquivo_local": "dados/brutos/ctv-sp-jornalistas.pdf",
+    "data_download": "2026-06-18T21:00:20.644528+00:00",
+    "sha256": "5b834bca1987ae19e85ff61e638e17fbb8bf1dbc453e5c030723cc1868143c28",
+    "tamanho_bytes": 1420023,
+    "descricao": "Relatório da Comissão da Verdade, Memória e Justiça do Sindicato dos Jornalistas Profissionais no Estado de São Paulo — 'Jornalistas de São Paulo e a ditadura', 2017, 92 p., PDF com camada de texto. Documento setorial (categoria dos jornalistas de SP). O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cv_sp_jornalistas_r_2017.pdf."
+  },
+  {
+    "slug": "ctv-andes",
+    "url": "https://www.dhnet.org.br/verdade/cv/cv_universidades_andes_2020.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cv_universidades_andes_2020.pdf",
+    "arquivo_local": "dados/brutos/ctv-andes.pdf",
+    "data_download": "2026-06-18T21:00:21.071474+00:00",
+    "sha256": "5ccf087be6c0a4cbb5af61c6f46316a561faa634e4178cc6983bfd317f2dbe8f",
+    "tamanho_bytes": 1446324,
+    "descricao": "Relatório Final da pesquisa da Comissão da Verdade do ANDES-SN — 'A ditadura empresarial-militar nas universidades públicas brasileiras', 2020, 44 p., PDF com camada de texto. Comissão setorial de âmbito nacional (docentes do ensino superior). O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cv_universidades_andes_2020.pdf."
   }
 ]

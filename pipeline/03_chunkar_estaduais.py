@@ -869,6 +869,144 @@ def _secao_fn(mapa):
 
 
 # =============================================================================
+# 4º LOTE DHNET — COMISSÕES TEMÁTICAS/SETORIAIS (adicionados 2026-06)
+# Mapas de seção verificados página a página no .jsonl extraído. Os TÍTULOS de
+# seção são provisórios (a confirmar pela curadoria contra o sumário do PDF);
+# os offsets (campo pagina == posição no jsonl) foram conferidos.
+# camponesa/andes/df-bancarios/fenaj: único cabeçalho é o número de página
+# isolado no topo → reutilizam limpar_numero_pagina (não-MULTILINE, só o topo).
+# =============================================================================
+
+# --- ctv-une: número de página isolado no topo + cabeçalho/rodapé corrido
+#     "NN COMISSÃO NACIONAL DA VERDADE DA UNE" (nº+nome na mesma linha, rodapé)
+#     ou só o nome em linha própria (topo). MULTILINE: o padrão nº+nome é
+#     específico o bastante para não casar texto legítimo. ---
+_RE_UNE_PAGNUM = re.compile(r"^\d+\s*\n")
+_RE_UNE_NOME = re.compile(
+    r"(?m)^\d*[ \t]*COMISSÃO NACIONAL DA VERDADE DA UNE[ \t]*\n?")
+
+def limpar_ctv_une(texto):
+    texto = _RE_UNE_PAGNUM.sub("", texto)
+    texto = _RE_UNE_NOME.sub("", texto)
+    return texto
+
+
+# --- ctv-mg-jornalistas: cabeçalho corrido de 3 linhas (SJPMG) no topo ---
+_RE_MG_JORN_HEADER = re.compile(
+    r"^COMISSÃO DA VERDADE\s*[–-]\s*SJPMG\s*[–-]\s*BELO HORIZONTE\s*[–-]\s*"
+    r"OUT\s*/\s*DEZ\s*-\s*2013\s*\n"
+    r"COMISSÃO DA VERDADE\s*-\s*SJPMG\s*\n"
+    r"Página\s+\d+\s*\n?")
+
+def limpar_ctv_mg_jornalistas(texto):
+    return _RE_MG_JORN_HEADER.sub("", texto)
+
+
+# --- ctv-sp-cut: cabeçalho "Relatório ... da CUT\nNN" no topo ---
+_RE_SP_CUT_HEADER = re.compile(
+    r"^(?:Relatório da Comissão Nacional da Memória, Verdade e Justiça da CUT\s*\n)?"
+    r"(?:\d+\s*\n)?")
+
+def limpar_ctv_sp_cut(texto):
+    return _RE_SP_CUT_HEADER.sub("", texto)
+
+
+# --- ctv-sp-jornalistas: cabeçalho longo do Sindicato + número de página ---
+_RE_SP_JORN_HEADER = re.compile(
+    r"^(?:Relatório da Comissão Verdade, Memória e Justiça do Sindicato dos "
+    r"Jornalistas Profissionais no Estado de São Paulo\s*\n)?(?:\d+\s*\n)?")
+
+def limpar_ctv_sp_jornalistas(texto):
+    return _RE_SP_JORN_HEADER.sub("", texto)
+
+
+# --- ctv-sc-jornalistas: cabeçalho alterna (Jornalistas/SC | RELATÓRIO FINAL) ---
+_RE_SC_JORN_HEADER = re.compile(
+    r"^\d+\s*\n(?:Comissão da Verdade\s*-\s*Jornalistas/SC|RELATÓRIO FINAL)\s*\n"
+    r"(?:A história de um país[^\n]*\n)?")
+
+def limpar_ctv_sc_jornalistas(texto):
+    return _RE_SC_JORN_HEADER.sub("", texto)
+
+
+_SECOES_CTV_CAMPONESA = [
+    (15, "Apresentação"),
+    (17, "Resumo"),
+    (21, "Introdução"),
+    (28, "Parte I"),
+    (54, "Parte II"),
+    (94, "Parte III"),
+    (572, "Parte IV"),
+    (579, "Fontes"),
+    (597, "Anexos"),
+]
+
+_SECOES_CTV_UNE = [
+    (12, "Parte I — Artigos convidados"),
+    (20, "Parte II — Relatório final da Comissão da Verdade da UNE"),
+    (48, "Parte III — Estudantes mortos e desaparecidos"),
+    (96, "Parte IV — Reconstruindo a memória da UNE"),
+]
+
+_SECOES_CTV_MG_JORNALISTAS = [
+    (4, "Apresentação"),
+    (5, "O método"),
+    (7, "Censura e autocensura"),
+    (9, "Depoimentos"),
+    (81, "Conclusão"),
+    (86, "Referências"),
+    (93, "Anexos"),
+]
+
+_SECOES_CTV_SP_CUT = [
+    (9, "Apresentação"),
+    (11, "Prefácio"),
+    (15, "Parte I"),
+    (31, "Parte II"),
+    (51, "Parte III"),
+    (79, "Artigos"),
+]
+
+_SECOES_CTV_SP_JORNALISTAS = [
+    (5, "Apresentação"),
+    (8, "Homenagem a Milton Coelho da Graça"),
+    (14, "Capítulo 1 — Jornalistas mortos e desaparecidos"),
+    (41, "Capítulo 2 — Audiências públicas"),
+    (60, "Capítulo 3 — Censura e perseguição"),
+    (70, "Capítulo 4"),
+    (72, "Capítulo 5"),
+    (75, "Capítulo 6 — Acervo e referências"),
+]
+
+_SECOES_CTV_ANDES = [
+    (5, "Introdução"),
+    (6, "Apresentação"),
+    (8, "Parte 1 — Estado ditatorial e a universidade"),
+    (15, "Partes 2 e 3 — Perseguição a discentes e docentes"),
+    (27, "Parte 4 — Violações físicas"),
+    (29, "Anexos"),
+]
+
+_SECOES_CTV_DF_BANCARIOS = [
+    (3, "Apresentação"),
+    (4, "A Comissão"),
+    (6, "Atividades"),
+    (12, "Conclusão"),
+    (13, "Declaração"),
+    (14, "Anexo I"),
+    (16, "Anexo II"),
+    (17, "Anexo III"),
+    (21, "Anexo IV"),
+]
+
+_SECOES_CTV_FENAJ = [
+    (3, "Introdução"),
+    (4, "Processos dos jornalistas"),
+    (7, "Considerações finais"),
+]
+
+
+# =============================================================================
 # PROCESSADORES
 # =============================================================================
 
@@ -932,6 +1070,17 @@ DOCUMENTOS = {
     # Osasco: OCR fragmentado (decretos, atas, ofícios) sem estrutura linear → secao=None
     "cmv-sp-osasco":        (limpar_cmv_num_pagina, None),
     "cmv-sp-sao-paulo":     (limpar_sp_cmv,         _secao_fn(_SECOES_SP_CMV)),
+    # --- comissões temáticas/setoriais — 4º lote DHnet (2026-06) ---
+    "ctv-camponesa":         (limpar_numero_pagina, _secao_fn(_SECOES_CTV_CAMPONESA)),
+    "ctv-une":               (limpar_ctv_une,       _secao_fn(_SECOES_CTV_UNE)),
+    "ctv-mg-jornalistas":    (limpar_ctv_mg_jornalistas, _secao_fn(_SECOES_CTV_MG_JORNALISTAS)),
+    "ctv-sp-cut":            (limpar_ctv_sp_cut,    _secao_fn(_SECOES_CTV_SP_CUT)),
+    "ctv-sp-jornalistas":    (limpar_ctv_sp_jornalistas, _secao_fn(_SECOES_CTV_SP_JORNALISTAS)),
+    "ctv-andes":             (limpar_numero_pagina, _secao_fn(_SECOES_CTV_ANDES)),
+    "ctv-df-bancarios":      (limpar_numero_pagina, _secao_fn(_SECOES_CTV_DF_BANCARIOS)),
+    "ctv-fenaj-jornalistas": (limpar_numero_pagina, _secao_fn(_SECOES_CTV_FENAJ)),
+    # sc-jornalistas: 11 p., texto corrido sem subdivisões internas → secao=None
+    "ctv-sc-jornalistas":    (limpar_ctv_sc_jornalistas, None),
 }
 
 
