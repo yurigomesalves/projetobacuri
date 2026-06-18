@@ -247,5 +247,85 @@
     "sha256": "e8af9f8d73792020fec03f020f2ace42a8c4daf5c3dd675f3b60801ef445d129",
     "tamanho_bytes": 5506968,
     "descricao": "Relatório da Comissão da Verdade Regional do Triângulo Mineiro (Minas Gerais), 2016. O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cev_mg_triangulo_mineiro_r_2016.pdf."
+  },
+  {
+    "slug": "cmv-mg-juiz-de-fora",
+    "url": "https://www.dhnet.org.br/verdade/cv/cmv_mg_juiz_de_fora_r_2015.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cmv_mg_juiz_de_fora_r_2015.pdf",
+    "arquivo_local": "dados/brutos/cmv-mg-juiz-de-fora.pdf",
+    "data_download": "2026-06-18T15:13:54.597267+00:00",
+    "sha256": "620046ae1cccb6245016147fce415b7ee6b9f83fea43c40ec95b202e85431497",
+    "tamanho_bytes": 6372719,
+    "descricao": "Relatório Final da Comissão Municipal da Verdade de Juiz de Fora (MG), 2015, 272 p., PDF com camada de texto. O DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cmv_mg_juiz_de_fora_r_2015.pdf."
+  },
+  {
+    "slug": "cmv-pb-joao-pessoa",
+    "url": "https://www.dhnet.org.br/verdade/cv/cmv_pb_joao_pessoa_r_2020.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cmv_pb_joao_pessoa_r_2020.pdf",
+    "arquivo_local": "dados/brutos/cmv-pb-joao-pessoa.pdf",
+    "data_download": "2026-06-18T15:13:54.911502+00:00",
+    "sha256": "f2b116b8baed8d4ae2949a41c1a136ce1dab99b6b2c050a319741a72a980c702",
+    "tamanho_bytes": 6800680,
+    "descricao": "Relatório Final da Comissão Municipal da Verdade de João Pessoa (PB), 2020, 345 p., PDF com camada de texto. O DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cmv_pb_joao_pessoa_r_2020.pdf."
+  },
+  {
+    "slug": "cmv-rj-niteroi",
+    "url": "https://www.dhnet.org.br/verdade/cv/cmv_rj_niteroi_r_preliminar_2015.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cmv_rj_niteroi_r_preliminar_2015.pdf",
+    "arquivo_local": "dados/brutos/cmv-rj-niteroi.pdf",
+    "data_download": "2026-06-18T15:13:55.213174+00:00",
+    "sha256": "318eae3edbeb70cfba5388e70b8f106369b2b8d08147da7f7a192c0141d8dd43",
+    "tamanho_bytes": 4379281,
+    "descricao": "Relatório PRELIMINAR da Comissão Municipal da Verdade de Niterói (RJ), 2015, 145 p., PDF com camada de texto. Versão preliminar (não definitiva) dos trabalhos da comissão. O DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cmv_rj_niteroi_r_preliminar_2015.pdf."
+  },
+  {
+    "slug": "cmv-rj-petropolis",
+    "url": "https://www.dhnet.org.br/verdade/cv/cmv_rj_petropolis_r_2018.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cmv_rj_petropolis_r_2018.pdf",
+    "arquivo_local": "dados/brutos/cmv-rj-petropolis.pdf",
+    "data_download": "2026-06-18T15:13:55.526125+00:00",
+    "sha256": "44eef6369dd572ce5c9f5db4a175bb129652cc99f13d68b6b6778c0542d07ad9",
+    "tamanho_bytes": 24498533,
+    "descricao": "Relatório Final da Comissão Municipal da Verdade de Petrópolis (RJ), 2018, 402 p., PDF com camada de texto. O DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cmv_rj_petropolis_r_2018.pdf."
+  },
+  {
+    "slug": "cmv-rj-volta-redonda",
+    "url": "https://www.dhnet.org.br/verdade/cv/cmv_rj_volta_redonda_r_2015.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cmv_rj_volta_redonda_r_2015.pdf",
+    "arquivo_local": "dados/brutos/cmv-rj-volta-redonda.pdf",
+    "data_download": "2026-06-18T15:13:55.835020+00:00",
+    "sha256": "5bc427bf8d282715bf94791af8608e78ce869a47fbdba9471ae41f786e5e1ef1",
+    "tamanho_bytes": 5826990,
+    "descricao": "Relatório Final da Comissão Municipal da Verdade de Volta Redonda (RJ), 2015, 589 p., PDF com camada de texto. O DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cmv_rj_volta_redonda_r_2015.pdf."
+  },
+  {
+    "slug": "cmv-sp-maua",
+    "url": "https://www.dhnet.org.br/verdade/cv/cmv_sp_maua_r_final_2014.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cmv_sp_maua_r_final_2014.pdf",
+    "arquivo_local": "dados/brutos/cmv-sp-maua.pdf",
+    "data_download": "2026-06-18T15:13:56.119584+00:00",
+    "sha256": "2136f8a4f511f98310102bed3c61f681646a9d5fe1119c2bf17a9698eb6bdf5d",
+    "tamanho_bytes": 365231,
+    "descricao": "Relatório Final da Comissão Municipal da Verdade de Mauá (SP), 2014, 72 p., PDF com camada de texto. O DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cmv_sp_maua_r_final_2014.pdf."
+  },
+  {
+    "slug": "cmv-sp-osasco",
+    "url": "https://www.dhnet.org.br/verdade/cv/cmv_sp_osasco_dossier_lex_2014.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cmv_sp_osasco_dossier_lex_2014.pdf",
+    "arquivo_local": "dados/brutos/cmv-sp-osasco.pdf",
+    "data_download": "2026-06-18T15:13:56.363353+00:00",
+    "sha256": "ca5446f4062c05595839c5a933704ae85e6fabf2785a8526f1c6686968bdd1bf",
+    "tamanho_bytes": 15905914,
+    "descricao": "Dossiê da Comissão Municipal da Verdade de Osasco (SP), 2014, 117 p. PDF INTEIRAMENTE ESCANEADO (sem camada de texto) — texto obtido por OCR (Tesseract por, 300 DPI) via pipeline/02d_ocr_osasco.py. O DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cmv_sp_osasco_dossier_lex_2014.pdf."
+  },
+  {
+    "slug": "cmv-sp-sao-paulo",
+    "url": "https://www.dhnet.org.br/verdade/cv/cmv_sp_sao_paulo_r_2016.pdf",
+    "url_original": "https://www.dhnet.org.br/verdade/cv/cmv_sp_sao_paulo_r_2016.pdf",
+    "arquivo_local": "dados/brutos/cmv-sp-sao-paulo.pdf",
+    "data_download": "2026-06-18T15:13:56.620973+00:00",
+    "sha256": "b7b461f7907821c3a9c2d848cf6dfed3679f66cd5788177308706c2ecc8907ff",
+    "tamanho_bytes": 3633321,
+    "descricao": "Relatório Final da Comissão Municipal da Verdade de São Paulo 'Vladimir Herzog', 2016, 396 p., PDF com camada de texto. O DHnet (Rede Direitos Humanos e Cultura Democrática, ONG de referência) redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cmv_sp_sao_paulo_r_2016.pdf."
   }
 ]

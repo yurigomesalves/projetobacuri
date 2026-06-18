@@ -43,6 +43,8 @@ next-env.d.ts
 
 # pipeline — documentos baixados e dados intermediários (pesados; ficam só na máquina local)
 /pipeline/dados/
+# logs de OCR/processamento do pipeline (só na máquina local)
+/pipeline/*.log
 
 # python
 __pycache__/

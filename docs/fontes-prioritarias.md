@@ -38,8 +38,19 @@ Supabase com `nota_contexto` editorial):
 - **Sergipe** "Paulo Barbosa de Araújo" (2020, 428 p.) → `cev-se-relatorio-final` — 754 chunks, 7 partes (I–VII) + Introdução.
 - **Triângulo Mineiro e Alto Paranaíba** "Ismene Mendes" / Caso Ismene Mendes (UFU/EDUFU, 2016, 136 p.) → `cev-mg-triangulo-mineiro` — 177 chunks, 13 seções. Subcomissão **regional/universitária** ligada à Covemg+UFU — NÃO confundir com a Covemg estadual (`cev-mg-covemg-relatorio-final-2017`).
 
+✅ **2º lote ingerido (jun/2026) — 8 comissões MUNICIPAIS** (extração direta, exceto Osasco;
+chunking em `pipeline/03_chunkar_estaduais.py`, indexação no Supabase — ver diário):
+- **Juiz de Fora** (MG, 2015) → `cmv-mg-juiz-de-fora` — 272 p., texto nativo (~547 mil chars).
+- **João Pessoa** (PB, 2020) → `cmv-pb-joao-pessoa` — 345 p., texto nativo (~929 mil chars).
+- **Niterói** (RJ, 2015, relatório *preliminar*) → `cmv-rj-niteroi` — 145 p., texto nativo (~214 mil chars).
+- **Petrópolis** (RJ, 2018) → `cmv-rj-petropolis` — 402 p., texto nativo (~858 mil chars).
+- **Volta Redonda** (RJ, 2015) → `cmv-rj-volta-redonda` — 589 p., texto nativo (~953 mil chars).
+- **Mauá** (SP, 2014) → `cmv-sp-maua` — 72 p., texto nativo (~160 mil chars).
+- **Osasco** (SP, 2014, dossiê) → `cmv-sp-osasco` — 117 p., **PDF escaneado → OCR** (Tesseract `por`,
+  300 DPI, `pipeline/02d_ocr_osasco.py`; ~190 mil chars, 2 págs. em branco). Único do lote que exigiu OCR.
+- **São Paulo "Vladimir Herzog"** (SP, 2016) → `cmv-sp-sao-paulo` — 396 p., texto nativo (~824 mil chars).
+
 **Lotes futuros do catálogo DHnet** (ainda NÃO ingeridos; arquivos em `/verdade/cv/`):
-- *Municipais (8):* Juiz de Fora (`cmv_mg_juiz_de_fora_r_2015`), João Pessoa (`cmv_pb_joao_pessoa_r_2020`), Niterói (`cmv_rj_niteroi_r_preliminar_2015`), Petrópolis (`cmv_rj_petropolis_r_2018`), Volta Redonda (`cmv_rj_volta_redonda_r_2015`), Mauá (`cmv_sp_maua_r_final_2014`), Osasco (`cmv_sp_osasco_dossier_lex_2014`), São Paulo/Herzog (`cmv_sp_sao_paulo_r_2016`).
 - *Universitárias (8):* UFBA (`cuv_ba_ufba_r_2014`), UnB (`cuv_df_unb_r_2015`), UFES (`cuv_es_ufes_r_2016`), UFOP (`cuv_mg_ufop_2017`), UFCG (`cuv_pb_ufcg_r_parcial_2015`), Unicamp (`cuv_sp_unicamp_r_2015`), UNIFESP (`cuv_sp_unifesp_r_2015`), UFRN (`cuv_ufrn_r_final_2015`).
 - *Temáticas/setoriais (9):* Comissão Camponesa (`cv_camponesa_r_2016`), bancários DF (`cv_df_bancarios_r_2015`), jornalistas FENAJ (`cv_df_fenaj_jornalistas_anexo_1`), UNE (`cv_df_une_r_2015`), jornalistas MG (`cv_mg_jornalistas_r_2013`), jornalistas SC (`cv_sc_jornalistas_r_2014`), CUT-SP (`cv_sp_cut_r_2015`), jornalistas SP (`cv_sp_jornalistas_r_2017`), ANDES (`cv_universidades_andes_2020`).
 - *Já no acervo por outras vias (duplicatas no DHnet, ignorar):* CNV, CEV-SP Rubens Paiva, CEV-RJ, CEV-MG/Covemg, estaduais AM, ES, PB, PE, PR, RS, SC.

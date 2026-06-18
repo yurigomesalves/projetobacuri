@@ -1,5 +1,5 @@
 r"""
-Chunking das comissões estaduais da verdade ainda não processadas:
+Chunking das comissões estaduais e municipais da verdade:
 
   cev-am-waimiri-atroari     92 p.   Comitê Estadual da Verdade AM (Waimiri-Atroari)
   cev-sc-relatorio-final    208 p.   CEV Paulo Stuart Wright – Santa Catarina
@@ -15,6 +15,18 @@ Chunking das comissões estaduais da verdade ainda não processadas:
   cev-se-relatorio-final    428 p.   CEV de Sergipe "Paulo Barbosa de Araújo", 2020
   cev-mg-triangulo-mineiro  136 p.   Comissão da Verdade do Triângulo Mineiro e Alto
                                      Paranaíba "Ismene Mendes" (UFU/EDUFU), 2016
+
+  --- Comissões Municipais (adicionadas 2026-06) ---
+  cmv-mg-juiz-de-fora       272 p.   CMV Juiz de Fora – "Memórias da Repressão", 2015
+  cmv-pb-joao-pessoa        345 p.   CMV João Pessoa, 2020
+  cmv-rj-niteroi            145 p.   Comissão da Verdade de Niterói – II Relatório Parcial
+                                     (versão preliminar), 2015
+  cmv-rj-petropolis         402 p.   CMV Petrópolis – crimes e violações (1964-1985), 2018
+  cmv-rj-volta-redonda      589 p.   CMV D. Waldyr Calheiros – Volta Redonda (2013-2015)
+  cmv-sp-maua                72 p.   CMV Mauá, 2014
+  cmv-sp-osasco             117 p.   CMV Osasco (OCR Tesseract 300dpi), 2014
+  cmv-sp-sao-paulo          396 p.   Comissão da Memória e Verdade da Prefeitura de SP
+                                     "Vladimir Herzog", 2016
 
 Uso: python 03_chunkar_estaduais.py [slug...]
      sem argumento → processa todos
@@ -37,8 +49,26 @@ Seções mapeadas manualmente pelo sumário impresso:
   • SE  — Introdução + Partes I/II/III/VI (pags 26, 75, 93, 283, 373 verificadas)
   • MG-Triângulo — Apresentação + Introdução + 6 capítulos + 4 Anexos (índice
     verificado e páginas divisórias confirmadas no jsonl)
-  Para os demais (AM, SC, RS, PB, PE) e BA-vol2 secao = None: documentos
-  curtos, estrutura fragmentada ou volume de depoimentos sem capítulos formais.
+  • JF  — Apresentação + 6 capítulos + Apêndices + Anexos (sumário na pag 11;
+    páginas divisórias 12,14,42,80,110,128,204,216,251 são em branco; conteúdo
+    começa 2 páginas depois: 12,16,44,82,112,130,206,216,251 verificadas)
+  • João Pessoa — 9 capítulos + Referências + Anexos + Fotos (sumário pags 15-16;
+    páginas divisórias confirmadas no jsonl: 19,23,69,77,89,103,167,179,183,275,
+    283,289,331 verificadas)
+  • Niterói — Apresentação + Introdução + 4 Capítulos + Anexos (sumário pag 3;
+    pags 4,5,10,31,59,80,130 verificadas)
+  • Petrópolis — Apresentação + Trajetória + 3 seções históricas + Vítimas +
+    Instituições + Testemunhos + Textos Temáticos + Oitivas MPF + Recomendações
+    + Anexos (sumário pags 12-13; offset +1 entre nº impresso e posição no jsonl;
+    pags jsonl 14,18,55,122,176,210,254,268,289,376,388,392 verificadas)
+  • Volta Redonda — Introdução + 5 Partes + Recomendações (sumário pags 4-5;
+    pags 6,30,101,112,140,161,183,209,255,330,404,432,454,535,551,573 verificadas;
+    mapeamento usa as Partes como unidades, não os 14 casos individuais)
+  • SP (Vladimir Herzog) — 4 Partes + Caderno de Imagens + Anexos (sumário
+    pags 7-9; páginas de rosto de parte confirmadas: 15,61,115,247,327,349)
+  Para os demais municipais (Mauá, Osasco) secao = None:
+    Mauá — 72 pags, documento curto sem cabeçalhos de seção nas páginas
+    Osasco — texto OCR fragmentado (decretos, atas, ofícios sem estrutura linear)
 
 Limpeza de cabeçalhos/rodapés:
   AM  — "Página N de 92" no início de cada página
@@ -50,6 +80,10 @@ Limpeza de cabeçalhos/rodapés:
   SE  — cabeçalho corrido "NN | SEÇÃO" ou "SEÇÃO | NN" em cada página
   MG-Triângulo — cabeçalho corrido com nome da comissão + número de página
         ("comissão da verdade do triângulo mineiro… dezembro 2016\nNN")
+  JF/JP/Niterói/VR/Mauá/Osasco — número de página isolado no topo (^\d+\s*\n)
+  Petrópolis — número de página entre colchetes no topo ("[N]")
+  SP (Vladimir Herzog) — número de página + linha "Comissão da Memória e Verdade
+        da Prefeitura de São Paulo • Relatório • Dezembro/2016"
 
 Todas as decisões de curadoria deste script podem ser conferidas comparando
 o mapa de capítulos com os sumários dos PDFs originais.
@@ -328,6 +362,43 @@ def limpar_mg_triangulo(texto):
 
 
 # =============================================================================
+# LIMPEZA — COMISSÕES MUNICIPAIS (adicionadas 2026-06)
+# =============================================================================
+
+# --- JF / JP / Niterói / VR / Mauá / Osasco: número de página isolado no topo ---
+# Padrão idêntico a RS/PB/PE; reutiliza limpar_numero_pagina.
+# Mauá tem \xa0 após o número ("10\xa0\n\xa0\n …") mas ^\d+\s*\n captura igualmente.
+
+def limpar_cmv_num_pagina(texto):
+    return limpar_numero_pagina(texto)
+
+
+# --- Petrópolis: número de página entre colchetes no topo ("[N]") ---
+# Todas as páginas de conteúdo começam com "[N]" (ex: "[19]", "[99]").
+# Verificado nas pags 20, 50, 100, 150, 200, 250, 300, 350, 400 do jsonl.
+_RE_PET_HEADER = re.compile(r"^\[\d+\]\s*\n?")
+
+def limpar_petropolis(texto):
+    return _RE_PET_HEADER.sub("", texto).strip()
+
+
+# --- SP (Vladimir Herzog): número de página + linha de crédito da comissão ---
+# Todas as páginas com texto começam com "N\nComissão da Memória e Verdade…\n".
+# Verificado nas pags 17, 20, 50, 100, 200, 300 do jsonl.
+_RE_SP_CMV_HEADER = re.compile(
+    r"^\d+\s*\nComiss[aã]o da Mem[oó]ria e Verdade da Prefeitura de S[aã]o Paulo"
+    r"\s*[•·]\s*Relat[oó]rio\s*[•·]\s*Dezembro/2016\s*\n",
+    re.IGNORECASE,
+)
+
+def limpar_sp_cmv(texto):
+    texto = _RE_SP_CMV_HEADER.sub("", texto)
+    # páginas de rosto de Parte (ex: "PARTE I\nA COMISSÃO...") não têm o cabeçalho
+    # mas também não têm número solto; normalização padrão suficiente
+    return texto.strip()
+
+
+# =============================================================================
 # MAPAS DE SEÇÕES (capítulo → página inicial no .jsonl, 1-based)
 # Cada mapa foi construído lendo o sumário do PDF e verificando o conteúdo
 # real das páginas divisórias no .jsonl extraído.
@@ -430,6 +501,111 @@ _SECOES_MG_TRIG = [
 ]
 
 
+# =============================================================================
+# MAPAS DE SEÇÕES — COMISSÕES MUNICIPAIS (adicionados 2026-06)
+# =============================================================================
+
+# JF: Apresentação + 6 capítulos + Apêndices + Anexos
+# Sumário na pag 11 do jsonl. Páginas divisórias são em branco (só número);
+# o conteúdo começa 2 páginas depois de cada entrada do sumário.
+# Verificadas: pag 12 (Apresentação), 16 (Cap1), 44 (Cap2), 82 (Cap3),
+#              112 (Cap4), 130 (Cap5), 206 (Cap6), 216 (Apêndices), 251 (Anexos).
+_SECOES_JF = [
+    (12,  "Apresentação"),
+    (16,  "Capítulo 1 – Trajetória da Comissão"),
+    (44,  "Capítulo 2 – Sistema de repressão em Juiz de Fora"),
+    (82,  "Capítulo 3 – Vítimas da ditadura"),
+    (112, "Capítulo 4 – Justiça e legislação de exceção"),
+    (130, "Capítulo 5 – Os impactos da ditadura sobre as instituições"),
+    (206, "Capítulo 6 – Conclusões e recomendações"),
+    (216, "Apêndices"),
+    (251, "Anexos"),
+]
+
+# João Pessoa: Apresentação + 9 capítulos + Referências + Anexos + Fotos
+# Sumário nas pags 15-16 do jsonl. Páginas divisórias verificadas diretamente
+# no jsonl: 19, 23, 69, 77, 89, 103, 167, 179, 183, 275, 283, 289, 331.
+_SECOES_JP = [
+    (19,  "Apresentação"),
+    (23,  "Capítulo 1 – A Instalação da Ditadura Militar e a Repressão Política em João Pessoa"),
+    (69,  "Capítulo 2 – Territórios de Resistência: João Pessoa e o Golpe de 1964"),
+    (77,  "Capítulo 3 – A Prefeitura Municipal de João Pessoa e a Ditadura Militar"),
+    (89,  "Capítulo 4 – A Câmara Municipal de João Pessoa e a Ditadura Militar"),
+    (103, "Capítulo 5 – O Aparato Repressivo da Ditadura Militar em João Pessoa"),
+    (167, "Capítulo 6 – Movimentos de Resistência e Defesa dos Direitos Humanos"),
+    (179, "Capítulo 7 – João Pessoa e a Memória Histórica do Autoritarismo"),
+    (183, "Capítulo 8 – Histórias de Vidas contra o Arbítrio"),
+    (275, "Capítulo 9 – Recomendações"),
+    (283, "Referências"),
+    (289, "Anexos"),
+    (331, "Fotos"),
+]
+
+# Niterói: Apresentação + Introdução + 4 Capítulos + Anexos
+# Sumário na pag 3 do jsonl. Páginas divisórias verificadas no jsonl:
+# pag 4 (Apresentação), 5 (Introdução), 10 (Cap I), 31 (Cap II), 59 (Cap III),
+# 80 (Cap IV), 130 (Anexos).
+_SECOES_NITEROI = [
+    (4,   "Apresentação"),
+    (5,   "Introdução"),
+    (10,  "Capítulo I – O Estádio Caio Martins"),
+    (31,  "Capítulo II – Niterói, o Golpe e a Repressão aos Trabalhadores: os Operários Navais"),
+    (59,  "Capítulo III – O Centro de Armamento da Marinha"),
+    (80,  "Capítulo IV – Ilha das Flores"),
+    (130, "Anexos"),
+]
+
+# Petrópolis: Apresentação + Trajetória + 3 seções históricas + Vítimas +
+# Instituições + Testemunhos + Textos Temáticos + Oitivas MPF +
+# Considerações Finais + Anexos
+# Sumário pags 12-13. O jsonl tem offset +1 vs. número impresso (pag impressa N
+# = jsonl posição N+1). Páginas jsonl verificadas: 14, 18, 55, 122, 176, 210,
+# 254, 268, 289, 376, 388, 392.
+_SECOES_PETROPOLIS = [
+    (14,  "Apresentação"),
+    (18,  "Trajetória da Comissão Municipal da Verdade"),
+    (55,  "1. O Golpe e a Formação da Ditadura Militar (1964-1969)"),
+    (122, "2. A Consolidação da Ditadura Militar (1970-1979)"),
+    (176, "3. A Redemocratização e a Retomada das Lutas Sociais (1980-1989)"),
+    (210, "Vítimas"),
+    (254, "Instituições, Leis e Agentes da Repressão"),
+    (268, "Testemunhos Prestados à Comissão Municipal da Verdade de Petrópolis"),
+    (289, "Textos Temáticos"),
+    (376, "As Oitivas do Ministério Público Federal em Petrópolis"),
+    (388, "Considerações Finais e Recomendações"),
+    (392, "Anexos"),
+]
+
+# Volta Redonda: Introdução + 5 Partes históricas + Recomendações
+# Sumário pags 4-5 do jsonl. Páginas verificadas no jsonl (sem offset):
+# 6, 30, 140, 255, 404, 454, 573.
+# Mapeamento usa as 5 Partes como unidade temática. Os 14 casos individuais
+# ficam dentro de cada parte — granularidade excessiva para o mapa de seções.
+_SECOES_VR = [
+    (6,   "Introdução"),
+    (30,  "Parte I – Volta Redonda na Ditadura Civil-Militar (1964-1966)"),
+    (140, "Parte II – Volta Redonda na Ditadura Civil-Militar (1967-1969)"),
+    (255, "Parte III – Volta Redonda na Ditadura Civil-Militar (1970-1973)"),
+    (404, "Parte IV – Volta Redonda na Ditadura Civil-Militar (1974-1984)"),
+    (454, "Parte V – A Ditadura Tardia em Volta Redonda (1985-1989)"),
+    (573, "Recomendações"),
+]
+
+# SP (Vladimir Herzog): 4 Partes + Caderno de Imagens + Anexos
+# Sumário pags 7-9 do jsonl. Páginas de rosto de Parte verificadas:
+# 15 (Parte I), 61 (Parte II), 115 (Parte III), 247 (Parte IV),
+# 327 (Parte V – Caderno de Imagens), 349 (Parte VI – Anexos).
+# Capítulos dentro das partes não são mapeados (já cobertos pela divisão por Parte).
+_SECOES_SP_CMV = [
+    (15,  "Parte I – A Comissão da Memória e Verdade da Prefeitura de São Paulo"),
+    (61,  "Parte II – Contexto Histórico"),
+    (115, "Parte III – As Violações aos Direitos Humanos"),
+    (247, "Parte IV – Recomendações"),
+    (327, "Parte V – Caderno de Imagens"),
+    (349, "Parte VI – Anexos"),
+]
+
+
 def _secao_fn(mapa):
     """Devolve uma função pagina→secao dada uma lista (pagina_inicio, titulo)."""
     def fn(num_pagina):
@@ -486,6 +662,17 @@ DOCUMENTOS = {
     "cev-ba-relatorio-vol2":    (limpar_ba_vol2,  None),
     "cev-se-relatorio-final":   (limpar_se,       _secao_fn(_SECOES_SE)),
     "cev-mg-triangulo-mineiro": (limpar_mg_triangulo, _secao_fn(_SECOES_MG_TRIG)),
+    # --- comissões municipais (2026-06) ---
+    "cmv-mg-juiz-de-fora":  (limpar_cmv_num_pagina, _secao_fn(_SECOES_JF)),
+    "cmv-pb-joao-pessoa":   (limpar_cmv_num_pagina, _secao_fn(_SECOES_JP)),
+    "cmv-rj-niteroi":       (limpar_cmv_num_pagina, _secao_fn(_SECOES_NITEROI)),
+    "cmv-rj-petropolis":    (limpar_petropolis,     _secao_fn(_SECOES_PETROPOLIS)),
+    "cmv-rj-volta-redonda": (limpar_cmv_num_pagina, _secao_fn(_SECOES_VR)),
+    # Mauá: 72 pags, sem cabeçalhos de seção formais nas páginas → secao=None
+    "cmv-sp-maua":          (limpar_cmv_num_pagina, None),
+    # Osasco: OCR fragmentado (decretos, atas, ofícios) sem estrutura linear → secao=None
+    "cmv-sp-osasco":        (limpar_cmv_num_pagina, None),
+    "cmv-sp-sao-paulo":     (limpar_sp_cmv,         _secao_fn(_SECOES_SP_CMV)),
 }
 
 

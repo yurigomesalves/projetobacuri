@@ -968,3 +968,44 @@ maioria dos conhecidos OK — mas há vazamentos reais (ex.: conteúdo de **Rube
 `Perfil – Celso Gilberto de Oliveira`, pág. 210; Wilson Silva, Herzog e Frei Tito a
 verificar). Plano: portar `isolar_cabecalhos_de_perfil` adaptada ao padrão de nome em
 caixa mista do Dossiê, re-chunkar, indexar (fonte `d6f2e787`, com `LOTE_INSERCAO=25`).
+
+## 2026-06-18 — Fase 5: 2º lote DHnet — 8 comissões MUNICIPAIS da verdade
+**Decisão do Yuri:** dar continuidade ao catálogo DHnet ingerindo as 8 comissões
+**municipais** nesta sessão (das ~24 restantes; universitárias e temáticas ficam
+para lotes futuros), respeitando a regra de economia de tokens. O 1º lote DHnet
+(estaduais AP/BA/SE + Triângulo) foi commitado antes (`c19f4ea`).
+
+- **Engenheiro (feito na sessão principal — subagente em segundo plano ficou sem
+  permissão de Bash):** baixados do DHnet (`/verdade/cv/`, sem bloqueio) os 8 PDFs;
+  proveniência (SHA-256/URL) em `manifesto.json` e metadados em `fontes.json`
+  (slugs `cmv-*`). Diagnóstico de camada de texto: **7 nativos**, **1 escaneado**.
+  - Juiz de Fora/MG (272 p.), João Pessoa/PB (345 p.), Niterói/RJ (145 p.,
+    *preliminar*), Petrópolis/RJ (402 p.), Volta Redonda/RJ (589 p.), Mauá/SP
+    (72 p.), São Paulo/SP "Herzog" (396 p.) → extração direta (`02_extrair.py`).
+  - **Osasco/SP (117 p.) é 100% escaneado** → OCR (Tesseract `por`, 300 DPI) via
+    novo `pipeline/02d_ocr_osasco.py` (~257 s, ~190 mil chars legíveis).
+- **Cientista (subagente, com permissão de terminal, só chunking):** estendeu
+  `03_chunkar_estaduais.py` com os 8 slugs (limpeza de cabeçalho/rodapé + mapas de
+  seção por sumário). **3.283 chunks**, mediana ~375 tokens, 0 acima de 512.
+  Seções mapeadas em 6 docs (97–100%); Mauá e Osasco com `secao=null` (sem
+  capítulos formais — registro de audiências / dossiê documental).
+- **Indexação no Supabase (autorizada pelo Yuri):** 8 fontes novas + 3.283 chunks
+  (e5-small, `LOTE_INSERCAO=25`, sem incidente de timeout). Busca de sanidade OK
+  (greve da CSN/Volta Redonda 0,90; cruzamento com audiências da CEV-SP — a busca
+  híbrida integra o acervo novo ao existente).
+- **Curador (`docs/auditorias/dhnet-municipais.md`): APTO COM RESSALVAS, nada
+  bloqueante.** Todos os mapas de seção consistentes com os sumários (nenhuma parte
+  pulada). Achado estrutural: nenhuma das 8 fontes tinha `nota_contexto` — redigiu
+  as 8. Decisões do Yuri aplicadas (UPDATE em `fontes.json` + tabela `fontes` via
+  `aplicar_notas_municipais.py`, idempotente): (a) **8 `nota_contexto`**;
+  (b) **Osasco `confiabilidade` alta→media** (OCR degradado); (c) **título de SP**
+  para o nome legal ("Comissão da Memória e Verdade da Prefeitura do Município de
+  São Paulo"), epíteto "Vladimir Herzog" só na nota; (d) **Niterói** mantida "alta"
+  + nota de alerta de versão preliminar (decisão editorial do Yuri).
+
+**Pendências (backlog não-bloqueante apontado pela curadoria):** filtro de
+`tipo_chunk` para pré-texto (créditos, listas de siglas) nas buscas; granularidade
+do decreto do Diário Oficial nos anexos de Petrópolis; verificar se a CEV-Rio traz
+relatório final de Niterói. **Lotes DHnet futuros:** 8 universitárias, 9 temáticas.
+Pendências antigas seguem: Dossiê Ditadura (vazamento de seção — `b69f9a9`),
+Araguaia, BNM, módulo crimes e justiça (Fase 7).
