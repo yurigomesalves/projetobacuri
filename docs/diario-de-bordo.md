@@ -1077,3 +1077,35 @@ chunking (tipo CEV-SE); investigar com o cientista-de-dados. **José Lavéchia**
 2º lote PR. Schema sem campo para naturalidade estrangeira (`pais_natal`) — decisão
 futura. **Próximos lotes do Sul:** completar PR, depois SC e RS, depois
 perpetradores (DOPS/DOI-CODI regionais, entram como `rascunho` — ADR-013).
+
+## 2026-06-18 — Fase 6: 2º lote PR — fecha a chacina (Lavéchia, Vitor) e cura Jane Argolo
+Fechamento do lote do Paraná, resolvendo as duas pendências do 1º lote.
+
+- **Investigação da "sumiço" da Jane Argolo (cientista-de-dados / sessão):** a
+  pendência registrada estava **errada**. Jane **está integralmente indexada** no
+  Supabase (CEV-PR vol2, fonte `ac92ca87…`, pp. 203–220) e recuperável por busca
+  textual. O que ocorreu foi **rotulagem grossa de seção**: `03_chunkar_estaduais.py`
+  só captura os capítulos de 1º nível (1. Operação Condor / 2. Outras Graves
+  Violações / 3. Partidos… / 4. Textos Temáticos) e colapsa as subseções nominais —
+  por isso a busca pelo mapa de seções não a achava, embora não houvesse perda de
+  conteúdo. **Decisão do Yuri:** curar a partir dos chunks existentes, sem re-chunkar;
+  a granularidade de subseção do chunker estaduais fica como melhoria futura.
+- **Curador-historiador (subagente):** redigiu **3 biografias** (`tipo=vitima`,
+  `publicada`), cada afirmação com página + trecho literal: **José Lavéchia**
+  (sapateiro paulistano, VPR, 9 cit.) e **Vitor Carlos Ramos** (escultor santista,
+  VPR, 9 cit.) — as duas vítimas restantes da Chacina do Parque Nacional do Iguaçu;
+  e **Jane Argolo** / Perpétua Janete (Janeti) Batista dos Santos (14 cit.),
+  sobrevivente de prisão e tortura em Curitiba (DOPS-PR / Presídio do Ahú / Cenimar),
+  caso distinto da chacina (cap. 2). O evento `chacina-parque-nacional-iguacu-1974`
+  passa a vincular as **6** vítimas.
+- **Gotcha corrigido antes de ingerir:** o `06_semear_curadoria.py` validava
+  `sobrevivente` como marcador, mas a decisão editorial da **migração 0012** unificou
+  sobreviventes no `tipo=vitima` e **não criou** marcador `sobrevivente` (constraint
+  `biografia_marcadores_marcador_check` tem 13 valores fixos). Jane ficou com
+  marcadores `mulher` + `estudante`; a sobrevivência é declarada no `texto_md`.
+  Naturalidades: Lavéchia (São Paulo/SP), Vitor (Santos/SP), Jane (Santa Rosa/RS).
+- **Ingestão (autorizada pelo Yuri):** `06_semear` (upsert idempotente) OK; as 3
+  confirmadas `publicada` no banco e o evento com as 6 vítimas vinculadas.
+
+**Pendência aberta:** melhorar a granularidade de subseções no `03_chunkar_estaduais.py`
+(capturar 2.x nominais e re-indexar) — fora do escopo deste lote.

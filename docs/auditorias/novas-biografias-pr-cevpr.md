@@ -126,6 +126,13 @@ As sequelas, porém, foram permanentes e deliberadas. O delegado do DOPS-PR Ozia
 
 ## Pendências e decisões
 
-- **Jane Argolo / Perpétua Janeti Batista dos Santos** (vol.2, pp. 202–219): ausente dos chunks indexados — provável falha de chunking (tipo CEV-SE). Investigar com cientista-de-dados antes de curar.
-- **José Lavéchia** e **Vitor Carlos Ramos**: demais vítimas da chacina, com material suficiente — reservadas para o 2º lote PR.
 - **Enrique Ruggia (naturalidade estrangeira):** Corrientes/Argentina não cabe no par `municipio_natal`/`uf_natal` (UF brasileira). Mantido nulo no campo estruturado; origem preservada no `texto_md`. Avaliar campo `pais_natal` em versão futura do schema.
+
+---
+
+## 2º lote PR (2026-06-18) — José Lavéchia, Vitor Carlos Ramos e Jane Argolo
+
+Curadas as duas vítimas restantes da Chacina do Parque Nacional do Iguaçu — **José Lavéchia** e **Vitor Carlos Ramos** (vol.2, cap. 1 "Operação Condor", subseção 1.4, pp. 59–94) — com material documental farto. O evento georreferenciado `chacina-parque-nacional-iguacu-1974` passa a vincular as **seis** vítimas. Curada também **Jane Argolo / Perpétua Janeti Batista dos Santos** (apelido "Janetinha"), caso distinto da chacina (vol.2, cap. 2 "Outras Graves Violações de Direitos Humanos", pp. 203–220), sobrevivente de prisão e tortura. Conforme a decisão editorial da migração 0012 (sobreviventes unificados no tipo `vitima`, sem marcador próprio), foi registrada como `tipo: vitima` com marcadores `mulher` + `estudante`; a sobrevivência é declarada explicitamente no `texto_md` e no resumo.
+
+### Correção da pendência registrada no 1º lote
+A nota anterior afirmava que Jane Argolo estaria "ausente dos chunks indexados — provável falha de chunking (tipo CEV-SE)". **A premissa estava errada.** A investigação (cientista-de-dados / sessão) confirmou que o conteúdo dela **está integralmente indexado** no Supabase (fonte vol.2 `ac92ca87-…`, pp. 203–220) e é recuperável por busca textual. O que ocorreu foi **rotulagem grossa de seção**: `pipeline/03_chunkar_estaduais.py` só captura os capítulos de 1º nível (1. Operação Condor / 2. Outras Graves Violações de Direitos Humanos / 3. Partidos… / 4. Textos Temáticos) e colapsa as subseções nominais. Por isso a busca pelo mapa de seções não a localizava, embora não houvesse perda de conteúdo. **Decisão:** curar a partir dos chunks existentes (sem re-chunkar). Fica registrada, para melhoria futura, a limitação do chunker estaduais quanto à granularidade de subseções.
