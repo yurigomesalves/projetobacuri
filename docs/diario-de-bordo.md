@@ -1040,3 +1040,40 @@ marcado como `corpo` nos 8 (siglas da UnB, currículos da UFOP); duplicação de
 conteúdo (UFES, UFCG); chunk atômico na UFCG; `secao` errada na UFRN (chunk 2);
 vazamento de rodapé (UFBA, Unicamp); **LGPD** — e-mails na capa da UFBA;
 dimensão de gênero a avaliar. **Lote DHnet restante:** 9 temáticas/setoriais.
+
+## 2026-06-18 — Fase 6: 1º lote de biografias do SUL — 5 vítimas do Paraná (CEV-PR)
+**Decisão do Yuri:** começar a curadoria de biografias do Sul **um estado por vez**
+(Paraná primeiro, acervo mais rico), **vítimas antes de perpetradores**, **lote
+pequeno (4–6)**. As 5 fontes do Sul já estavam baixadas, extraídas, chunkadas e
+**indexadas no Supabase** (CEV-PR vol1 615 + vol2 674, CEV-SC 375, CEV-RS 180,
+CTV-SC jornalistas 20 chunks) — só faltava a curadoria editorial; até aqui não havia
+nenhuma biografia de pessoa do Sul.
+
+- **Sessão principal:** minerou os chunks do CEV-PR (vols. 1 e 2) via MCP Supabase;
+  o sumário do vol. 2 deu a lista de vítimas com subseção própria. Caso central do
+  PR: **Chacina do Parque Nacional do Iguaçu (1974)** — extermínio de militantes da
+  VPR na Estrada do Colono (Foz do Iguaçu), no marco da Operação Condor.
+- **Curador-historiador (subagente, `mode: acceptEdits`):** redigiu **5 biografias
+  de vítimas** (`tipo=vitima`, `publicada`), cada afirmação com citação (página +
+  trecho literal): Onofre Pinto (10 cit.), Daniel e Joel José de Carvalho (8 e 6),
+  Enrique Ernesto Ruggia (7, único estrangeiro), Clarice Valença (10). Criou também
+  o evento georreferenciado **chacina-parque-nacional-iguacu-1974** ligando as 4
+  vítimas da chacina (ponto em Foz do Iguaçu).
+- **Revisão na sessão principal (gotchas corrigidos antes de ingerir):** 3 JSONs
+  vinham com **aspas não escapadas no `texto_md`** (JSON inválido) → escapadas; o
+  evento usava `tipo_evento: "caso_coletivo"` (inexistente no vocabulário) → trocado
+  por `operacao_repressiva`; **Enrique** nasceu em Corrientes (Argentina) e o schema
+  só aceita UF brasileira → `municipio_natal/uf_natal` nulos (origem registrada no
+  `texto_md`). Municípios de naturalidade conferidos em `municipios_ibge`.
+- **Ingestão (sessão principal, autorizada pelo Yuri):** `06_semear_curadoria.py`
+  (upsert idempotente) OK; `10_preencher_naturalidades.py` preencheu coordenadas de
+  Onofre (Jacupiranga/SP), Daniel e Joel (Muriaé/MG). As 5 confirmadas como
+  `publicada` no banco.
+
+**Pendências (backlog não-bloqueante):** **Jane Argolo/Perpétua Janeti Batista dos
+Santos** (CEV-PR vol2, pp. 202–219) **sumiu dos chunks** — provável falha de
+chunking (tipo CEV-SE); investigar com o cientista-de-dados. **José Lavéchia** e
+**Vitor Carlos Ramos** (as outras 2 vítimas da chacina) têm material suficiente →
+2º lote PR. Schema sem campo para naturalidade estrangeira (`pais_natal`) — decisão
+futura. **Próximos lotes do Sul:** completar PR, depois SC e RS, depois
+perpetradores (DOPS/DOI-CODI regionais, entram como `rascunho` — ADR-013).
