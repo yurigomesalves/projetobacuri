@@ -144,11 +144,15 @@ MINIMO_CARACTERES = 60
 # =============================================================================
 
 def chunkar_paginas(paginas, tokenizer):
-    """Recebe lista de (numero_pagina, texto_limpo, secao) e devolve chunks."""
+    """Recebe lista de (numero_pagina, texto_limpo, secao, subsecao) e devolve chunks.
+
+    Para compatibilidade, tuplas de 3 (sem subseção) também são aceitas.
+    """
     chunks = []
     ordem = 0
     buffer_unidades = []  # (token_ids, texto, pagina)
     secao_buffer = None
+    subsecao_buffer = None
 
     def fechar_chunk():
         nonlocal ordem, buffer_unidades
@@ -163,6 +167,7 @@ def chunkar_paginas(paginas, tokenizer):
             "conteudo": texto_chunk,
             "paginas": faixa,
             "secao": secao_buffer,
+            "subsecao": subsecao_buffer,
             "tipo_chunk": "corpo",
         })
         ordem += 1
@@ -171,10 +176,17 @@ def chunkar_paginas(paginas, tokenizer):
     def tokens_no_buffer():
         return sum(len(u[0]) for u in buffer_unidades)
 
-    for num_pagina, texto_limpo, secao in paginas:
-        if secao_buffer is not None and secao != secao_buffer and buffer_unidades:
+    for unidade_pagina in paginas:
+        num_pagina, texto_limpo, secao = unidade_pagina[:3]
+        subsecao = unidade_pagina[3] if len(unidade_pagina) > 3 else None
+        # Fecha o chunk ao trocar de seção OU de subseção, para que cada chunk
+        # carregue um único par (secao, subsecao).
+        if secao_buffer is not None \
+                and (secao, subsecao) != (secao_buffer, subsecao_buffer) \
+                and buffer_unidades:
             fechar_chunk()
         secao_buffer = secao
+        subsecao_buffer = subsecao
 
         paragrafos = [p.strip() for p in texto_limpo.split("\n\n") if p.strip()]
         for paragrafo in paragrafos:
@@ -268,7 +280,7 @@ def gravar_chunks(slug, chunks, tokenizer):
     print(f"Saída: {saida}")
 
 
-def paginas_validas(slug, limpar_fn, secao_fn=None):
+def paginas_validas(slug, limpar_fn, secao_fn=None, subsecao_fn=None):
     """Lê o .jsonl extraído, limpa e filtra páginas; devolve lista de tuplas."""
     entrada = RAIZ / "dados" / "extraido" / f"{slug}.jsonl"
     paginas = []
@@ -287,7 +299,8 @@ def paginas_validas(slug, limpar_fn, secao_fn=None):
                 descartadas += 1
                 continue
             secao = secao_fn(numero) if secao_fn else None
-            paginas.append((numero, texto_limpo, secao))
+            subsecao = subsecao_fn(numero) if subsecao_fn else None
+            paginas.append((numero, texto_limpo, secao, subsecao))
     print(f"[{slug}] {len(paginas)} páginas aproveitadas, {descartadas} descartadas")
     return paginas
 
@@ -677,12 +690,97 @@ _SECOES_PR1 = [
     (392, "6. Segurança Pública e Militarização"),
 ]
 
-# PR-vol2: 4 capítulos (pág 22, 160, 288, 394 verificadas)
+# PR-vol2: capítulos verificados pelas páginas-divisórias no .jsonl.
+# A parte "Textos Temáticos" reúne dois capítulos com numeração própria
+# (4 e 5 no sumário); tratamo-los como duas seções de 1º nível, como o
+# próprio documento os numera. O divisor "TEXTOS TEMÁTICOS" (off 394) e a
+# página em branco seguinte são curtos e caem no filtro de mínimo de
+# caracteres, então não geram chunk sob o rótulo do cap. 4.
 _SECOES_PR2 = [
     (22,  "1. Operação Condor"),
     (160, "2. Outras Graves Violações de Direitos Humanos"),
     (288, "3. Partidos Políticos, Sindicatos e Ditadura"),
-    (394, "4. Textos Temáticos"),
+    (394, "4. Flávio Suplicy de Lacerda"),
+    (414, "5. O papel das igrejas durante a ditadura civil-militar"),
+]
+
+# PR-vol2: subseções de nível X.Y dentro dos capítulos. Offsets = posição
+# da página no .jsonl extraído (mesma régua de _SECOES_PR2), resolvidos pela
+# página impressa do sumário (offset = página impressa + 1 no corpo) e
+# conferidos no conteúdo. Como o rótulo é por página, quando várias
+# subseções começam na mesma página, a página leva a ÚLTIMA da lista
+# (_secao_fn é "último offset <= página"); isso costuma favorecer o caso/
+# vítima nomeada sobre o "Considerações iniciais" anterior. Subseção nominal
+# ausente numa página ≠ conteúdo perdido — é só a granularidade grossa do
+# rótulo.
+_SUBSECOES_PR2 = [
+    # Cap. 1 — Operação Condor
+    (26,  "1.1 Considerações iniciais"),
+    (38,  "1.2 Encontro com Adolfo Pérez Esquivel"),
+    (40,  "1.3 Objetivo principal do GT \"Operação Condor\""),
+    (52,  "1.4 A Chacina do Parque Nacional do Iguaçu (1974)"),
+    (96,  "1.5 Gilberto Giovanetti e Maria Madalena Cavalcanti Lacerda"),
+    (110, "1.6 Major Joaquim Pires Cerveira"),
+    (113, "1.7 Rodolfo Mongelós, Aníbal Abbate Soley, Alejandro Stumpfs e César Cabral"),
+    (114, "1.8 Operação Colombo: o caso do jornal O Dia de Curitiba (PR)"),
+    (117, "1.9 Agustín Goiburú"),
+    (120, "1.10 Guiomar Schmidt Klasko"),
+    (121, "1.11 Remigio Giménez Gamarra"),
+    (132, "1.12 Aluízio Ferreira Palmar"),
+    (152, "1.13 Liliana Inés Goldemberg e Eduardo Gonzalo Escabosa"),
+    (153, "1.14 Embaixador José Pinheiro Jobim"),
+    (156, "1.15 Recomendações gerais ao Grupo de Trabalho \"Operação Condor\""),
+    # Cap. 2 — Outras Graves Violações de Direitos Humanos
+    (162, "2.1 Considerações iniciais"),
+    (162, "2.2 Soldado Jorge Borges"),
+    (163, "2.3 Clarice Valença"),
+    (169, "2.4 Tsutomu Higashi"),
+    (203, "2.5 Jane Argolo"),
+    (221, "2.6 Benedito Lúcio Machado"),
+    (222, "2.7 Campo de Instrução Marechal Hermes – Papanduva (SC): graves violações no apossamento realizado pela 5ª Região Militar do Exército em áreas rurais de Papanduva e Três Barras (SC)"),
+    (283, "2.8 Documentos recebidos em oitivas e pesquisas de campo"),
+    # Cap. 3 — Partidos Políticos, Sindicatos e Ditadura
+    (290, "3.1 Considerações iniciais"),
+    (292, "3.2 Apresentação do Grupo de Trabalho"),
+    (292, "3.3 Metodologia do Grupo de Trabalho"),
+    (292, "3.4 Atividades desenvolvidas e parceiros"),
+    (293, "3.5 O movimento sindical"),
+    (294, "3.6 Os partidos políticos"),
+    (298, "3.7 O Grupo dos Onze"),
+    (298, "3.8 O Partido Comunista Brasileiro e o inquérito policial militar – zona norte do Paraná"),
+    (298, "3.9 Ação Popular Marxista Leninista"),
+    (299, "3.10 Inquérito policial militar nº 44 – sobre as atividades dos comunistas no Paraná e em Santa Catarina"),
+    (300, "3.11 Comissão Nacional da Verdade, Memória, Justiça e Reparação da CUT"),
+    (301, "3.12 Grupo de Trabalho \"Resgate da Verdade, Memória e Justiça do Sindicato dos Bancários de Curitiba e Região Metropolitana\""),
+    (303, "3.13 Grupo de Trabalho \"Verdade, Memória e Justiça do Sindicato dos Jornalistas do Paraná\""),
+    (304, "3.14 Entrevistas do projeto \"Mapeamento das elites políticas do Paraná – os comunistas\""),
+    (304, "3.15 Entrevistas do projeto \"DHPAZ/Paraná – depoimentos para a História\""),
+    (305, "3.16 Ato unitário sindical da Comissão Estadual da Verdade com as centrais sindicais do Paraná"),
+    (305, "3.17 Audiências públicas da Comissão Estadual da Verdade"),
+    (306, "3.18 Audiência pública da Comissão Estadual da Verdade em Curitiba"),
+    (307, "3.19 Caravana da agricultura familiar – Fetraf/Paraná"),
+    (307, "3.20 Audiência pública da Comissão Estadual da Verdade em Umuarama"),
+    (309, "3.21 Audiência pública da Comissão Estadual da Verdade em Maringá em parceria com o Sismmar e a Universidade Estadual de Maringá"),
+    (311, "3.22 Audiência pública da Comissão Estadual da Verdade na cidade de Londrina, em parceria com o Sindicato dos Bancários de Londrina, Câmara Municipal de Londrina e Universidade Estadual de Londrina"),
+    (313, "3.23 Projeto DHPAZ/Paraná – Depoimentos para a História: resumo das oitivas – entrevistas cedidas à CEV-PR"),
+    (344, "3.24 Projeto de mapeamento de elites políticas: velhos vermelhos (memória e história dos dirigentes do Partido Comunista do Brasil)"),
+    (357, "3.25 Projeto de 80 anos do Sindicato dos Bancários de Curitiba e Região Metropolitana – realizado com pessoas ligadas ao movimento sindical"),
+    (372, "3.26 Recomendações do GT \"Partidos Políticos, Sindicatos e Ditadura\""),
+    (373, "3.27 Recomendações ao GT \"Ditadura e Repressão aos Trabalhadores e ao Movimento Sindical\" da CNV"),
+    (379, "3.28 Das reparações históricas e recondução dos mandatos legislativos"),
+    (380, "3.29 Considerações finais"),
+    # Cap. 4 — Flávio Suplicy de Lacerda
+    (396, "4.1 Considerações iniciais"),
+    (397, "4.2 A \"Operação Limpeza\""),
+    (400, "4.3 A Lei Suplicy"),
+    (407, "4.4 O ex-ministro da Educação retorna à Universidade Federal do Paraná"),
+    (411, "4.5 Considerações finais"),
+    # Cap. 5 — O papel das igrejas durante a ditadura civil-militar
+    (414, "5.1 Considerações iniciais"),
+    (415, "5.2 A extrema direita católica no apoio ao golpe civil-militar no norte paranaense"),
+    (418, "5.3 Integrantes do clero que se opuseram à ditadura civil-militar no Paraná"),
+    (430, "5.4 Atuação de freiras e padres da Igreja Católica Apostólica Romana (ICAR)"),
+    (437, "5.5 Considerações finais"),
 ]
 
 # AP: 3 partes + Recomendações
@@ -868,6 +966,26 @@ def _secao_fn(mapa):
     return fn
 
 
+def _subsecao_coerente_fn(mapa_secoes, mapa_subsecoes):
+    """Como _secao_fn, mas zera a subseção quando seu capítulo (o número antes
+    do primeiro ponto, ex.: "3" em "3.29 …") não bate com o capítulo da seção
+    vigente. Evita que a última subseção de um capítulo "vaze" para a página de
+    abertura do capítulo seguinte (entre o divisor e a 1ª subseção X.1)."""
+    secao_fn = _secao_fn(mapa_secoes)
+    sub_fn = _secao_fn(mapa_subsecoes)
+
+    def _cap(rotulo):
+        return rotulo.split(".", 1)[0].strip() if rotulo else None
+
+    def fn(num_pagina):
+        sub = sub_fn(num_pagina)
+        sec = secao_fn(num_pagina)
+        if sub and sec and _cap(sub) != _cap(sec):
+            return None
+        return sub
+    return fn
+
+
 # =============================================================================
 # 4º LOTE DHNET — COMISSÕES TEMÁTICAS/SETORIAIS (adicionados 2026-06)
 # Mapas de seção verificados página a página no .jsonl extraído. Os TÍTULOS de
@@ -1010,8 +1128,8 @@ _SECOES_CTV_FENAJ = [
 # PROCESSADORES
 # =============================================================================
 
-def processar(slug, limpar_fn, secao_fn=None):
-    paginas = paginas_validas(slug, limpar_fn, secao_fn)
+def processar(slug, limpar_fn, secao_fn=None, subsecao_fn=None):
+    paginas = paginas_validas(slug, limpar_fn, secao_fn, subsecao_fn)
     if not paginas:
         print(f"[{slug}] nenhuma página válida — pulando")
         return
@@ -1041,7 +1159,7 @@ DOCUMENTOS = {
     "cev-pe-relatorio-final":   (limpar_pe,  None),
     "cev-es-relatorio-final":   (limpar_es,  _secao_fn(_SECOES_ES)),
     "cev-pr-relatorio-vol1":    (limpar_pr,  _secao_fn(_SECOES_PR1)),
-    "cev-pr-relatorio-vol2":    (limpar_pr,  _secao_fn(_SECOES_PR2)),
+    "cev-pr-relatorio-vol2":    (limpar_pr,  _secao_fn(_SECOES_PR2), _subsecao_coerente_fn(_SECOES_PR2, _SUBSECOES_PR2)),
     # --- novos slugs (2025-06) ---
     "cev-ap-relatorio-final":   (limpar_ap,       _secao_fn(_SECOES_AP)),
     "cev-ba-relatorio-vol1":    (limpar_ba_vol1,  _secao_fn(_SECOES_BA1)),
@@ -1096,8 +1214,10 @@ def main():
     _tokenizer()
 
     for slug in slugs:
-        limpar_fn, secao_fn = DOCUMENTOS[slug]
-        processar(slug, limpar_fn, secao_fn)
+        config = DOCUMENTOS[slug]
+        limpar_fn, secao_fn = config[0], config[1]
+        subsecao_fn = config[2] if len(config) > 2 else None
+        processar(slug, limpar_fn, secao_fn, subsecao_fn)
 
 
 if __name__ == "__main__":

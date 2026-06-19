@@ -108,6 +108,9 @@ def main() -> None:
             "conteudo": c["conteudo"],
             "paginas": c["paginas"],
             "secao": c["secao"],
+            # subsecao (opcional): só os documentos com mapa de subseções a
+            # preenchem; ausente/nulo nas demais fontes.
+            "subsecao": c.get("subsecao"),
             "tipo_chunk": c.get("tipo_chunk", "corpo"),
             # nota_contexto por chunk (opcional); quando ausente/nulo, a busca
             # cai na nota_contexto da fonte via coalesce (ver migração 0009).
