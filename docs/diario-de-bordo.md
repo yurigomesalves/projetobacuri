@@ -1188,6 +1188,72 @@ procedimentos destinados à prática de graves violações de direitos humanos".
 - **Próximos sublotes**: ministros da Guerra/Exército (6), Marinha (7),
   Aeronáutica (5) — totalizando 26 nomes da Seção A.
 
+## 2026-06-22 — Lote Dirigentes do Regime: ministros do Exército (2º sublote)
+
+Curadoria a partir do Capítulo 16, Seção A do Relatório da CNV, vol. I
+(`fonte_id cc230d2d-c6b6-42bf-8c94-ef2d92194990`), pp. 848–849 (Ministros da
+Guerra/do Exército, itens 9–14).
+
+- **6 figuras** (ministros que não constavam do 1º sublote; os itens (2) Costa e
+  Silva e (3) Lyra Tavares já estavam registrados como presidente/junta):
+  adhemar-de-queiros, orlando-beckmann-geisel, vicente-de-paulo-dale-coutinho,
+  sylvio-couto-coelho-da-frota, fernando-belfort-bethlem,
+  walter-pires-de-carvalho-e-albuquerque.
+- **Fundamentação e distinção editorial**: idêntica ao 1º sublote (ADR-018).
+  Frota recebeu dado biográfico específico (criação do CIE em 1967, comando do
+  I Exército 1972–1974), conforme item 12 da Seção A.
+- **4 fontes por ficha**: §8 (p.844), §15 (p.846 — inclusão explícita dos
+  ministérios militares), item numerado (pp. 848–849) e §14-15 (p.846 —
+  cadeia de comando). Diferença do 1º sublote: inclui §15 como fonte separada
+  para explicitar o enquadramento dos ministros.
+- **Ingestão**: `06_semear_curadoria.py`, exit 0. Todos como **`rascunho`**.
+  Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 18 → **24** (todos como `rascunho`).
+- **Próximos sublotes**: Marinha (7) e Aeronáutica (5).
+
+## 2026-06-22 — Lote Dirigentes do Regime: ministros da Marinha (3º sublote)
+
+Curadoria a partir do Capítulo 16, Seção A do Relatório da CNV, vol. I
+(`fonte_id cc230d2d-c6b6-42bf-8c94-ef2d92194990`), pp. 849–850 (Ministros da
+Marinha, itens 15–21).
+
+- **7 figuras** (o item (4) Rademaker já estava no banco como membro da junta):
+  ernesto-de-melo-batista, paulo-bosisio, zilmar-campos-de-araripe-macedo,
+  adalberto-de-barros-nunes, geraldo-azevedo-henning,
+  maximiano-eduardo-da-silva-fonseca, alfredo-karam.
+- **Fundamentação e distinção editorial**: idêntica ao 1º e 2º sublotes (ADR-018).
+  Alfredo Karam (1924–) é o único desta série sem ano de morte registrado; grafia
+  "1924–" no texto_md. Maximiano com "1919–1998" no texto_md (trecho-fonte
+  preserva abreviação "1919-98" da CNV).
+- **4 fontes por ficha**: §8 (p.844), §15 (p.846), item numerado (pp. 849–850)
+  e §14-15 (p.846).
+- **Ingestão**: `06_semear_curadoria.py`, exit 0. Todos como **`rascunho`**.
+  Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 24 → **31** (todos como `rascunho`).
+- **Próximo sublote**: Aeronáutica (5).
+
+## 2026-06-22 — Lote Dirigentes do Regime: ministros da Aeronáutica (4º sublote)
+
+Curadoria a partir do Capítulo 16, Seção A do Relatório da CNV, vol. I
+(`fonte_id cc230d2d-c6b6-42bf-8c94-ef2d92194990`), p. 850 (Ministros da
+Aeronáutica, itens 22–26).
+
+- **5 figuras** (o item (5) Márcio de Souza e Mello já estava no banco como
+  membro da junta):
+  francisco-de-assis-correa-de-mello, nelson-freire-lavenere-wanderley,
+  eduardo-gomes, joelmir-campos-de-araripe-macedo, delio-jardim-de-mattos.
+- **Fundamentação e distinção editorial**: idêntica aos sublotes anteriores
+  (ADR-018). Francisco de Assis Corrêa de Mello recebeu dado biográfico
+  específico (ministro também no governo JK, 1957–1961), apenas como
+  contextualização, não como enquadramento de responsabilidade.
+- **4 fontes por ficha**: §8 (p.844), §15 (p.846), item numerado (p.850)
+  e §14-15 (p.846).
+- **Ingestão**: `06_semear_curadoria.py`, exit 0. Todos como **`rascunho`**.
+  Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 31 → **36** (todos como `rascunho`).
+- **Seção A completa**: 26 figuras registradas (8 presidentes/junta + 6
+  ministros do Exército + 7 ministros da Marinha + 5 ministros da Aeronáutica).
+
 ---
 
 ## 2026-06-22 — Lote Rio Grande do Sul (CEV-RS, 1º lote)
