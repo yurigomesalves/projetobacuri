@@ -203,7 +203,7 @@ function MapaConteudo() {
           </h1>
           <p className="mt-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
             Casos, operações e territórios documentados da Ditadura
-            Civil-Militar no Brasil. Clique em um marcador ou área para ver os
+            Militar-Empresarial no Brasil. Clique em um marcador ou área para ver os
             detalhes.
           </p>
           <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-500">

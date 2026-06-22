@@ -1,4 +1,4 @@
-# Nota temática: censura, LGBTfobia e a ditadura civil-militar
+# Nota temática: censura, LGBTfobia e a ditadura militar-empresarial
 
 **Status de curadoria**: publicada
 **Fonte principal**: Relatório da Comissão Nacional da Verdade, vol. II, "Texto 7 — Ditadura e homossexualidades" (pp. 299-306), elaborado sob coordenação do conselheiro Paulo Sérgio Pinheiro, com pesquisa de James N. Green, Carlos Manuel de Céspedes e Renan Quinalha.

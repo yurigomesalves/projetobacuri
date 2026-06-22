@@ -461,7 +461,7 @@ export default function Chat() {
             onChange={(e) => setEntrada(e.target.value.slice(0, MAX_CARACTERES))}
             onKeyDown={aoPressionarTecla}
             rows={2}
-            placeholder="Pergunte sobre a Ditadura Civil-Militar no Brasil (1964–1985)..."
+            placeholder="Pergunte sobre a Ditadura Militar-Empresarial no Brasil (1964–1985)..."
             disabled={carregando}
             className="w-full resize-none rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none disabled:opacity-60 dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
           />

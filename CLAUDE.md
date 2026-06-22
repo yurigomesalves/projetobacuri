@@ -1,5 +1,5 @@
 # CLAUDE.md — Projeto Bacuri
-Chatbot RAG sobre a história da Ditadura Civil-Militar no Brasil (1964–1985).
+Chatbot RAG sobre a história da Ditadura Militar-Empresarial no Brasil (1964–1985).
 Produto do Mestrado Profissional em Ensino de História (ProfHistória/UFU).
 Mestrando: Yuri Gomes Alves — professor de História, **não programador**.
 

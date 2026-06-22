@@ -1,6 +1,6 @@
 # Projeto Bacuri
 
-Acervo digital e chatbot de pesquisa sobre a Ditadura Civil-Militar no Brasil
+Acervo digital e chatbot de pesquisa sobre a Ditadura Militar-Empresarial no Brasil
 (1964–1985). Toda resposta do assistente cita autor, documento, página/trecho
 e link da fonte; sem base documental recuperada, o assistente informa que não
 encontrou fontes e sugere caminhos de pesquisa.

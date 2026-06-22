@@ -150,7 +150,7 @@ export default function BiografiasPage() {
             Nomes e histórias
           </h1>
           <p className="mt-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
-            Pessoas, organizações e lugares ligados à Ditadura Civil-Militar,
+            Pessoas, organizações e lugares ligados à Ditadura Militar-Empresarial,
             com minibiografia e fontes documentais. Acervo em construção.
           </p>
         </div>

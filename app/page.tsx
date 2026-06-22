@@ -24,7 +24,7 @@ export default function Home() {
             priority
           />
           <p className="mx-auto mt-2 max-w-xl text-xs leading-relaxed text-neutral-600 sm:mt-3 sm:text-sm dark:text-neutral-400">
-            Assistente educativo sobre a Ditadura Civil-Militar no Brasil
+            Assistente educativo sobre a Ditadura Militar-Empresarial no Brasil
             (1964–1985), que responde apenas com base em documentos
             históricos, citando as fontes utilizadas.
           </p>

@@ -5,7 +5,7 @@ import Cabecalho from "./componentes/Cabecalho";
 export const metadata: Metadata = {
   title: "Projeto Bacuri",
   description:
-    "Acervo digital e chatbot documental sobre a Ditadura Civil-Militar no Brasil (1964–1985), com fontes históricas citadas em todas as respostas.",
+    "Acervo digital e chatbot documental sobre a Ditadura Militar-Empresarial no Brasil (1964–1985), com fontes históricas citadas em todas as respostas.",
 };
 
 export default function RootLayout({

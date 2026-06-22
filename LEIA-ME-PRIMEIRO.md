@@ -1,4 +1,4 @@
-# GUIA PASSO A PASSO — Chatbot RAG sobre a Ditadura Civil-Militar
+# GUIA PASSO A PASSO — Chatbot RAG sobre a Ditadura Militar-Empresarial
 ### Para quem nunca programou, usando Debian 13
 
 Este guia assume **zero conhecimento de programação**. Siga na ordem.
