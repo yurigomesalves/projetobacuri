@@ -1158,6 +1158,38 @@ município IBGE. **Próximo lote do Sul: RS** (CEV-RS `98a23e6e…`, 180 chunks,
 
 ---
 
+## 2026-06-22 — Lote Dirigentes do Regime: presidentes/junta (1º sublote)
+
+Curadoria a partir do Capítulo 16, Seção A do Relatório da CNV, vol. I
+(`fonte_id cc230d2d-c6b6-42bf-8c94-ef2d92194990`): "Responsabilidade
+político-institucional pela instituição e manutenção de estruturas e
+procedimentos destinados à prática de graves violações de direitos humanos".
+
+- **8 figuras** (presidentes da República + membros da Junta Militar de 1969,
+  itens 1–8 da lista numerada da Seção A):
+  humberto-de-alencar-castello-branco, arthur-da-costa-e-silva,
+  aurelio-de-lyra-tavares, augusto-hamann-rademaker-grunewald,
+  marcio-de-souza-e-mello, emilio-garrastazu-medici, ernesto-beckmann-geisel,
+  joao-baptista-de-oliveira-figueiredo.
+- **Escopo intencional**: somente o que a lista numerada da Seção A documenta.
+  Ministros civis da Justiça (Gama e Silva, Buzaid) ficam fora — a própria CNV
+  (§8) registra que "não tinham controle efetivo e operacional sobre a estrutura
+  repressiva" e não os inclui na lista de autores.
+- **Fundamentação**: estrita ao Cap. 16 / Vol. III da CNV. Dados biográficos
+  externos (nascimento/morte) entram só na prosa, nunca como `trecho` de fonte
+  (ADR-013). Vínculo institucional em prosa; array `organizacoes` omitido
+  (sem fichas de Presidência/ministérios neste sublote — padrão do lote RS).
+- **Distinção editorial** (ADR-018): estas figuras são classificadas no plano da
+  responsabilidade político-institucional, distinta da autoria direta. A linguagem
+  das fichas reflete o que a CNV afirma, sem atribuir autoria direta não documentada.
+- **Ingestão**: `06_semear_curadoria.py`, exit 0. Todos como **`rascunho`**
+  (aguardam revisão do Yuri para promover a `publicada`). Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 10 → **18** (todos como `rascunho`).
+- **Próximos sublotes**: ministros da Guerra/Exército (6), Marinha (7),
+  Aeronáutica (5) — totalizando 26 nomes da Seção A.
+
+---
+
 ## 2026-06-22 — Lote Rio Grande do Sul (CEV-RS, 1º lote)
 
 Curadoria a partir do Relatório Final da Subcomissão da Memória, Verdade e Justiça da

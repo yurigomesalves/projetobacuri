@@ -335,3 +335,28 @@
   nota de formato de entrada no `docs/contrato-api.md`. Sem migração de banco.
   Perpetradores entram como `status_curadoria: "rascunho"` (ADR-013) — não aparecem
   na API pública até revisão humana.
+
+## ADR-018 — Dirigentes do regime: responsabilidade político-institucional vs. autoria direta
+- **Data**: 22/06/2026
+- **Decisão (Yuri)**: incluir presidentes e ministros militares da Ditadura
+  (1964–1985) como `tipo: "perpetrador"`, fundamentados exclusivamente no
+  Capítulo 16, Seção A do Relatório da CNV ("Responsabilidade político-institucional
+  pela instituição e manutenção de estruturas e procedimentos destinados à prática de
+  graves violações de direitos humanos"). Escopo definido pela lista numerada da
+  própria fonte — 26 figuras (8 presidentes/junta + 18 ministros militares).
+- **Distinção obrigatória**: a Seção A da CNV enquadra essas figuras no plano da
+  **responsabilidade político-institucional** (conceber, planejar ou decidir políticas
+  de repressão), distinta da **autoria direta** (Seção C). A linguagem das fichas
+  deve refletir exatamente esse enquadramento — fórmulas como "a CNV classificou no
+  plano da responsabilidade político-institucional", "segundo o Cap. 16 da CNV" —
+  sem atribuir autoria direta não documentada nesta seção e sem adjetivos avaliativos.
+- **Fontes**: estrito ao Cap. 16 / Vol. III da CNV. Dados biográficos externos entram
+  só na prosa (não como `trecho` de fonte). Vínculo institucional descrito em prosa;
+  array `organizacoes` omitido neste lote (sem fichas de Presidência/ministérios).
+- **Ministros civis da Justiça**: ficam fora do escopo. O próprio §8 da Seção A
+  registra que Gama e Silva e Buzaid "não tinham controle efetivo e operacional sobre
+  a estrutura repressiva" — a CNV não os inclui na lista numerada de autores.
+- **Grafia canônica**: segue o Cap. 16 (ADR-014), ex.: "Castello Branco" (dois L).
+- **Impacto**: JSONs em `pipeline/dados/curadoria/biografias/`; todos entram como
+  `rascunho` (ADR-013); extend o padrão de perpetrador estabelecido no lote RS
+  (vínculo em prosa, sem nova migração).
