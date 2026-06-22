@@ -9,7 +9,7 @@ const LINKS = [
   { href: "/biografias", rotulo: "NOMES E HISTÓRIAS" },
   { href: "/mapa", rotulo: "MAPA" },
   { href: "/transparencia", rotulo: "TRANSPARÊNCIA" },
-  { href: "/manifesto", rotulo: "MANIFESTO projeto_BACURI" },
+  { href: "/sobre", rotulo: "SOBRE projeto_BACURI" },
 ];
 
 /**

@@ -4,16 +4,16 @@ import type { Metadata } from "next";
 import ReactMarkdown from "react-markdown";
 
 export const metadata: Metadata = {
-  title: "Manifesto — Projeto Bacuri",
+  title: "Sobre — Projeto Bacuri",
   description:
-    "Manifesto do projeto: por que existe, o nome e os princípios que o orientam.",
+    "O que é o projeto Bacuri: a plataforma, a origem na pesquisa de mestrado, o nome e os compromissos editoriais.",
 };
 
 // O texto vive em docs/ (curadoria com revisão humana) e é lido no build —
-// a página é estática; mudar o manifesto exige novo deploy, de propósito:
+// a página é estática; mudar este texto exige novo deploy, de propósito:
 // nenhum texto público muda sem passar pelo repositório.
-export default async function ManifestoPage() {
-  const caminho = path.join(process.cwd(), "docs", "manifesto-projeto-bacuri.md");
+export default async function SobrePage() {
+  const caminho = path.join(process.cwd(), "docs", "sobre-projeto-bacuri.md");
   const texto = await fs.readFile(caminho, "utf-8");
 
   return (

@@ -17,6 +17,14 @@ const nextConfig: NextConfig = {
       "./node_modules/onnxruntime-node/bin/napi-v6/linux/x64/onnxruntime_binding.node",
     ],
   },
+
+  // A antiga página /manifesto virou /sobre; redireciona links e marcadores
+  // antigos para o novo endereço, sem quebrar nada já compartilhado.
+  async redirects() {
+    return [
+      { source: "/manifesto", destination: "/sobre", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;
