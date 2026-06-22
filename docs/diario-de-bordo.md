@@ -1109,3 +1109,49 @@ Fechamento do lote do Paraná, resolvendo as duas pendências do 1º lote.
 
 **Pendência aberta:** melhorar a granularidade de subseções no `03_chunkar_estaduais.py`
 (capturar 2.x nominais e re-indexar) — fora do escopo deste lote.
+
+## 2026-06-21 — Fase 6: lote Santa Catarina (14 biografias) + naturalidades no mapa
+Sequência do Sul (PR→SC→RS): fechado o lote de **SC**, em duas fases sem paralelizar agentes.
+
+- **Fase A — biografias de SC (curador-historiador):** 14 fichas `tipo=vitima`,
+  `publicada`, a partir do texto extraído da **CEV-SC** (`4d2e8758…`, 375 chunks) e da
+  **CTV-SC Jornalistas** (`7884150d…`): higino-joao-pio, paulo-stuart-wright, arno-preis,
+  divo-fernandes-doliveira, frederico-eduardo-mayr, hamilton-fernando-cunha,
+  joao-batista-rita, luiz-eurico-tejeda-lisboa, rui-osvaldo-pfutzenreuter,
+  wanio-jose-de-mattos, derlei-catarina-de-luca, marlene-de-souza-soccas, salim-miguel
+  e **egle-malheiros** (curada por decisão do Yuri, mesmo com documentação subsidiária ao
+  depoimento conjunto com Salim Miguel).
+- **Decisões editoriais do Yuri:** removido `estrangeiro_imigrante` de Paulo Stuart Wright
+  (nascido em Joaçaba/SC, brasileiro); Rui Pfützenreuter ficou só com `jornalista`
+  (classe_trabalhadora era inferência frágil).
+- **Validação antes de ingerir (sessão principal):** auditoria automática de **111
+  fragmentos de citação** conferidos página a página contra o JSONL-fonte (normalizando
+  aspas curvas/acentos). Pegou 2 defeitos nas fichas de depoimento (transcrição ruidosa):
+  Eglê dizia "Hospital **da Polícia** Militar" (fonte: "Hospital Militar") — corrigido
+  trecho + texto_md; e páginas deslocadas (Eglê 105→101, Salim 101→103) e um "ouço"/"ouso"
+  (erro de OCR) alinhado ao verbatim. Lote reauditado: 100% limpo.
+- **Ingestão:** `06_semear_curadoria.py` (upsert idempotente) — 14 confirmadas `publicada`.
+  Trema preservado no banco (UTF-8). Errata registrada: o PDF da CEV-SC traz "12 ou
+  13/01/1074" (p.30) para João Batista Rita — é 1974.
+- **Fase B — naturalidades no mapa:** as 11 cidades natais novas de SC geocodificadas via
+  IBGE (`10_preencher_naturalidades.py`, sede do município). Curador recuperou a
+  naturalidade de 26 vítimas antigas sem ponto natal a partir do **cabeçalho "Data e local
+  de nascimento" do CNV vol III** (e CEMDP): **6 preenchíveis** — ana-rosa-kucinski-silva
+  (SP), joao-alfredo-dias (Sapé/PB), maria-augusta-thomaz (Leme/SP),
+  maria-auxiliadora-lara-barcelos (Antônio Dias/MG), pedro-inacio-de-araujo (Itabaiana/PB),
+  wilson-silva (SP). As 2 com JSON foram editadas (fonte-da-verdade) e re-gravadas; as 4
+  sem arquivo JSON (semeadas a partir de `docs/auditorias/*.md`) receberam `UPDATE` direto
+  no banco. Todas as 6 geocodificadas (0 sem correspondência IBGE).
+- **Resultado no mapa:** vítimas 90→**104**; com ponto de cidade natal 46→**63**;
+  nenhuma naturalidade ficou sem coordenada.
+
+**Pendências:** 20 vítimas não-indígenas seguem sem ponto natal — **4 estrangeiras**
+(Vladimir Herzog/Osijek-Iugoslávia, Pauline Reichstul/Praga-Tchecoslováquia, Enrique
+Ruggia/Corrientes-Argentina, Salim Miguel/Líbano: schema sem campo `pais_natal`); **1 só
+com UF** (Sebastião Gomes dos Santos, RN, sem município — sem coordenada possível); e **15
+sem registro de nascimento** no corpus atual (a maioria sobreviventes: cipriana, clarice,
+damaris, delsy, derlei, eglê, elza-lobo, guido-leão [só ano "1956"], ieda, ilda, joana-d'arc,
+maria-da-cruz-vieira, maria-rita, rosalina, sibele). Possível enriquecimento futuro via
+fontes externas (ex.: livros de memória de Eglê e Derlei) — decisão do engenheiro-de-dados.
+As 22 vítimas Waimiri-Atroari ficam fora por princípio: naturalidade é o Território, não
+município IBGE. **Próximo lote do Sul: RS** (CEV-RS `98a23e6e…`, 180 chunks, já indexado).
