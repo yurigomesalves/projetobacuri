@@ -1155,3 +1155,42 @@ maria-da-cruz-vieira, maria-rita, rosalina, sibele). Possível enriquecimento fu
 fontes externas (ex.: livros de memória de Eglê e Derlei) — decisão do engenheiro-de-dados.
 As 22 vítimas Waimiri-Atroari ficam fora por princípio: naturalidade é o Território, não
 município IBGE. **Próximo lote do Sul: RS** (CEV-RS `98a23e6e…`, 180 chunks, já indexado).
+
+---
+
+## 2026-06-22 — Lote Rio Grande do Sul (CEV-RS, 1º lote)
+
+Curadoria a partir do Relatório Final da Subcomissão da Memória, Verdade e Justiça da
+AL-RS (2017, `fonte_id 98a23e6e-9cf1-428b-9f40-4ac89eb76859`). Auditoria completa em
+`docs/auditorias/novas-biografias-rs-cevrs.md`.
+
+- **14 vítimas** (Anexo II): edmur-pericles-camargo, onofre-ilha-dornelles, edu-barreto-leite,
+  manoel-custodio-martins, darcy-jose-dos-santos-mariante, leopoldo-chiapetti,
+  elvaristo-alves-da-silva, avelmar-moreira-de-barros, angelo-cardoso-da-silva,
+  ari-de-abreu-lima-da-rosa, joaquim-alencar-de-seixas, cilon-da-cunha-brum, e os
+  argentinos jorge-oscar-adur e lorenzo-ismael-vinas (Operação Condor, desaparecidos a
+  partir de Uruguaiana/RS).
+- **2 perpetradores** (Anexo IV / Cap. I): attila-rohrsetzer (major, 1º diretor da DCI/RS) e
+  pedro-seelig (delegado do DOPS/RS). Sem ficha de organização do RS no banco → vínculo
+  descrito em prosa, array `organizacoes` omitido.
+- **1 evento georreferenciado:** "DOPS/RS e o sistema de tortura em Porto Alegre nos anos de
+  chumbo" (operacao_repressiva, Point em PoA), vinculando 3 vítimas (angelo, avelmar, ari).
+  Como `data` é NOT NULL, usou-se o marco do AI-5 (13/12/1968) com ressalva na nota.
+- **Execução por sessão:** o agente curador-historiador redigiu 9 vítimas antes de ser
+  cortado pelo limite de sessão; as 5 vítimas restantes + 2 perpetradores + evento foram
+  redigidos na sessão principal a partir do mesmo extrato-fonte (páginas 119–145 e contexto
+  44–105). Tudo conferido página a página.
+- **Correções:** 1 JSON do curador (cilon) com aspas internas não escapadas; 1 citação de
+  Seelig com página errada (144→24, Cap. I).
+- **Ingestão:** `06_semear_curadoria.py` (upsert idempotente), exit 0, sem erros — tudo como
+  **`rascunho`** (aguarda revisão do Yuri para promover a `publicada`).
+- **Naturalidades no mapa** (`10_preencher_naturalidades.py`): 10 geocodificadas. Não
+  geocodificam: 2 estrangeiros (sem `pais_natal`), **Itapuã/RS** (distrito de Viamão, sem
+  código IBGE) e **Ibirama "(RS)"** (a fonte grafa RS, mas Ibirama é de SC — pendência de
+  decisão do Yuri; ver auditoria).
+- **Resultado no banco:** vítimas 104→**118**; perpetradores 8→**10**; com ponto de cidade
+  natal 63→**73**; +1 evento no RS.
+
+**Pendências:** decisão sobre Ibirama (manter fiel à fonte sem ponto, ou corrigir para
+Ibirama/SC com nota de transparência); criar fichas `tipo=organizacao` para DOPS/RS e DCI
+em lote futuro; promover o lote RS de `rascunho` a `publicada` após revisão.
