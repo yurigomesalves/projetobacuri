@@ -45,9 +45,9 @@ Escopo: **14 vítimas** + **2 perpetradores** (todos `tipo` conforme indicado, `
 - **resumo:** Camponês nascido em Garibaldi (RS), acusado de pertencer ao Grupo dos Onze, preso e duramente torturado na Delegacia Regional de Erechim em abril de 1964; morreu em 21 de maio de 1965 em decorrência direta dos maus-tratos.
 
 ### 7. Elvaristo Alves da Silva
-- **slug:** elvaristo-alves-da-silva · **local:** Santa Rosa/RS · **naturalidade:** Ibirama/RS *(ver Pendências)* · **período:** 1964-03 a 1965-04-23
+- **slug:** elvaristo-alves-da-silva · **local:** Santa Rosa/RS · **naturalidade:** Ibarama/RS *(corrigido — ver Pendências)* · **período:** 1964-03 a 1965-04-23
 - **marcadores:** campesinato · **citações:** 1 (p.124-125)
-- **resumo:** Agricultor brizolista e militante do PTB nascido em Ibirama (conforme o relatório da CEV-RS), preso e perseguido após o golpe de 1964 por recusar-se a renegar Brizola, assassinado em 23 de abril de 1965 no 1º Quartel de Cavalaria Motorizada de Santa Rosa (RS), com versão oficial de suicídio.
+- **resumo:** Agricultor brizolista e militante do PTB nascido em Ibarama/RS, preso e perseguido após o golpe de 1964 por recusar-se a renegar Brizola, assassinado em 23 de abril de 1965 no 1º Quartel de Cavalaria Motorizada de Santa Rosa (RS), com versão oficial de suicídio.
 
 ### 8. Avelmar Moreira de Barros
 - **slug:** avelmar-moreira-de-barros · **local:** Porto Alegre/RS · **naturalidade:** Itapuã/RS *(ver Pendências)* · **período:** 1970-03-22 a 1970-03-24
@@ -96,7 +96,7 @@ Escopo: **14 vítimas** + **2 perpetradores** (todos `tipo` conforme indicado, `
 - **slug:** pedro-seelig · **atuação:** RS · **citações:** 2 (p.144, 24)
 - **resumo:** Delegado de polícia do DOPS do Rio Grande do Sul, mandante e torturador em casos de detenção ilegal, tortura e execução, apontado por depoentes como o nome mais duro da repressão no estado.
 
-> **Vínculo a organização:** o Projeto ainda não mantém ficha `tipo=organizacao` para o DOPS/RS nem para a DCI. O vínculo institucional foi descrito em prosa no `texto_md` e o array `organizacoes` foi omitido (o seed resolve slug→id e falharia com slug inexistente). Criar as fichas de organização DOPS/RS e DCI é tarefa de um próximo lote.
+> **Vínculo a organização — CONCLUÍDO (2026-06-22):** criadas as fichas `tipo=organizacao` `dops-rs` (Departamento de Ordem Política e Social do RS — 6 citações: p.24, 25, 26, 136-137, 141, 144) e `dci-rs` (Divisão Central de Informações — 3 citações: p.23, 24, 138-139), ambas `publicada`. Os perpetradores foram vinculados via `pessoa_organizacoes`: **Pedro Seelig → DOPS/RS** e **Attila Rohrsetzer → DCI/RS**, cada vínculo com `nota_vinculo` e citação. Nota de grafia: o Anexo IV registra "Áttila Rohsetzer" (p.138-139) e o texto corrido "Attila Rohrsetzer" (p.23); adotou-se a segunda forma como canônica (slug `attila-rohrsetzer`), preservando a grafia literal da fonte nas citações.
 
 ---
 
@@ -115,10 +115,10 @@ Escopo: **14 vítimas** + **2 perpetradores** (todos `tipo` conforme indicado, `
 ## Pendências e decisões
 
 1. **Itapuã/RS (Avelmar):** Itapuã é distrito de Viamão, sem código IBGE próprio → a naturalidade não geocodifica e a vítima fica **sem ponto de cidade natal no mapa** (limite declarado, análogo às vítimas estrangeiras). Mantido conforme a fonte; não inferimos "Viamão".
-2. **Ibirama "(RS)" (Elvaristo):** o relatório da CEV-RS grafa "Ibirama (RS)", mas **Ibirama é município de Santa Catarina** — não há homônimo no RS. Mantivemos `uf_natal=RS` fiel à fonte (com ressalva no `texto_md` e no resumo), o que faz a naturalidade **não geocodificar**. **Decisão pendente do Yuri:** (a) manter fiel à fonte sem ponto no mapa, ou (b) corrigir para `Ibirama/SC` como provável erro de transcrição da fonte, registrando a correção como nota de transparência.
+2. **Ibirama "(RS)" → Ibarama/RS (Elvaristo) — DECIDIDO (Yuri, 2026-06-22):** o relatório da CEV-RS grafa "Ibirama (RS)"; não há município "Ibirama" no RS (Ibirama é de SC), mas existe o município gaúcho de **Ibarama** (RS), grafia que difere por uma única letra. Verificado no `municipios_ibge` do projeto que ambos existem (Ibarama/RS e Ibirama/SC). Decisão: tratar como **erro de digitação no nome da cidade**, preservar a UF explícita da fonte (RS) e adotar **Ibarama/RS**, com nota de transparência no `texto_md` e no resumo. Passa a **geocodificar** no RS.
 3. **Estrangeiros (Adur, Viñas):** naturalidade argentina; `municipio_natal`/`uf_natal` nulos (schema sem `pais_natal`), naturalidade no `texto_md`, marcador `estrangeiro_imigrante`. Sem ponto natal no mapa, por design. Ambos desapareceram a partir de **Uruguaiana/RS** (campo `municipio`/`uf` preenchido) — entram no mapa pelo local do crime.
-4. **Status `rascunho`:** todas as 16 fichas e o evento entraram como `rascunho`. Promover a `publicada` após a revisão do Yuri (preferir reexecutar o seed, idempotente, após mudar o status nos JSONs).
-5. **Geocodificação:** 10 das 14 vítimas tiveram a naturalidade geocodificada (`10_preencher_naturalidades.py`, sede do município IBGE). Não geocodificam: 2 estrangeiros + Itapuã + Ibirama(RS).
+4. **Status `publicada` — CONCLUÍDO (2026-06-22):** revisado e aprovado pelo Yuri após a revisão de conformidade (vocabulários conferidos contra as constraints reais do banco, fontes, naturalidades). As 16 fichas e o evento tiveram `status_curadoria` alterado para `publicada` nos JSONs e o seed (`06_semear_curadoria.py`) foi reexecutado (idempotente, exit 0). Naturalidades reprocessadas (`10_preencher_naturalidades.py`): Elvaristo geocodificou em Ibarama/RS (-29.4242, -53.1269).
+5. **Geocodificação:** com a correção de Elvaristo (Ibarama/RS), **11 das 14 vítimas** geocodificam pela naturalidade (`10_preencher_naturalidades.py`, sede do município IBGE). Não geocodificam: 2 estrangeiros (Adur, Viñas) + Itapuã (distrito de Viamão, sem código IBGE próprio).
 
 ---
 

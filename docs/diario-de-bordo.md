@@ -1184,13 +1184,20 @@ AL-RS (2017, `fonte_id 98a23e6e-9cf1-428b-9f40-4ac89eb76859`). Auditoria complet
   Seelig com página errada (144→24, Cap. I).
 - **Ingestão:** `06_semear_curadoria.py` (upsert idempotente), exit 0, sem erros — tudo como
   **`rascunho`** (aguarda revisão do Yuri para promover a `publicada`).
-- **Naturalidades no mapa** (`10_preencher_naturalidades.py`): 10 geocodificadas. Não
-  geocodificam: 2 estrangeiros (sem `pais_natal`), **Itapuã/RS** (distrito de Viamão, sem
-  código IBGE) e **Ibirama "(RS)"** (a fonte grafa RS, mas Ibirama é de SC — pendência de
-  decisão do Yuri; ver auditoria).
+- **Naturalidades no mapa** (`10_preencher_naturalidades.py`): inicialmente 10
+  geocodificadas. Não geocodificavam: 2 estrangeiros (sem `pais_natal`), **Itapuã/RS**
+  (distrito de Viamão, sem código IBGE) e **Ibirama "(RS)"** (a fonte grafa RS, mas Ibirama
+  é de SC).
 - **Resultado no banco:** vítimas 104→**118**; perpetradores 8→**10**; com ponto de cidade
   natal 63→**73**; +1 evento no RS.
 
-**Pendências:** decisão sobre Ibirama (manter fiel à fonte sem ponto, ou corrigir para
-Ibirama/SC com nota de transparência); criar fichas `tipo=organizacao` para DOPS/RS e DCI
-em lote futuro; promover o lote RS de `rascunho` a `publicada` após revisão.
+**Atualização 2026-06-22 (revisão e fechamento do lote):**
+- **Ibirama "(RS)" → Ibarama/RS (decidido pelo Yuri):** existe o município gaúcho de
+  **Ibarama** (RS), grafia que difere de "Ibirama" por uma letra. Tratado como erro de
+  digitação no nome; preservada a UF da fonte (RS); naturalidade corrigida para
+  **Ibarama/RS** com nota de transparência. Elvaristo passa a geocodificar → **11/14**
+  vítimas com ponto natal.
+- **Promoção a `publicada`:** lote RS (16 fichas + evento) promovido após revisão de
+  conformidade.
+- **Fichas de organização DOPS/RS e DCI** criadas com `tipo=organizacao` e vínculos
+  `pessoa_organizacoes` (Seelig→DOPS/RS, Rohrsetzer→DCI).
