@@ -50,3 +50,16 @@ A ordem 1→2→3 (acervo piloto ANTES do app) evita o erro clássico: construir
 
 ## Resolução de conflitos (papel que você deu aos líderes)
 Se backend e frontend divergirem sobre o contrato: a sessão principal expõe as duas posições em linguagem simples, com prós/contras, e VOCÊ decide. A decisão vira uma linha em `docs/decisoes.md` (registro de decisões — transparência editorial também no processo de desenvolvimento).
+
+## Modelo e effort por fase (sessão principal)
+Modelo mais caro só onde o erro custa caro. Você troca o modelo da sessão principal com `/model` e o effort no mesmo menu. Não há como o Claude trocar isso sozinho conforme a tarefa — use a tabela como referência antes de começar.
+
+| Tipo de trabalho | Modelo | Effort |
+|---|---|---|
+| Curadoria editorial, decisão de taxonomia, caso sensível | Opus | medium |
+| Pipeline, OCR, scripts repetitivos, ajustes mecânicos | Haiku | low |
+| Implementar rota de API ou tela (UI) | Sonnet | medium |
+| Planejar fase nova (Plan Mode) | Sonnet | medium |
+| Diagnóstico de bug difícil | começa Sonnet; sobe p/ Opus | max se travar |
+
+**Os subagentes já têm modelo fixo** no cabeçalho de `.claude/agents/*.md` (curador → Opus; engenheiro-de-dados → Haiku; os demais → Sonnet). Ao delegar, o subagente roda no modelo dele, independente da sua sessão. A tabela acima vale só para a sessão principal. (Subagente não aceita effort no cabeçalho; effort é só de sessão.)
