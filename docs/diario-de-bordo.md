@@ -1338,6 +1338,24 @@ Curadoria a partir do Cap. 16, Seção B, pp. 865–866.
 - **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
 - **Resultado**: perpetradores no banco: 76 → **80**.
 
+## 2026-06-23 — Seção C do Cap. 16 da CNV: itens 175–377 (202 fichas via script automatizado)
+
+Curadoria a partir do Cap. 16, **Seção C** continuação — itens 175 a 377 — pp. 885–930+.
+`fonte_id cc230d2d-c6b6-42bf-8c94-ef2d92194990`.
+
+- **202 fichas novas** geradas pelo script `pipeline/11_gerar_fichas_cap16_secaoC.py`.
+- Script extrai texto de cada item dos chunks do CNV vol. I, infere municipio/uf pelo
+  órgão mencionado (DOPS/SP → São Paulo/SP, DOPS/PE → Recife/PE, etc.), extrai período
+  pelos anos das vítimas, gera texto_md no padrão editorial (intro + CNV + impunidade).
+- 1 edge case tratado: item 183 (Décio Brandão Camargo, 1911–1976) tinha formato anômalo
+  `(1911-1976).` sem cargo na linha do ano — cargo no parágrafo seguinte.
+- Ingestão via `06_semear_curadoria.py`, exit 0.
+- **Resultado**: perpetradores no banco: 151 → **353** (+202).
+- **Observação**: o diário anterior (sessão 2026-06-23) dizia "Capítulo 16 concluído" —
+  na verdade, Seção C vai até o item 377 (p. 930+), não apenas até 174. Corrigido agora.
+
+---
+
 ## 2026-06-23 — Lote Dirigentes do Regime: Seção C (completa — itens 138–174)
 
 Curadoria a partir do Cap. 16, **Seção C** — "Responsabilidade pela autoria direta de condutas
