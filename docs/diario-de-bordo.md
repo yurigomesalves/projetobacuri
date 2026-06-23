@@ -1260,6 +1260,26 @@ Curadoria a partir do Cap. 16, Seção B, pp. 861–862.
 - **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
 - **Resultado**: perpetradores no banco: 60 → **64**.
 
+## 2026-06-23 — Lote Dirigentes do Regime: Seção B (6º sublote — itens 85–88)
+
+Curadoria a partir do Cap. 16, Seção B, pp. 862–863.
+
+- **4 figuras novas**: everaldo-jose-da-silva, fernando-ayres-da-motta,
+  firmino-peres-rodrigues, flavio-de-marco.
+- Fatos específicos: chefe do EM IV Exército/Recife (ago. 1972–out. 1973)
+  (Everaldo José da Silva); intermediário civil do imóvel da Casa da Morte em
+  Petrópolis ao CIE — frequentava o local ciente do uso como centro de tortura,
+  e encontrou detido ali seu concunhado Aluízio Palhano Pedreira Ferreira,
+  desaparecido desde maio de 1971 (Fernando Ayres da Motta); chefe DOPS/RS
+  durante detenções ilegais, torturas e execuções na década de 1970 (Firmino
+  Peres Rodrigues); CIE/Casa Azul em Marabá — codinome "Tio Caco", repressão
+  Araguaia 1973–74; participou da reunião de fundação da Operação Condor no
+  Chile (nov. 1975) ao lado de Thaumaturgo Sotero Vaz (Flávio de Marco, tb.
+  Seção C).
+- Flávio de Marco recebeu remissão à Seção C (também indicado lá).
+- **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 64 → **68**.
+
 ---
 
 ## 2026-06-22 — Lote Dirigentes do Regime: presidentes/junta (1º sublote)
