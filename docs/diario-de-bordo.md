@@ -1338,6 +1338,28 @@ Curadoria a partir do Cap. 16, Seção B, pp. 865–866.
 - **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
 - **Resultado**: perpetradores no banco: 76 → **80**.
 
+## 2026-06-23 — Lote Dirigentes do Regime: Seção B (11º sublote — itens 105–108)
+
+Curadoria a partir do Cap. 16, Seção B, pp. 866–867.
+
+- **4 figuras novas**: joao-dutra-de-castilho, joao-oswaldo-leivas-job,
+  joao-pinto-pacca, joao-tarcisio-cartaxo-arruda.
+- Fatos específicos: chefe do EM do IV Exército (set.–nov. 1964) e comandante
+  da 1ª Divisão de Infantaria da Vila Militar/RJ em 1969 — unidade usada como
+  centro de tortura e execução (João Dutra de Castilho); agente DCI/Sec.Seg./RS,
+  chefe DOI-CODI/I Exército (1974–1975) e Sec.Seg./RS (1979–1982), participou do
+  sequestro de Universindo Rodríguez Díaz e Lilián Celiberti (Op. Condor, 1978)
+  (João Oswaldo Leivas Job); serviu no CIE/RJ (mai.1968–abr.1969) e chefiou o
+  DOI-CODI/I Exército (mai.–set.1971), indicado também na Seção C (João Pinto
+  Pacca); comandou em 1975 o 6º BEC na construção da BR-174, que resultou na
+  morte e desaparecimento de número expressivo de indígenas Waimiri-Atroari
+  (1972–1975) (João Tarcísio Cartaxo Arruda).
+- **Ingestão**: `06_semear_curadoria.py`, exit 0. Todos diretamente como `publicada`.
+  Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 84 → **88**.
+
+---
+
 ## 2026-06-23 — Lote Dirigentes do Regime: Seção B (10º sublote — itens 101–104)
 
 Curadoria a partir do Cap. 16, Seção B, pp. 865–866.
