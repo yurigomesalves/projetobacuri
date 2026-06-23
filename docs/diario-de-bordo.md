@@ -1170,6 +1170,30 @@ Mecanismo: atualização de `status_curadoria` nos JSONs locais +
 
 ---
 
+## 2026-06-22 — Lote Dirigentes do Regime: Seção B (1º sublote — itens 54–63)
+
+Curadoria a partir do Capítulo 16, Seção B do Relatório da CNV, vol. I
+(`fonte_id cc230d2d-c6b6-42bf-8c94-ef2d92194990`), pp. 856–858
+("Responsabilidade pela gestão de estruturas e condução de procedimentos
+destinados à prática de graves violações de direitos humanos").
+
+- **10 figuras** (itens 54–63, alfabético A): adolpho-correa-de-sa-e-benevides,
+  alcides-cintra-bueno-filho, amadeu-martire, amaury-kruel, antonio-bandeira,
+  antonio-carlos-da-silva-muricy, antonio-ferreira-marques, antonio-jorge-correa,
+  argus-lima, armando-patricio.
+- **Não duplicados**: Adyr Fiuza de Castro (item 30 da Seção A, já no banco).
+- **Diferença editorial vs. Seção A**: §17 (p.855) como fonte definitória;
+  fatos específicos e ressalvas epistêmicas da CNV reproduzidos no texto_md;
+  vítimas/operações nomeadas quando o item as menciona. Alcides Cintra Bueno
+  Filho e Antônio Bandeira receberam remissão à Seção C para registro futuro.
+- **2 fontes por ficha**: §17 (p.855) + item numerado (pp. 856–858).
+- **Ingestão**: `06_semear_curadoria.py`, exit 0. Todos como **`rascunho`**.
+  Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 36 → **46**.
+- **Próximo sublote Seção B**: itens 64–70 (Arnaldo a Breno).
+
+---
+
 ## 2026-06-22 — Lote Dirigentes do Regime: presidentes/junta (1º sublote)
 
 Curadoria a partir do Capítulo 16, Seção A do Relatório da CNV, vol. I
