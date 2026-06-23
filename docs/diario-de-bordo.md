@@ -1338,6 +1338,28 @@ Curadoria a partir do Cap. 16, Seção B, pp. 865–866.
 - **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
 - **Resultado**: perpetradores no banco: 76 → **80**.
 
+## 2026-06-23 — Lote Dirigentes do Regime: Seção B (16º sublote — itens 125–128)
+
+Curadoria a partir do Cap. 16, Seção B, pp. 870–871.
+
+- **Item 125 (nilton-de-albuquerque-cerqueira) já existia no banco** — criado
+  em sublote anterior; não reprocessado.
+- **3 figuras novas**: olavo-vianna-moog, olinto-ferraz,
+  oscar-geronymo-bandeira-de-mello.
+- Fatos específicos: cmd. 1º BPE (1964–65); Cmd. Militar do Planalto e 11ª RM
+  (1971–74) — responsável pelo cmd. das operações no Araguaia (jul.–set. 1972)
+  e da Op. Papagaio (set.–out. 1972); 13 desaparecimentos forçados no período
+  (Olavo Vianna Moog); diretor da Casa de Detenção do Recife à época da morte
+  de Amaro Luiz de Carvalho (22 ago. 1971) (Olinto Ferraz); presidente da
+  FUNAI (jun.1970–mar.1974); criou o Reformatório Krenak/MG — instalação
+  prisional da FUNAI, local de tortura, morte e desap. forçado de indígenas
+  (Oscar Geronymo Bandeira de Mello).
+- **Ingestão**: `06_semear_curadoria.py`, exit 0. Todos diretamente como `publicada`.
+  Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 104 → **107**.
+
+---
+
 ## 2026-06-23 — Lote Dirigentes do Regime: Seção B (15º sublote — itens 121–124)
 
 Curadoria a partir do Cap. 16, Seção B, pp. 869–870.
