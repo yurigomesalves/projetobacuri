@@ -1338,6 +1338,23 @@ Curadoria a partir do Cap. 16, Seção B, pp. 865–866.
 - **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
 - **Resultado**: perpetradores no banco: 76 → **80**.
 
+## 2026-06-23 — Lote Dirigentes do Regime: Seção B (10º sublote — itens 101–104)
+
+Curadoria a partir do Cap. 16, Seção B, pp. 865–866.
+
+- **4 figuras novas**: herculano-pedro-de-simas-mayer, hugo-de-andrade-abreu,
+  joalbo-rodrigues-de-figueiredo-barbosa, joao-de-alvarenga-soutto-mayor.
+- Fatos específicos: chefe seção de operações dos fuzileiros navais na Op.
+  Papagaio/Araguaia (set.–out. 1972) (Herculano Simas Mayer); comandou
+  diretamente paraquedistas na Op. Marajoara (out. 1973–1974) — extermínio
+  dos guerrilheiros remanescentes, 49+ desaparecimentos forçados (Hugo de
+  Andrade Abreu); Sec. Seg./BA, participou da perseguição a Lamarca que
+  levou à morte de Iara Iavelberg (1971) (Joalbo Figueiredo Barbosa); chefe
+  EM IV Exército/Recife (jan.–ago. 1971) e depois EM I Exército/RJ por ~1 ano
+  (João Soutto Mayor).
+- **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 80 → **84**.
+
 ---
 
 ## 2026-06-22 — Lote Dirigentes do Regime: presidentes/junta (1º sublote)
