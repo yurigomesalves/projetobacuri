@@ -1221,6 +1221,7 @@ Item 71 (Carlos Alberto Brilhante Ustra) já estava no banco.
   16/12/1976 (Xavier de Miranda).
 - Carlos Sergio Torres recebeu remissão à Seção C (também indicado lá).
 - **Ingestão**: exit 0. Todos `rascunho`. Marcadores: `[]`.
+- **Promoção**: todos os 4 promovidos a `publicada` na mesma sessão após revisão.
 - **Resultado**: perpetradores no banco: 52 → **56**.
 
 ---
