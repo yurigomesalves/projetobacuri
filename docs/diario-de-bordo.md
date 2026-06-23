@@ -1338,6 +1338,30 @@ Curadoria a partir do Cap. 16, Seção B, pp. 865–866.
 - **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
 - **Resultado**: perpetradores no banco: 76 → **80**.
 
+## 2026-06-23 — Lote Dirigentes do Regime: Seção B (14º sublote — itens 117–120)
+
+Curadoria a partir do Cap. 16, Seção B, p. 869.
+
+- **4 figuras novas**: leonidas-pires-goncalves, luiz-macksen-de-castro-rodrigues,
+  manoel-pio-correa-junior, marcos-henrique-camillo-cortes.
+- Fatos específicos: chefe EM I Exército (1974–76), chefe do CODI, Operação
+  Radar (PCB) e Massacre da Lapa/dez.1976 (PCdoB) (Leônidas Pires Gonçalves);
+  superintendente PF/RS (1978) — PF forneceu veículos no sequestro de Lilián
+  Celiberti e Universindo Rodríguez Díaz (Op. Condor); denunciado pelo proc.
+  italiano Capaldo pelo sequestro de Lorenzo Viñas (Uruguaiana/RS, jun.1980)
+  (Luiz Macksen de Castro Rodrigues); embaixador no Uruguai (set.1964–jan.1966)
+  — monitoramento de exilados e internamento de Brizola —; sec.-geral MRE
+  (1966–67) e criador do Ciex em 1966; embaixador na Argentina (1967–69)
+  (Manoel Pio Corrêa Júnior); 1º chefe do Ciex (1966–1968); ministro-conselheiro
+  em Buenos Aires (1974–78); acusado de envolvimento na morte e desaparecimento
+  do pianista Francisco Tenório Cerqueira Jr. (1976); versão negada à CNV
+  contestada pela CONADEP argentina (Marcos Henrique Camillo Cortes).
+- **Ingestão**: `06_semear_curadoria.py`, exit 0. Todos diretamente como `publicada`.
+  Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 96 → **100**.
+
+---
+
 ## 2026-06-23 — Lote Dirigentes do Regime: Seção B (13º sublote — itens 113–116)
 
 Curadoria a partir do Cap. 16, Seção B, p. 868.
