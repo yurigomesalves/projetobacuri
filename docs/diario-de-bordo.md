@@ -1338,6 +1338,52 @@ Curadoria a partir do Cap. 16, Seção B, pp. 865–866.
 - **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
 - **Resultado**: perpetradores no banco: 76 → **80**.
 
+## 2026-06-23 — Lote Dirigentes do Regime: Seção C (completa — itens 138–174)
+
+Curadoria a partir do Cap. 16, **Seção C** — "Responsabilidade pela autoria direta de condutas
+que ocasionaram graves violações de direitos humanos" — do Relatório da CNV, vol. I,
+pp. 873–884. `fonte_id cc230d2d-c6b6-42bf-8c94-ef2d92194990`.
+
+- **43 indivíduos** listados pela CNV na Seção C (itens 138–174 + referências cruzadas
+  55, 58, 64, 66, 67, 71 da Seção B).
+- **35 fichas novas** criadas em 7 sublotes sequenciais:
+  - Sublote 1 (138–142): Abeylard Orsini, Abílio Correa de Souza, Ademar Augusto de
+    Oliveira, Ailton Guimarães Jorge, Ailton Joaquim.
+  - Sublote 2 (143–147): Alberi Vieira dos Santos, Alberto Octávio Conrado Avegno,
+    Alcides Singillo, Alfredo Magalhães, Aloísio Fernandes.
+  - Sublote 3 (148–152): Altair Casadei, Aluísio Madruga de Moura, Amílcar Lobo
+    Moreira da Silva, André Leite Pereira Filho, Aníbal de Carvalho Coutinho.
+  - Sublote 4 (154–157): Antônio Dácio Franco Amaral, Antônio Fernando Hughes de
+    Carvalho, Antônio Valentini, Antônio Vilela. (Item 153 antonio-curcio-neto
+    já existia no banco.)
+  - Sublote 5 (158–162): Antônio Waneir Pinheiro Lima, Aparecido Laertes Calandra,
+    Aramis Ramos Pedrosa, Areski de Assis Pinto Abarca, Arildo de Toledo Viana.
+  - Sublote 6 (163–167): Armando Avólio Filho, Armando Canger Rodrigues, Arthur de
+    Britto Pereira, Artur Falcão Dizeu, Ary Casagrande. (Item 64 Arnaldo Siqueira
+    já existia.)
+  - Sublote 7 (168, 170–174): Ary Pereira de Carvalho, Attila Carmelo, Argentino
+    Teodoro Tavares, Astorige Correa de Paula e Silva, Benoni de Arruda Albernaz,
+    Carlos Alberto Augusto. (169 Átila Rohrsetzer, 66, 67, 71 já existiam.)
+- **8 já existentes** (não duplicados): alcides-cintra-bueno-filho (55),
+  antonio-bandeira (58), arnaldo-siqueira (64), audir-santos-maciel (66),
+  augusto-fernandes-maia (67), carlos-alberto-brilhante-ustra (71),
+  attila-rohrsetzer (169, lote RS), antonio-curcio-neto (153, banco pré-existente).
+- **Perfil dos perpetradores da Seção C**: médicos-legistas do IML/SP com laudos
+  fraudulentos (6 fichas: Orsini, Dácio Franco, Valentini, Aloísio Fernandes,
+  Arildo de Toledo, Canger Rodrigues — casos emblemáticos: Herzog, Collen Leite);
+  agentes do DOI-CODI (I, II e IV Exército); Casa da Morte de Petrópolis; Massacre
+  do Parque Nacional do Iguaçu (1974); Guerrilha do Araguaia; DOPS/SP, DOPS/PE,
+  DOPS/GB; Esquadrão da Morte/Fleury; episódio único anterior ao golpe (Ipatinga,
+  7/10/1963 — Argentino Teodoro Tavares).
+- **Padrão editorial**: 2 fontes por ficha (§24 pp.873-874 + trecho literal do item);
+  parágrafo de impunidade padrão (ADPF 153/Gomes Lund); status=publicada; marcadores=[].
+- **Ingestão**: `06_semear_curadoria.py` em 7 rodadas (upsert idempotente), exit 0.
+- **Resultado**: perpetradores no banco: 116 → **151** (+35).
+- **Capítulo 16 concluído**: Seções A (26 itens), B (137 itens) e C (43 itens) todas
+  registradas.
+
+---
+
 ## 2026-06-23 — Lote Dirigentes do Regime: Seção B (18º e último sublote — itens 133–137)
 
 Curadoria a partir do Cap. 16, Seção B, pp. 872–873. **Seção B concluída.**
