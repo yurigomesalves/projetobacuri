@@ -1338,6 +1338,27 @@ Curadoria a partir do Cap. 16, Seção B, pp. 865–866.
 - **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
 - **Resultado**: perpetradores no banco: 76 → **80**.
 
+## 2026-06-23 — Lote Dirigentes do Regime: Seção B (15º sublote — itens 121–124)
+
+Curadoria a partir do Cap. 16, Seção B, pp. 869–870.
+
+- **4 figuras novas**: marcus-antonio-brito-de-fleury, mario-de-souza-pinto,
+  melillo-moreira-de-mello, newton-araujo-de-oliveira-e-cruz.
+- Fatos específicos: cmd. 2ª seção do 10º BC/Goiânia; superintendente DPF/GO;
+  chefe núcleo agência SNI/Goiânia (dez.1968–abr.1974) (Marcus Antônio Brito de
+  Fleury); chefe EM II Exército/SP (abr.1973–jan.1974) (Mário de Souza Pinto);
+  cônsul-geral em Santiago (1971–72) — monitoramento de exilados; transmitiu ao
+  MRE os dados de viagem de Edmur Péricles Camargo (15 jun.1971); Edmur foi
+  sequestrado no dia seguinte e se encontra desaparecido (Melillo Moreira de
+  Mello); chefe agência central do SNI à época do atentado no Riocentro/RJ
+  (1981); denunciado pelo MPF em 2014 por participação no atentado (Newton
+  Araújo de Oliveira e Cruz).
+- **Ingestão**: `06_semear_curadoria.py`, exit 0. Todos diretamente como `publicada`.
+  Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 100 → **104**.
+
+---
+
 ## 2026-06-23 — Lote Dirigentes do Regime: Seção B (14º sublote — itens 117–120)
 
 Curadoria a partir do Cap. 16, Seção B, p. 869.
