@@ -1243,6 +1243,23 @@ cross-ref. da Seção A) já estavam no banco.
 - **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
 - **Resultado**: perpetradores no banco: 56 → **60**.
 
+## 2026-06-23 — Lote Dirigentes do Regime: Seção B (5º sublote — itens 81–84)
+
+Curadoria a partir do Cap. 16, Seção B, pp. 861–862.
+
+- **4 figuras novas**: ednardo-davila-mello, eni-de-oliveira-castro,
+  enio-de-albuquerque-lacerda, ernani-ayrosa-da-silva.
+- Fatos específicos: mortes sob tortura no DOI-CODI do II Exército — Vladimir
+  Herzog, Manoel Fiel Filho e José Ferreira de Almeida (D'Avila Mello, 1974–76);
+  tortura e execuções na repressão à Guerrilha do Araguaia com o 10º BC/Goiânia
+  (Eni de Oliveira Castro); mortes de Severino Viana Colou e Chael Charles
+  Schreier na 1ª Cia PE/Vila Militar + DOI-CODI I Exército (Ênio Lacerda,
+  tb. Seção C); Operação Registro com bombardeios de napalm sobre população
+  quilombola e indígena no Vale do Ribeira/SP (Ernani Ayrosa da Silva, 1969–71).
+- Ênio de Albuquerque Lacerda recebeu remissão à Seção C (também indicado lá).
+- **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 60 → **64**.
+
 ---
 
 ## 2026-06-22 — Lote Dirigentes do Regime: presidentes/junta (1º sublote)
