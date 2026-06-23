@@ -1338,6 +1338,29 @@ Curadoria a partir do Cap. 16, Seção B, pp. 865–866.
 - **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
 - **Resultado**: perpetradores no banco: 76 → **80**.
 
+## 2026-06-23 — Lote Dirigentes do Regime: Seção B (12º sublote — itens 109–112)
+
+Curadoria a partir do Cap. 16, Seção B, pp. 867–868.
+
+- **4 figuras novas**: jonas-braga, jorge-jose-de-carvalho,
+  jorge-jose-marques-sobrinho, jose-antonio-nogueira-belham.
+- Fatos específicos: chefe agência DF do CIE (1972, jul.–set.) durante
+  operações contra a Guerrilha do Araguaia; indicado também na Seção C
+  (Jonas Braga); comandante da Base Aérea do Galeão/RJ em 1971 — Stuart
+  Angel Jones: detenção ilegal, tortura, execução e desaparecimento do
+  corpo; presídio clandestino na base sob seu comando (Jorge José de
+  Carvalho); diretor do DOPS/GB (início da década de 1970) (Jorge José
+  Marques Sobrinho); chefe do DOI-CODI/I Exército (nov.1970–set.1971)
+  — detenção ilegal, tortura, execução, desap. forçado, ocultação de
+  cadáver —; CIE/Brasília (1977–1981) e SNI (1984–1987); denunciado
+  pelo MPF pelo homicídio de Rubens Paiva (mai.2014); silêncio diante
+  da CNV (set.2014) (José Antônio Nogueira Belham).
+- **Ingestão**: `06_semear_curadoria.py`, exit 0. Todos diretamente como `publicada`.
+  Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 88 → **92**.
+
+---
+
 ## 2026-06-23 — Lote Dirigentes do Regime: Seção B (11º sublote — itens 105–108)
 
 Curadoria a partir do Cap. 16, Seção B, pp. 866–867.
