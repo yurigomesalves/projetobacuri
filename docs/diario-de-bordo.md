@@ -1338,6 +1338,30 @@ Curadoria a partir do Cap. 16, Seção B, pp. 865–866.
 - **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
 - **Resultado**: perpetradores no banco: 76 → **80**.
 
+## 2026-06-23 — Lote Dirigentes do Regime: Seção B (18º e último sublote — itens 133–137)
+
+Curadoria a partir do Cap. 16, Seção B, pp. 872–873. **Seção B concluída.**
+
+- **5 figuras novas**: samuel-augusto-alves-correa, syzeno-ramos-sarmento,
+  uriburu-lobo-da-cruz, waldyr-coelho, wilson-brandi-romao.
+- Fatos específicos: chefe EM IV Exército (final 1960s); cmd. 5ª RM/Curitiba
+  (jul.1974–jan.1977) — Operação Marumbi, detenção ilegal e tortura
+  (Samuel Augusto Alves Correa); cmd. II Exército (1967–68) e I Exército
+  (1968–71) — criou o CODI e o DOI, integrados no sistema DOI-CODI difundido
+  nacionalmente (Syzeno Ramos Sarmento); Divisão Anfíbia/GB; cmd. grupamento
+  operativo de 229 homens na Op. Papagaio/Araguaia (set.–out.1972) (Uriburu
+  Lobo da Cruz); chefe da Oban/I Exército/SP (1969–70) — precursora do
+  DOI-CODI; tb. Seção C (Waldyr Coelho); sec. de Seg. Pública/PA
+  (mai.1974–mar.1975) — Op. Marajoara: 49+ desap. forçados (Wilson Brandi
+  Romão).
+- **Ingestão**: `06_semear_curadoria.py`, exit 0. Todos diretamente como `publicada`.
+  Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 111 → **116**.
+- **Seção B encerrada**: todos os 137 itens da lista da Seção B foram registrados.
+  Próxima etapa: Seção C (autores diretos), p. 873+.
+
+---
+
 ## 2026-06-23 — Lote Dirigentes do Regime: Seção B (17º sublote — itens 129–132)
 
 Curadoria a partir do Cap. 16, Seção B, pp. 871–872.
