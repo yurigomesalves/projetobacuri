@@ -1338,6 +1338,27 @@ Curadoria a partir do Cap. 16, Seção B, pp. 865–866.
 - **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
 - **Resultado**: perpetradores no banco: 76 → **80**.
 
+## 2026-06-23 — Lote Dirigentes do Regime: Seção B (13º sublote — itens 113–116)
+
+Curadoria a partir do Cap. 16, Seção B, p. 868.
+
+- **4 figuras novas**: jose-ferreira-da-silva, jose-luiz-coelho-netto,
+  jose-ney-fernandes-antunes, leo-guedes-etchegoyen.
+- Fatos específicos: cmd. destacamento do Exército em Marabá e de tropas
+  no Araguaia (jun.–jul. 1972) (José Ferreira da Silva); subchefe do CIE
+  durante criação e funcionamento da Casa da Morte/Petrópolis (1971–74) e
+  um dos responsáveis por sua concepção (depoimento Paulo Malhães à CNV);
+  chefe EM I Exército (1979) e gabinete ministro do Exército (1981–83)
+  (José Luiz Coelho Netto); cmd. 1º BPE/RJ (nov.1968–fev.1971) (José
+  Ney Fernandes Antunes); Sec.Seg.Pública/RS (nov.1964–fev.1965),
+  chefe EM II Exército (1979–81) e III Exército (ago.1982) (Leo Guedes
+  Etchegoyen).
+- **Ingestão**: `06_semear_curadoria.py`, exit 0. Todos diretamente como `publicada`.
+  Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 92 → **96**.
+
+---
+
 ## 2026-06-23 — Lote Dirigentes do Regime: Seção B (12º sublote — itens 109–112)
 
 Curadoria a partir do Cap. 16, Seção B, pp. 867–868.
