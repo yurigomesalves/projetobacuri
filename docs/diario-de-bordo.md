@@ -1280,6 +1280,44 @@ Curadoria a partir do Cap. 16, Seção B, pp. 862–863.
 - **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
 - **Resultado**: perpetradores no banco: 64 → **68**.
 
+## 2026-06-23 — Lote Dirigentes do Regime: Seção B (7º sublote — itens 89–92)
+
+Curadoria a partir do Cap. 16, Seção B, pp. 863–864.
+
+- **4 figuras novas**: flavio-hugo-de-lima-rocha, francisco-demiurgo-santos-cardoso,
+  francisco-homem-de-carvalho, gastao-barbosa-fernandes.
+- Fatos específicos: chefe da 2ª seção do II Exército/SP durante período coincidente
+  com o DOI-CODI de Ustra (Flávio Hugo, primeira metade dos 1970s); comandante
+  DOI-CODI I Exército/RJ em período de intensa repressão (Francisco Demiurgo,
+  set. 1971–fev. 1972; tb. Seção C); SNI/RJ + secretário de Segurança/RJ +
+  1º BPE/RJ — memorando oficial de 1983 do SNI indica vinculação à Casa da
+  Morte em Petrópolis (Francisco Homem de Carvalho, 1964–1974); diretor
+  DOPS/GB e acobertamento da morte sob tortura de Raul Amaro Nin Ferreira
+  com versão oficial falsa em 1971 (Gastão Barbosa Fernandes).
+- Francisco Demiurgo Santos Cardoso recebeu remissão à Seção C (também indicado lá).
+- **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 68 → **72**.
+
+## 2026-06-23 — Lote Dirigentes do Regime: Seção B (8º sublote — itens 93–96)
+
+Curadoria a partir do Cap. 16, Seção B, pp. 864–865.
+
+- **4 figuras novas**: gastao-batista-de-carvalho, gentil-marcondes-filho,
+  gentil-nogueira-paes, gilberto-airton-zenkner.
+- Fatos específicos: comando em campo de tropas na repressão ao Araguaia,
+  mar.–mai. 1972, com o 2º BIS (Gastão Batista de Carvalho); chefe EM II
+  Exército/SP em 1974 e comandante I Exército/RJ na época do Riocentro,
+  30 abr. 1981 (Gentil Marcondes Filho); comandante do 2º Grupamento de
+  Engenharia na abertura da BR-174 (1974) — ofício documentado onde afirma
+  fazer "demonstrações de força" com metralhadora e granadas contra os
+  Waimiri Atroari; obras resultaram na morte e desaparecimento de número
+  expressivo dessa etnia entre 1972 e 1975 (Gentil Nogueira Paes);
+  coordenador-geral da Operação Sucuri/Araguaia (mai.–out. 1973), que
+  alimentou a Operação Marajoara responsável pelo extermínio final da
+  guerrilha; CIE/Brasília 1974–75 (Gilberto Airton Zenkner).
+- **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 72 → **76**.
+
 ---
 
 ## 2026-06-22 — Lote Dirigentes do Regime: presidentes/junta (1º sublote)
