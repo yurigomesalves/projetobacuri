@@ -1158,6 +1158,18 @@ município IBGE. **Próximo lote do Sul: RS** (CEV-RS `98a23e6e…`, 180 chunks,
 
 ---
 
+## 2026-06-22 — Promoção dos perpetradores da Seção A para publicada
+
+Os 26 perpetradores da Seção A do Cap. 16 da CNV (registrados nos 4 sublotes
+desta sessão) foram promovidos de `rascunho` para `publicada` após revisão
+editorial do Yuri. Os 10 perpetradores anteriores (CEV-RS e SP) já estavam
+como `publicada`. Total de perpetradores públicos no banco: **36**.
+
+Mecanismo: atualização de `status_curadoria` nos JSONs locais +
+`06_semear_curadoria.py` (upsert idempotente).
+
+---
+
 ## 2026-06-22 — Lote Dirigentes do Regime: presidentes/junta (1º sublote)
 
 Curadoria a partir do Capítulo 16, Seção A do Relatório da CNV, vol. I
