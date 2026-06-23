@@ -1206,6 +1206,23 @@ Curadoria a partir do Cap. 16, Seção B, pp. 858–859.
 - **Ingestão**: exit 0. Todos `rascunho`. Marcadores: `[]`.
 - **Resultado**: perpetradores no banco: 46 → **52**.
 
+## 2026-06-23 — Lote Dirigentes do Regime: Seção B (3º sublote — itens 72–75)
+
+Curadoria a partir do Cap. 16, Seção B, pp. 859–860.
+Item 71 (Carlos Alberto Brilhante Ustra) já estava no banco.
+
+- **4 figuras novas**: carlos-alberto-cabral-ribeiro, carlos-alberto-ponzi,
+  carlos-sergio-torres, carlos-xavier-de-miranda.
+- Fatos específicos registrados: massacre da Chácara São Bento/Recife (Cabral
+  Ribeiro, 1973); Operação Pajussara e sequestro de Lorenzo Ismael Viñas em
+  Uruguaiana/RS (Ponzi, 1971/1980); Operação Sucuri e ligação com a Operação
+  Marajoara — ao menos 49 desaparecimentos forçados na Guerrilha do Araguaia
+  (Torres, 1973); Chacina da Lapa/SP — execução de dirigentes do PCdoB em
+  16/12/1976 (Xavier de Miranda).
+- Carlos Sergio Torres recebeu remissão à Seção C (também indicado lá).
+- **Ingestão**: exit 0. Todos `rascunho`. Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 52 → **56**.
+
 ---
 
 ## 2026-06-22 — Lote Dirigentes do Regime: presidentes/junta (1º sublote)
