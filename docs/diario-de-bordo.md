@@ -1192,6 +1192,20 @@ destinados à prática de graves violações de direitos humanos").
 - **Resultado**: perpetradores no banco: 36 → **46**.
 - **Próximo sublote Seção B**: itens 64–70 (Arnaldo a Breno).
 
+## 2026-06-22 — Lote Dirigentes do Regime: Seção B (2º sublote — itens 64–70)
+
+Curadoria a partir do Cap. 16, Seção B, pp. 858–859.
+
+- **6 figuras novas** (item 66/Audir Santos Maciel já no banco):
+  arnaldo-siqueira, ary-casaes-bezerra-cavalcanti, augusto-fernandes-maia,
+  aylton-siano-baeta, bento-jose-bandeira-de-mello, breno-borges-fortes.
+- Vítimas nomeadas onde o item as menciona: Stuart Angel Jones (Ary Casaes),
+  Ruy Frazão Soares (Augusto Fernandes Maia), Mónica Susana Pinus de Binstock
+  e Horacio Domingo Campiglia (Aylton Siano Baeta).
+- Augusto Fernandes Maia recebeu remissão à Seção C (também indicado lá).
+- **Ingestão**: exit 0. Todos `rascunho`. Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 46 → **52**.
+
 ---
 
 ## 2026-06-22 — Lote Dirigentes do Regime: presidentes/junta (1º sublote)
