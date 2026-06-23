@@ -1224,6 +1224,25 @@ Item 71 (Carlos Alberto Brilhante Ustra) já estava no banco.
 - **Promoção**: todos os 4 promovidos a `publicada` na mesma sessão após revisão.
 - **Resultado**: perpetradores no banco: 52 → **56**.
 
+## 2026-06-23 — Lote Dirigentes do Regime: Seção B (4º sublote — itens 77–80)
+
+Curadoria a partir do Cap. 16, Seção B, pp. 860–862.
+Item 76 (Cecil de Macedo Borer) e item 32 (Confúcio Danton de Paula Avelino,
+cross-ref. da Seção A) já estavam no banco.
+
+- **4 figuras novas**: clemente-jose-monteiro-filho, cyro-guedes-etchegoyen,
+  darcy-jardim-de-matos, edmundo-drummond-bittencourt-herculano.
+- Fatos específicos registrados: tortura intensa na unidade da Marinha na ilha
+  das Flores/RJ (Clemente, 1968–1970); Casa da Morte em Petrópolis —
+  identificado por Paulo Malhães como autoridade do CIE responsável pelo local
+  (Cyro Etchegoyen, 1971–1974); Guerrilha do Araguaia, todas as fases
+  repressivas + Operação Marajoara (Darcy Jardim de Matos, 1971–1973);
+  Operação Papagaio com fuzileiros navais contra o Araguaia (Edmundo Herculano,
+  set.–out. 1972).
+- Clemente José Monteiro Filho recebeu remissão à Seção C (também indicado lá).
+- **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 56 → **60**.
+
 ---
 
 ## 2026-06-22 — Lote Dirigentes do Regime: presidentes/junta (1º sublote)
