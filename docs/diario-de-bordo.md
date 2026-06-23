@@ -1318,6 +1318,26 @@ Curadoria a partir do Cap. 16, Seção B, pp. 864–865.
 - **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
 - **Resultado**: perpetradores no banco: 72 → **76**.
 
+## 2026-06-23 — Lote Dirigentes do Regime: Seção B (9º sublote — itens 97–100)
+
+Curadoria a partir do Cap. 16, Seção B, pp. 865–866.
+
+- **4 figuras novas**: gustavo-eugenio-de-oliveira-borges, harry-shibata,
+  helio-ibiapina-lima, helio-da-mata-resende.
+- Fatos específicos: secretário de Segurança/GB no governo Lacerda; prisão ilegal
+  da delegação da China (3 abr. 1964); investigado por CPI da ALERJ sobre
+  tortura na Invernada de Olaria e morte de mendigos por afogamento; recusou-se a
+  depor na CNV (Gustavo Eugênio de Oliveira Borges); diretor IML/SP (1976–1983),
+  continuidade dos laudos necroscópicos fraudulentos após Arnaldo Siqueira;
+  tb. Seção C (Harry Shibata); presidiu IPM/IV Exército/Recife (abr. 1964),
+  principal responsável pelas violações a presos políticos em PE; Escola das
+  Américas 1966; tb. Seção C (Hélio Ibiapina Lima); membro equipe nº 1 de
+  interrogatório sediada em Marabá durante repressão ao Araguaia, mar.–mai. 1972
+  (Hélio da Mata Resende).
+- Harry Shibata e Hélio Ibiapina Lima receberam remissão à Seção C.
+- **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 76 → **80**.
+
 ---
 
 ## 2026-06-22 — Lote Dirigentes do Regime: presidentes/junta (1º sublote)
