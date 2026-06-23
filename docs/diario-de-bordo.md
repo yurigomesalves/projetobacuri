@@ -1338,6 +1338,29 @@ Curadoria a partir do Cap. 16, Seção B, pp. 865–866.
 - **Ingestão**: exit 0. Todos diretamente como `publicada`. Marcadores: `[]`.
 - **Resultado**: perpetradores no banco: 76 → **80**.
 
+## 2026-06-23 — Lote Dirigentes do Regime: Seção B (17º sublote — itens 129–132)
+
+Curadoria a partir do Cap. 16, Seção B, pp. 871–872.
+
+- **4 figuras novas**: paulo-rufino-alves, romeu-tuma, ruy-de-paula-couto,
+  ruy-lisboa-dourado.
+- Fatos específicos: cmd. DOI-CODI/II Exército/SP em 1976; indicado também
+  na Seção C (Paulo Rufino Alves); DOPS/SP 1969–82, diretor 1977–82;
+  superintendente PF/SP (1982) e diretor-geral PF (1985) (Romeu Tuma);
+  chefe EM III Exército/Porto Alegre (dez.1969–mai.1972) — número expressivo
+  de detenção ilegal, tortura, morte e desap. forçado no Sul (Ruy de Paula
+  Couto); delegado Guanabara; atividades de informação no MRE e JCI (1959–60);
+  monitoramento de exilados no Uruguai (1965 e 1970–71) e no Chile (Allende);
+  inquérito morte embaixador José Jobim (1979) — suicídio requalificado como
+  homicídio pelo MP (Ruy Lisbôa Dourado).
+- **Nota estrutural**: a Seção B termina no item 137 (p. 873); a Seção C começa
+  imediatamente após. Restam ainda os itens 133–137 para completar a Seção B.
+- **Ingestão**: `06_semear_curadoria.py`, exit 0. Todos diretamente como `publicada`.
+  Marcadores: `[]`.
+- **Resultado**: perpetradores no banco: 107 → **111**.
+
+---
+
 ## 2026-06-23 — Lote Dirigentes do Regime: Seção B (16º sublote — itens 125–128)
 
 Curadoria a partir do Cap. 16, Seção B, pp. 870–871.
