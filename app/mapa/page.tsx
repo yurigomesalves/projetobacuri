@@ -293,7 +293,7 @@ function MapaConteudo() {
                 checked={mostrarOrigem}
                 onChange={(e) => setMostrarOrigem(e.target.checked)}
               />
-              Cidades natais das vítimas (origem)
+              Cidades e territórios natais das vítimas
             </label>
             <label className="flex items-center gap-2">
               <input
