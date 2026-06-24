@@ -164,7 +164,12 @@ export async function GET(requisicao: NextRequest): Promise<NextResponse> {
     const features: GeoJSON.Feature[] = [];
 
     for (const linha of linhas) {
-      const geometria = resolverGeometria(linha as Parameters<typeof resolverGeometria>[0]);
+      const geometria = resolverGeometria({
+        ...linha,
+        terras_indigenas: Array.isArray(linha.terras_indigenas)
+          ? (linha.terras_indigenas[0] ?? null)
+          : linha.terras_indigenas,
+      });
 
       // Vítimas sem área não entram na FeatureCollection (ADR-019).
       if (!geometria) continue;
