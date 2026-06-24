@@ -65,6 +65,7 @@ def validar_biografia(d: dict, origem: str) -> None:
             raise SystemExit(f"{origem}: marcador inválido '{m['marcador']}'.")
         validar_citacao(m, origem)  # ADR-001: marcador sempre com fonte
     validar_naturalidade_periodo(d, origem)
+    validar_territorio_origem(d, origem)
     validar_vinculos(d, origem)
 
 
@@ -103,6 +104,62 @@ def validar_naturalidade_periodo(d: dict, origem: str) -> None:
     ini, fim = d.get("data_inicio"), d.get("data_fim")
     if ini and fim and ini > fim:
         raise SystemExit(f"{origem}: 'data_inicio' ({ini}) posterior a 'data_fim' ({fim}).")
+
+
+def validar_territorio_origem(d: dict, origem: str) -> None:
+    """Checagens dos campos de origem territorial (migração 0016, ADR-016 decisão 1/2).
+
+    Campos opcionais: povo_origem, terra_indigena_codigo, terra_indigena_nome,
+    geometria_origem_ponto, geometria_origem_raio_km. Regras:
+    - povo_origem: string não-vazia se presente
+    - terra_indigena_codigo: inteiro positivo se presente
+    - terra_indigena_nome: string não-vazia se presente
+    - geometria_origem_ponto: [lat, lng] (dois floats) se presente
+    - geometria_origem_raio_km: inteiro > 0 se presente
+    - Via A (terra_indigena_codigo) e Via B (geometria_origem_ponto) são
+      mutuamente exclusivas (não podem coexistir)
+    - Raio sem ponto é inválido: se raio está preenchido, ponto obrigatório
+    """
+    povo = d.get("povo_origem")
+    if povo is not None and (not isinstance(povo, str) or not povo.strip()):
+        raise SystemExit(f"{origem}: 'povo_origem' deve ser string não-vazia (recebido '{povo}').")
+
+    cod_ti = d.get("terra_indigena_codigo")
+    if cod_ti is not None and (not isinstance(cod_ti, int) or cod_ti <= 0):
+        raise SystemExit(f"{origem}: 'terra_indigena_codigo' deve ser inteiro > 0 (recebido '{cod_ti}').")
+
+    nome_ti = d.get("terra_indigena_nome")
+    if nome_ti is not None and (not isinstance(nome_ti, str) or not nome_ti.strip()):
+        raise SystemExit(f"{origem}: 'terra_indigena_nome' deve ser string não-vazia (recebido '{nome_ti}').")
+
+    geom_ponto = d.get("geometria_origem_ponto")
+    if geom_ponto is not None:
+        if not isinstance(geom_ponto, list) or len(geom_ponto) != 2:
+            raise SystemExit(
+                f"{origem}: 'geometria_origem_ponto' deve ser [lat, lng] (recebido '{geom_ponto}')."
+            )
+        if not all(isinstance(v, (int, float)) for v in geom_ponto):
+            raise SystemExit(
+                f"{origem}: 'geometria_origem_ponto' coordenadas devem ser números (recebido '{geom_ponto}')."
+            )
+
+    raio = d.get("geometria_origem_raio_km")
+    if raio is not None and (not isinstance(raio, int) or raio <= 0):
+        raise SystemExit(f"{origem}: 'geometria_origem_raio_km' deve ser inteiro > 0 (recebido '{raio}').")
+
+    # Validação de exclusividade: Via A vs Via B
+    if cod_ti is not None and geom_ponto is not None:
+        raise SystemExit(
+            f"{origem}: 'terra_indigena_codigo' e 'geometria_origem_ponto' "
+            f"são mutuamente exclusivas (ADR-016). Especifique apenas uma via."
+        )
+
+    # Validação: raio sem ponto é inválido
+    if raio is not None and geom_ponto is None:
+        raise SystemExit(
+            f"{origem}: 'geometria_origem_raio_km' exige 'geometria_origem_ponto' "
+            f"(raio sem ponto é inválido)."
+        )
 
 
 def validar_evento(d: dict, origem: str, slugs_biografias: set) -> None:
@@ -205,6 +262,13 @@ def main() -> None:
     ids_biografias: dict[str, str] = {}
     tipos_biografias: dict[str, str] = {}
     for origem, d in biografias:
+        # geometria_origem_ponto: JSON vem como [lat, lng]; converter para GeoJSON Point.
+        # GeoJSON usa [lng, lat] — inverter!
+        geom_ponto_geojson = None
+        if d.get("geometria_origem_ponto"):
+            lat, lng = d["geometria_origem_ponto"]
+            geom_ponto_geojson = {"type": "Point", "coordinates": [lng, lat]}
+
         registro = {
             "slug": d["slug"], "nome": d["nome"], "tipo": d["tipo"],
             "resumo_1_linha": d["resumo_1_linha"], "texto_md": d["texto_md"],
@@ -216,6 +280,12 @@ def main() -> None:
             "uf_natal": d["uf_natal"].upper() if d.get("uf_natal") else None,
             "data_inicio": d.get("data_inicio"),
             "data_fim": d.get("data_fim"),
+            # Origem territorial (migração 0016, ADR-016 decisão 1/2): opcionais.
+            "povo_origem": d.get("povo_origem"),
+            "terra_indigena_codigo": d.get("terra_indigena_codigo"),
+            "terra_indigena_nome": d.get("terra_indigena_nome"),
+            "geometria_origem_ponto": geom_ponto_geojson,
+            "geometria_origem_raio_km": d.get("geometria_origem_raio_km"),
             "status_curadoria": d.get("status_curadoria", "rascunho"),
         }
         resp = supabase.table("biografias").upsert(registro, on_conflict="slug").execute()

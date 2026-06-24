@@ -32,6 +32,8 @@ const ROTULOS_CRIME: Record<string, string> = {
   perseguicao_exilio_banimento: "Perseguição, exílio e banimento",
   censura: "Censura",
   atentado_a_populacao_civil: "Atentado contra a população civil",
+  grilagem_de_territorio_indigena: "Grilagem de território indígena",
+  apagamento_de_registros_e_testemunhos: "Apagamento de registros e testemunhos",
 };
 
 function rotuloCrime(tipo: string): string {
@@ -81,6 +83,14 @@ function MapaConteudo() {
   const [origemCarregada, setOrigemCarregada] = useState(false);
   const [carregandoOrigem, setCarregandoOrigem] = useState(false);
   const [erroOrigem, setErroOrigem] = useState<string | null>(null);
+
+  // Camada de territórios de origem (ADR-019): povos indígenas, desligada por padrão.
+  // Só buscada quando o usuário ativa pela primeira vez.
+  const [mostrarTerritorios, setMostrarTerritorios] = useState(false);
+  const [territorios, setTerritorios] = useState<Feature[]>([]);
+  const [territoriosCarregados, setTerritoriosCarregados] = useState(false);
+  const [carregandoTerritorios, setCarregandoTerritorios] = useState(false);
+  const [erroTerritorios, setErroTerritorios] = useState<string | null>(null);
 
   const [eventoSelecionado, setEventoSelecionado] = useState<EventoGeo | null>(null);
   const [carregandoEvento, setCarregandoEvento] = useState(false);
@@ -162,6 +172,45 @@ function MapaConteudo() {
       cancelado = true;
     };
   }, [mostrarOrigem, origemCarregada]);
+
+  // Busca a camada de territórios de origem só na primeira ativação.
+  useEffect(() => {
+    if (!mostrarTerritorios || territoriosCarregados) return;
+    let cancelado = false;
+    async function carregarTerritorios() {
+      setCarregandoTerritorios(true);
+      setErroTerritorios(null);
+      try {
+        const res = await fetch("/api/territorios-origem");
+        if (!res.ok) {
+          const dados: RespostaErro = await res.json();
+          if (!cancelado) {
+            setErroTerritorios(
+              dados.erro?.mensagem ?? "Não foi possível carregar a camada de territórios."
+            );
+          }
+          return;
+        }
+        const dados: FeatureCollection = await res.json();
+        if (!cancelado) {
+          setTerritorios(dados.features ?? []);
+          setTerritoriosCarregados(true);
+        }
+      } catch {
+        if (!cancelado) {
+          setErroTerritorios(
+            "Não foi possível carregar a camada de territórios. Verifique sua conexão."
+          );
+        }
+      } finally {
+        setCarregandoTerritorios(false);
+      }
+    }
+    carregarTerritorios();
+    return () => {
+      cancelado = true;
+    };
+  }, [mostrarTerritorios, territoriosCarregados]);
 
   async function selecionarEvento(eventoId: string) {
     setCarregandoEvento(true);
@@ -246,6 +295,14 @@ function MapaConteudo() {
               />
               Cidades natais das vítimas (origem)
             </label>
+            <label className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                checked={mostrarTerritorios}
+                onChange={(e) => setMostrarTerritorios(e.target.checked)}
+              />
+              Territórios de origem (povos indígenas)
+            </label>
           </fieldset>
 
           {mostrarOrigem && (
@@ -274,6 +331,33 @@ function MapaConteudo() {
             </p>
           )}
 
+          {mostrarTerritorios && (
+            <p className="text-xs leading-relaxed text-neutral-500 dark:text-neutral-500">
+              Esta camada mostra o território do povo indígena ao qual a vítima pertence,
+              segundo fonte documental. Referência geográfica aproximada e contemporânea —
+              os limites atuais da Terra Indígena não correspondem ao território de 1964–1985.
+              Vítimas sem referência territorial documentada não aparecem.
+            </p>
+          )}
+
+          {carregandoTerritorios && (
+            <p className="text-sm text-neutral-600 dark:text-neutral-400">
+              Carregando territórios de origem...
+            </p>
+          )}
+
+          {erroTerritorios && (
+            <p role="alert" className="text-sm text-red-700 dark:text-red-400">
+              {erroTerritorios}
+            </p>
+          )}
+
+          {mostrarTerritorios && territoriosCarregados && territorios.length === 0 && (
+            <p className="text-sm text-neutral-600 dark:text-neutral-400">
+              Ainda não há vítimas com território de origem documentado no acervo.
+            </p>
+          )}
+
           {erroLista && (
             <p role="alert" className="text-sm text-red-700 dark:text-red-400">
               {erroLista}
@@ -289,6 +373,7 @@ function MapaConteudo() {
               <MapaEventos
                 features={featuresVisiveis}
                 origem={mostrarOrigem ? origem : []}
+                territorios={mostrarTerritorios ? territorios : []}
                 onSelecionar={selecionarEvento}
               />
             </div>

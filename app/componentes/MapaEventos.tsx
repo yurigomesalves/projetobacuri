@@ -29,13 +29,21 @@ type Props = {
   // Camada de ORIGEM (ADR-016, decisão 4): cidades natais das vítimas, em
   // camada separada da de eventos (local do crime). Vazio = camada desligada.
   origem?: Feature[];
+  // Camada de TERRITÓRIOS DE ORIGEM (ADR-019): polígonos das Terras Indígenas
+  // dos povos a que as vítimas pertencem. Referência aproximada e contemporânea.
+  // Vazio = camada desligada.
+  territorios?: Feature[];
   onSelecionar: (eventoId: string) => void;
 };
 
 // Cor sóbria e distinta dos pinos de evento, para marcar a camada de origem.
 const COR_ORIGEM = "#1d4ed8";
 
-export default function MapaEventos({ features, origem = [], onSelecionar }: Props) {
+// Verde-escuro: distinto do marrom de territórios de crime (#7c2d12) e do azul
+// de naturalidades (#1d4ed8).
+const COR_TERRITORIO_ORIGEM = "#14532d";
+
+export default function MapaEventos({ features, origem = [], territorios = [], onSelecionar }: Props) {
   return (
     <MapContainer
       center={CENTRO_BRASIL}
@@ -119,6 +127,53 @@ export default function MapaEventos({ features, origem = [], onSelecionar }: Pro
             </Popup>
           </CircleMarker>
         );
+      })}
+
+      {territorios.map((feature, i) => {
+        if (
+          feature.geometry.type !== "Polygon" &&
+          feature.geometry.type !== "MultiPolygon"
+        )
+          return null;
+        const props = feature.properties as {
+          slug: string;
+          nome: string;
+          povo_origem: string;
+          terra_indigena_nome?: string;
+          aproximado: boolean;
+        };
+        const polygons =
+          feature.geometry.type === "Polygon"
+            ? [feature.geometry.coordinates]
+            : feature.geometry.coordinates;
+        return polygons.map((rings, j) => (
+          <Polygon
+            key={`territorio-${props.slug}-${i}-${j}`}
+            positions={rings.map((ring) =>
+              ring.map(([lng, lat]) => [lat, lng] as [number, number])
+            )}
+            pathOptions={{
+              color: COR_TERRITORIO_ORIGEM,
+              weight: 2,
+              fillOpacity: 0.2,
+            }}
+          >
+            <Tooltip>
+              Território de origem do povo {props.povo_origem} — referência
+              aproximada e contemporânea, não o limite do território em 1964–1985
+            </Tooltip>
+            <Popup>
+              <span className="block font-medium">{props.nome}</span>
+              <span className="block">Povo: {props.povo_origem}</span>
+              {props.terra_indigena_nome && (
+                <span className="block">TI: {props.terra_indigena_nome}</span>
+              )}
+              <a href={`/biografias/${props.slug}`} className="underline">
+                Ver biografia
+              </a>
+            </Popup>
+          </Polygon>
+        ));
       })}
     </MapContainer>
   );

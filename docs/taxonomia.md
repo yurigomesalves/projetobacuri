@@ -252,6 +252,70 @@ Naturalidade = município/UF de nascimento conforme fonte documental; é **disti
 `municipios_ibge` (sede do município, não endereço preciso) e alimentam a camada de
 origem do mapa, desligada por padrão.
 
+### 8.3 Território de origem em `biografias` (povos indígenas) — ADR-019
+
+A naturalidade da seção 8.2 (`municipio_natal`/`uf_natal`) pressupõe uma cidade
+natal cartorial — registro de nascimento em um município do recorte do IBGE. Para
+vítimas indígenas, essa premissa frequentemente não se aplica: o Estado não
+registrava esses nascimentos em cartório municipal, e a referência de origem não é
+uma sede de município, e sim um **território de um povo**. Sem um campo próprio,
+essas vítimas ficavam invisíveis na camada de origem do mapa — exatamente o efeito
+de apagamento que o projeto combate (princípio 6). O **território de origem** supre
+essa lacuna sem forçar uma naturalidade municipal que a fonte não sustenta.
+
+**O que é.** Conjunto de campos em `biografias` que associa a vítima ao
+**território do povo indígena ao qual a fonte documental a vincula**, alimentando a
+camada de mapa "Territórios de origem (povos indígenas)" (desligada por padrão,
+como a camada de naturalidade). É **distinto** da naturalidade (8.2) e do
+`municipio`/`uf` (local do crime/atuação). É também **independente** do marcador
+`indigena` (seção 6.2), que continua obrigatório e citado: o marcador afirma a
+identidade; o território de origem dá-lhe uma referência geográfica aproximada.
+
+**Quando usar.** Somente quando a fonte documental (CNV, comitê estadual/temático
+da verdade, produção acadêmica, testemunho) identifica a vítima como pertencente a
+um povo indígena nomeado **e** é possível associar esse povo a uma terra indígena
+oficial ou a uma área aproximada. **Nunca inferir povo, etnia ou território por
+nome, sobrenome, fenótipo ou UF de atuação** — mesma regra estrita dos marcadores
+(6.2) e da naturalidade (8.2). Na ausência de base documental, todos os campos
+ficam `NULL`.
+
+**Como preencher no JSON de curadoria.**
+- `povo_origem` (text): nome do povo/etnia conforme a fonte, grafia consagrada na
+  historiografia (ex.: "Waimiri-Atroari", "Krenak", "Guarani-Kaiowá").
+- Referência territorial — duas vias mutuamente exclusivas:
+  - **(a) Terra Indígena oficial**: `terra_indigena_nome` (text) com o nome da TI
+    para exibição; o `terra_indigena_codigo` (código FUNAI) é casado pelo pipeline
+    para recuperar o polígono oficial homologado. Preferir esta via quando há TI
+    correspondente ao povo.
+  - **(b) Fallback circular** (quando não há TI oficial homologada para o povo, mas
+    a região é documentável): `geometria_origem_ponto` `[lat, lng]` e
+    `geometria_origem_raio_km` (int), que o pipeline converte num polígono circular
+    aproximado. O ponto e o raio são definidos pelo curador a partir da fonte, e o
+    `texto_md` deve registrar em que base a área foi estimada.
+
+**Ressalva editorial obrigatória (tooltip do mapa).** Todo ponto/polígono desta
+camada exibe, sem exceção, uma nota equivalente a:
+
+> "Território de origem do povo [povo] — referência geográfica aproximada e
+> contemporânea (limites da Terra Indígena hoje), não o local exato de nascimento
+> nem o limite oficial do território em 1964–1985. Indica a origem territorial do
+> povo, não a localização da pessoa naquele período."
+
+A ressalva é inegociável: a TI homologada é um recorte jurídico **posterior** e
+muitas vezes **menor** que o território tradicional efetivamente ocupado e disputado
+no período da ditadura. Afirmar o contrário reproduziria, por imprecisão técnica, o
+próprio apagamento territorial que a fonte denuncia.
+
+**TI desconhecida ou inexistente.** Quando a fonte identifica o povo mas não há TI
+homologada, nem base para estimar uma área (ponto+raio), preencher apenas
+`povo_origem` e deixar `terra_indigena_nome`/`terra_indigena_codigo` e a geometria
+de fallback como `NULL`. Registrar no `texto_md` o contexto: qual é o povo, por que
+não há referência territorial disponível (ex.: território não demarcado, povo
+removido/dizimado, ausência de processo na FUNAI) e qual fonte sustenta a
+identificação. A vítima continua aparecendo nas demais camadas e na ficha; apenas
+não recebe ponto na camada de territórios de origem — e a razão fica documentada,
+não escondida (princípio 1).
+
 ---
 
 ## 9. Campos obrigatórios mínimos por fonte (`fontes`)

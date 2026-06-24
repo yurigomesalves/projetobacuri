@@ -360,3 +360,53 @@
 - **Impacto**: JSONs em `pipeline/dados/curadoria/biografias/`; todos entram como
   `rascunho` (ADR-013); extend o padrão de perpetrador estabelecido no lote RS
   (vínculo em prosa, sem nova migração).
+
+## ADR-019 — Categoria "Território de origem" para vítimas indígenas no mapa
+- **Data**: 24/06/2026
+- **Contexto**: a camada de origem do mapa (ADR-016, decisão 4) plota a **cidade
+  natal cartorial** das vítimas (`lat_natal`/`lng_natal`, derivada de
+  `municipios_ibge`). Vítimas indígenas raramente têm naturalidade municipal
+  registrada — o Estado não as inscrevia em cartório, e sua origem não é uma sede de
+  município, e sim o território de um povo. Resultado: essas vítimas ficavam
+  **fora da camada de origem**, um apagamento cartográfico que contraria o princípio
+  6 e a visibilidade que o próprio acervo deu ao tema indígena (ADR-003, ADR-015).
+- **Decisão (Yuri)**:
+  1. Criar a categoria **"Território de origem"** (rótulo fixo; não "região de
+     origem"), com camada de mapa própria **"Territórios de origem (povos
+     indígenas)"**, **desligada por padrão** (como a camada de naturalidade).
+  2. Referência geográfica primária: **polígonos oficiais de Terras Indígenas da
+     FUNAI** (dado público aberto), casados pelo `terra_indigena_codigo`.
+  3. **Fallback circular** quando não houver TI oficial homologada para o povo:
+     o curador fornece `geometria_origem_ponto` `[lat, lng]` + `geometria_origem_raio_km`,
+     convertidos num polígono circular aproximado.
+  4. **Modelo de foco indígena, extensível**: a estrutura (povo + território oficial
+     OU área aproximada) atende a outras origens territoriais aproximadas no futuro
+     **sem nova migração**.
+- **Justificativa historiográfica**: a violência da ditadura contra os povos
+  indígenas tem **dimensão territorial** — grilagem, desmembramento de reservas,
+  remoção forçada para abrir caminho a grandes obras e à fronteira agromineral
+  (ver `tipo_crime` `grilagem_de_territorio_indigena`, ADR-015). Um ponto de cidade
+  natal não captura essa dimensão; o território, sim. A decisão é coerente com o
+  tratamento de primeira classe que a CNV (capítulo específico) e os comitês
+  estaduais deram ao tema, já refletido nas ADR-003 e ADR-015.
+- **Ressalva de transparência (obrigatória no tooltip)**: a TI é **referência
+  aproximada e contemporânea** — os limites homologados hoje **não** equivalem ao
+  território tradicional em 1964–1985 (em geral mais extenso e em disputa), **não**
+  afirmam local exato de nascimento da pessoa, e indicam a **origem territorial do
+  povo**, não a posição do indivíduo no período. Texto integral em
+  `docs/taxonomia.md`, seção 8.3.
+- **Impacto**:
+  - **Schema**: novos campos em `biografias` (`povo_origem`, `terra_indigena_codigo`,
+    `terra_indigena_nome`, `geometria_origem_ponto`, `geometria_origem_raio_km`) e
+    nova tabela de referência `terras_indigenas` (polígonos FUNAI), em nova migração.
+  - **Pipeline**: novo script de carga dos polígonos FUNAI (script 11) e novo script
+    idempotente de casamento/geração de geometria de origem nas biografias — TI
+    oficial pelo código, fallback circular pelo ponto+raio (script 12). O que não
+    casar é reportado para a curadoria, nunca chutado.
+  - **API**: novo endpoint `GET /api/territorios-origem` (camada do mapa); atualizar
+    `docs/contrato-api.md` antes do código (CLAUDE.md).
+  - **Frontend**: nova camada no mapa com toggle próprio, desligada por padrão, com
+    a ressalva de transparência no tooltip de cada território.
+  - **Curadoria/taxonomia**: seção 8.3 da taxonomia; guia de preenchimento nos JSONs
+    de `pipeline/dados/curadoria/biografias/`. O marcador `indigena` (6.2) permanece
+    obrigatório e independente.

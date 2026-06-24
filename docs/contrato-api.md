@@ -190,6 +190,25 @@ de repressão, informação primária); o usuário a ativa por escolha.
 - O frontend identifica cada ponto como "cidade natal de [nome] — origem da vítima, não o
   local do crime" (tooltip definido na ADR-016).
 
+### GET /api/territorios-origem?bbox= (ADR-019 · camada de território de origem)
+Camada cartográfica **separada** das demais: o **território do povo indígena** ao qual
+a vítima pertence, segundo fonte documental. **Desligada por padrão** no mapa.
+- Response: GeoJSON FeatureCollection de **Polygon ou MultiPolygon**; properties de
+  cada feature: `{ slug, nome, povo_origem, terra_indigena_nome, aproximado: true }`.
+- Só vítimas (`tipo = "vitima"`) publicadas com `povo_origem IS NOT NULL`.
+- **Via A** (TI oficial): `terra_indigena_codigo` preenchido → geometria vem de
+  `terras_indigenas.geometria` (JOIN). Properties incluem `terra_indigena_nome`.
+- **Via B** (fallback circular): `geometria_origem_ponto` + `geometria_origem_raio_km`
+  → o servidor gera um polígono circular (64 vértices) a partir do ponto [lng, lat]
+  e do raio em km.
+- Vítimas com `povo_origem` mas sem área em nenhuma via (só povo, sem TI/fallback)
+  **não entram** na FeatureCollection (não há geometria para plotar).
+- `bbox` opcional, mesma semântica de `/api/eventos-geo` (filtro no servidor Next.js,
+  aplicado sobre o centróide aproximado do polígono).
+- **Ressalva obrigatória no tooltip** (ADR-019): "Território de origem do povo [povo]
+  — referência geográfica aproximada e contemporânea (limites da Terra Indígena hoje),
+  não o local exato de nascimento nem o limite oficial do território em 1964–1985."
+
 ### GET /api/eventos-geo/[id] (Fase 6)
 - Response: `EventoGeo` completo. O bloco `justica` é **opcional**: só é servido
   quando `revisado_por_humano = true` (salvaguarda do módulo crimes e justiça,

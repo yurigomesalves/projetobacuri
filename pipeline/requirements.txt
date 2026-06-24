@@ -5,3 +5,6 @@ sentence-transformers
 supabase
 python-dotenv
 requests
+psycopg[binary]
+shapely
+pyshp

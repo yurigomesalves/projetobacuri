@@ -17,6 +17,8 @@ const TIPOS_CRIME = [
   "perseguicao_exilio_banimento",
   "censura",
   "atentado_a_populacao_civil",
+  "grilagem_de_territorio_indigena",
+  "apagamento_de_registros_e_testemunhos",
 ] as const;
 
 const esquemaQuery = z.object({
