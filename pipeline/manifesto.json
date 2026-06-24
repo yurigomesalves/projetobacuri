@@ -497,5 +497,595 @@
     "sha256": "5ccf087be6c0a4cbb5af61c6f46316a561faa634e4178cc6983bfd317f2dbe8f",
     "tamanho_bytes": 1446324,
     "descricao": "Relatório Final da pesquisa da Comissão da Verdade do ANDES-SN — 'A ditadura empresarial-militar nas universidades públicas brasileiras', 2020, 44 p., PDF com camada de texto. Comissão setorial de âmbito nacional (docentes do ensino superior). O DHnet redistribui o PDF original da comissão sem alterações — mesmo padrão de proveniência já adotado para o CEMDP neste acervo. Baixado diretamente de https://www.dhnet.org.br/verdade/cv/cv_universidades_andes_2020.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-273-laudo-exame-local-acidente",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/273/1%20-%20LAUDO%20DE%20EXAME%20DE%20LOCAL.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/273",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-273-laudo-exame-local-acidente.pdf",
+    "data_download": "2026-06-24T02:21:00.814765+00:00",
+    "sha256": "8bc12a2cf627ace5d77a4a705381c5229e468bf9997920739c29f7192d90f7be",
+    "tamanho_bytes": 6629466,
+    "descricao": "Laudo de exame de local de acidente de tráfego , com mortes, 2017-12-13, 6.3 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/273/1%20-%20LAUDO%20DE%20EXAME%20DE%20LOCAL.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-275-laudo-exame-local-acidente",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/275/2%20-%20LAUDO%20DE%20EXAME%20DE%20LOCAL%20-%20FOTOS.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/275",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-275-laudo-exame-local-acidente.pdf",
+    "data_download": "2026-06-24T02:21:07.368636+00:00",
+    "sha256": "fe6d9080aea7f91f8ab86aaf273ba05686765b609e5cc8b0ba29dba78deac1aa",
+    "tamanho_bytes": 19448813,
+    "descricao": "Laudo de exame de local de acidente de tráfego , com mortes - Fotografias, 2017-12-13, 18.5 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/275/2%20-%20LAUDO%20DE%20EXAME%20DE%20LOCAL%20-%20FOTOS.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-276-laudo-complementar-exame-local",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/276/3%20-%20LAUDO%20COMPLEMENTAR%20DE%20EXAME%20DE%20LOCAL.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/276",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-276-laudo-complementar-exame-local.pdf",
+    "data_download": "2026-06-24T02:21:15.842677+00:00",
+    "sha256": "f547c2e2debc9a895c51918a8a4215c596308495bd0eebb0af1868a50a3ae117",
+    "tamanho_bytes": 26639757,
+    "descricao": "Laudo complementar de exame em local de acidente de tráfego, 2017-12-13, 25.4 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/276/3%20-%20LAUDO%20COMPLEMENTAR%20DE%20EXAME%20DE%20LOCAL.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-278-auto-exame-cadavérico",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/278/5%20-%20AUTO%20DE%20EXAME%20CADAVERICO%20DE%20JK.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/278",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-278-auto-exame-cadavérico.pdf",
+    "data_download": "2026-06-24T02:21:17.987372+00:00",
+    "sha256": "c382f7258fe36761bfad593eabc09fe806b16cb8da86c92f55b7b1de99f847e2",
+    "tamanho_bytes": 2592322,
+    "descricao": "Auto de exame cadavérico de JK, 1976-08-22, 2.5 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/278/5%20-%20AUTO%20DE%20EXAME%20CADAVERICO%20DE%20JK.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-280-auto-exame-cadavérico-geraldo",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/280/4%20-%20AUTO%20DE%20EXAME%20CADAVERICO%20DE%20GERALDO%20RIBEIRO.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/280",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-280-auto-exame-cadavérico-geraldo.pdf",
+    "data_download": "2026-06-24T02:21:20.061776+00:00",
+    "sha256": "cd54c437590070d71dfa592d954ded92c9780bf1f1e1d40899d7bbf1508bbe49",
+    "tamanho_bytes": 2421412,
+    "descricao": "Auto de exame cadavérico de Geraldo Ribeiro, 1976-08-22, 2.3 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/280/4%20-%20AUTO%20DE%20EXAME%20CADAVERICO%20DE%20GERALDO%20RIBEIRO.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-306-revista-sem-terra-liga",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/306/Sem%20Terra%20dez%202005.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/306",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-306-revista-sem-terra-liga.pdf",
+    "data_download": "2026-06-24T02:21:21.875220+00:00",
+    "sha256": "9d9c68e2cecd177827415cbbc3125cd9ffe2e1c3f7752f6fe0e4f4bed979e51c",
+    "tamanho_bytes": 1405542,
+    "descricao": "Revista Sem Terra: A Liga Camponesa de Três Marias, 2005-12, 1.3 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/306/Sem%20Terra%20dez%202005.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-307-jornal-terra-livre-19611962",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/307/Terra%20Livre%20out%201961.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/307",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-307-jornal-terra-livre-19611962.pdf",
+    "data_download": "2026-06-24T02:21:23.441584+00:00",
+    "sha256": "c87e3d319b9b37709f3a09ed79b08abf778707b22af41ee62dcd464841b8c0b0",
+    "tamanho_bytes": 597706,
+    "descricao": "Jornal Terra Livre (1961-1962), 2017-12-13, 0.6 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/307/Terra%20Livre%20out%201961.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-308-auto-corpo-delito-necrópsia",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/308/Aldo%20-%20%20BNM%20Tomo%20V%20vol.4.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/308",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-308-auto-corpo-delito-necrópsia.pdf",
+    "data_download": "2026-06-24T02:21:24.853036+00:00",
+    "sha256": "201ed0b5146f1c72eddc5bf237fe4366f981cc363274f6f36adb013758c69db3",
+    "tamanho_bytes": 70213,
+    "descricao": "Auto de corpo de delito - necrópsia, 1985, 0.1 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/308/Aldo%20-%20%20BNM%20Tomo%20V%20vol.4.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-310-laudo-pericial-análise",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/310/LAUDO%20PERICIAL%20de%20análise%20%20Aldo%20de%20Sá%20Brito%20-%20versão%203.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/310",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-310-laudo-pericial-análise.pdf",
+    "data_download": "2026-06-24T02:21:26.298967+00:00",
+    "sha256": "4b27e02f57c0f936a80c196f3f2cbcfd92bf95005fc3959cf625af67fc19c447",
+    "tamanho_bytes": 246891,
+    "descricao": "Laudo pericial de análise, 2017-08-07, 0.2 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/310/LAUDO%20PERICIAL%20de%20análise%20%20Aldo%20de%20Sá%20Brito%20-%20versão%203.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-311-auto-corpo-delito-necrópsia",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/311/Fotografias%20(Aldo%20de%20Sá%20Brito%20Souza%20Neto-%20IML).pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/311",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-311-auto-corpo-delito-necrópsia.pdf",
+    "data_download": "2026-06-24T02:21:27.716867+00:00",
+    "sha256": "b4841e6ce60e83d63fede9089ac47ea56e60c4aeabfe4f91d11895a2d9f548dd",
+    "tamanho_bytes": 124408,
+    "descricao": "Auto de corpo de delito - necrópsia ﻿(Fotografias), 2017-12-13, 0.1 MB, PDF. data_documento = null (depósito DSpace; data do original desconhecida). Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/311/Fotografias%20(Aldo%20de%20Sá%20Brito%20Souza%20Neto-%20IML).pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-316-lista-torturadores-fontes-consultadas",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/316/LISTA%20DE%20TORTURADORES%20COM%20FONTES%20CONSULTADAS.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/316",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-316-lista-torturadores-fontes-consultadas.pdf",
+    "data_download": "2026-06-24T02:21:29.155194+00:00",
+    "sha256": "94a9a007d2909ac67ed777e4dfd8f68cdbd1111b61e4a9abab01d55f3576dcf3",
+    "tamanho_bytes": 250504,
+    "descricao": "Lista de torturadores com fontes consultadas, 2017-12-13, 0.2 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/316/LISTA%20DE%20TORTURADORES%20COM%20FONTES%20CONSULTADAS.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-335-histórico-emails-trocados-entre",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/335/Histórico%20e-mails%20anistia%20internacional.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/335",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-335-histórico-emails-trocados-entre.pdf",
+    "data_download": "2026-06-24T02:21:30.592289+00:00",
+    "sha256": "fbbee7fe1f67c0927b3768e170dc501bad228086a79aed613667b51a121ee5b8",
+    "tamanho_bytes": 160896,
+    "descricao": "Histórico de e-mails trocados entre a COVEMG e a Anistia Internacional, 2017-12-13, 0.2 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/335/Histórico%20e-mails%20anistia%20internacional.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-338-reportagem-jornal-estado-minas",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/338/Reportagem%20Estado%20de%20Minas.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/338",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-338-reportagem-jornal-estado-minas.pdf",
+    "data_download": "2026-06-24T02:21:32.734315+00:00",
+    "sha256": "42f231165e22bd4d2b5e5bf5a3ffea73d71981e060b81068648bcf25829ffe85",
+    "tamanho_bytes": 2721731,
+    "descricao": "Reportagem do jornal Estado de Minas, 2017-12-13, 2.6 MB, PDF. ATENÇÃO: 2017-12-13 é data de depósito no DSpace, não de publicação original — verificar PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/338/Reportagem%20Estado%20de%20Minas.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-339-laudo-pericial-análise",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/339/LAUDO%20PERICIAL%20de%20análise%20Flávio%20Ferreira%20da%20Silva.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/339",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-339-laudo-pericial-análise.pdf",
+    "data_download": "2026-06-24T02:21:34.833641+00:00",
+    "sha256": "02d9f481c7c3824ea10215c87f89bdbdbf72612a6bf9869e26797b33a14416f1",
+    "tamanho_bytes": 2641821,
+    "descricao": "Laudo pericial de análise ﻿ ﻿, 2017-09-19, 2.5 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/339/LAUDO%20PERICIAL%20de%20análise%20Flávio%20Ferreira%20da%20Silva.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-341-acontecimentos-envolvendo-mortes-desaparecimentos",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/341/2.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/341",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-341-acontecimentos-envolvendo-mortes-desaparecimentos.pdf",
+    "data_download": "2026-06-24T02:21:36.692141+00:00",
+    "sha256": "f6729fb390ce91f8997908c38df041ff906f7c6b9db94eac2a0af6e223bbedfc",
+    "tamanho_bytes": 1876689,
+    "descricao": "Acontecimentos envolvendo mortes e desaparecimentos de opositores à ditadura militar, 2017-12-13, 1.8 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/341/2.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-352-cpi-agitação-meio-rural",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/352/Diário%20do%20Congresso%20Nacional%20agosto%201965.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/352",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-352-cpi-agitação-meio-rural.pdf",
+    "data_download": "2026-06-24T02:21:45.671994+00:00",
+    "sha256": "c64a9340ed9d9b4dbb0fb914ba94482460d61dc525ea2f0e62e334ffa77a673b",
+    "tamanho_bytes": 27969107,
+    "descricao": "CPI Agitação no meio rural de Governador Valadares (1964-1965), 1965-08-17, 26.7 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/352/Diário%20do%20Congresso%20Nacional%20agosto%201965.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-354-carta-caio-monteiro-barros",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/354/Carta%20Caio%20Monteiro%20de%20Barros%20ao%20jornal%20Diário%20de%20Minas.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/354",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-354-carta-caio-monteiro-barros.pdf",
+    "data_download": "2026-06-24T02:21:47.118661+00:00",
+    "sha256": "84f616fda3cb59a7d6445890a8a910f09f5142e3e826604b04c50d9c170372a2",
+    "tamanho_bytes": 148554,
+    "descricao": "Carta Caio Monteiro de Barros ao jornal Diário de Minas, 2017-12-13, 0.1 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/354/Carta%20Caio%20Monteiro%20de%20Barros%20ao%20jornal%20Diário%20de%20Minas.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-360-jornal-combate-145-1960",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/360/Jornal%20O%20Combate%201960.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/360",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-360-jornal-combate-145-1960.pdf",
+    "data_download": "2026-06-24T02:21:56.774366+00:00",
+    "sha256": "ea08746014f4d99b154c89979b2855650d93f51882aaec4a52057efc33bc0fb7",
+    "tamanho_bytes": 31233457,
+    "descricao": "Jornal O Combate, nº 145 (1960), 1960, 29.8 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/360/Jornal%20O%20Combate%201960.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-366-laudo-pericial-análise",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/366/LAUDO%20PERICIAL%20de%20análise%20Lucimar.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/366",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-366-laudo-pericial-análise.pdf",
+    "data_download": "2026-06-24T02:21:58.869677+00:00",
+    "sha256": "8c87f4636b8c90c8f745a77dd2e07124c89a9c64d52fb4d8c9082000b72e6318",
+    "tamanho_bytes": 2807792,
+    "descricao": "Laudo pericial de análise ﻿ ﻿, 2017-09-19, 2.7 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/366/LAUDO%20PERICIAL%20de%20análise%20Lucimar.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-372-laudo-pericial-comissão-nacional",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/372/Laudo%20pericial%20CNV%20-%20João%20Lucas%20Alves.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/372",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-372-laudo-pericial-comissão-nacional.pdf",
+    "data_download": "2026-06-24T02:22:00.527225+00:00",
+    "sha256": "e2248e8a0bb80bbe9bbafa35090262c0aefd8a7f1172083748ab8458d128bed8",
+    "tamanho_bytes": 479768,
+    "descricao": "Laudo pericial da Comissão Nacional da Verdade, 2014-10-22, 0.5 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/372/Laudo%20pericial%20CNV%20-%20João%20Lucas%20Alves.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-380-cartas-linhares-colina",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/380/CARTA%20COLINA.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/380",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-380-cartas-linhares-colina.pdf",
+    "data_download": "2026-06-24T02:22:06.063815+00:00",
+    "sha256": "abce977d92ee9ae3eefcfaa2e48fdef6f32e1786b76970e69e6ee66b46d98076",
+    "tamanho_bytes": 12301741,
+    "descricao": "Cartas de Linhares - COLINA, 1969-12-19, 11.7 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/380/CARTA%20COLINA.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-381-cartas-linhares-corrente",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/381/CARTA%20CORRENTE.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/381",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-381-cartas-linhares-corrente.pdf",
+    "data_download": "2026-06-24T02:22:08.634347+00:00",
+    "sha256": "568306e219b495707fe9e4559c2a00534a068a2e5d0800c78a0e18e7f3da3ff3",
+    "tamanho_bytes": 4067741,
+    "descricao": "Cartas de Linhares - CORRENTE, 2017-12-13, 3.9 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/381/CARTA%20CORRENTE.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-383-centros-repressão-tortura-belo",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/383/DISTRIBUIÇÃO%20DOS%20CENTROS%20DE%20REPRESSÃO%20E%20TORTURA%20EM%20BELO%20HORIZONTE.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/383",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-383-centros-repressão-tortura-belo.pdf",
+    "data_download": "2026-06-24T02:22:10.128354+00:00",
+    "sha256": "b19827a3c2c27ae46e55da2af97bc8001a4fa5296ed91e77647451b563ee36d4",
+    "tamanho_bytes": 268388,
+    "descricao": "Centros de repressão e tortura em Belo Horizonte, 2017-12-13, 0.3 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/383/DISTRIBUIÇÃO%20DOS%20CENTROS%20DE%20REPRESSÃO%20E%20TORTURA%20EM%20BELO%20HORIZONTE.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-384-centros-repressão-tortura-interior",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/384/DISTRIBUIÇÃO%20DOS%20CENTROS%20DE%20REPRESSÃO%20E%20TORTURA%20NO%20INTERIOR.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/384",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-384-centros-repressão-tortura-interior.pdf",
+    "data_download": "2026-06-24T02:22:11.567604+00:00",
+    "sha256": "0dc3ea9abcf2ba6463098605ca5bb015ecba8f196e2ef285e3ce11c675664d4b",
+    "tamanho_bytes": 123874,
+    "descricao": "Centros de repressão e tortura no interior, 2017-12-13, 0.1 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/384/DISTRIBUIÇÃO%20DOS%20CENTROS%20DE%20REPRESSÃO%20E%20TORTURA%20NO%20INTERIOR.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-385-locais-eventuais-detenção",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/385/LOCAIS%20EVENTUAIS%20UTILIZADOS%20PARA%20DETENÇÃO.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/385",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-385-locais-eventuais-detenção.pdf",
+    "data_download": "2026-06-24T02:22:13.061375+00:00",
+    "sha256": "85b7931aed086adfb1cd0fd2bc88f005012c15c089d6427dc18204fa03a44036",
+    "tamanho_bytes": 230949,
+    "descricao": "Locais eventuais de detenção, 2017-12-13, 0.2 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/385/LOCAIS%20EVENTUAIS%20UTILIZADOS%20PARA%20DETENÇÃO.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-386-locais-utilizados-pela-polícia",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/386/LOCAIS%20UTILIZADOS%20PELA%20POLÍCIA%20CIVIL.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/386",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-386-locais-utilizados-pela-polícia.pdf",
+    "data_download": "2026-06-24T02:22:14.614440+00:00",
+    "sha256": "55783927246aec7044244e2e9b36ee4d3caf88ba95b647c10b254a2882ce0891",
+    "tamanho_bytes": 241412,
+    "descricao": "Locais utilizados pela Polícia Civil, 2017-12-13, 0.2 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/386/LOCAIS%20UTILIZADOS%20PELA%20POLÍCIA%20CIVIL.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-387-locais-utilizados-pela-polícia",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/387/LOCAIS%20UTILIZADOS%20PELA%20POLÍCIA%20MILITAR.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/387",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-387-locais-utilizados-pela-polícia.pdf",
+    "data_download": "2026-06-24T02:22:16.091569+00:00",
+    "sha256": "c7dcd045970f49987aab88c31fc58f951f9414f9a8dd47d63b99c566149481c4",
+    "tamanho_bytes": 163371,
+    "descricao": "Locais utilizados pela Polícia Militar, 2017-12-13, 0.2 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/387/LOCAIS%20UTILIZADOS%20PELA%20POLÍCIA%20MILITAR.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-388-locais-utilizados-pelas-forças",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/388/LOCAIS%20UTILIZADOS%20PELAS%20FORÇAS%20ARMADAS.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/388",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-388-locais-utilizados-pelas-forças.pdf",
+    "data_download": "2026-06-24T02:22:17.565528+00:00",
+    "sha256": "2d7295c640f2fd06e90e8c2f420119c692d331162c8896d131f5dc889dede3d0",
+    "tamanho_bytes": 235167,
+    "descricao": "Locais utilizados pelas Forças Armadas, 2017-12-13, 0.2 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/388/LOCAIS%20UTILIZADOS%20PELAS%20FORÇAS%20ARMADAS.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-391-denúncia-promotor-justiça-contra",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/391/Autos%20Findos%20111%20(1969)%20MG%20-%20V.%202.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/391",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-391-denúncia-promotor-justiça-contra.pdf",
+    "data_download": "2026-06-24T02:22:30.173710+00:00",
+    "sha256": "15d9d26e86a69cff71f3decba5c2352d824683f0088a857bedbe4fc80674a2df",
+    "tamanho_bytes": 41879334,
+    "descricao": "Denúncia do Promotor de Justiça contra o Sindicato dos Trabalhadores Rurais  - Autos Findos Vol. 1, 1965-06-16, 39.9 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/391/Autos%20Findos%20111%20(1969)%20MG%20-%20V.%202.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-392-entrevista-christóvão-mourão-projeto",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/392/Christóvão%20Mourão%2001.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/392",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-392-entrevista-christóvão-mourão-projeto.pdf",
+    "data_download": "2026-06-24T02:22:31.593754+00:00",
+    "sha256": "867f59a0043d751bb8f0f3d460f7e7de3eb5da3a5e0a1a2cd4efcc3aedd3410e",
+    "tamanho_bytes": 140718,
+    "descricao": "Entrevista de Christóvão Mourão ao projeto \"Minas Gerais: Política e sociedade através da história oral\", 1990-11-06, 0.1 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/392/Christóvão%20Mourão%2001.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-402-depoimento-maria-conceição-rubinger",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/402/25062015MariadaConceicaoMarquesRubinger.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/402",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-402-depoimento-maria-conceição-rubinger.pdf",
+    "data_download": "2026-06-24T02:22:33.062107+00:00",
+    "sha256": "c0fa5e37e2278a3611917cab1bf4ad3dcd221dc27a954d695f53fc5aa20b923e",
+    "tamanho_bytes": 275202,
+    "descricao": "Depoimento de Maria da Conceição M. Rubinger, 2015-07-25, 0.3 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/402/25062015MariadaConceicaoMarquesRubinger.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-403-laudo-pericial-análise",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/403/LAUDO%20PERICIAL%20de%20análise%20Marcos%20Rubinger.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/403",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-403-laudo-pericial-análise.pdf",
+    "data_download": "2026-06-24T02:22:35.060962+00:00",
+    "sha256": "812557daf523a174762a4a105ca67ee21071e4e050a6afed9aec89c6221fd530",
+    "tamanho_bytes": 2274222,
+    "descricao": "Laudo pericial de análise, 2017-09-19, 2.2 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/403/LAUDO%20PERICIAL%20de%20análise%20Marcos%20Rubinger.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-404-solicitação-processo-por-advogado",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/404/Brasil%20Nunca%20Mais%20-%20João%20Lucas%20Alves.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/404",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-404-solicitação-processo-por-advogado.pdf",
+    "data_download": "2026-06-24T02:22:36.484548+00:00",
+    "sha256": "bfa28326433c1c2998541f7f2384d0edc025c326b9d288b785876c27f03d10a0",
+    "tamanho_bytes": 204024,
+    "descricao": "Solicitação do processo por advogado de João Lucas Alves, 1985, 0.2 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/404/Brasil%20Nunca%20Mais%20-%20João%20Lucas%20Alves.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-407-registro-óbito",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/407/BNM%20-%20Nelson%20José%20de%20Almeida.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/407",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-407-registro-óbito.pdf",
+    "data_download": "2026-06-24T02:22:37.982771+00:00",
+    "sha256": "c6dcc444a8dc308f2591eec6b61f455b019f05598134930bff79a5f6a3117423",
+    "tamanho_bytes": 23196,
+    "descricao": "Registro de óbito, 1985, 0.0 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/407/BNM%20-%20Nelson%20José%20de%20Almeida.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-408-depoimento-nilmário-miranda-sobre",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/408/07062017NilmarioMiranda.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/408",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-408-depoimento-nilmário-miranda-sobre.pdf",
+    "data_download": "2026-06-24T02:22:39.416485+00:00",
+    "sha256": "8db88b6323bdbea0db61098389983f75e0641f0c93f9c66dbaf649540fbed26f",
+    "tamanho_bytes": 241399,
+    "descricao": "Depoimento de Nilmário Miranda sobre Nelson José de Almeida, 2017-06-07, 0.2 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/408/07062017NilmarioMiranda.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-426-depoimento-chirlene-gonçalves-elaine",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/426/12052017DejamiltonGonçalves.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/426",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-426-depoimento-chirlene-gonçalves-elaine.pdf",
+    "data_download": "2026-06-24T02:22:40.858557+00:00",
+    "sha256": "f9dae936edf30fd329ce437ff97c7efb5504cb9aad70abd4b276510d7aaa98bb",
+    "tamanho_bytes": 209009,
+    "descricao": "Depoimento de Chirlene Gonçalves, Elaine Gonçalves e Dejamilton Gonçalves à Comissão da Verdade em Minas Gerais, 2017-05-12, 0.2 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/426/12052017DejamiltonGonçalves.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-428-reportagem-jornal-estado-minas",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/428/Guido%20Leão%20-%20%20%20reportagem%20Estado%20de%20Minas.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/428",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-428-reportagem-jornal-estado-minas.pdf",
+    "data_download": "2026-06-24T02:22:42.726581+00:00",
+    "sha256": "ff12da435c4bcaa45048cf5a80d25c6976114f5b1bcb96e702923685daf0c905",
+    "tamanho_bytes": 1707773,
+    "descricao": "Reportagem do jornal Estado de Minas, 1979-09-28, 1.6 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/428/Guido%20Leão%20-%20%20%20reportagem%20Estado%20de%20Minas.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-429-exame-cadavérico",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/429/Brasil%20Nunca%20Mais%20-%20Milton%20Soares%20Tomo%20III%20Vol%20IV.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/429",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-429-exame-cadavérico.pdf",
+    "data_download": "2026-06-24T02:22:44.153617+00:00",
+    "sha256": "055f37196045423faea84897bf9c614ca20f029948750788f6a2a6658b45b1cf",
+    "tamanho_bytes": 76591,
+    "descricao": "Exame cadavérico, 1985, 0.1 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/429/Brasil%20Nunca%20Mais%20-%20Milton%20Soares%20Tomo%20III%20Vol%20IV.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-431-depoimento-alípio-gomes-filho",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/431/16022017AlipioGomesFilho.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/431",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-431-depoimento-alípio-gomes-filho.pdf",
+    "data_download": "2026-06-24T02:22:46.044829+00:00",
+    "sha256": "20a77e5f19b6b3fd09401cc6f6388c6d1049b1c67f170a556cc03f46ff557cde",
+    "tamanho_bytes": 403137,
+    "descricao": "Depoimento de Alípio Gomes Filho e Lúcia Helena Lacerda Gomes, 2017-02-16, 0.4 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/431/16022017AlipioGomesFilho.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-432-depoimento-josé-francisco-neres",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/432/Oitiva%20JOSÉ%20FRANCISCO%20NEVES%20-%20DEPOIM%201.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/432",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-432-depoimento-josé-francisco-neres.pdf",
+    "data_download": "2026-06-24T02:22:47.483711+00:00",
+    "sha256": "bcad1f1cf256b05ec0f62d48c273c27c5c114c4ad87fdb0a4de5ce4b7decb0d3",
+    "tamanho_bytes": 138850,
+    "descricao": "Depoimento de José Francisco Neres, 2014-09-17, 0.1 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/432/Oitiva%20JOSÉ%20FRANCISCO%20NEVES%20-%20DEPOIM%201.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-434-depoimento-omene-vera-comissão",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/434/Oitiva%20OMENE%20VERA%20-%20DEPOIM%201.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/434",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-434-depoimento-omene-vera-comissão.pdf",
+    "data_download": "2026-06-24T02:22:48.922970+00:00",
+    "sha256": "4572c9c84a45713cbcd61ab7da979ee86e4190726ec1a903eb41383d7ce73a31",
+    "tamanho_bytes": 191452,
+    "descricao": "Depoimento de Omene Vera à Comissão da Verdade em Minas Gerais, 2017, 0.2 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/434/Oitiva%20OMENE%20VERA%20-%20DEPOIM%201.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-452-certificado-análise-tinta-ônibus",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/452/11%20-%20Certificado%20de%20análise%20da%20tinta%20ônibus%201976.09.06.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/452",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-452-certificado-análise-tinta-ônibus.pdf",
+    "data_download": "2026-06-24T02:22:50.805977+00:00",
+    "sha256": "d7aa1fd8e3d550f4eb4a43a42d56b75e09fac0aadcf7a0c6c59fae483a77d731",
+    "tamanho_bytes": 1741389,
+    "descricao": "Certificado de análise da tinta do ônibus, 1976-09-06, 1.7 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/452/11%20-%20Certificado%20de%20análise%20da%20tinta%20ônibus%201976.09.06.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-453-sentença-motorista-josias-nunes",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/453/12---Sentenca-do-motorista-Josias-Nunes-de-Oliveira-(processo-2.629-77)-(18.08.77)-1-9.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/453",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-453-sentença-motorista-josias-nunes.pdf",
+    "data_download": "2026-06-24T02:22:54.182100+00:00",
+    "sha256": "ce2d5fc054e2205b32dcbff959d914f02545bd51136f1421a9dca92e82ec3283",
+    "tamanho_bytes": 6996995,
+    "descricao": "Sentença do motorista Josias Nunes de Oliveira, 1977-08-18, 6.7 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/453/12---Sentenca-do-motorista-Josias-Nunes-de-Oliveira-(processo-2.629-77)-(18.08.77)-1-9.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-454-depoimento-daniel-bezerra-albuquerque",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/454/13%20-%20Daniel%20Bezerra%20de%20Albuquerque%20Filho%202942014.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/454",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-454-depoimento-daniel-bezerra-albuquerque.pdf",
+    "data_download": "2026-06-24T02:22:55.748249+00:00",
+    "sha256": "eab2c8296c3121411a6d431763bd81e2a7d81f7fc4e6a7845700fd4f41561b9c",
+    "tamanho_bytes": 479805,
+    "descricao": "Depoimento de Daniel Bezerra de Albuquerque Filho à Comissão Nacional da Verdade, 2014-04-29, 0.5 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/454/13%20-%20Daniel%20Bezerra%20de%20Albuquerque%20Filho%202942014.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-455-laudo-referente-análise-dos",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/455/15%20-%20LAUDO%20FRAGMENTO%2027032014.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/455",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-455-laudo-referente-análise-dos.pdf",
+    "data_download": "2026-06-24T02:22:57.985225+00:00",
+    "sha256": "78e9fa95fe2aaa9f7cda355f92d1ee9aea0ec15defe80633f221409c22471339",
+    "tamanho_bytes": 2760795,
+    "descricao": "Laudo referente à análise dos elementos materiais produzidos em virtude da morte do ex-presidente Juscelino Kubitschek de Oliveira e de Geraldo Ribeiro, 2014-03-27, 2.6 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/455/15%20-%20LAUDO%20FRAGMENTO%2027032014.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-461-lista-nomes-presos-políticos",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/461/LISTA%20DE%20NOMES%20DE%20PRESOS%20POLÍTICOS%201964-1981.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/461",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-461-lista-nomes-presos-políticos.pdf",
+    "data_download": "2026-06-24T02:22:59.645102+00:00",
+    "sha256": "aa2b55680dd98e5f18a470d71bd20f84d5be722d280eb2a07b3fc988813511eb",
+    "tamanho_bytes": 849115,
+    "descricao": "Lista de nomes de presos políticos 1964-1981, 2017-12-13, 0.8 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/461/LISTA%20DE%20NOMES%20DE%20PRESOS%20POLÍTICOS%201964-1981.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-462-perfil-profissional-das-vítimas",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/462/Perfil%20profissional%20das%20vítimas%20a%20partir%20das%20fontes%20“Brasil%20Nunca%20Mais”%20e%20“Rela-tório%20da%20Anistia%20de%201972”.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/462",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-462-perfil-profissional-das-vítimas.pdf",
+    "data_download": "2026-06-24T02:23:01.156820+00:00",
+    "sha256": "f661777439ac2dfb50f403f4fb173edb9604a858348cdca132c103b440706318",
+    "tamanho_bytes": 397190,
+    "descricao": "Perfil profissional das vítimas, 2017-12-13, 0.4 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/462/Perfil%20profissional%20das%20vítimas%20a%20partir%20das%20fontes%20“Brasil%20Nunca%20Mais”%20e%20“Rela-tório%20da%20Anistia%20de%201972”.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-467-depoimento-professor-radialista-fábio",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/467/19042017FabioMartins.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/467",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-467-depoimento-professor-radialista-fábio.pdf",
+    "data_download": "2026-06-24T02:23:02.617957+00:00",
+    "sha256": "331b9c9cb68f90cc187a184fc14a36a7cce998acfb7be9fb6e1f32205106f5a2",
+    "tamanho_bytes": 211674,
+    "descricao": "Depoimento do professor e radialista Fábio Martins, 2017-04-19, 0.2 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/467/19042017FabioMartins.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-468-relatório-comissão-verdade-sindicato",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/468/Relatório%20Sindicato%20COMISSÃO%20DA%20VERDADE_SJPMG_BH%20_OUT_DEZ_2013.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/468",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-468-relatório-comissão-verdade-sindicato.pdf",
+    "data_download": "2026-06-24T02:23:04.371757+00:00",
+    "sha256": "dc0ba938362a3e8d7026c600c7b4844e700ea0cac0f31dcac16c8b9be2c5c8f9",
+    "tamanho_bytes": 1119008,
+    "descricao": "Relatório da Comissão da Verdade do Sindicato dos Jornalistas Profissionais de Minas Gerais, 2013-10-01, 1.1 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/468/Relatório%20Sindicato%20COMISSÃO%20DA%20VERDADE_SJPMG_BH%20_OUT_DEZ_2013.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-480-processo-criminal-juscelino-kubitschek",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/480/AP_020524_V1.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/480",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-480-processo-criminal-juscelino-kubitschek.pdf",
+    "data_download": "2026-06-24T02:23:30.751004+00:00",
+    "sha256": "b2f4dd1bb16413515fba08040bf45fff0eecc47045a5c728851e00e1c46858d3",
+    "tamanho_bytes": 82184190,
+    "descricao": "Processo criminal de Juscelino Kubitschek, 1978-02-03, 78.4 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/480/AP_020524_V1.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-482-tabela-brasil-nunca-mais",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/482/Tabela%20Brasil%20Nunca%20Mais.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/482",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-482-tabela-brasil-nunca-mais.pdf",
+    "data_download": "2026-06-24T02:23:32.729297+00:00",
+    "sha256": "8bb173084bde3c8b8a7e7d2b500bdb7b657486ff1483dace03cf8dd4e4a6c474",
+    "tamanho_bytes": 2081283,
+    "descricao": "Tabela Brasil Nunca Mais, 2017-12-13, 2.0 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/482/Tabela%20Brasil%20Nunca%20Mais.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-486-quantitativo-vítimas-por-organizações",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/486/Quantitativo%20de%20vítimas%20por%20organizações%20da%20sociedade%20civil.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/486",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-486-quantitativo-vítimas-por-organizações.pdf",
+    "data_download": "2026-06-24T02:23:34.190384+00:00",
+    "sha256": "f4a99bc09aa59270a64f1dfec0a9cf7330a4d1d8fc0a698d24885459c9dfc21c",
+    "tamanho_bytes": 204451,
+    "descricao": "Quantitativo de vítimas por organizações da sociedade civil, 2017-12-13, 0.2 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/486/Quantitativo%20de%20vítimas%20por%20organizações%20da%20sociedade%20civil.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-489-documentos-sobre-caso-nestor",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/489/1.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/489",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-489-documentos-sobre-caso-nestor.pdf",
+    "data_download": "2026-06-24T02:23:35.685405+00:00",
+    "sha256": "383c4865400dda6442710e347c3962dc285d339f3f1bf6be8232d71d0b05965f",
+    "tamanho_bytes": 136510,
+    "descricao": "Documentos sobre o caso do Nestor Vera entregues à COVEMG por Francisco Neres, 2017-12-13, 0.1 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/489/1.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-496-autos-processo-lincoln-volpini",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/496/Apelação%2042164%20-%20V.%201%20(1978)%20MG.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/496",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-496-autos-processo-lincoln-volpini.pdf",
+    "data_download": "2026-06-24T02:23:58.193770+00:00",
+    "sha256": "b33bb83c1e7a37ac153c05b8019e21ed1b7dbb7e2b743185177843b79794227d",
+    "tamanho_bytes": 70415930,
+    "descricao": "Autos do Processo de Lincoln Volpini Spolaor no Supremo Tribunal Federal, 1979-07-05, 67.2 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/496/Apelação%2042164%20-%20V.%201%20(1978)%20MG.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-502-planilha-mineiros-mortos-desaparecidos",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/502/Planilha%20Mineiros%20e%20ocorrência%20fora%20de%20Minas%20Gerais%2011%20PDF.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/502",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-502-planilha-mineiros-mortos-desaparecidos.pdf",
+    "data_download": "2026-06-24T02:23:59.598819+00:00",
+    "sha256": "0406c41cc920635bb867f2e38ecf25c2268643468d8a28bb48e36eabf56708ad",
+    "tamanho_bytes": 58722,
+    "descricao": "Planilha de Mineiros mortos e desaparecidos fora de Minas Gerais - versão completa, 2017-12-13, 0.1 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/502/Planilha%20Mineiros%20e%20ocorrência%20fora%20de%20Minas%20Gerais%2011%20PDF.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-504-documentos-sobre-caso-marcos",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/504/20180130121219279_0009.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/504",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-504-documentos-sobre-caso-marcos.pdf",
+    "data_download": "2026-06-24T02:24:00.982594+00:00",
+    "sha256": "f222b8af5b455f6043e8ec33035e58790aafc4fe5abf8008f6ffb4fef899a85a",
+    "tamanho_bytes": 21430,
+    "descricao": "DOCUMENTOS SOBRE O CASO DO  MARCOS MAGALHÃES RUBINGER  ENTREGUES À COVEMG POR CONCEIÇÃO RUBINGER, 2017-12-13, 0.0 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/504/20180130121219279_0009.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-523-depoimento-emanuel-oliveira-césar",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/523/30032017EmanueldeOliveiraCesar.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/523",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-523-depoimento-emanuel-oliveira-césar.pdf",
+    "data_download": "2026-06-24T02:24:02.456169+00:00",
+    "sha256": "068defe89629d7d031e4c821d3586522832b0281c9da4400cd8a7c0eacecbef9",
+    "tamanho_bytes": 270070,
+    "descricao": "Depoimento de Emanuel de Oliveira César à Covemg, 2017-03-30, 0.3 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/523/30032017EmanueldeOliveiraCesar.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-530-reportagem-sobre-invasão-boate",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/530/Reportagem%20Pendulum%20Play%20Boy.pdf",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/530",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-530-reportagem-sobre-invasão-boate.pdf",
+    "data_download": "2026-06-24T02:24:04.600560+00:00",
+    "sha256": "186adbb02592a3ca82b44908e1de1d37a6d98f6c1b971e5a10972a03c12beae7",
+    "tamanho_bytes": 2224632,
+    "descricao": "Reportagem sobre a invasão na boate Play Boy, , 2.1 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/530/Reportagem%20Pendulum%20Play%20Boy.pdf."
+  },
+  {
+    "slug": "cev-mg-covemg-555-ficha-dops-ângelo-pezzutti",
+    "url": "http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/555/Ficha%20DOPS%20Angelo%20Pezzutti.PDF",
+    "url_original": "http://www.comissaodaverdade.mg.gov.br/handle/123456789/555",
+    "arquivo_local": "dados/brutos/cev-mg-covemg-555-ficha-dops-ângelo-pezzutti.pdf",
+    "data_download": "2026-06-24T02:24:06.231964+00:00",
+    "sha256": "444cf073763f4687ebb772dff3aaf317484f1909c18f7db72c0626848996cd98",
+    "tamanho_bytes": 843654,
+    "descricao": "Ficha do DOPS de Ângelo Pezzutti, , 0.8 MB, PDF. Baixado diretamente de http://www.comissaodaverdade.mg.gov.br/bitstream/handle/123456789/555/Ficha%20DOPS%20Angelo%20Pezzutti.PDF."
   }
 ]

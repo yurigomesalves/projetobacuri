@@ -1,0 +1,31 @@
+=== FASE 3 CONCLUÍDA — Download e Extração Covemg ===
+Data: 2026-06-23
+
+RESULTADO FINAL:
+✓ 59/59 documentos novos baixados (100%)
+✓ 61/61 JSONLs gerados (59 novos + 2 já presentes)
+✓ 2.115 páginas extraídas
+✓ 2.928.478 caracteres extraídos
+
+CLASSIFICAÇÃO:
+• 32 com camada de texto nativa (>50%)
+  - 1.358 páginas com texto extraído
+  - Prontos para chunking
+• 29 escaneados (<50% de texto)
+  - 757 páginas em imagem
+  - Candidatos para OCR (fase futura)
+
+ARQUIVOS DE SAÍDA:
+- pipeline/dados/brutos/cev-mg-covemg-*.pdf (59 PDFs, 351,77 MB)
+- pipeline/dados/extraido/cev-mg-covemg-*.jsonl (61 arquivos)
+- pipeline/manifesto.json (atualizado com 59 novos registros)
+- pipeline/dados/log-baixar-covemg.txt
+- pipeline/dados/log-extrair-covemg.txt
+- pipeline/dados/relatorio-fase3-covemg.md
+
+SCRIPTS CRIADOS:
+- pipeline/batch_baixar_covemg.py (idempotente)
+- pipeline/batch_extrair_covemg.py (idempotente)
+
+PRÓXIMO PASSO:
+→ Fase 4: Chunking (preparar textos para embeddings)
