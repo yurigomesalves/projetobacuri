@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { CuradorPublico, ItemTransparencia, RespostaErro } from "@/lib/shared/tipos";
+import AcervoDocumental from "@/app/componentes/AcervoDocumental";
 
 const ROTULO_CLASSIFICACAO: Record<string, string> = {
   util: "Útil",
@@ -195,6 +196,14 @@ export default function TransparenciaPage() {
             </ul>
           </section>
         )}
+
+        {/* Acervo documental */}
+        <section className="mt-8">
+          <h2 className="font-sans text-base font-semibold uppercase tracking-wide text-tinta-950 dark:text-neutral-100">
+            O acervo do projeto
+          </h2>
+          <AcervoDocumental />
+        </section>
 
         {carregando && (
           <p className="text-sm text-neutral-600 dark:text-neutral-400">

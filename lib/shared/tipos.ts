@@ -228,3 +228,23 @@ export type RespostaConvite = {
 export type ConviteValido = {
   email: string;
 };
+
+// --- GET /api/transparencia/acervo ---
+
+export type ItemAcervo = {
+  fonte_id: string;
+  titulo: string;
+  autor_orgao: string;
+  tipo_fonte: string;
+  confiabilidade: string;
+  data_documento?: string;
+  periodo?: string;
+  url_origem: string;
+  nota_contexto?: string;
+};
+
+export type RespostaAcervo = {
+  itens: ItemAcervo[];
+  total: number;
+  porTipo: Record<string, number>;
+};
