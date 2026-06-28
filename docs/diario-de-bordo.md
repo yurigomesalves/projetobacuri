@@ -1742,3 +1742,50 @@ AL-RS (2017, `fonte_id 98a23e6e-9cf1-428b-9f40-4ac89eb76859`). Auditoria complet
   conformidade.
 - **Fichas de organização DOPS/RS e DCI** criadas com `tipo=organizacao` e vínculos
   `pessoa_organizacoes` (Seelig→DOPS/RS, Rohrsetzer→DCI).
+
+---
+
+## 2026-06-25 — Lote 3 SP/CEV-SP: mulheres e presas políticas (Tomo III)
+
+Curadoria a partir da auditoria `docs/auditorias/novas-biografias-lote3-sp-cevsp.md`,
+com fonte principal `cev-sp-rubens-paiva-tomo3.jsonl`
+(`fonte_id c5f751ff-b1bb-4411-97cc-3fb239af0607`), seções "2º Prêmio Beth Lobo"
+(p. 3100–3101) e "22ª Audiência Pública — 14/03/2013" (p. 3706–3751 e ~6289).
+
+- **4 vítimas** (todas `tipo=vitima`, `status=rascunho`):
+  - **Damaris Lucena** — militante da VPR, presa em Atibaia/SP em 20/02/1970,
+    torturada, libertada na troca pelo cônsul japonês Nobuo Okuchi; exilada no
+    México e Cuba. Marcador: `mulher`. Evento: Atibaia, 1970-02-20.
+  - **Ilda Martins da Silva** — viúva de Virgílio Gomes da Silva (ALN,
+    desaparecido forçado após tortura na OBAN em 29/09/1969), presa com três
+    filhos (o mais novo com 4 meses), torturada, 10 meses presa (4 em
+    incomunicabilidade), exilada no Chile e Cuba. Marcador: `mulher` (sem
+    `classe_trabalhadora` — não documentado para ela diretamente). Evento: SP,
+    1969-10-01 (aproximada).
+  - **Elza Lobo** — funcionária pública da Secretaria da Fazenda/SP, presa em
+    10/11/1969 pela equipe do capitão Maurício, torturada no DOPS, exposta
+    publicamente no translado ao Tiradentes e submetida a nudez forçada. Marcador:
+    `mulher`. Evento: DOPS/SP, 1969-11-10; `violencia_sexual` em tipos_crime
+    (base testemunhal direta).
+  - **Joana D'Arc Gontijo** — **ficha parcial**: presa política no DOI-CODI/SP
+    (provavelmente abril-maio de 1971), testemunha da tortura de Abílio Joaquim
+    de Seixas; documentada apenas como personagem secundária nos depoimentos de
+    Ieda de Seixas. Marcador: `mulher`. Evento: DOI-CODI/SP, 1971-04-01
+    (aproximada). Aguarda ampliação via DEOPS/SP.
+- **Decisões editoriais do Yuri (registradas antes de gravar):**
+  - Virgílio Gomes da Silva: classificado como **desaparecido forçado** (CNV)
+    — morte na OBAN documentada, mas restos nunca devolvidos.
+  - Joana D'Arc Gontijo: **inserida como ficha parcial** (rascunho com nota),
+    não aguardada pesquisa DEOPS/SP.
+  - Ilda: marcador `classe_trabalhadora` **omitido** (documentado para Virgílio,
+    não para ela diretamente).
+  - Heleny Guariba: **já no banco** (`publicada`, lote 16/06/2026) — não
+    duplicada.
+- **Ingestão:** `06_semear_curadoria.py`, exit 0. 4 biografias + 4 eventos,
+  todos como `rascunho` (aguardam revisão do Yuri para promoção a `publicada`).
+- **Geocoding:** `10_preencher_naturalidades.py` — nenhuma das 4 fichas tem
+  `municipio_natal`, portanto sem novos pontos de cidade natal neste lote.
+- **Resultado:** banco cresce de 527 para **531 biografias**; de 38 para
+  **42 eventos**.
+- **Promoção a `publicada`:** lote 3 SP/CEV-SP (4 fichas + 4 eventos) promovido
+  após revisão do Yuri.
