@@ -1808,5 +1808,53 @@
       "licenca": "Documento público oficial da Comissão da Verdade em Minas Gerais (Covemg). Reprodução autorizada com citação da fonte. Acervo em repositório DSpace institucional.",
       "nota_contexto": "Documento produzido pelo aparato do Estado durante a ditadura militar-empresarial (1964–1985). Autentica a ação do órgão repressor, mas o conteúdo sobre a vítima é hostil por definição e deve ser contextualizado com outras fontes."
     }
+  },
+  "cev-pa-relatorio-vol1": {
+    "url_oficial": "http://cev-para.com.br",
+    "url_download": "https://armazemmemoria.com.br/wp-content/uploads/2023/03/COMISSAO_VERDADE_TOMO_1_WEB.pdf",
+    "data_captura_wayback": null,
+    "descricao_curta": "Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho', Tomo I, mar/2023. Cobre o contexto histórico da CNV e a criação da comissão estadual; 1964–1988, foco na Amazônia paraense.",
+    "fonte": {
+      "titulo": "Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho' — Tomo I",
+      "autor_orgao": "Comissão Estadual da Verdade do Pará (Assembleia Legislativa do Estado do Pará)",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2023-03-31",
+      "periodo": "pos_1985",
+      "url_origem": "https://armazemmemoria.com.br/wp-content/uploads/2023/03/COMISSAO_VERDADE_TOMO_1_WEB.pdf",
+      "licenca": "documento público oficial"
+    }
+  },
+  "cev-pa-relatorio-vol2": {
+    "url_oficial": "http://cev-para.com.br",
+    "url_download": "https://armazemmemoria.com.br/wp-content/uploads/2023/03/COMISSAO_VERDADE_TOMO_2_WEB.pdf",
+    "data_captura_wayback": null,
+    "descricao_curta": "Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho', Tomo II, mar/2023. Cobre imprensa, UFPA, violência rural e povos indígenas durante a ditadura na Amazônia paraense.",
+    "fonte": {
+      "titulo": "Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho' — Tomo II",
+      "autor_orgao": "Comissão Estadual da Verdade do Pará (Assembleia Legislativa do Estado do Pará)",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2023-03-31",
+      "periodo": "pos_1985",
+      "url_origem": "https://armazemmemoria.com.br/wp-content/uploads/2023/03/COMISSAO_VERDADE_TOMO_2_WEB.pdf",
+      "licenca": "documento público oficial"
+    }
+  },
+  "cev-pa-relatorio-vol3": {
+    "url_oficial": "http://cev-para.com.br",
+    "url_download": "https://armazemmemoria.com.br/wp-content/uploads/2023/03/COMISSAO_VERDADE_TOMO_3_WEB.pdf",
+    "data_captura_wayback": null,
+    "descricao_curta": "Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho', Tomo III, mar/2023. Cobre ditadura e gênero, justiça de transição e recomendações.",
+    "fonte": {
+      "titulo": "Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho' — Tomo III",
+      "autor_orgao": "Comissão Estadual da Verdade do Pará (Assembleia Legislativa do Estado do Pará)",
+      "tipo_fonte": "relatorio_oficial",
+      "confiabilidade": "alta",
+      "data_documento": "2023-03-31",
+      "periodo": "pos_1985",
+      "url_origem": "https://armazemmemoria.com.br/wp-content/uploads/2023/03/COMISSAO_VERDADE_TOMO_3_WEB.pdf",
+      "licenca": "documento público oficial"
+    }
   }
 }

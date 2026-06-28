@@ -87,6 +87,20 @@ temáticas/setoriais) foram ingeridos. Restam no catálogo apenas as duplicatas 
 no acervo por outras vias:
 - *Já no acervo por outras vias (duplicatas no DHnet, ignorar):* CNV, CEV-SP Rubens Paiva, CEV-RJ, CEV-MG/Covemg, estaduais AM, ES, PB, PE, PR, RS, SC.
 
+✅ **5º lote ingerido (jun/2026) — REGIÃO NORTE: Pará** (PDF com camada de texto, extração direta;
+nenhum exigiu OCR; chunkados em `pipeline/03_chunkar_estaduais.py`, **1.904 chunks indexados no
+Supabase**; via de download: armazemmemoria.com.br, redistribuição pública do original ALEPA-PA):
+- **CEV-PA** "Paulo Fonteles Filho" — Tomo I (Antecedentes históricos + Contextualização política paraense + Amazônia Paraense no Relatório Final da CNV; 562 p., mar/2023) → `cev-pa-relatorio-vol1` — **748 chunks**, 3 capítulos.
+- **CEV-PA** — Tomo II (Imprensa + UFPA + Camponeses + Guerra dos Perdidos + Povo Aikewara; 434 p.) → `cev-pa-relatorio-vol2` — **532 chunks**, 5 capítulos. Capítulo 8 inclui os depoimentos do povo indígena Suruí-Aikewara sobre a Guerrilha do Araguaia (foco: impacto sobre povos indígenas, perspectiva diferente da CNV).
+- **CEV-PA** — Tomo III (Ditadura e Gênero + Justiça de Transição + Recomendações; 482 p.) → `cev-pa-relatorio-vol3` — **624 chunks**, 3 capítulos. O Capítulo 9 (Ditadura e Gênero) inclui rodas de conversa e depoimentos de mulheres que vivenciaram a repressão no Pará — perspectiva regional feminista ainda ausente no acervo.
+
+**Cobertura do Centro-Oeste e Norte — estado atual (jun/2026):**
+A pesquisa de lotes 1–5 mapeou o seguinte sobre as UFs com lacunas identificadas:
+- **DF**: já coberto por 4 documentos ingeridos (UnB, Bancários, UNE, FENAJ-anexo).
+- **AM** e **AP**: já cobertos (Waimiri-Atroari e Chaguinha).
+- **PA**: ingerido neste lote (CEV-PA, 3 tomos).
+- **GO, MT, MS, AC, RO, RR, TO**: nenhum relatório de comissão da verdade estadual publicado online foi localizado em jun/2026. As portais das Assembleias Legislativas e secretarias de direitos humanos foram consultados (Memórias Reveladas, DHnet, armazemmemoria.com.br) sem resultado. A única via para essas UFs é contato direto com secretarias estaduais — ação humana externa ao pipeline automático. Registrar como lacuna documental permanente até nova evidência.
+
 **Backlog de qualidade do 1º lote** (apontado pela curadoria, não bloqueante — tratar em ciclo
 futuro): (a) reclassificar chunks de sumário/índice e o poema de abertura do Triângulo como
 `tipo_chunk` não-`corpo` (ex.: `paratexto`/`indice`) — hoje todos entram como `corpo`; (b) extrair

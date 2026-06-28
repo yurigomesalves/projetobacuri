@@ -953,6 +953,34 @@ _SECOES_SP_CMV = [
 ]
 
 
+# CEV-PA vol 1 — 3 capítulos, 562 páginas.
+# p.36: CAPÍTULO 1 (Antecedentes históricos)
+# p.56: CAPÍULO 2 typo "CAPÍULO" (Artigos para uma breve contextualização)
+# p.372: CAPÍTULO 3 (Amazônia Paraense no Relatório Final da CNV)
+_SECOES_PA1 = [
+    (32,  "Apresentação"),
+    (36,  "Capítulo 1 — Antecedentes históricos da CNV e a luta pela criação da CEV-Pará"),
+    (56,  "Capítulo 2 — Artigos para uma breve contextualização da política paraense"),
+    (372, "Capítulo 3 — Amazônia Paraense no Relatório Final da CNV"),
+]
+
+# CEV-PA vol 2 — 5 capítulos, 434 páginas.
+_SECOES_PA2 = [
+    (24,  "Capítulo 4 — A imprensa paraense na ditadura"),
+    (84,  "Capítulo 5 — Universidade Federal do Pará"),
+    (114, "Capítulo 6 — A violência no Pará: relatório da Comissão Camponesa da Verdade"),
+    (292, "Capítulo 7 — Guerra dos Perdidos, do ocultamento histórico à busca de reparação"),
+    (326, "Capítulo 8 — O sofrimento Aikewara"),
+]
+
+# CEV-PA vol 3 — 3 capítulos, 482 páginas.
+_SECOES_PA3 = [
+    (26,  "Capítulo 9 — Ditadura e Gênero"),
+    (268, "Capítulo 10 — Justiça de Transição: situação atual e repercussões no Pará"),
+    (470, "Capítulo 11 — Recomendações"),
+]
+
+
 def _secao_fn(mapa):
     """Devolve uma função pagina→secao dada uma lista (pagina_inicio, titulo)."""
     def fn(num_pagina):
@@ -1045,6 +1073,30 @@ _RE_SC_JORN_HEADER = re.compile(
 
 def limpar_ctv_sc_jornalistas(texto):
     return _RE_SC_JORN_HEADER.sub("", texto)
+
+
+# =============================================================================
+# LIMPEZA — CEV-PA (Comissão Estadual da Verdade do Pará, 3 tomos, 2023)
+# =============================================================================
+# Cada página alterna dois padrões de cabeçalho no topo:
+#   a) número de página isolado seguido de "Comissão Estadual da Verdade..."
+#   b) "CAPÍTULO N • Título" seguido de número de página
+# E variantes invertidas (CEV antes do número, número antes do capítulo).
+# A expressão usa repetição gulosa no início para cobrir todas as combinações.
+# Vol 1 tem um erro tipográfico: "CAPÍULO" (sem T) em alguns capítulos.
+_RE_PA_HEADER = re.compile(
+    r"^(?:"
+    r"\d+\s*\n"
+    r"|CAP[ÍI]T?ULO\s+\d+\s*[•·][^\n]*\n"
+    r"|Comiss[aã]o\s+Est[ad]+ual\s+da\s+Verdade[^\n]*\n"
+    r")+",
+    re.IGNORECASE,
+)
+
+
+def limpar_pa(texto):
+    texto = texto.replace("\x00", "")  # bytes nulos de PDF mal-extraído
+    return _RE_PA_HEADER.sub("", texto).strip()
 
 
 _SECOES_CTV_CAMPONESA = [
@@ -1199,6 +1251,10 @@ DOCUMENTOS = {
     "ctv-fenaj-jornalistas": (limpar_numero_pagina, _secao_fn(_SECOES_CTV_FENAJ)),
     # sc-jornalistas: 11 p., texto corrido sem subdivisões internas → secao=None
     "ctv-sc-jornalistas":    (limpar_ctv_sc_jornalistas, None),
+    # --- CEV-PA (Comissão Estadual da Verdade do Pará, 3 tomos, 2023) ---
+    "cev-pa-relatorio-vol1": (limpar_pa, _secao_fn(_SECOES_PA1)),
+    "cev-pa-relatorio-vol2": (limpar_pa, _secao_fn(_SECOES_PA2)),
+    "cev-pa-relatorio-vol3": (limpar_pa, _secao_fn(_SECOES_PA3)),
 }
 
 
