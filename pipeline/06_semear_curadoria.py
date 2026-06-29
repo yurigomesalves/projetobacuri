@@ -168,8 +168,11 @@ def validar_evento(d: dict, origem: str, slugs_biografias: set) -> None:
     invalidos = set(d["tipos_crime"]) - TIPOS_CRIME
     if invalidos or not d["tipos_crime"]:
         raise SystemExit(f"{origem}: tipos_crime inválidos {sorted(invalidos)}.")
-    if d["geometria"].get("type") not in GEOMETRIAS:
-        raise SystemExit(f"{origem}: geometria deve ser Point/Polygon/MultiPolygon (ADR-003).")
+    # Rascunhos podem ter geometria/data ausentes; só validar campos NOT NULL em publicadas
+    if d.get("status_curadoria") != "rascunho":
+        geo = d.get("geometria")
+        if not geo or geo.get("type") not in GEOMETRIAS:
+            raise SystemExit(f"{origem}: geometria deve ser Point/Polygon/MultiPolygon (ADR-003).")
     if not d.get("fontes"):
         raise SystemExit(f"{origem}: evento sem fontes (princípio 3).")
     for c in d["fontes"]:
@@ -325,6 +328,9 @@ def main() -> None:
         print(f"  vínculos: {d['slug']} → {len(linhas)} organização(ões)")
 
     for origem, d in eventos:
+        # Rascunhos sem data ou geometria não podem satisfazer NOT NULL do banco
+        if d.get("status_curadoria") == "rascunho" and (not d.get("data") or not d.get("geometria")):
+            continue
         registro = {
             "titulo": d["titulo"], "data": d["data"],
             "municipio": d["municipio"], "uf": d["uf"],
