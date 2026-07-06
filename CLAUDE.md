@@ -1,7 +1,12 @@
-# CLAUDE.md — Projeto Bacuri
+# CLAUDE.md / AGENTS.md — Projeto Bacuri
 Chatbot RAG sobre a história da Ditadura Militar-Empresarial no Brasil (1964–1985).
 Produto do Mestrado Profissional em Ensino de História (ProfHistória/UFU).
 Mestrando: Yuri Gomes Alves — professor de História, **não programador**.
+
+Este arquivo é lido automaticamente por Claude Code (Claude) E por Opencode
+(DeepSeek) — é a "constituição" do projeto para qualquer assistente de IA.
+Configurações específicas de cada plataforma em: `.claude/` (Claude) e
+`.opencode/` (Opencode/DeepSeek). Os 5 agentes especialistas existem em ambos.
 
 ## Princípios inegociáveis do produto
 1. Transparência editorial — toda decisão de curadoria é documentada e pública.
@@ -20,10 +25,10 @@ Mestrando: Yuri Gomes Alves — professor de História, **não programador**.
 
 ## Economia de tokens (orçamento limitado — regra dura)
 - Trabalhe em UMA fase por vez (ver docs/fluxo-de-trabalho.md). Não paralelize agentes.
-- Use Plan Mode para planejar antes de codificar.
+- Use modo de planejamento antes de codificar.
 - Delegue a subagentes apenas tarefas que poluiriam o contexto (leitura de muitos arquivos, logs, scraping de documentação). Para edições pequenas, faça na sessão principal.
 - Respostas e resumos curtos. Não reler arquivos já lidos sem necessidade.
-- Sugira `/clear` ao Yuri quando uma fase terminar.
+- Sugira limpar contexto ao Yuri quando uma fase terminar.
 
 ## Arquitetura (fonte da verdade: docs/contrato-api.md)
 - **Monorepo simples** (sem pnpm workspaces — projeto de uma pessoa só):

@@ -2,7 +2,7 @@
 ### Para quem nunca programou, usando Debian 13
 
 Este guia assume **zero conhecimento de programação**. Siga na ordem.
-Tempo estimado da Etapa 0 à Etapa 3: uma tarde. O resto é feito junto com o Claude Code.
+Tempo estimado da Etapa 0 à Etapa 3: uma tarde. O resto é feito junto com o assistente de IA (Claude Code ou Opencode).
 
 ---
 
@@ -28,9 +28,9 @@ Por isso o RAG é a arquitetura certa para o seu projeto: ele permite **transpar
 | Embeddings (transformar texto em vetores) | modelo `multilingual-e5-small` rodando no SEU computador | Grátis | Sim (pesos abertos) |
 | IA que escreve as respostas | Groq ou OpenRouter servindo modelos abertos (Llama, Qwen) — camada gratuita | Grátis para protótipo | Modelos de pesos abertos |
 | OCR de documentos escaneados | Tesseract | Grátis | Sim |
-| Automação do desenvolvimento | Claude Code | Incluído no seu plano Claude | Não (mas o código que ele gera é seu) |
+| Automação do desenvolvimento | Claude Code ou Opencode (DeepSeek) | Incluído no seu plano (Claude) ou gratuito (Opencode/DeepSeek) | Claude Code não é FOSS; DeepSeek é de pesos abertos |
 
-**Custo total para o protótipo do mestrado: R$ 0**, além do plano Claude que você já tem.
+**Custo total para o protótipo do mestrado: R$ 0**, além do plano de IA que você já tem (Claude Pro/Max, se usar Claude Code; gratuito com Opencode/DeepSeek).
 
 ---
 
@@ -44,6 +44,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y git curl build-essential python3 python3-pip python3-venv tesseract-ocr tesseract-ocr-por poppler-utils
 ```
 O que isso instala:
+- `node --version` — linguagem usada no site
 - `git` — controle de versão (guarda o histórico do seu código e conecta ao GitHub)
 - `python3` + `pip` — linguagem usada no pipeline de ingestão de documentos
 - `tesseract-ocr-por` — OCR em português para documentos escaneados (jornais da época, CNV)
@@ -61,40 +62,52 @@ node --version
 ```
 Deve aparecer algo como `v22.x.x`.
 
-### 1.3 Instalar o Claude Code
+### 1.3 Instalar o assistente de IA (escolha um ou ambos)
+
+**Opção A — Claude Code** (requer assinatura Claude Pro/Max):
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
-Para confirmar a forma de instalação mais atual e os requisitos, consulte a documentação oficial:
-**https://docs.claude.com/en/docs/claude-code/overview**
+Para confirmar a forma de instalação mais atual, consulte: **https://docs.claude.com/en/docs/claude-code/overview**
 
-Primeiro uso:
+**Opção B — Opencode/DeepSeek** (gratuito, pesos abertos):
+```bash
+npm install -g @anomalyco/opencode@latest
+```
+Documentação e instruções: **https://opencode.ai**
+
+Primeiro uso (qualquer um dos dois):
 ```bash
 mkdir -p ~/projetos/projetobacuri
 cd ~/projetos/projetobacuri
-claude
+claude    # se escolheu Claude Code
+# ou
+opencode  # se escolheu Opencode
 ```
-Na primeira vez ele abre o navegador para você fazer login com sua conta Claude. Pronto: você conversa com ele em português, dentro do terminal, e ele cria e edita arquivos do projeto para você.
+Na primeira vez, faça login. Pronto: você conversa com o assistente em português, dentro do terminal, e ele cria e edita arquivos do projeto para você.
 
 ### 1.4 Copiar este kit para dentro do projeto
 Descompacte o arquivo `kit-projetobacuri.zip` que acompanha este guia e copie TODO o conteúdo para `~/projetos/projetobacuri/`. A estrutura deve ficar:
 ```
 projetobacuri/
-├── CLAUDE.md                  ← a "constituição" do projeto (o Claude Code lê sempre)
+├── CLAUDE.md                  ← a "constituição" do projeto (Claude Code e Opencode leem)
 ├── LEIA-ME-PRIMEIRO.md        ← este guia
 ├── .claude/
-│   └── agents/                ← sua equipe de agentes
+│   └── agents/                ← agentes para Claude Code
 │       ├── curador-historiador.md
 │       ├── engenheiro-de-dados.md
 │       ├── cientista-de-dados.md
 │       ├── arquiteto-backend.md
 │       └── designer-frontend.md
+├── .opencode/
+│   └── agents/                ← agentes para Opencode/DeepSeek
+│       └── (mesmos 5 agentes, adaptados)
 └── docs/
     ├── fluxo-de-trabalho.md   ← as fases do projeto e a economia de tokens
     ├── contrato-api.md        ← o contrato entre frontend e backend
     └── fontes-prioritarias.md ← onde baixar os documentos históricos
 ```
-Dica: pastas que começam com ponto (`.claude`) ficam ocultas. No gerenciador de arquivos, aperte `Ctrl+H` para vê-las.
+Dica: pastas que começam com ponto (`.claude`, `.opencode`) ficam ocultas. No gerenciador de arquivos, aperte `Ctrl+H` para vê-las.
 
 ---
 
@@ -109,7 +122,7 @@ Crie nesta ordem, todas com o mesmo e-mail:
    - Alternativa: **OpenRouter** (https://openrouter.ai) tem modelos com sufixo `:free`.
    - Opção 100% livre e local (se seu computador tiver 8 GB+ de RAM): **Ollama** (https://ollama.com) roda modelos abertos na sua máquina, sem internet e sem limite — mais lento, mas soberano.
 
-**Segurança, regra de ouro:** chaves de API são senhas. Elas ficam só no arquivo `.env.local` (que o Claude Code vai criar) e **nunca** vão para o GitHub. O `CLAUDE.md` do kit já instrui os agentes sobre isso.
+**Segurança, regra de ouro:** chaves de API são senhas. Elas ficam só no arquivo `.env.local` (que o assistente vai criar) e **nunca** vão para o GitHub. O `CLAUDE.md` do kit já instrui os agentes sobre isso.
 
 ---
 
@@ -119,7 +132,7 @@ Você NÃO precisa virar programador. Precisa entender o suficiente para revisar
 
 **Conceitos de RAG e IA (prioridade máxima para a dissertação):**
 - "What is RAG?" — IBM Technology (YouTube, legendas em PT): busque "What is Retrieval-Augmented Generation IBM"
-- Documentação de IA do Supabase (inglês, mas o Claude traduz qualquer trecho para você): https://supabase.com/docs/guides/ai
+- Documentação de IA do Supabase (inglês, mas o assistente traduz qualquer trecho para você): https://supabase.com/docs/guides/ai
 - Curso gratuito de NLP da Hugging Face: https://huggingface.co/learn
 
 **Terminal Linux e Git (prioridade alta):**
@@ -132,19 +145,19 @@ Você NÃO precisa virar programador. Precisa entender o suficiente para revisar
 **Mapas:**
 - Leaflet, tutorial oficial: https://leafletjs.com/examples/quick-start/
 
-**Dica metodológica:** use o próprio Claude (aqui no app) como tutor. Cole um trecho de código que o Claude Code gerou e peça "explique linha por linha como se eu nunca tivesse programado". Isso vira, inclusive, material reflexivo para o memorial da dissertação.
+**Dica metodológica:** use o próprio assistente como tutor. Cole um trecho de código que o assistente gerou e peça "explique linha por linha como se eu nunca tivesse programado". Isso vira, inclusive, material reflexivo para o memorial da dissertação.
 
 ---
 
 ## ETAPA 4 — Trabalhar com a equipe de agentes
 
-Leia `docs/fluxo-de-trabalho.md`. Em resumo: você abre o Claude Code na pasta do projeto e conduz **uma fase por vez**, convocando os agentes pelo nome:
+Leia `docs/fluxo-de-trabalho.md`. Em resumo: você abre o assistente na pasta do projeto e conduz **uma fase por vez**, convocando os agentes pelo nome:
 
 ```
 > Use o agente curador-historiador para revisar a taxonomia de metadados em docs/taxonomia.md
 ```
 
-O Claude Code também convoca os agentes sozinho quando a tarefa bate com a descrição deles. Você é o **Líder Geral** de todas as equipes — os "líderes" das suas três equipes foram fundidos na sessão principal do Claude Code (conduzida por você) exatamente para economizar tokens.
+O assistente também convoca os agentes sozinho quando a tarefa bate com a descrição deles. Você é o **Líder Geral** de todas as equipes — os "líderes" das suas três equipes foram fundidos na sessão principal exatamente para economizar tokens.
 
 ---
 

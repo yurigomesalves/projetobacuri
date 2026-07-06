@@ -1,0 +1,52 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  // Projeto Bacuri — configuração para Opencode (DeepSeek) + Claude Code (Claude).
+  // Este arquivo complementa o CLAUDE.md (usado por ambos) e o .mcp.json.
+  // Para Claude Code, veja também: .claude/settings.local.json
+  "permissions": {
+    "allow": [
+      "Bash(npm *)",
+      "Bash(yarn *)",
+      "Bash(npx *)",
+      "Bash(git *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(pdfinfo *)",
+      "Bash(pdftotext *)",
+      "Bash(tesseract *)",
+      "Bash(python3 *)",
+      "Bash(pipeline/.venv/bin/python *)",
+      "Bash(.venv/bin/python *)",
+      "Bash(python *)",
+      "Bash(node *)",
+      "Bash(pkill *)",
+      "Bash(pip *)",
+      "Bash(pip3 *)",
+      "Bash(kill *)",
+      "Bash(echo *)",
+      "Bash(command *)",
+      "Bash(xargs *)",
+      "Bash(unzip *)",
+      "Bash(grep *)",
+      "Bash(awk *)",
+      "Bash(ls *)",
+      "Bash(du *)",
+      "Bash(nohup *)",
+      "Bash(cd *)",
+      "Bash(pdftotext *)",
+      "Bash(rm *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(cat *)",
+      "mcp__supabase__*",
+      "WebFetch",
+      "WebSearch"
+    ]
+  },
+  "mcpServers": {
+    "supabase": {
+      "type": "http",
+      "url": "https://mcp.supabase.com/mcp?project_ref=gqcxatepmvyseutibmjw"
+    }
+  }
+}

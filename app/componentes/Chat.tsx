@@ -90,7 +90,10 @@ function useTypewriter(
   const [textoVisivel, setTextoVisivel] = useState("");
   const semMovimento = useRef(prefereReducaoDeMovimento());
   const aoTerminarRef = useRef(aoTerminar);
-  aoTerminarRef.current = aoTerminar;
+
+  useEffect(() => {
+    aoTerminarRef.current = aoTerminar;
+  });
 
   useEffect(() => {
     if (!ativo || !textoCompleto) return;
