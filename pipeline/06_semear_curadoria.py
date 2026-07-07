@@ -43,6 +43,7 @@ TIPOS_CRIME = {
 TIPOS_EVENTO = {
     "caso_individual", "operacao_repressiva", "guerrilha_confronto",
     "violencia_institucional_coletiva", "ato_censura",
+    "centro_clandestino_repressao",
 }
 GEOMETRIAS = {"Point", "Polygon", "MultiPolygon"}
 

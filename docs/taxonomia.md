@@ -205,6 +205,10 @@ testemunho) — nunca inferir.
 - `violencia_institucional_coletiva` — violência contra comunidades/povos
   (Waimiri-Atroari, remoções forçadas associadas a grandes obras)
 - `ato_censura` — apreensão de jornal, livro, peça, show
+- `centro_clandestino_repressao` — Local utilizado como centro clandestino de
+  tortura e extermínio pela ditadura militar (ex: Casa da Morte/Petrópolis,
+  CISA/Galeão, DOI-CODI/RJ). Pode não ter data única associada. Adicionado pela
+  ADR-010 (migração 0017).
 
 ---
 
