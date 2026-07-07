@@ -9,6 +9,6 @@ Os agentes especialistas estão espelhados para dois harnesses:
 - OpenCode/DeepSeek: `.opencode/agents/`
 
 Regra de manutenção: cada agente deve ter o mesmo `name`, `description`, escopo e corpo
-nas duas pastas. Apenas o campo `model` deve variar conforme o harness. Não há skills
+nas duas pastas. Apenas campos próprios do harness, como `model` e declaração de ferramentas, devem variar. Não há skills
 locais separadas neste repositório; as capacidades especializadas estão materializadas
 como agentes e pelas regras globais de `CLAUDE.md`.

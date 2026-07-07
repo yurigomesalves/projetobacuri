@@ -30,7 +30,7 @@ OpenCode/DeepSeek.
 
 1. Cada agente existe em `.claude/agents/` e `.opencode/agents/`.
 2. Os pares mantêm o mesmo nome, descrição, escopo e corpo.
-3. O campo `model` pode variar: Claude usa modelos Claude; OpenCode usa modelos DeepSeek.
+3. Campos próprios do harness podem variar: Claude usa modelos Claude e aceita `tools` como lista textual; OpenCode usa modelos DeepSeek e exige `tools` como objeto ou ausente.
 4. Os nomes de ferramentas são tratados como capacidades equivalentes entre harnesses.
 5. `CLAUDE.md` e `docs/contrato-api.md` continuam sendo fontes de verdade antes de código.
 6. Comandos destrutivos, migrações, scraping/downloads grandes e mudanças de contrato exigem
