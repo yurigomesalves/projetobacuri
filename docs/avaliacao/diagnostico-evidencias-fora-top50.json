@@ -1,0 +1,746 @@
+{
+  "executado_em": "2026-09-09T17:29:42.698Z",
+  "modelo": "Xenova/multilingual-e5-small",
+  "prefixo": "query: ",
+  "limite_ranking": 1000,
+  "consistencia_embeddings": {
+    "chunks_conferidos": 30,
+    "menor_cosseno": 0.9999999999996905,
+    "media_cosseno": 0.9999999999997992,
+    "maior_cosseno": 0.9999999999998443
+  },
+  "resultados": [
+    {
+      "pergunta_id": "P14",
+      "pergunta": "Como os relatórios documentam a repressão a trabalhadores e sindicalistas rurais?",
+      "rotulo": "C47-50",
+      "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+      "paginas_esperadas": [
+        47,
+        48,
+        49,
+        50
+      ],
+      "chunks_indexados": 11,
+      "melhor_posicao": null,
+      "maior_similaridade_alvo": 0.8606897593933724,
+      "similaridade_corte_500": 0.875403087550135,
+      "chunks": [
+        {
+          "chunk_id": "86f36554-15da-4edf-99eb-480a796773d0",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "ordem": 71,
+          "paginas": "46-47",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Das Ligas Camponesas ao Movimento dos \nTrabalhadores Sem-Terra\nLuiz Fellippe de Assunção Fagaráz\ncapítulo\nV\n\nA violência existente no campo não é algo novo.\n\nSuas causas e consequências, além \nde debates acerca de seu valor efetivo e simbólico, seriam temas para um livro inteiro.\n\nNa \nentrega do relatório final da Comissão Nacional da Verdade,1 a própria Comissão reconheceu \na deficiência no que diz respeito ao número de casos levantados sobre as violações cometidas \ncontra os camponeses.\n\nÉ preciso destacar a questão cultural existente, pois quando se fala em \nassassinatos na ditadura, cita-se 434 pessoas mortas, número fornecido pelo Relatório Final da \nComissão Nacional da Verdade, ignorando o fato de que, só de indígenas estima-se, no mesmo \nrelatório, em 8.350 o número de mortos que entra na conta de responsabilidade do Estado.\n\nA falta de fontes para as pesquisas prejudicou o resultado final do trabalho e, além disso, os \ndepoimentos orais se tornam algo perigoso para o depoente que vive em uma região onde o \ncoronelismo ainda impera.\n\nComo exemplo, tem-se o fato de que os assassinatos cometidos \npor latifundiários ou a mando deles passam impunes até os dias de hoje, muitas vezes sendo \nbanalizados por grande parte da sociedade, mostrando como essa cultura ainda impera.\n\nNo \nEstado de Minas Gerais, tem-se como exemplo Adriano Chafik, responsável pelo massacre \nde Felisburgo2 contra trabalhadores sem-terra.\n\nChafik ainda se encontra em liberdade e nem \nmesmo suas terras foram desapropriadas.\n\nÉ possível observar diversas iniciativas que se complementam na tentativa de escrever \nsobre as histórias desses símbolos nas lutas do campo.",
+          "cosseno_python_javascript": 0.9999999999998265,
+          "ranking": {
+            "chunk_id": "86f36554-15da-4edf-99eb-480a796773d0",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.854868468193398
+          }
+        },
+        {
+          "chunk_id": "d3df434a-5cbb-46d6-beed-f184c99f4c89",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "ordem": 72,
+          "paginas": "47",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Livros como: o Retrato da Repressão Política \nno Campo: Brasil 1962-1985, com apoio do Ministério do Desenvolvimento Agrário; o Projeto \nMemória Camponesa; os relatórios produzidos pela Comissão Pastoral da Terra ou ainda pela \nComissão da Verdade Camponesa, têm um riquíssimo conteúdo sobre os diversos personagens que \na história teima em esquecer, além de nos mostrar a dio culdade na precisão do número de mortos e \ndesaparecidos durante o regime ditatorial.\n\nNo relatório o nal da Comissão da Verdade Camponesa3 existe um anexo em que são \nlistados 1.196 casos4 de pessoas mortas ou desaparecidas no período de 1961 a 1988, de acordo com \nas questões colocadas pela Lei 9.140/19955, que deo ne:\nArt.\n\n1° São reconhecidos como mortas, para todos os efeitos legais, as pessoas \nque tenham participado, ou tenham sido acusadas de participação, em atividades \npolíticas, no período de 2 de setembro de 1961 a 5 de outubro de 1988, e que, \npor este motivo, tenham sido detidas por agentes públicos, achando-se, desde \n1 <A Comissão Nacional da Verdade foi criada pela Lei 12.528/2011 e instituída em 16 de maio de 2012.\n\nA CNV tem por \no nalidade apurar graves violações de Direitos Humanos ocorridas entre 18 de setembro de 1946 e 5 de outubro de 1988.\n\n(...) Em dezembro de 2013, o mandato da CNV foi prorrogado até dezembro de 2014 pela medida provisória nº 632.= \nDisponível em: <http://www.cnv.gov.br/institucional-acesso-informacao/a-cnv.html>.\n\nAcesso em: 23 ago.\n\n2016.",
+          "cosseno_python_javascript": 0.9999999999998124,
+          "ranking": {
+            "chunk_id": "d3df434a-5cbb-46d6-beed-f184c99f4c89",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8545864582408099
+          }
+        },
+        {
+          "chunk_id": "192c7aeb-063a-41d5-b85e-21c02b24a224",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "ordem": 73,
+          "paginas": "47",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "2 <Em 20 de Novembro de 2004, um fazendeiro, acompanhado de dezenas de pistoleiros, invadiu um acampamento onde \nviviam 230 famílias, na cidade de Felisburgo, no Vale do Jequitinhonha, e comandou um massacre que vitimou cinco \ntrabalhadores.\n\nAlém disso, feriram 17 pessoas, atearam fogo aos barracos, plantação e escola.= Disponível em: <http://\nwww.mst.org.br/2014/11/21/dez-anos-depois-impunidade-continua-em-felisburgo.html>.\n\nAcesso em: 22 ago.\n\n2016.\n\n3 <Em 2012 foi criada a Comissão Camponesa da Verdade (CCV), um dos frutos do Encontro Unitário dos Trabalhadores, \nTrabalhadoras e Povos do Campo, das Águas e das Florestas.\n\nEste evento reuniu, em Brasília, em 2012, milhares de \ncamponeses de mais de quarenta organizações e movimentos ligados à luta pela terra e por territórios.= Trecho retirado do \nRelatório Final da Comissão da Verdade Camponesa, pág.\n\n12.\n\n4 Desse número total, setenta e seis casos ocorreram no estado de Minas Gerais.\n\n5 BRASIL.\n\nLei 9.140/1995 (Lei Ordinária) de 04 de Dezembro de 1995.\n\nReconhece como mortas pessoas desaparecidas em \nrazão de participação, ou acusação de participação, em atividades políticas, no período de 02/09/1961 a 15/08/1979, e \ndá outras providências.\n\nDisponível em: <http://legislacao.planalto.gov.br/legisla/legislacao.nsf/Viw_Identio cacao/lei%20\n9.140-1995?OpenDocument>.\n\nAcesso em: 17 ago.\n\n2016.",
+          "cosseno_python_javascript": 0.9999999999997977,
+          "ranking": {
+            "chunk_id": "192c7aeb-063a-41d5-b85e-21c02b24a224",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8455566092307507
+          }
+        },
+        {
+          "chunk_id": "410a6ea0-bb3c-49e3-8218-a582ffdf3501",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "ordem": 74,
+          "paginas": "48",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "das ligas camponesas ao movimento dos trabalhadores sem-terra\nentão, desaparecidas, sem que delas haja notícias.\n\n(Redação dada pela Lei nº \n10.536, de 2002).6 \nDentre os nomes dessa lista aparecem os próprios trabalhadores do meio rural e também \napoiadores da causa camponesa, como é o caso de Ismene Mendes, que é o 437º nome.\n\nAcompanham \nIsmene outros advogados, agentes da Comissão Pastoral da Terra, crianças, homens e mulheres, \nmuitos que constam apenas apelidos e outros, de maneira pior, que não possuem sequer qualquer \nidentio cação, mortos pelas mãos de agentes particulares ou por agentes do Estado.\n\nA violência praticada no campo nos anos da Ditadura Civil-Militar teve algumas \nparticularidades, principalmente no que tange à questão do agente da ação.\n\nSe nas cidades havia a \npredominância da violência por parte dos aparelhos repressores do Estado; no campo, de maneira \ndiversa, essas atrocidades eram executadas por membros da sociedade civil, mas com a conivência \ndo Estado, como é possível observar no Relatório Final da Comissão Camponesa da Verdade.\n\nDiferentemente da ótica liberal, a Sociedade Política e a Sociedade Civil, de um modo geral, não \neram e nem são antagônicas; não são opostas, nem possuem interesses estritamente divergentes ou \nanálogos.\n\nComo aponta Sonia Regina de Mendonça,7 com base na interpretação do pensamento \ngramsciniano8 acerca da relação entre as sociedades civil e política, essa unidade orgânica \ncorrespondente a essas duas esferas baseada em uma relação dialética existente.",
+          "cosseno_python_javascript": 0.9999999999998065,
+          "ranking": {
+            "chunk_id": "410a6ea0-bb3c-49e3-8218-a582ffdf3501",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8490737821676178
+          }
+        },
+        {
+          "chunk_id": "5d8a57ad-8c5f-4950-8598-ccb4ae2e7ac8",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "ordem": 75,
+          "paginas": "48",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Portanto, apesar de \no gatilho ou o instrumento de tortura terem mudado de mão, ainda é possível ver essa perseguição \nno campo como uma política estatal para a tentativa de implantação de uma hegemonia, sendo que \npara isso se fez necessário, como em outros momentos da história, instituições da sociedade civil \ncomo aparelhos privados de hegemonia, já que sem esses, segundo o pensador Sardo,9 não é possível \numa direção política majoritária.\n\nFazendo uma análise dos veículos de mídia existentes na região, é possível ver um ren exo \nda política adotada pelo governo da época, exemplio cada na metáfora atribuída ao economista \nDelo m Netto10 de <deixar o bolo crescer para depois repartir=, mas sabemos que o bolo cresceu, \ncresceu muito, principalmente para algumas famílias e algumas o guras icônicas da região.\n\nGrande \nparte delas são representantes do latifúndio em uma cidade com <ranços de coronelismo=11 como \nUberlândia, porém, essa divisão nunca aconteceu e as classes mais baixas não puderam ter acesso \nde fato a esses benefícios, sendo que os que levantaram sua voz contra as opressões promovidas \npor esses coronéis acabaram por ser silenciados.\n\nAs diversas propagandas do regime, seja atrás de \nnotícias ou de anúncios pagos, já foram temas de pesquisas de historiadores da Universidade Federal \nde Uberlândia.\n\nOs subsídios para a aquisição de maquinário agrícola e agrotóxicos, bem como a \n6 Redação dada pela Lei nº 10.536, de 2002.\n\nDisponível em: <http://www.planalto.gov.br/ccivil_03/leis/L9140.htm>.\n\nAcesso \nem: 17 ago.\n\n2016.\n\n7 MENDONÇA, Sonia Regina de.",
+          "cosseno_python_javascript": 0.9999999999997673,
+          "ranking": {
+            "chunk_id": "5d8a57ad-8c5f-4950-8598-ccb4ae2e7ac8",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8464648697739394
+          }
+        },
+        {
+          "chunk_id": "e03680e9-6dcb-41aa-82ba-f7b6528f7585",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "ordem": 76,
+          "paginas": "48-49",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Sociedade Civil em Gramsci: venturas e desventuras de um conceito.\n\nPaula, Dilma \nAndrade de; Mendonça, Sonia Regina de (Orgs.).\n\nSociedade Civil: Ensaios Históricos.\n\nJundiaí: Paco Editorial, 2013.\n\n8 Antonio Gramsci (1891-1937) foi um político e o lósofo, nascido na Sardenha.\n\nEra membro do Partido Comunista da \nItália e foi preso durante o regime fascista de Mussolini.\n\n9 Idem.\n\n10 Delo m Netto negou ter dito essa frase em entrevista concedida ao O Globo em 23/03/2014.\n\nDisponível em: \n<http://oglobo.globo.com/economia/delfim-netto-sobre-atuacao-no-regime-militarnao-tenho-nada-do-que-mearrepender-11959575>.\n\nAcesso em: 23 ago.\n\n2016.\n\n11 Entrevista com os professores do curso de Ciências Sociais da Universidade Federal de Uberlândia: Leonardo \nBarbosa e Edilson José Graciolli, concedida a Felipe Castanheira.\n\nDisponível em: <http://www.otempo.com.br/hotsites/\nelei%C3%A7%C3%B5es-2016/desao os/moradia-e-transporte-s%C3%A3o-desao os-de-uberl%C3%A2ndia-2%C2%AAmaior-cidade-de-mg-1.1340384>.\n\nAcesso em: 23 ago.\n\n2016.\n\nvisita de técnicos promoveram essa ideia parcial de progresso no campo, tudo com o apoio da mídia \nlocal.\n\nTais subsídios promoveram um aumento da desigualdade e um fomento do latifúndio em \ndetrimento da mão -de -obra familiar dos pequenos e micro-produtores.",
+          "cosseno_python_javascript": 0.9999999999996905,
+          "ranking": {
+            "chunk_id": "e03680e9-6dcb-41aa-82ba-f7b6528f7585",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8217544177765571
+          }
+        },
+        {
+          "chunk_id": "e7087e9d-b498-4ef5-99f0-93552a10a229",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "ordem": 77,
+          "paginas": "49",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Para estreitar essa relação entre as elites latifundiárias e o governo ditador, basta \nlembrar que as movimentações que culminaram com o golpe civil-militar se deram em diversos \nâmbitos e por diversos fatores, que não é o propósito desse capítulo discutir, porém, é necessário \nfrisar o descontentamento da burguesia com as reformas de base propostas por João Goulart,12 \nprincipalmente a tão temida Reforma Agrária.\n\nA historiadora Luciana Lilian de Miranda, em seu \nartigo <A vida rural na 8mira9 da modernização conservadora: um diálogo com proprietários rurais \ne o jornal Correio de Uberlândia, 1960-1985= argumenta que a tentativa de integração entre campo \ne cidade, proposta pelo governo ditador, se dava pela entrada da população rural no mercado como \ncompradora de produtos industrializados e fornecedora de matérias-primas para a indústria: \nComo podemos perceber, a política de modernização da agricultura brasileira \nfoi constituída e articulada aos interesses de alguns segmentos dominantes da \nsociedade brasileira nesse dado momento histórico (...) algumas propagandas \nlançadas pelos governos federal e estadual (MG), divulgadas pelo jornal Correio \nde Uberlândia, traziam mensagens à sociedade que reforçavam a visão de atraso \nno meio rural, contribuindo, ao mesmo tempo, para a constituição do ideário \nmodernizador13 (Miranda, 2004, p.\n\n65).\n\nEsse <ideário modernizador= propagado por meio de grande parte da mídia atendia a \numa classe latifundiária que inn uenciava fortemente as manobras políticas adotadas pelos governos \nda época, escancarando a relação de forças sociais e hegemônicas.",
+          "cosseno_python_javascript": 0.9999999999998164,
+          "ranking": {
+            "chunk_id": "e7087e9d-b498-4ef5-99f0-93552a10a229",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8590167268382627
+          }
+        },
+        {
+          "chunk_id": "2709d3f3-1cb2-4a53-b5ca-c6f8b64aeb65",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "ordem": 78,
+          "paginas": "49",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Como deo ne a autora Delma \nNeves,14 <a modernização capitalista implica, assim, entre outros aspectos, a domesticação= com \nbase nessas atribuições negativas ao campo, colocando-o como sinônimo de atraso em detrimento \nde um progresso fundado em bases cientío cas.\n\nIsmene Mendes foi uma dessas pessoas que ousou se rebelar contra essa cultura, contra \na exploração cotidiana e contra essa <domesticação=.\n\nÉ notório que diversas outras <Ismenes= não \nterão seus nomes bradados pela história.\n\nA falta de documentação referente a esse período da nossa \nhistória é algo que traz diversos problemas para a construção de uma memória que valorize os \nverdadeiros lutadores do povo, contudo, quando se fala das atrocidades no campo, isso se torna \nainda mais grave e evidente.\n\nMuitos camponeses não tinham nenhum tipo de identio cação, nem \nmesmo registro de nascimento, e podem ter sido simplesmente <varridos= da história em troca de \num suposto desenvolvimento ou nem isso: morreram apenas para que um latifundiário pudesse \nexpandir suas terras ou explorar mão de obra barata.\n\n12 Sob essa ampla denominação de <reformas de base= estava reunido um conjunto de iniciativas: as reformas bancária, \no scal, urbana, administrativa, agrária e universitária.\n\nSustentava-se ainda a necessidade de estender o direito de voto \naos analfabetos e às patentes subalternas das forças armadas, como marinheiros e os sargentos, e defendia-se medidas \nnacionalistas prevendo uma intervenção mais ampla do Estado na vida econômica e um maior controle dos investimentos \nestrangeiros no país, mediante a regulamentação das remessas de lucros para o exterior.\n\nDisponível em: <http://cpdoc.fgv.",
+          "cosseno_python_javascript": 0.9999999999997322,
+          "ranking": {
+            "chunk_id": "2709d3f3-1cb2-4a53-b5ca-c6f8b64aeb65",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.847279393876035
+          }
+        },
+        {
+          "chunk_id": "1ab96555-4483-45b7-8557-90ff96231112",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "ordem": 79,
+          "paginas": "49-50",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "br/producao/dossies/Jango/artigos/NaPresidenciaRepublica/As_reformas_de_base>.\n\nAcesso em: 23 ago.\n\n2016.\n\n13 MIRANDA, Luciana Lilian.\n\nA vida rural na <mira= da modernização conservadora: um diálogo com proprietários rurais \ne o jornal Correio de Uberlândia, 1960-1985, História e Perspectivas, n.31, p.65, jul./dez.\n\n2004.\n\n14 NEVES, Delma.\n\napud MÚCIO, Tosta Gonçalves.\n\nEspaço rural em transformação: um lugar de (qual) memória?\n\nHistória \ne Perspectiva, n.29-30, p.35, jul./dez.\n\n2003; jan./jun.\n\n2004.\n\ndas ligas camponesas ao movimento dos trabalhadores sem-terra\nNa região do Triângulo Mineiro e Alto Paranaíba, há outros nomes que também perderam \na vida, como Aurelino e Juraci, ambos citados no livro <Retrato da Repressão Política no campo=.15 \nO primeiro, Aureliano Manoel dos Santos, era lavrador e foi morto em 6 de novembro de 1984 \ncom três tiros.\n\nEra residente em Monte Alegre de Minas e foi assassinado após reivindicar aumento \nsalarial e o cumprimento das causas trabalhistas.\n\nO outro lavrador citado era Juraci José Alves, \nposseiro, morador da cidade de Iturama.\n\nJuraci era posseiro e um dos líderes de um grupo de 40 \nfamílias que lutavam pelo direito à posse da fazenda onde trabalhavam há mais de uma geração e \nfoi morto com seis tiros à queima roupa em 9 de novembro de 1984.16 Todos esses nomes citados \nforam mortos por agentes civis, ponderando novamente a particularidade na violência sofrida pelos \ncamponeses.",
+          "cosseno_python_javascript": 0.9999999999998066,
+          "ranking": {
+            "chunk_id": "1ab96555-4483-45b7-8557-90ff96231112",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8606897593933724
+          }
+        },
+        {
+          "chunk_id": "f6cea94a-0a22-4432-a9fb-b9b2a6b03eb2",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "ordem": 80,
+          "paginas": "50",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Juvelino Strozake e Paola Masiero Pereira fazem a seguinte ao rmação que auxilia na \ncompreensão dessa violência no período:\nAo demarcarmos o nível de repressão empreendida contra os camponeses e suas \norganizações, ao ao rmarmos que muitos jagunços e pistoleiros a mando dos \ngrandes proprietários de terras que se utilizaram da onda militar para executar as \nlideranças sindicais e populares, queremos estabelecer uma relação direta entre \nas mortes causadas pelos militares, torturadores, e os assassinatos a mando do \nlatifúndio17 (Pereira, p.103).\n\nA violência usada por militares e latifundiários contra as organizações de trabalhadores \nrurais, ao mesmo tempo em que essas eram criminalizadas pelo simples fato de existirem, mostra \na preocupação das elites agrárias com esses focos de resistência.\n\nOs aparatos repressivos estatais e \nprivados se uniram para tentar acabar com a luta no campo, principalmente quando organizado, \nseja por meio das Ligas Camponesas ou do Movimento dos Trabalhadores Sem Terra.\n\nA repressão violenta às Ligas Camponesas as acompanha desde o seu surgimento na década \nde 1950.\n\nA luta pela terra no Brasil é carregada de um grande simbolismo, tanto para os que já a \ndetém, quanto para os que sonham em conquistá-la.\n\nDentro disso, por mais que os países capitalistas \ncentrais tenham feito a reforma agrária, essa burguesia latifundiária não nacionalista se assusta \ncom a simples menção do termo.\n\nPor isso, quando o governo de Jango criou a Superintendência da \nReforma Agrária (SUPRA), as elites agrícolas se opuseram ainda mais às propostas de João Goulart.",
+          "cosseno_python_javascript": 0.999999999999797,
+          "ranking": {
+            "chunk_id": "f6cea94a-0a22-4432-a9fb-b9b2a6b03eb2",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8560478235166897
+          }
+        },
+        {
+          "chunk_id": "0321b8ce-31e6-415d-b445-c84e29b63981",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "ordem": 81,
+          "paginas": "50-51",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "As Ligas revolucionaram a luta campesina, seja na sua estrutura organizativa ou na sua \ntática, destacando-se na utilização do sistema jurídico em benefício da causa, bem como no seu \ncaráter internacionalista, promovendo uma luta conjunta com movimentos aliados.\n\nEm virtude \ndisso, eram vistas com extrema cautela pelo governo ditador, repreendidas com extrema violência e \ncriminalizadas pela sua simples existência.\n\nO próprio MST reconhece a herança deixada pelas Ligas para a luta pela terra.\n\nNão somente \ndelas, mas também da luta indígena, Canudos, a resistência quilombola, dos Malês e tantos outros \nao longo da história.\n\n15 CARNEIRO, Ana; CIOCCARI, Marta.\n\nRetrato da repressão no campo – Brasil 1962 – 1985 – Camponeses torturados, \nmortos e desaparecidos.\n\nAna Carneiro; Marta Cioccari; – Brasília: Ministério do Desenvolvimento Agrário, 2010.\n\n16 Além dos três nomes já citados no capítulo, o relatório o nal da Comissão da Verdade Camponesa identio cou mais \ndois assassinatos ocorridos na região do Triângulo Mineiro, sendo esses de: Durval Ventura de Souza e Jair Augusto de \nCampos, sendo um na cidade de Frutal e outro na cidade do Prata, respectivamente.\n\n17 PEREIRA, Paola Masiero; STROZAKE, Juvelino.\n\nA ditadura civil militar e os camponeses.\n\nSérie: O Direito Achado na \nRua, v.\n\n7 In: Introdução Crítica à Justiça de Transição na América Latina.\n\np.103.\n\nEm 1981, surgiu um novo acampamento, o Encruzilhada Natalino, que mesmo sofrendo \nrepressão por parte de tropas do exército, resistiu e virou símbolo de luta contra a ditadura, obtendo \nrepercussão nacional e internacional.",
+          "cosseno_python_javascript": 0.9999999999997748,
+          "ranking": {
+            "chunk_id": "0321b8ce-31e6-415d-b445-c84e29b63981",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.843608885169021
+          }
+        }
+      ]
+    },
+    {
+      "pergunta_id": "P14",
+      "pergunta": "Como os relatórios documentam a repressão a trabalhadores e sindicalistas rurais?",
+      "rotulo": "D94",
+      "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+      "paginas_esperadas": [
+        94
+      ],
+      "chunks_indexados": 2,
+      "melhor_posicao": null,
+      "maior_similaridade_alvo": 0.8638288853864767,
+      "similaridade_corte_500": 0.875403087550135,
+      "chunks": [
+        {
+          "chunk_id": "4a680fac-c92e-4bec-87ff-e8ee41362a8a",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "ordem": 124,
+          "paginas": "94",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "III.\n\nVIOLAÇÕES AOS DIREITOS HUMANOS \nDOS CAMPONESES\nOs relatos e casos presentes neste relatório mostram a variedade das formas como a repressão política atingiu os camponeses entre 1946 e 1988, com \ndestaque para o período entre 1964 e 1985, durante a vigência da ditadura civilmilitar no Brasil.\n\nAtravés deles podemos observar como os trabalhadores e trabalhadoras rurais e seus apoiadores tiveram seus direitos humanos violados, de \nmodo sistemático, por agentes do Estado e privados, que, muitas vezes, agiam de \nforma articulada.\n\nEsse fato revela a dupla perseguição a que estavam submetidos \nos camponeses, expostos a tipos diversos de violências: torturas, mortes, desaparecimentos, ocultação de cadáveres, ameaças, despejos, agressões físicas, prisões, \nexílios (no exterior e no próprio país), destruição de bens, entre outras.\n\nA CNV tem por ﬁnalidade apurar e esclarecer as graves violações de direitos humanos.\n\nO GT sobre violações de direitos humanos cometidas por motivações políticas relacionadas à luta pela terra e contra populações indígenas ﬁcou \nincumbido de esclarecer fatos, circunstâncias e autorias de casos de graves violações de direitos humanos, como torturas, mortes, desaparecimentos forçados, \nocultação de cadáveres, relacionados aos referidos grupos, identiﬁcando e publicizando estruturas, locais, instituições e circunstâncias dessas violações.\n\nEntretanto, conforme já discutido, a compreensão do que deve ser considerado como \ngrave violação de direitos tem que ser alargada, englobando as várias situações de \nrepressão que atingiram os trabalhadores.",
+          "cosseno_python_javascript": 0.9999999999998166,
+          "ranking": {
+            "chunk_id": "4a680fac-c92e-4bec-87ff-e8ee41362a8a",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8638288853864767
+          }
+        },
+        {
+          "chunk_id": "8fb02278-78e8-4366-b547-4f445e8896de",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "ordem": 125,
+          "paginas": "94-95",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "3.1 \nRESISTÊNCIA E REPRESSÃO AOS CAMPONESES NO PÓSgOLPE DE 1964 \nNa historiograﬁa oﬁcial não é muito comum, quando acontece, fazer referência às resistências camponesas ao golpe civil-militar de 1964.\n\nDe uma maneira \ngeral, é possível aﬁrmar que as pretensões de resistência ao golpe não se conﬁrmaram, nem nas ﬁleiras dos militares legalistas, nem entre as forças populares.\n\nContudo, em respeito aos que resistiram, algumas manifestações esparsas contra \no golpe de 1964 merecem ser citadas: \na) o comício em Porto Alegre, no dia 1o de abril de 1964, convocado por \nBrizola e pelas forças progressistas;\nb) a greve parcial dos trabalhadores, no Rio de Janeiro; algumas manifestações operárias, como a dos mineiros de Morro Velho, Nova Lima (MG), \nno dia 1o de abril de 1964;\nc) a Liga Camponesa de Vitória do Santo Antão (PE) que ocupou a rádio \nlocal e fez manifestação na praça com intenção de marchar até Recife;\nd) a mobilização de quatrocentos camponeses pelo STR de Rio Formoso \n(PE) que pretendiam marchar a Recife, mas se dispersaram diante da notícia da prisão de governador Miguel Arraes;\ne) Gregório Bezerra mobilizou camponeses de Palmeira que entram em \ngreve; Osias da Silva mobilizou camponeses de Ipijuca e acabou preso; \nAmaro Fernandes fez o mesmo em Timbaúba; Belmiro do Nascimento e \nJurandir Ferreira da Silva também o ﬁzeram em Serinhaém (Pernambuco);\nf) a tentativa de articulação de resistência por Grupos dos Onze, em Passo \nFundo (RS).",
+          "cosseno_python_javascript": 0.9999999999998296,
+          "ranking": {
+            "chunk_id": "8fb02278-78e8-4366-b547-4f445e8896de",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.851694261551773
+          }
+        }
+      ]
+    },
+    {
+      "pergunta_id": "P15",
+      "pergunta": "Como a repressão atingiu camponeses na região do Araguaia?",
+      "rotulo": "E350",
+      "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+      "paginas_esperadas": [
+        350
+      ],
+      "chunks_indexados": 3,
+      "melhor_posicao": null,
+      "maior_similaridade_alvo": 0.8579802289602646,
+      "similaridade_corte_500": 0.866474109870864,
+      "chunks": [
+        {
+          "chunk_id": "07d9f380-9843-4d11-8a9d-57308bf4ee4b",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "ordem": 757,
+          "paginas": "349-350",
+          "secao": "9 – tortura",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Há, como visto, o caso de presos políticos que não conseguiram fazer um relato das \ntorturas sofridas nos processos movidos contra eles.\n\nNo levantamento do Brasil: nunca mais,\n\n26% dos réus declararam nos próprios processos terem sofrido torturas.63 Em pesquisa que se \nrestringiu aos processos da Justiça Militar contra os militantes da Ação Libertadora Nacional \n(ALN), Marco Aurélio Vannucchi Leme de Mattos chegou a um percentual bem mais elevado \n– dos 155 réus cujos interrogatórios o autor pôde analisar, 48% denunciaram ter sofrido coação \nna polícia para confessarem a sua relação com a ALN.64 Existem igualmente casos de tortura de \npessoas contra as quais não chegou a tramitar um processo ou que nem mesmo foram recolhidas \nem instituições oficiais.\n\n56.\n\nNo meio rural, a tortura muitas vezes acontecia em espaços clandestinos nos quais não \nhavia sequer registro formal de detenção – tais como uma casinha na fazenda Rio Doce, na região de \nRio Verde e Jataí (Goiás) durante a década de 1970,65 e em valas cavadas nas bases militares da Bacaba \n(próxima à cidade de Brejo Grande do Araguaia, Pará) e de Xambioá (atualmente no Tocantins), cobertas com grades de ferro e chamadas de “buracos do Vietnã”, em que camponeses relataram à CNV \nterem sido presos e torturados.\n\nAlém disso, a tortura atingiu pessoas que não tinham acesso aos canais \nde denúncia ou que ficaram aterrorizadas a ponto de até hoje não conseguirem se manifestar sobre \no assunto.",
+          "cosseno_python_javascript": 0.9999999999998437,
+          "ranking": {
+            "chunk_id": "07d9f380-9843-4d11-8a9d-57308bf4ee4b",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8382457737606911
+          }
+        },
+        {
+          "chunk_id": "83d8d58a-7430-4b34-a82b-32f64f38e174",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "ordem": 758,
+          "paginas": "350",
+          "secao": "9 – tortura",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Podem ser citadas, como exemplos, a tortura de camponeses na região do Araguaia, bem \ncomo a de pessoas atingidas pela Operação Mesopotâmia, em agosto de 1971 – que prendeu lideranças políticas da região fronteiriça entre Maranhão, Pará e Goiás (atual Tocantins) –, ou a tortura das \nvítimas da Operação Pajussara, de setembro de 1971, no sertão da Bahia.\n\n57.\n\nUm dos aspectos mais perversos da tortura é o fato de tornar bastante difícil às suas \nvítimas falar sobre ela, pela dor envolvida nessa memória, bem como pelo medo das ameaças \nfeitas pelos torturadores, relativas à própria pessoa torturada e a pessoas próximas, um medo \nque pode perdurar.\n\nMas narrar uma experiência de tortura é também difícil por serem os seus \nprocedimentos extremamente humilhantes e porque a violência infligida, muitas vezes, é insuportável – a ponto de levar a vítima a falar aquilo que jamais diria em condições diferentes.\n\nPor essa \nrazão, uma quantificação baseada em denúncias formais de tortura sempre subestimará o número \nde vítimas.\n\nNo Terceiro Programa Nacional de Direitos Humanos (PNDH-3), da Secretaria de \nDireitos Humanos da Presidência da República, estima-se que cerca de 20 mil brasileiros tenham \nsido submetidos a tortura no período ditatorial.66 \n4.\n\nO caráter sistemático da prática de tortura pelo sistema repressivo \n58.\n\nNão obstante o regime militar negasse oficialmente o apoio à tortura, diversos fatores \nconcorrem para demonstrar que essa prática fazia parte de uma política de repressão coordenada pelas \nForças Armadas.\n\nA tortura, como enfatiza o relatório da Anistia Internacional de 1972,67 tornou-se \num instrumento de poder e de preservação do governo – com destinação de recursos, organização \nde centros e de instrumentos e uso de pessoal próprio.",
+          "cosseno_python_javascript": 0.9999999999998339,
+          "ranking": {
+            "chunk_id": "83d8d58a-7430-4b34-a82b-32f64f38e174",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8579802289602646
+          }
+        },
+        {
+          "chunk_id": "fdd5f0b8-4ddc-405c-95cc-8342979feb11",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "ordem": 759,
+          "paginas": "350-351",
+          "secao": "9 – tortura",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Algumas evidências do caráter sistemático da \ntortura serão apresentadas a seguir: a existência de um campo de conhecimento a embasá-la; a presença \nde médicos e enfermeiros nos centros de tortura; a repetição de fatos com as mesmas características; \na burocratização do crime, com a destinação de estabelecimentos, recursos e pessoal próprios, com \nequipes para cumprir turnos na sua execução; e a adoção de estratégias de negação.\n\n4.1.\n\nA tortura como um objeto de saber\n59.\n\nA metodologia da tortura se tornou um objeto de saber, um campo de conhecimento \nproduzido e transmitido entre os militares.\n\nSuas técnicas eram uma matéria ensinada aos membros das \nForças Armadas, inclusive com demonstrações práticas, como declarado por presos políticos usados \ncomo cobaias nessas aulas.\n\nUma delas, por exemplo, teve lugar na 1a Companhia de Polícia do Exército \nda Vila Militar, em 8 de outubro de 1969, quando dez presos políticos foram levados a um salão em \ncuja plateia estavam cerca de 100 pessoas, entre sargentos e oficiais do Exército, Marinha e Aeronáutica.\n\nNo palco, o tenente Ailton Joaquim, chefe da seção de informações da 1a Companhia, projetou slides \nsobre as modalidades de tortura, suas características e efeitos, e realizou demonstrações na prática, \nutilizando, para tanto, presos despidos.68 69 Um deles foi dependurado no pau de arara, outro, colocado \nde pé sobre latas abertas, um terceiro sofreu choques elétricos, um quarto teve os dedos esmagados \npor pedaços de ferro roliço e um quinto apanhou de palmatória.",
+          "cosseno_python_javascript": 0.9999999999997565,
+          "ranking": {
+            "chunk_id": "fdd5f0b8-4ddc-405c-95cc-8342979feb11",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.815309263704221
+          }
+        }
+      ]
+    },
+    {
+      "pergunta_id": "P16",
+      "pergunta": "Quais violações contra povos indígenas são discutidas nos textos temáticos da CNV?",
+      "rotulo": "F204",
+      "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+      "paginas_esperadas": [
+        204
+      ],
+      "chunks_indexados": 2,
+      "melhor_posicao": null,
+      "maior_similaridade_alvo": 0.8657545460953114,
+      "similaridade_corte_500": 0.866591606539757,
+      "chunks": [
+        {
+          "chunk_id": "b9f3440b-b20e-4b78-bdd5-5e1ff24f8a6c",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "ordem": 471,
+          "paginas": "204",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Este texto foi elaborado sob a responsabilidade da conselheira Maria Rita Kehl.\n\nPesquisas, investigações e redação foram \ndesenvolvidas com a colaboração da Comissão da Verdade \nIndígena, como parte das atividades do Grupo de Trabalho \nda Comissão Nacional da Verdade sobre Graves Violações de \nDireitos Humanos no Campo ou contra Indígenas.\n\nO resultado \nnão teria sido o mesmo, não fosse o amplo processo de interlocução e colaboração com a sociedade civil na coleta, tratamento e sistematização dos dados analisados.\n\nFoi essencial o \napoio dos pesquisadores Beto Ricardo, Cleber Buzzato, Clovis \nBrighenti, Daniel Pierri, Egon Heck, Egydio Schwade, Fany \nRicardo, Gilberto Azanha, Ian Packer, Iara Ferraz, Inimá \nSimões, Isabel Harari, Laura Faerman, Levi Marques Pereira, \nLuis Francisco de Carvalho Dias, Luiz Henrique Eloy Amado, \nManuela Carneiro da Cunha, Marcelo de Souza Romão, \nMarcelo Zelic, Marco Antonio Delfino de Almeida, Maria \nInês Ladeira, Neimar Machado de Sousa, Orlando Calheiros, \nPatrícia de Mendonça Rodrigues, Porfírio Carvalho, Rafael \nPacheco Marinho, Rogerio Duarte do Pateo, Spensy Pimentel, \nTatiane Klein e Vincent Carelli.\n\nAgradecemos especialmente a \ntodos os indígenas que prestaram depoimentos para esta pesquisa \ne que lutam pela busca da memória, da verdade e da justiça em \nrelação às graves violações promovidas pelo Estado contra os seus \npovos, que é mácula para toda a sociedade brasileira.\n\nA) Resumo executivo\n1.\n\nUma política de Estado de ação e omissão\nOs povos indígenas no Brasil sofreram graves violações de seus direitos humanos no período entre 1946 e 1988.",
+          "cosseno_python_javascript": 0.999999999999788,
+          "ranking": {
+            "chunk_id": "b9f3440b-b20e-4b78-bdd5-5e1ff24f8a6c",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8634158119229793
+          }
+        },
+        {
+          "chunk_id": "91d436e4-22a8-4aa7-9209-ce66265e212c",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "ordem": 472,
+          "paginas": "204-205",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "O que se apresenta neste capítulo é o resultado de casos documentados, uma \npequena parcela do que se perpetrou contra os índios.\n\nPor eles, é possível apenas entrever a extensão \nreal desses crimes, avaliar o quanto ainda não se sabe e a necessidade de se continuar as investigações.\n\n1\nNão são esporádicas nem acidentais essas violações: elas são sistêmicas, na medida em que \nresultam diretamente de políticas estruturais de Estado, que respondem por elas, tanto por suas ações \ndiretas quanto pelas suas omissões.\n\nOmissão e violência direta do Estado sempre conviveram na política indigenista, mas \nseus pesos respectivos sofreram variações.\n\nPoder-se-ia assim distinguir dois períodos entre 1946 e \n1988, o primeiro em que a União estabeleceu condições propícias ao esbulho de terras indígenas e \nse caracterizou majoritariamente (mas não exclusivamente) pela omissão, acobertando o poder local, \ninteresses privados e deixando de fiscalizar a corrupção em seus quadros; no segundo período, o \nprotagonismo da União nas graves violações de direitos dos índios fica patente, sem que omissões \nletais, particularmente na área de saúde e no controle da corrupção, deixem de existir.\n\nNa esteira do \nPlano de Integração Nacional, grandes interesses privados são favorecidos diretamente pela União,\n\natropelando direitos dos índios.\n\nA transição entre os dois períodos pode ser datada: é aquela que se \ninicia em dezembro de 1968, com o AI-5.\n\nComo resultados dessas políticas de Estado, foi possível estimar ao menos 8.350 indígenas \nmortos no período de investigação da CNV, em decorrência da ação direta de agentes governamentais \nou da sua omissão.",
+          "cosseno_python_javascript": 0.9999999999998098,
+          "ranking": {
+            "chunk_id": "91d436e4-22a8-4aa7-9209-ce66265e212c",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8657545460953114
+          }
+        }
+      ]
+    },
+    {
+      "pergunta_id": "P17",
+      "pergunta": "Como o racismo aparece na repressão e na resistência durante a ditadura?",
+      "rotulo": "F395",
+      "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+      "paginas_esperadas": [
+        395
+      ],
+      "chunks_indexados": 3,
+      "melhor_posicao": null,
+      "maior_similaridade_alvo": 0.843075026707699,
+      "similaridade_corte_500": 0.85753827437988,
+      "chunks": [
+        {
+          "chunk_id": "c5d79acc-06ee-43db-a93d-422172ce8d9a",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "ordem": 939,
+          "paginas": "394-395",
+          "secao": "9 - a resistência da sociedade civil às graves violações de direitos humanos",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Isso foi possível graças ao conjunto de fatores que redimensionaram amplamente o papel da \nmulher na sociedade.\n\nNovos modos de comportamento floresceram, modificando a maneira como a \nmulher compreendia a si mesma e a seu corpo – a difusão do uso de anticoncepcionais, por exemplo.\n\nConcomitantemente a isso, o mercado de trabalho gradualmente abre novos espaços de atuação das \nmulheres.\n\nEm São Paulo surgem grupos políticos que passam a atuar abertamente, como o Brasil \nMulher, Nós Mulheres e o Movimento Feminino pela Anistia.\n\nCabe destacar a existência de organizações femininas de bairros.\n\nTimidamente, assuntos outrora silenciados vão sendo debatidos, como \na questão do aborto, sexualidade e planejamento familiar.\n\nEm um panorama geral, os movimentos \nfemininos buscavam repensar a atuação política das mulheres, tal como a luta por direitos de equidade \nno mercado de trabalho e reivindicações sociais.\n\nEm 1978, o Movimento Negro Unificado (MNU) é criado na Bahia, dando maior ênfase \ne profundidade às discussões sobre o preconceito racial no Brasil.\n\nPeriodicamente eram realizados\n\ncongressos pelo país inteiro, onde se discutia um novo modus operandi na luta contra o racismo.\n\nEntre \nas propostas do movimento, tínhamos a reavaliação da História da África e suas interlocuções com \no Brasil.\n\nA população negra convivia cotidianamente com as violações de direitos humanos institucionalizadas pelo regime militar.\n\nA agenda do MNU era composta por atividades políticas, sociais e \nculturais, incentivando sistematicamente a inserção do negro na vida política das cidades.\n\nEm busca da \nidentidade negra, eram pautas que entravam em conflito com a ideia de “democracia racial” pregada \npelas propagandas ufanistas da ditadura militar.",
+          "cosseno_python_javascript": 0.9999999999998093,
+          "ranking": {
+            "chunk_id": "c5d79acc-06ee-43db-a93d-422172ce8d9a",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.843075026707699
+          }
+        },
+        {
+          "chunk_id": "a7f27666-d7ee-40c6-8742-528b02edc3b6",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "ordem": 940,
+          "paginas": "395",
+          "secao": "9 - a resistência da sociedade civil às graves violações de direitos humanos",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Esses movimentos sociais urbanos organizam-se, sobretudo, em bases locais, expressando \no fazer político no cotidiano e não mais em projetos de maior abrangência.\n\nO Estado é encarado por \nesses movimentos como promotor de bem-estar social e sobre ele recaem as demandas elementares que \nafligem grande parte da população, principalmente questões de infraestrutura urbana.\n\nAssim, nesse \nquadro geral de modificações estruturais, as particularidades se acomodam em relativa consonância.\n\nA luta oposicionista aglutinou esses diversos movimentos espalhados por todo o território nacional.\n\n1.\n\nNovo movimento sindical\nOs operários ligados ao setor metalúrgico desempenharam um papel fundamental ao longo da história da organização política dos trabalhadores do país, notadamente durante o período militar, quando protagonizaram, em 1968 e 1978, dois importantes episódios na luta por melhorias econômicas e pela construção \nde formas de associação sindical mais autônomas em relação ao Estado.\n\nEm 1968, trabalhadores metalúrgicos \nde Contagem e Osasco realizam, respectivamente em abril e julho daquele ano, greves que mobilizaram um \namplo número de operários e que, embora não tenham atingido seus objetivos centrais e tenham sido reprimidas pelo Estado, foram importantes demonstrações da capacidade organizativa dos trabalhadores.\n\nTanto em Osasco quanto em Contagem, as greves representaram, de um lado, uma reivindicação de caráter econômico por melhorias salariais; e, de outro, expressaram a luta por uma organização autônoma em relação às amarras oficiais, na medida em que ambos os movimentos surgiram e \nse desenvolveram à margem de seus respectivos sindicatos, que atuaram muito mais como mediadores \nentre os trabalhadores e o Estado.",
+          "cosseno_python_javascript": 0.9999999999998093,
+          "ranking": {
+            "chunk_id": "a7f27666-d7ee-40c6-8742-528b02edc3b6",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8227570001942065
+          }
+        },
+        {
+          "chunk_id": "8dfde24f-8fc0-4d7c-a0f8-57528c121b6c",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "ordem": 941,
+          "paginas": "395-396",
+          "secao": "9 - a resistência da sociedade civil às graves violações de direitos humanos",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Uma ruptura definitiva em relação ao chamado “sindicalismo populista”, característico do período pré-1964, contudo, apenas se deu em 1978, quando novamente os \noperários metalúrgicos desencadearam um movimento de repercussão nacional que ficaria conhecido \ncomo “novo sindicalismo”.\n\nEm maio daquele ano, assim, os trabalhadores de São Bernardo do Campo, \ncruzando os braços diante das máquinas, deram início a um movimento sindical de novo tipo e fôlego, \ndesencadeado contra o arrocho salarial dos anos anteriores, que buscava também liberdade e autonomia em relação às diretrizes oficiais e se voltava para a mobilização de suas bases.\n\nEssa questão já havia \nsido preconizada em 1968, na medida em que os movimentos de Contagem e Osasco se ancoraram \nmais em suas bases – e nas “comissões de fábrica”, no segundo caso – do que na hierarquia sindical, \ncomo era característico do sindicalismo populista.\n\nEsse era o momento de radicalização do movimento grevista.\n\nDesde o início, o Sindicato dos Metalúrgicos de São Bernardo do Campo e Diadema assumiu a liderança do movimento como um todo.\n\nDepois de centenas de reuniões das comissões de \nfábrica, os líderes sindicais tinham uma meta ambiciosa: levar as greves para as ruas das cidades.\n\nCom \na opinião pública a seu lado, os grevistas poderiam fazer ainda mais barulho.\n\nNa rua, porém, a polícia \nutilizaria o aparato repressor para conter as manifestações.\n\nOutra ação utilizada pelos trabalhadores \nera organizar piquetes nas portas das fábricas.\n\nJá nas grandes assembleias ocorridas no Estádio da Vila\n\nEuclides os trabalhadores discutiam as estratégias da greve, bem como a votação das decisões a serem \ntomadas.",
+          "cosseno_python_javascript": 0.9999999999997928,
+          "ranking": {
+            "chunk_id": "8dfde24f-8fc0-4d7c-a0f8-57528c121b6c",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8280806360432404
+          }
+        }
+      ]
+    },
+    {
+      "pergunta_id": "P18",
+      "pergunta": "Que participação empresarial no apoio à repressão está documentada no acervo?",
+      "rotulo": "F314",
+      "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+      "paginas_esperadas": [
+        314
+      ],
+      "chunks_indexados": 3,
+      "melhor_posicao": null,
+      "maior_similaridade_alvo": 0.8362224098710663,
+      "similaridade_corte_500": 0.858127159438397,
+      "chunks": [
+        {
+          "chunk_id": "6fb4cd63-468c-4be0-a995-0602d29e0d0a",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "ordem": 744,
+          "paginas": "314",
+          "secao": "8 – civis que colaboraram com a ditadura",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Este texto foi elaborado sob a responsabilidade da conselheira Rosa \nMaria Cardoso da Cunha.\n\nPesquisas, investigações e redação foram desenvolvidas pelos pesquisadores Demian Bezerra de Melo, \nRenato Lemos, Marcos Arruda, Luiz Mário Behnken, Elaine \nBortone, Pedro Campos, João Roberto Lopes, Martina Spohr, \nRejane Hoeveler, Marco Pestana e João Braga Arêas, como parte \ndas atividades do Grupo de Trabalho da Comissão Nacional da \nVerdade sobre o Estado Ditatorial-Militar.\n\nEm 1964, o Brasil era um país relativamente industrializado e que vivia uma etapa decisiva \nde sua urbanização.\n\nEra, portanto, uma sociedade com notável grau de complexidade e diversificação.\n\nUma ditadura de mais de duas décadas não poderia ter se sustentado sem o apoio de parcelas importantes da sociedade brasileira, além dos próprios militares.\n\nA participação de setores civis no golpe \nde Estado de 1964, na efetivação do regime autoritário e posteriormente na montagem da própria \nestrutura da repressão é uma dimensão crucial daquele processo histórico.\n\nEntendemos, assim, que a \nditadura não foi um fenômeno exclusivamente militar, embora as Forças Armadas tenham assumido \nposição frontal naquele regime.\n\nEm relação ao golpe, sabe-se que governadores de alguns dos mais importantes estados da \nfederação deram suporte à deposição do governo João Goulart, como Carlos Lacerda, na Guanabara; \nAdemar de Barros, em São Paulo; Magalhães Pinto, em Minas Gerais; Ildo Meneghetti, no Rio Grande \ndo Sul; e Mauro Borges, em Goiás.",
+          "cosseno_python_javascript": 0.9999999999997768,
+          "ranking": {
+            "chunk_id": "6fb4cd63-468c-4be0-a995-0602d29e0d0a",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8362224098710663
+          }
+        },
+        {
+          "chunk_id": "2db0b685-0738-4f74-b88c-e53f4240429b",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "ordem": 745,
+          "paginas": "314",
+          "secao": "8 – civis que colaboraram com a ditadura",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Setores expressivos da Igreja católica, por meio da Conferência \nNacional dos Bispos do Brasil (CNBB), bem como outras entidades que notoriamente contribuíram \npara o restabelecimento das liberdades democráticas, como a Ordem dos Advogados do Brasil (OAB) \ne a Associação Brasileira de Imprensa (ABI), chancelaram a deposição do presidente João Goulart.\n\nAo longo da ditadura militar, civis ocuparam posições relevantes na condição de ministros \nde Estado e na administração de empresas estatais, obtendo benefícios com o poder militar ou auferindo contrapartidas financeiras.\n\nEntre esses civis, destacam-se não só os dos diversificados setores que \napoiaram o regime, mas principalmente aqueles que estiveram em posições relevantes e com poder \ndecisório, financiaram a estrutura da repressão e se beneficiaram com a ordem autoritária.\n\nEm primeiro \nlugar, observa-se a participação direta de civis na preparação e execução do golpe.\n\nA) O lado civil do golpe de 1964\nO movimento militar que depôs João Goulart iniciou-se com um deslocamento de tropas \nlideradas pelo general Olympio Mourão Filho, de Juiz de Fora para o então estado da Guanabara, \npois, embora a capital da República já tivesse sido transferida para Brasília, em 1960, ainda estava no \nRio de Janeiro a maior parte das estruturas administrativas federais, os ministérios, as sedes das representações diplomáticas e, principalmente, uma das residências oficiais da presidência da República, \no Palácio das Laranjeiras.",
+          "cosseno_python_javascript": 0.9999999999997937,
+          "ranking": {
+            "chunk_id": "2db0b685-0738-4f74-b88c-e53f4240429b",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8353553909110814
+          }
+        },
+        {
+          "chunk_id": "669f9b7d-0af9-4c9e-9031-d1d78bd23d93",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "ordem": 746,
+          "paginas": "314-315",
+          "secao": "8 – civis que colaboraram com a ditadura",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "O movimento militar desencadeado pelo general Mourão foi apoiado pela \niniciativa do governador Magalhães Pinto, da União Democrática Nacional (UDN), e fazia parte de \numa articulação de caráter nacional entre elites civis e militares.1 \nMagalhães Pinto havia tomado uma série de iniciativas que pretendiam construir uma espécie de governo alternativo, como a nomeação de três secretários sem pasta, respectivamente, José Maria\n\nde Alckimin, Milton Campos e Afonso Arinos de Melo Franco, além da mobilização da Polícia Militar \nmineira para a ocupação de áreas estratégicas do estado.\n\nComo explicou o próprio Afonso Arinos em \nsuas memórias, publicadas um ano depois:\n[...] em fins de março, Magalhães enviou ao Rio Osvaldo Pierrucetti, em avião especial, para buscar-me.\n\nEu seria nomeado secretário do governo, com o fim especial de \nobter, no exterior, o reconhecimento do estado de beligerância, caso a revolução se \ntransformasse em guerra civil demorada, como justificadamente receávamos.2 \nO governador mineiro havia garantido ao general Carlos Luís Guedes, comandante \nda 4ª Divisão de Infantaria, sediada em Belo Horizonte, o efetivo de 13 mil homens da Polícia \nMilitar para efetuar o levante armado.\n\nPor sua vez, como deixou claro no trecho transcrito acima, \npor meio do acordo a ser firmado entre ele, Afonso Arinos de Melo Franco, e agentes do governo \nestadunidense, especialmente o embaixador Lincoln Gordon, o governo mineiro pretendia declarar-se em “estado de beligerância”.\n\nIsso para que, diante da resistência legalista de João Goulart a \npartir do Rio Grande do Sul, o movimento sedicioso pudesse receber ajuda de potências estrangeiras.",
+          "cosseno_python_javascript": 0.9999999999998237,
+          "ranking": {
+            "chunk_id": "669f9b7d-0af9-4c9e-9031-d1d78bd23d93",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.829488649964863
+          }
+        }
+      ]
+    },
+    {
+      "pergunta_id": "P18",
+      "pergunta": "Que participação empresarial no apoio à repressão está documentada no acervo?",
+      "rotulo": "G3",
+      "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+      "paginas_esperadas": [
+        3
+      ],
+      "chunks_indexados": 2,
+      "melhor_posicao": null,
+      "maior_similaridade_alvo": 0.854326503006249,
+      "similaridade_corte_500": 0.858127159438397,
+      "chunks": [
+        {
+          "chunk_id": "69bd0d33-9093-4300-a1a2-3a6c989a942d",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "ordem": 0,
+          "paginas": "1-3",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "TOMO I\n\nMarço \n2015\n\nTOMO I\n\nPARTE 1 \nESTRUTURAS E SISTEMAS DE REPRESSÃO\n\nMarço \n2015\n\nCadeias de comando: a formação da estrutura nacional de repressão política\n\nA Comissão da Verdade do Estado de São Paulo “Rubens Paiva”, em \nparceria com a Comissão Nacional da Verdade (CNV), apresentou, em audiência \npública no dia 20 de setembro de 2013, em parceria com a Comissão Nacional da Verdade \n(CNV), a estrutura de funcionamento do terrorismo de Estado implantado a partir de \n1964, constituído através de ampla rede das Forças Armadas com apoio de \nempresas e outras entidades privadas. O estudo foi feito partir de documentos \ncompilados dos órgãos de repressão e registros acumulados difundidos em livros e \ndemais publicações. Para a tese de que a violência ocorria de forma oculta \nimplicando, responsabilidades apenas aos agentes que atuavam nos centros de \nrepressão, foram revelados em documentos formulados pelos próprios membros do \nsistema de repressão os quais indicam como tudo acontecia sob o conhecimento, \ninclusive, dos presidentes impostos pela Ditadura. \nNa audiência pública realizada no mês de setembro de 2013, a Comissão da \nVerdade “Rubens Paiva” e a CNV demonstraram na apresentação, como uma das \nfontes principais de análise do estudo, os registros dos arquivos da Comunidade \nSetorial de Informações do Ministério da Marinha (CSIMM). Na estrutura que foi \narquitetada, muitos órgãos se destacaram pelo papel de atuação não só no que diz \nrespeito ao mapeamento de informações, mas pelo papel que representavam esses \ndados para repressão dos movimentos contra a ditadura. A CNV, ao apresentar seu \nrelatório, registrou antecedentes do que hoje chamamos de “serviço de inteligência”.",
+          "cosseno_python_javascript": 0.9999999999998037,
+          "ranking": {
+            "chunk_id": "69bd0d33-9093-4300-a1a2-3a6c989a942d",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.854326503006249
+          }
+        },
+        {
+          "chunk_id": "5c42146c-4705-4ce5-a175-a3faa80f33b6",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "ordem": 1,
+          "paginas": "3",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "No Brasil, as primeiras preocupações com a montagem de uma estrutura \nsemelhante ao que hoje é um serviço de inteligência remontam à \ninstitucionalização, em 1927, do Conselho de Defesa Nacional (CDN), \ncomposto pelo presidente da República e seus ministros civis e militares, \nalém dos chefes dos Estados-Maiores. Segundo o Decreto no 17.999/1927, \no órgão tinha caráter consultivo e suas atribuições correspondiam ao estudo \ne à coordenação de informações sobre todas as questões de ordem \nfinanceira, econômica, bélica e moral, relativas à defesa da pátria. Tinha \ncomo maior preocupação o acompanhamento do movimento operário, \neventuais repercussões da Revolução Russa de 1917 e os impactos das \ncrises econômicas no país, tudo ainda muito pouco articulado. Em 1934, a \nentidade foi reorganizada como o Conselho Superior de Segurança \nNacional (CSSN), com nova composição: uma Comissão de Estudos de \nSegurança Nacional, a secretaria-geral de Segurança Nacional e as Seções \nde Segurança Nacional, uma em cada ministério. Essas seções, embora em \num primeiro momento não fossem propriamente consideradas órgãos \ncomplementares da política de informações, eram um prenúncio de que \nesse planejamento deveria abranger, da maneira mais ampla possível, \ntodas as ações do Estado. Os objetivos principais do conselho eram:",
+          "cosseno_python_javascript": 0.9999999999998199,
+          "ranking": {
+            "chunk_id": "5c42146c-4705-4ce5-a175-a3faa80f33b6",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8070106454699817
+          }
+        }
+      ]
+    },
+    {
+      "pergunta_id": "P23",
+      "pergunta": "A repressão atingiu grupos além das organizações envolvidas na luta armada?",
+      "rotulo": "F9",
+      "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+      "paginas_esperadas": [
+        9
+      ],
+      "chunks_indexados": 1,
+      "melhor_posicao": null,
+      "maior_similaridade_alvo": 0.8345147193309677,
+      "similaridade_corte_500": 0.860497277826896,
+      "chunks": [
+        {
+          "chunk_id": "d23cb0ef-7664-44c9-b8e1-e16b3b36ae99",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "ordem": 2,
+          "paginas": "9-12",
+          "secao": "1 – violações de direitos humanos no meio militar",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Apresentação\nO presente volume do Relatório da Comissão Nacional \nda Verdade contém um conjunto de textos produzidos sob \na responsabilidade individual de alguns dos conselheiros \nda Comissão. Inclusive parte desses textos foi elaborada a \npartir da atividade desenvolvida por grupos de trabalho \nconstituídos no âmbito da própria Comissão, integrando \nvítimas, familiares, pesquisadores ou interessados na \nmemória dos temas e das pessoas investigados.\nOs textos referem-se a violações de direitos humanos \nocorridas em diferentes segmentos, grupos ou movimentos \nsociais, a exemplo de militares, trabalhadores urbanos \ne rurais, camponeses, povos indígenas, membros de \nigrejas cristãs, homossexuais, docentes e estudantes \nuniversitários. Também integram este volume textos que \nregistram a reação de muitos que resistiram à ditadura \nmilitar a partir de seus ofícios, suas atividades e seu \ncotidiano, assim como a participação dos civis no golpe \ne no regime ditatorial, notadamente de empresários.\nO conselheiro que redigiu ou supervisionou a produção \ndo texto, os assessores da Comissão e os colaboradores \nexternos que participaram de sua elaboração estão \nidentificados no início de cada contribuição.\nBrasília, 10 de dezembro de 2014.\nCOMISSÃO NACIONAL DA VERDADE\n\ntexto\nviolações de direitos \nhumanos no meio militar\n\nEste texto foi elaborado sob a responsabilidade da conselheira Rosa \nMaria Cardoso da Cunha.\n\nPesquisas, investigações e redação foram desenvolvidas pelos pesquisadores da Comissão Nacional \nda Verdade Paulo Ribeiro da Cunha, Wilma Antunes Maciel, \nGuilherme Bravo e João Vicente Nascimento Lins, como parte das \natividades do Grupo de Trabalho sobre a Perseguição a Militares.",
+          "cosseno_python_javascript": 0.9999999999998095,
+          "ranking": {
+            "chunk_id": "d23cb0ef-7664-44c9-b8e1-e16b3b36ae99",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8345147193309677
+          }
+        }
+      ]
+    },
+    {
+      "pergunta_id": "P23",
+      "pergunta": "A repressão atingiu grupos além das organizações envolvidas na luta armada?",
+      "rotulo": "D94",
+      "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+      "paginas_esperadas": [
+        94
+      ],
+      "chunks_indexados": 2,
+      "melhor_posicao": null,
+      "maior_similaridade_alvo": 0.8351762521125948,
+      "similaridade_corte_500": 0.860497277826896,
+      "chunks": [
+        {
+          "chunk_id": "4a680fac-c92e-4bec-87ff-e8ee41362a8a",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "ordem": 124,
+          "paginas": "94",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "III.\n\nVIOLAÇÕES AOS DIREITOS HUMANOS \nDOS CAMPONESES\nOs relatos e casos presentes neste relatório mostram a variedade das formas como a repressão política atingiu os camponeses entre 1946 e 1988, com \ndestaque para o período entre 1964 e 1985, durante a vigência da ditadura civilmilitar no Brasil.\n\nAtravés deles podemos observar como os trabalhadores e trabalhadoras rurais e seus apoiadores tiveram seus direitos humanos violados, de \nmodo sistemático, por agentes do Estado e privados, que, muitas vezes, agiam de \nforma articulada.\n\nEsse fato revela a dupla perseguição a que estavam submetidos \nos camponeses, expostos a tipos diversos de violências: torturas, mortes, desaparecimentos, ocultação de cadáveres, ameaças, despejos, agressões físicas, prisões, \nexílios (no exterior e no próprio país), destruição de bens, entre outras.\n\nA CNV tem por ﬁnalidade apurar e esclarecer as graves violações de direitos humanos.\n\nO GT sobre violações de direitos humanos cometidas por motivações políticas relacionadas à luta pela terra e contra populações indígenas ﬁcou \nincumbido de esclarecer fatos, circunstâncias e autorias de casos de graves violações de direitos humanos, como torturas, mortes, desaparecimentos forçados, \nocultação de cadáveres, relacionados aos referidos grupos, identiﬁcando e publicizando estruturas, locais, instituições e circunstâncias dessas violações.\n\nEntretanto, conforme já discutido, a compreensão do que deve ser considerado como \ngrave violação de direitos tem que ser alargada, englobando as várias situações de \nrepressão que atingiram os trabalhadores.",
+          "cosseno_python_javascript": 0.9999999999998166,
+          "ranking": {
+            "chunk_id": "4a680fac-c92e-4bec-87ff-e8ee41362a8a",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8351762521125948
+          }
+        },
+        {
+          "chunk_id": "8fb02278-78e8-4366-b547-4f445e8896de",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "ordem": 125,
+          "paginas": "94-95",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "3.1 \nRESISTÊNCIA E REPRESSÃO AOS CAMPONESES NO PÓSgOLPE DE 1964 \nNa historiograﬁa oﬁcial não é muito comum, quando acontece, fazer referência às resistências camponesas ao golpe civil-militar de 1964.\n\nDe uma maneira \ngeral, é possível aﬁrmar que as pretensões de resistência ao golpe não se conﬁrmaram, nem nas ﬁleiras dos militares legalistas, nem entre as forças populares.\n\nContudo, em respeito aos que resistiram, algumas manifestações esparsas contra \no golpe de 1964 merecem ser citadas: \na) o comício em Porto Alegre, no dia 1o de abril de 1964, convocado por \nBrizola e pelas forças progressistas;\nb) a greve parcial dos trabalhadores, no Rio de Janeiro; algumas manifestações operárias, como a dos mineiros de Morro Velho, Nova Lima (MG), \nno dia 1o de abril de 1964;\nc) a Liga Camponesa de Vitória do Santo Antão (PE) que ocupou a rádio \nlocal e fez manifestação na praça com intenção de marchar até Recife;\nd) a mobilização de quatrocentos camponeses pelo STR de Rio Formoso \n(PE) que pretendiam marchar a Recife, mas se dispersaram diante da notícia da prisão de governador Miguel Arraes;\ne) Gregório Bezerra mobilizou camponeses de Palmeira que entram em \ngreve; Osias da Silva mobilizou camponeses de Ipijuca e acabou preso; \nAmaro Fernandes fez o mesmo em Timbaúba; Belmiro do Nascimento e \nJurandir Ferreira da Silva também o ﬁzeram em Serinhaém (Pernambuco);\nf) a tentativa de articulação de resistência por Grupos dos Onze, em Passo \nFundo (RS).",
+          "cosseno_python_javascript": 0.9999999999998296,
+          "ranking": {
+            "chunk_id": "8fb02278-78e8-4366-b547-4f445e8896de",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8298035254615316
+          }
+        }
+      ]
+    },
+    {
+      "pergunta_id": "P23",
+      "pergunta": "A repressão atingiu grupos além das organizações envolvidas na luta armada?",
+      "rotulo": "F204/206",
+      "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+      "paginas_esperadas": [
+        204,
+        206
+      ],
+      "chunks_indexados": 5,
+      "melhor_posicao": null,
+      "maior_similaridade_alvo": 0.8391457420059594,
+      "similaridade_corte_500": 0.860497277826896,
+      "chunks": [
+        {
+          "chunk_id": "b9f3440b-b20e-4b78-bdd5-5e1ff24f8a6c",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "ordem": 471,
+          "paginas": "204",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Este texto foi elaborado sob a responsabilidade da conselheira Maria Rita Kehl.\n\nPesquisas, investigações e redação foram \ndesenvolvidas com a colaboração da Comissão da Verdade \nIndígena, como parte das atividades do Grupo de Trabalho \nda Comissão Nacional da Verdade sobre Graves Violações de \nDireitos Humanos no Campo ou contra Indígenas.\n\nO resultado \nnão teria sido o mesmo, não fosse o amplo processo de interlocução e colaboração com a sociedade civil na coleta, tratamento e sistematização dos dados analisados.\n\nFoi essencial o \napoio dos pesquisadores Beto Ricardo, Cleber Buzzato, Clovis \nBrighenti, Daniel Pierri, Egon Heck, Egydio Schwade, Fany \nRicardo, Gilberto Azanha, Ian Packer, Iara Ferraz, Inimá \nSimões, Isabel Harari, Laura Faerman, Levi Marques Pereira, \nLuis Francisco de Carvalho Dias, Luiz Henrique Eloy Amado, \nManuela Carneiro da Cunha, Marcelo de Souza Romão, \nMarcelo Zelic, Marco Antonio Delfino de Almeida, Maria \nInês Ladeira, Neimar Machado de Sousa, Orlando Calheiros, \nPatrícia de Mendonça Rodrigues, Porfírio Carvalho, Rafael \nPacheco Marinho, Rogerio Duarte do Pateo, Spensy Pimentel, \nTatiane Klein e Vincent Carelli.\n\nAgradecemos especialmente a \ntodos os indígenas que prestaram depoimentos para esta pesquisa \ne que lutam pela busca da memória, da verdade e da justiça em \nrelação às graves violações promovidas pelo Estado contra os seus \npovos, que é mácula para toda a sociedade brasileira.\n\nA) Resumo executivo\n1.\n\nUma política de Estado de ação e omissão\nOs povos indígenas no Brasil sofreram graves violações de seus direitos humanos no período entre 1946 e 1988.",
+          "cosseno_python_javascript": 0.999999999999788,
+          "ranking": {
+            "chunk_id": "b9f3440b-b20e-4b78-bdd5-5e1ff24f8a6c",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8327916169043165
+          }
+        },
+        {
+          "chunk_id": "91d436e4-22a8-4aa7-9209-ce66265e212c",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "ordem": 472,
+          "paginas": "204-205",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "O que se apresenta neste capítulo é o resultado de casos documentados, uma \npequena parcela do que se perpetrou contra os índios.\n\nPor eles, é possível apenas entrever a extensão \nreal desses crimes, avaliar o quanto ainda não se sabe e a necessidade de se continuar as investigações.\n\n1\nNão são esporádicas nem acidentais essas violações: elas são sistêmicas, na medida em que \nresultam diretamente de políticas estruturais de Estado, que respondem por elas, tanto por suas ações \ndiretas quanto pelas suas omissões.\n\nOmissão e violência direta do Estado sempre conviveram na política indigenista, mas \nseus pesos respectivos sofreram variações.\n\nPoder-se-ia assim distinguir dois períodos entre 1946 e \n1988, o primeiro em que a União estabeleceu condições propícias ao esbulho de terras indígenas e \nse caracterizou majoritariamente (mas não exclusivamente) pela omissão, acobertando o poder local, \ninteresses privados e deixando de fiscalizar a corrupção em seus quadros; no segundo período, o \nprotagonismo da União nas graves violações de direitos dos índios fica patente, sem que omissões \nletais, particularmente na área de saúde e no controle da corrupção, deixem de existir.\n\nNa esteira do \nPlano de Integração Nacional, grandes interesses privados são favorecidos diretamente pela União,\n\natropelando direitos dos índios.\n\nA transição entre os dois períodos pode ser datada: é aquela que se \ninicia em dezembro de 1968, com o AI-5.\n\nComo resultados dessas políticas de Estado, foi possível estimar ao menos 8.350 indígenas \nmortos no período de investigação da CNV, em decorrência da ação direta de agentes governamentais \nou da sua omissão.",
+          "cosseno_python_javascript": 0.9999999999998098,
+          "ranking": {
+            "chunk_id": "91d436e4-22a8-4aa7-9209-ce66265e212c",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8192998252959559
+          }
+        },
+        {
+          "chunk_id": "215f836a-f3ff-40d6-aa5a-805f3c6b08a8",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "ordem": 475,
+          "paginas": "205-206",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Recentemente também, em julgamento histórico – do caso \ndos Aikewara –, a Comissão da Anistia do Ministério da Justiça reconheceu a ação de repressão e \nexceção por parte do Estado brasileiro contra “o conjunto de uma comunidade indígena”, e pediu\n\noficialmente perdão, sendo esta a primeira conquista do movimento indígena rumo a um novo \nmarco no conceito de Justiça de Transição.\n\n4.\n\nO papel da Comissão Nacional da Verdade\nCabe agora à Comissão Nacional da Verdade pronunciar-se.\n\nA apuração de violações contra os povos indígenas foi incluída nos trabalhos da Comissão \nNacional da Verdade visando ampliar o entendimento da sociedade sobre a abrangência da ação \nde um Estado repressor na vida dos cidadãos.\n\nPrisões, torturas, maus-tratos, assassinatos e desaparecimentos forçados aconteceram contra todos os segmentos atingidos pela violência do Estado \nno período entre 1946 e 1988, mesmo aqueles em que os enfrentamentos se deram por motivações \npolíticas, contextos e formas de resistência distintos das situações vividas pelas organizações de \nesquerda urbanas e rurais.\n\nDenúncias surgiram nos depoimentos prestados em audiências públicas e visitas da CNV \naos povos indígenas atingidos, bem como em documentos produzidos pelo próprio Estado nos períodos do SPI e da Funai, e também nos relatórios de casos sistematizados e enviados ao grupo de \ntrabalho pela sociedade civil.\n\nDevido à pouca sistematização sobre esse tipo de violações contra indígenas no Brasil, coube à \nComissão Nacional da Verdade trazer o assunto à luz do dia e apontar à sociedade que os índios no Brasil \ntambém foram atingidos pela violência do Estado: esta investigação precisa de continuidade para que esses \npovos participem e sejam beneficiados pelo processo de justiça transicional em desenvolvimento no Brasil.\n\nB) Introdução\n1.",
+          "cosseno_python_javascript": 0.9999999999997837,
+          "ranking": {
+            "chunk_id": "215f836a-f3ff-40d6-aa5a-805f3c6b08a8",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8391457420059594
+          }
+        },
+        {
+          "chunk_id": "6fe39775-2737-4716-9691-9f192a91f777",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "ordem": 476,
+          "paginas": "206",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "Política fundiária e esbulho de terras indígenas\nSão os planos governamentais que sistematicamente desencadeiam esbulho das terras indígenas.\n\nNa década de 1940, Getúlio Vargas inicia uma política federal de exploração e ocupação do \nCentro-Oeste por colonos – a chamada “Marcha para o Oeste” – contatando populações indígenas \nisoladas e favorecendo a invasão e titulação de terras indígenas a terceiros.\n\nEssa política de “colonização \ndirigida” já vinha sendo adotada por vários governos estaduais e se encontra desse modo reforçada.\n\nEntre 1930 e 1960, o governo do estado do Paraná titula terras indígenas para empresas \nde colonização e particulares no oeste do estado.\n\nO governo de Moysés Lupion, em particular, notabiliza-se por práticas de espoliação de terras indígenas.\n\nOs interesses econômicos de proprietários \nse faziam representar nas instâncias de poder local para pressionar o avanço da fronteira agrícola \nsobre áreas indígenas.\n\nEm 1958, deputados da Assembleia Legislativa de Mato Grosso aprovaram o \nProjeto de Lei n° 1.077,4 que tornava devolutas as terras dos índios Kadiweu.\n\nEm 1961, o Supremo \nTribunal Federal decide pela inconstitucionalidade da lei,5 mas, a essa altura, estava estabelecida \na invasão, uma vez que as terras já tinham sido loteadas (Ribeiro, 1962, pp.",
+          "cosseno_python_javascript": 0.9999999999998086,
+          "ranking": {
+            "chunk_id": "6fe39775-2737-4716-9691-9f192a91f777",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8003025171841422
+          }
+        },
+        {
+          "chunk_id": "94ed1230-bc05-45e8-98ae-46028f03007e",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "ordem": 477,
+          "paginas": "206-207",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "subsecao": null,
+          "tipo_chunk": "corpo",
+          "conteudo": "108-112).6 Além das \ninvasões propriamente ditas, eram comuns arrendamentos de terras que não obedeciam às condições \ndo contrato – quando este havia – ocupando enormes extensões de terras indígenas; constituindo, \nem alguns casos, situação de acomodação das irregularidades (invasões praticadas e posteriormente \nlegalizadas pelo SPI por meio de contratos de arrendamento).7\n\nO relatório da Comissão de Investigação do Ministério do Interior de 1967,8 presidida pelo \nprocurador Jader de Figueiredo Correia, constata a existência de problemas desse tipo em quase todo \no território nacional e, no caso do esbulho ocorrido no sul do antigo estado do Mato Grosso, traz \nanexa lista de nomes de beneficiados com terras indígenas e suas vinculações com políticos, juízes, \nmilitares e funcionários públicos.9\nA articulação dessas políticas regionais com um projeto nacional é explicitada, por exemplo, \nnas resoluções e recomendações aprovadas pela I Conferência Brasileira de Imigração e Colonização, \nrealizada entre abril e maio de 1949, em Goiânia, pelo Conselho de Imigração e Colonização (CIC).\n\nSegundo elas (BRASIL, 1949a, p:4),10 a “delimitação das terras habitadas pelos índios” deveria ser \nacompanhada pelo estabelecimento de colonizações em moldes técnicos nas proximidades: “Facilitarse-ia, assim, não só a penetração e o desbravamento do hinterland brasileiro, como também a assimilação desses nossos patrícios por um processo de aculturação” (Idem).",
+          "cosseno_python_javascript": 0.9999999999998443,
+          "ranking": {
+            "chunk_id": "94ed1230-bc05-45e8-98ae-46028f03007e",
+            "posicao": null,
+            "similaridade": null,
+            "similaridade_direta": 0.8176711196619557
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-# Contrato de API — Projeto Bacuri (v1.4 — naturalidade, período e vínculos, ADR-016, 17/06/2026)
+# Contrato de API — Projeto Bacuri (v1.6 — continuidade documental assinada, ADR-030, 14/09/2026)
 
 > Fechado na Fase 2 (Análise/Contrato) a partir do rascunho v0.1, incorporando as
 > pendências dos ADRs 001, 003 e 005 (ver `docs/decisoes.md`) e alinhando os tipos ao
@@ -22,7 +22,7 @@ Códigos: ENTRADA_INVALIDA, ACERVO_SEM_RESULTADO, LIMITE_EXCEDIDO, ERRO_INTERNO,
 
 ### POST /api/chat
 Pergunta do usuário → resposta com citações.
-- Request: `{ "mensagem": string (3..1000 chars), "historico"?: Mensagem[] (máx. 6) }`
+- Request: `{ "mensagem": string (3..1000 chars), "historico"?: Mensagem[] (máx. 6), "continuidade"?: { "token": string (máx. 2048 chars) } }`
 - Response 200:
 ```json
 {
@@ -30,12 +30,43 @@ Pergunta do usuário → resposta com citações.
   "resposta": "texto em markdown com marcadores [1], [2]...",
   "citacoes": [Citacao],
   "sugestoes_pesquisa": ["string"],
-  "interacao_id": "uuid"
+  "interacao_id": "uuid",
+  "token_continuidade": "string opcional"
 }
 ```
+- `token_continuidade`: referência opaca, assinada pelo servidor e válida por 30
+  minutos. É emitida somente quando a resposta possui citações e a variável secreta
+  `CONTINUIDADE_TOKEN_SECRET` está configurada. Contém versão, emissão, expiração,
+  nonce e no máximo oito `fonte_id`; não contém pergunta, resposta, IP ou identidade.
+  O cliente a mantém apenas em memória e a envia somente no seguimento da resposta
+  imediatamente anterior. Token ausente, inválido, expirado ou adulterado é ignorado
+  e a busca geral continua, sem revelar detalhes de validação. O token não autoriza
+  leitura de interações e não prova aprovação editorial das fontes citadas.
 - `resumo`: síntese didática (2–3 frases) exibida **antes** da resposta completa, em linguagem acessível. Gerado na mesma chamada ao LLM (economia de tokens): o modelo devolve `RESUMO\n---\nRESPOSTA`, e o servidor separa no primeiro `---`. Plano B (modelo não seguiu o formato): `resumo: ""` e a resposta completa preservada inteira. **Salvaguarda editorial (curador, Princípio 3)**: o resumo não traz marcadores `[n]` nem afirma nada além do que a resposta citada sustenta; é sempre exibido junto da resposta completa e da lista de fontes, nunca isolado. Recurso futuro de copiar/compartilhar só o resumo reabre essa análise (aí o resumo teria de levar as fontes junto).
 - Se a busca não atingir o limiar de relevância: 200 com `citacoes: []`, `resumo: ""` e resposta honesta padrão (não há base documental + sugestões). **Nunca** resposta factual sem citação.
-- **Fluxo interno (RAG)**: embedding da pergunta gerado no próprio servidor Next.js (Transformers.js em Node, `intfloat/multilingual-e5-small`, mesmo modelo da indexação — ADR-007; a Edge Function do free tier do Supabase não comporta o modelo) → RPC `buscar_chunks` (limiar 0.82 — migração 0004; até 8 trechos — valores padrão da função; ajustes mudam primeiro a migração) → LLM de geração definido por `LLM_PROVIDER` (padrão Groq; trocável por OpenRouter/Ollama sem mudar o contrato).
+- **Fluxo interno (RAG)**: antes da busca, pedidos explícitos de contato pessoal,
+  ordens para fabricar citação e referências sem antecedente no histórico recebem
+  resposta segura determinística, com `citacoes: []`, sem enviar trechos ao LLM. Nas
+  continuações com referente dependente do histórico, o embedding combina a última
+  pergunta do usuário com a mensagem atual; respostas anteriores do assistente não
+  entram na consulta de recuperação. Nos demais casos, o embedding usa apenas a
+  pergunta atual. O embedding é gerado no servidor Next.js (Transformers.js em Node,
+  `intfloat/multilingual-e5-small`, mesmo modelo da indexação — ADR-007) → RPC
+  `buscar_chunks` (limiar 0.82; até 8 trechos) → LLM definido por `LLM_PROVIDER`.
+- Quando a pergunta depende do histórico, não declara mudança explícita de assunto e
+  traz token válido, o servidor também chama a RPC restrita
+  `buscar_chunks_textuais_por_fontes` com até oito fontes e quatro candidatos por
+  fonte. Candidatos textuais precisam conter ao menos dois termos substantivos
+  distintos da consulta contextual. Os candidatos são ordenados pela relevância
+  textual, deduplicados por `chunk_id` e intercalados com a lista vetorial, começando
+  pela vetorial, até oito trechos; faltas de um ramo são preenchidas pelo outro.
+  Escores textual e vetorial não são somados nem comparados. Os metadados completos
+  dos candidatos textuais são recarregados antes do prompt. Este é um parâmetro
+  experimental congelado para os casos de desenvolvimento CF01–CF06; promoção ao
+  produto exige lote independente posterior.
+- Telefones pessoais e endereços de e-mail encontrados no corpo dos documentos são
+  substituídos por `[contato pessoal omitido]` antes de montar o prompt, a resposta e
+  o trecho público da citação. A URL bibliográfica da fonte permanece disponível.
 - O prompt do LLM recebe `tipo_chunk`, `confiabilidade` e `nota_contexto` de cada trecho e a resposta preserva os marcadores `[n]` na ordem de `citacoes`.
 
 ### POST /api/feedback

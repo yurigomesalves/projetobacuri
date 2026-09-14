@@ -1,0 +1,139 @@
+{
+  "resumo": {
+    "executado_em": "2026-09-09T17:40:39.795Z",
+    "estrategia": "fonte_oraculo_e_busca_textual_postgresql",
+    "observacao": "A fonte correta é fornecida ao experimento; isto não mede o roteamento de fontes.",
+    "quantidade_por_fonte": 100,
+    "unidades_evidencia": 10,
+    "encontradas_top_50": 7,
+    "recall_candidato_50": 0.7,
+    "encontradas_top_100": 8,
+    "recall_candidato_100": 0.8
+  },
+  "resultados": [
+    {
+      "pergunta_id": "P14",
+      "rotulo": "C47-50",
+      "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+      "paginas_esperadas": [
+        47,
+        48,
+        49,
+        50
+      ],
+      "posicao": 25,
+      "encontrado_top_50": true,
+      "encontrado_top_100": true,
+      "quantidade_retornada": 100
+    },
+    {
+      "pergunta_id": "P14",
+      "rotulo": "D94",
+      "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+      "paginas_esperadas": [
+        94
+      ],
+      "posicao": 46,
+      "encontrado_top_50": true,
+      "encontrado_top_100": true,
+      "quantidade_retornada": 100
+    },
+    {
+      "pergunta_id": "P15",
+      "rotulo": "E350",
+      "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+      "paginas_esperadas": [
+        350
+      ],
+      "posicao": 22,
+      "encontrado_top_50": true,
+      "encontrado_top_100": true,
+      "quantidade_retornada": 100
+    },
+    {
+      "pergunta_id": "P16",
+      "rotulo": "F204",
+      "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+      "paginas_esperadas": [
+        204
+      ],
+      "posicao": 9,
+      "encontrado_top_50": true,
+      "encontrado_top_100": true,
+      "quantidade_retornada": 100
+    },
+    {
+      "pergunta_id": "P17",
+      "rotulo": "F395",
+      "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+      "paginas_esperadas": [
+        395
+      ],
+      "posicao": null,
+      "encontrado_top_50": false,
+      "encontrado_top_100": false,
+      "quantidade_retornada": 100
+    },
+    {
+      "pergunta_id": "P18",
+      "rotulo": "F314",
+      "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+      "paginas_esperadas": [
+        314
+      ],
+      "posicao": 54,
+      "encontrado_top_50": false,
+      "encontrado_top_100": true,
+      "quantidade_retornada": 100
+    },
+    {
+      "pergunta_id": "P18",
+      "rotulo": "G3",
+      "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+      "paginas_esperadas": [
+        3
+      ],
+      "posicao": 2,
+      "encontrado_top_50": true,
+      "encontrado_top_100": true,
+      "quantidade_retornada": 100
+    },
+    {
+      "pergunta_id": "P23",
+      "rotulo": "F9",
+      "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+      "paginas_esperadas": [
+        9
+      ],
+      "posicao": null,
+      "encontrado_top_50": false,
+      "encontrado_top_100": false,
+      "quantidade_retornada": 100
+    },
+    {
+      "pergunta_id": "P23",
+      "rotulo": "D94",
+      "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+      "paginas_esperadas": [
+        94
+      ],
+      "posicao": 31,
+      "encontrado_top_50": true,
+      "encontrado_top_100": true,
+      "quantidade_retornada": 100
+    },
+    {
+      "pergunta_id": "P23",
+      "rotulo": "F204/206",
+      "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+      "paginas_esperadas": [
+        204,
+        206
+      ],
+      "posicao": 20,
+      "encontrado_top_50": true,
+      "encontrado_top_100": true,
+      "quantidade_retornada": 100
+    }
+  ]
+}

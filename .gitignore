@@ -12,6 +12,8 @@
 
 # testing
 /coverage
+/playwright-report/
+/test-results/
 
 # next.js
 /.next/
@@ -55,3 +57,10 @@ __pycache__/
 .~lock.*
 /kit-projetobacuri/
 /kit-projetobacuri.zip
+
+# supabase CLI temp files
+supabase/.temp/
+
+# coleta bruta anterior à correção de privacidade (mantida apenas na máquina local)
+/docs/avaliacao/resultados-conversacionais.json
+/docs/avaliacao/resultados-continuidade.json

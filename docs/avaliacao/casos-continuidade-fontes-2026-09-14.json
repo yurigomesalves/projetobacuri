@@ -1,0 +1,127 @@
+{
+  "versao": "2026-09-14",
+  "status": "aprovado_editorialmente_para_desenvolvimento",
+  "responsavel_revisao": "Yuri Gomes Alves",
+  "data_revisao": "2026-09-14",
+  "execucao_realizada": false,
+  "natureza_do_lote": "Roteiros conversacionais inéditos, formulados a partir de evidências locais já auditadas. São casos de desenvolvimento, não conjunto factual cego ou reservado. Se usados para ajustar parâmetros, não podem validar independentemente o ganho; a promoção requer outro lote após o congelamento.",
+  "precondicao_de_classificacao": "Conferir as citações reais do primeiro turno antes de classificar o caso. Nos casos de mudança de documento, a fonte-alvo do seguimento não pode já estar entre as fontes iniciais; se estiver, registrar precondição não satisfeita, sem remover citações para fabricar a mudança. Ausência da fonte inicial esperada também deve ser registrada.",
+  "limite_operacional": "O coletor atual não executa roteiro de dois turnos com identificadores de fontes. Histórico, citações efetivamente exibidas, UUIDs e resultados só podem ser registrados em execução futura autorizada ou fixture validada.",
+  "casos": [
+    {
+      "id": "CF01",
+      "classe": "mesma_fonte_paginas_distintas",
+      "roteiro_inicial_hipotetico": {
+        "pergunta": "Como o relatório sobre Ismene Mendes critica o inquérito policial?",
+        "evidencia_de_referencia": "C20-24 — Relatório I: Caso Ismene Mendes, páginas físicas 20–24, impressas 25–29."
+      },
+      "seguimento": "E a análise sobre gênero do próprio relatório acrescenta o quê à leitura desse inquérito?",
+      "comportamento_esperado": "Reconhecer que o referente é o inquérito do caso Ismene e buscar a análise de gênero no mesmo relatório, sem supor que a página anterior basta para sustentar o novo recorte.",
+      "rubrica": [
+        "Recupera evidência do mesmo documento em páginas distintas, com prioridade suave para a fonte da etapa inicial.",
+        "Distingue a manifestação da Promotoria de 17/12/1985 da análise posterior da Subcomissão/autora do capítulo.",
+        "Não converte interpretação historiográfica em conclusão do inquérito nem atribui autoria penal sem base documental."
+      ],
+      "evidencias_de_referencia": [
+        "C20-24 — Relatório I: Caso Ismene Mendes, páginas físicas 20–24, impressas 25–29.",
+        "C39-42 — mesmo relatório, páginas físicas 39–42, impressas 48–51."
+      ]
+    },
+    {
+      "id": "CF02",
+      "classe": "mesma_fonte_paginas_distintas",
+      "roteiro_inicial_hipotetico": {
+        "pergunta": "O que eram os DOI-CODI e como se relacionavam com outros órgãos repressivos?",
+        "evidencia_de_referencia": "E138 — Relatório Final da CNV, volume I, página 138, §§100–103."
+      },
+      "seguimento": "E quais efeitos do AI-5 a CNV indica como aprofundamento do ambiente institucional em que essa repressão operava?",
+      "comportamento_esperado": "Manter o vínculo temático com a estrutura repressiva, mas recuperar a passagem específica sobre o AI-5 em outra página do mesmo volume; a fonte anterior não substitui a nova evidência.",
+      "rubrica": [
+        "Busca páginas distintas do Relatório Final da CNV, volume I, sem tratar DOI, CODI, DOPS e DPF como sinônimos.",
+        "Atribui à CNV a caracterização do AI-5 como aprofundamento da violência de Estado, preservando que a repressão já existia desde 1964.",
+        "Não afirma que o AI-5 iniciou toda a repressão nem acrescenta efeitos ausentes da referência."
+      ],
+      "evidencias_de_referencia": [
+        "E138 — Relatório Final da CNV, volume I, página 138, §§100–103.",
+        "E100-101 — mesmo volume, páginas 100–101, §§81–90."
+      ]
+    },
+    {
+      "id": "CF03",
+      "classe": "mudanca_de_documento_no_mesmo_tema",
+      "roteiro_inicial_hipotetico": {
+        "pergunta": "Como o relatório sobre Ismene Mendes documenta a repressão a trabalhadores e sindicalistas rurais no Triângulo Mineiro?",
+        "evidencia_de_referencia": "C47-50 — Relatório I: Caso Ismene Mendes, páginas físicas 47–50, impressas 57–60."
+      },
+      "seguimento": "O Relatório Final da CNV sobre o Araguaia mostra algo semelhante para camponeses?",
+      "comportamento_esperado": "Preservar o tema da violência contra populações rurais, trocar a referência do relatório regional para a CNV e delimitar o caso do Araguaia sem reduzir a população camponesa aos combatentes.",
+      "rubrica": [
+        "A busca geral continua disponível e encontra a evidência da CNV, apesar da prioridade suave da fonte anterior.",
+        "Distingue camponeses de combatentes da guerrilha e reconhece a relevância de detenções clandestinas e barreiras à denúncia conforme a passagem.",
+        "Não transfere automaticamente nomes, locais ou responsabilidades do Triângulo Mineiro para o Araguaia."
+      ],
+      "evidencias_de_referencia": [
+        "C47-50 — Relatório I: Caso Ismene Mendes, páginas físicas 47–50, impressas 57–60.",
+        "E350 — Relatório Final da CNV, volume I, página 350, §§56–58."
+      ]
+    },
+    {
+      "id": "CF04",
+      "classe": "mudanca_de_documento_no_mesmo_tema",
+      "roteiro_inicial_hipotetico": {
+        "pergunta": "Que participação empresarial no apoio à repressão está documentada nos textos temáticos do volume II da CNV?",
+        "evidencia_de_referencia": "F314 — Relatório Final da CNV, volume II, página 314."
+      },
+      "seguimento": "E o Tomo I da Comissão da Verdade do Estado de São Paulo acrescenta o quê sobre apoio privado à estrutura repressiva?",
+      "comportamento_esperado": "Trocar do texto temático da CNV para o Tomo I da CEV-SP, mantendo o recorte de colaboração civil e empresarial sem imputar conduta a entidade específica além do que a evidência nomeia.",
+      "rubrica": [
+        "Prioriza a nova referência documental explicitamente solicitada e não se limita à fonte citada na etapa inicial.",
+        "Trata a CEV-SP como fonte institucional posterior e preserva a atribuição documental de suas afirmações.",
+        "Não nomeia empresas, indivíduos ou formas de colaboração sem apoio na passagem recuperada."
+      ],
+      "evidencias_de_referencia": [
+        "F314 — Relatório Final da CNV, volume II, página 314.",
+        "G3 — Comissão da Verdade do Estado de São Paulo \"Rubens Paiva\", Tomo I, página física 3, sem número impresso visível."
+      ]
+    },
+    {
+      "id": "CF05",
+      "classe": "mudanca_completa_de_assunto",
+      "roteiro_inicial_hipotetico": {
+        "pergunta": "Quais foram os efeitos do AI-5 indicados pela CNV?",
+        "evidencia_de_referencia": "E100-101 — Relatório Final da CNV, volume I, páginas 100–101, §§81–90."
+      },
+      "seguimento": "Mudando de assunto: como o texto temático da CNV explica os limites dos registros de violência contra pessoas LGBT?",
+      "comportamento_esperado": "Reconhecer a mudança explícita de assunto e realizar recuperação geral no texto temático do volume II, sem forçar o contexto do AI-5 ou as fontes anteriores à resposta.",
+      "rubrica": [
+        "Não usa a continuidade de fontes como filtro rígido diante da mudança explícita de assunto.",
+        "Explica as limitações de documentação, monitoramento e denúncia conforme a evidência, sem inferir ausência de violência a partir das lacunas.",
+        "Mantém tom sóbrio e evita generalizações sobre pessoas LGBT sem base documental."
+      ],
+      "evidencias_de_referencia": [
+        "E100-101 — Relatório Final da CNV, volume I, páginas 100–101, §§81–90.",
+        "B — Relatório Final da CNV, volume II, Texto 7 \"Ditadura e homossexualidades\", página 300; usar apenas as frases completas auditadas da página."
+      ]
+    },
+    {
+      "id": "CF06",
+      "classe": "mudanca_completa_de_assunto",
+      "roteiro_inicial_hipotetico": {
+        "pergunta": "Quem foi Ismene Mendes e qual sua atuação junto aos trabalhadores rurais?",
+        "evidencia_de_referencia": "C18 — Relatório I: Caso Ismene Mendes, página física 18, impressa 21."
+      },
+      "seguimento": "Em outro tema, quais violações contra povos indígenas são discutidas nos textos temáticos da CNV?",
+      "comportamento_esperado": "Abandonar o caso individual de Ismene como trilha de recuperação e responder a partir do texto temático da CNV sobre povos indígenas, sem assimilar povos indígenas a organizações armadas ou de esquerda.",
+      "rubrica": [
+        "A busca geral recupera as páginas temáticas da CNV em vez de repetir a fonte regional anterior.",
+        "Apresenta as violações somente nos limites da passagem e registra que os casos documentados não esgotam o ocorrido.",
+        "Não nomeia povos, pessoas ou autores que não estejam na evidência recuperada; não infere marcadores identitários individuais."
+      ],
+      "evidencias_de_referencia": [
+        "C18 — Relatório I: Caso Ismene Mendes, página física 18, impressa 21.",
+        "F204 — Relatório Final da CNV, volume II, página 204.",
+        "F206 — mesmo volume, página 206."
+      ]
+    }
+  ]
+}

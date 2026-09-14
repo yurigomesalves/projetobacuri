@@ -410,3 +410,185 @@
   - **Curadoria/taxonomia**: seção 8.3 da taxonomia; guia de preenchimento nos JSONs
     de `pipeline/dados/curadoria/biografias/`. O marcador `indigena` (6.2) permanece
     obrigatório e independente.
+
+## ADR-020 — Busca híbrida permanece experimental após empate no conjunto-ouro
+- **Data**: 09/09/2026
+- **Contexto**: a recuperação vetorial encontrou 13 das 32 unidades de evidência
+  esperadas no top 8. Foi implementada uma alternativa híbrida que combina busca
+  textual em português e vetorial por Reciprocal Rank Fusion, sem alterar as
+  perguntas, o modelo de embedding ou o limite de resultados.
+- **Decisão técnica**: manter a rota pública `/api/chat` na RPC vetorial
+  `buscar_chunks`. A RPC `buscar_chunks_hibrida` permanece disponível somente para
+  avaliação e desenvolvimento.
+- **Justificativa**: as duas estratégias encontraram 13/32 evidências e acertaram
+  ao menos uma evidência em 13/24 perguntas. A híbrida não produziu ganho agregado
+  e deslocou as evidências de P01 e P05 da posição 1 para a posição 4.
+- **Salvaguarda**: não escolher pesos a partir das 24 perguntas visíveis. Uma nova
+  promoção exige ganho em perguntas reservadas, sem perda editorial relevante.
+- **Registro**: `docs/avaliacao/comparacao-busca-hibrida-2026-09-09.md`.
+
+## ADR-021 — Tabelas de eventos e territórios acessíveis somente pelo servidor
+- **Data**: 09/09/2026
+- **Decisão (Yuri)**: ativar RLS em `eventos_geo`, `evento_fontes`,
+  `evento_marcadores`, `evento_justica_fontes`, `evento_vitimas` e
+  `terras_indigenas`, sem políticas de acesso direto para `anon` ou
+  `authenticated`.
+- **Justificativa**: o navegador usa Supabase somente para autenticação. Os dados
+  passam pelas APIs do servidor com `service_role`, onde são aplicados os filtros
+  editoriais. O acesso direto anterior permitia contornar esses filtros e expunha
+  permissões de escrita aos papéis públicos.
+- **Impacto**: a migração 0025 remove a antiga política ampla de `eventos_geo` e
+  fecha as seis tabelas. As duas APIs públicas foram testadas após a aplicação e
+  responderam HTTP 200. Auditoria em `docs/auditorias/seguranca-rls-2026-09-09.md`.
+
+## ADR-022 — Cobertura das chaves estrangeiras com índices aditivos
+- **Data**: 09/09/2026
+- **Decisão (Yuri)**: criar os 12 índices de cobertura indicados pelo advisor do
+  Supabase nas tabelas de citações, marcadores, biografias, convites, eventos,
+  feedbacks e vínculos entre pessoas e organizações.
+- **Justificativa**: embora as tabelas ainda sejam pequenas, os índices evitam
+  varreduras completas em consultas e na manutenção da integridade referencial à
+  medida que o acervo cresce.
+- **Impacto**: a migração 0026 é somente aditiva e não alterou contagens. O alerta
+  `unindexed_foreign_keys` foi eliminado. Índices simples possivelmente redundantes
+  permanecem até haver dados de uso suficientes para decidir sobre sua remoção.
+- **Registro**: `docs/auditorias/indices-chaves-estrangeiras-2026-09-09.md`.
+
+## ADR-023 — Próxima recuperação deve decompor e diversificar consultas
+- **Data**: 09/09/2026
+- **Contexto**: as 12 evidências ausentes no top 50 estão indexadas, têm conteúdo
+  pertinente e similaridade acima do limiar 0,82, mas ficam além da posição 500.
+  Os embeddings Python e JavaScript também foram confirmados como equivalentes.
+- **Decisão técnica**: não baixar o limiar nem ampliar o top-k para centenas. A
+  próxima experiência deve avaliar decomposição de perguntas compostas, diversidade
+  de fontes e reranqueamento de candidatos.
+- **Salvaguarda**: escolher arquitetura e parâmetros com perguntas reservadas, sem
+  otimizar sobre as 24 perguntas visíveis do conjunto de desenvolvimento.
+- **Registro**: `docs/avaliacao/auditoria-evidencias-fora-top50-2026-09-09.md`.
+
+## ADR-024 — Descartar o primeiro reranqueador e priorizar busca dentro da fonte
+- **Data**: 09/09/2026
+- **Contexto**: o modelo bilíngue
+  `unicamp-dl/mMiniLM-L6-v2-en-pt-msmarco-v2` foi testado sobre 314 candidatos,
+  com as 12 evidências difíceis deliberadamente incluídas para medir o teto de
+  ordenação. Nenhuma evidência chegou ao top 8.
+- **Decisão técnica**: não integrar esse reranqueador. Manter a busca pública
+  inalterada e conduzir a próxima experiência com seleção vetorial de fontes,
+  busca textual restrita a cada fonte e decomposição das perguntas compostas.
+- **Evidência**: a fonte correta já aparece no top 50 vetorial em 9 de 10 pares
+  únicos pergunta–fonte. Dentro da fonte correta, a seleção textual colocou 10/12
+  evidências no top 50 e oito nas primeiras 21 posições.
+- **Pendência editorial**: P24 não nomeia Ismene, embora exija duas evidências desse
+  relatório. O item deve receber histórico explícito ou ser dividido antes da
+  avaliação reservada; o conjunto-ouro não foi alterado automaticamente.
+- **Implementação experimental**: após autorização de Yuri, a migração 0027 criou
+  a RPC `buscar_chunks_textuais_por_fontes`, executável somente por `service_role`.
+  Na implementação PostgreSQL, com a fonte correta fornecida, 9/12 evidências
+  ficaram no top 50 e 10/12 no top 100. Esse teto não mede roteamento automático.
+- **Registro**:
+  `docs/avaliacao/reranqueador-e-roteamento-por-fonte-2026-09-09.md`.
+
+## ADR-025 — Roteamento automático melhora cobertura, mas ainda gera candidatos demais
+- **Data**: 09/09/2026
+- **Contexto**: a primeira etapa vetorial selecionou automaticamente documentos e
+  a RPC da migração 0027 pesquisou os trechos dentro deles, sem injetar as fontes
+  esperadas.
+- **Resultado**: a cobertura do conjunto candidato subiu de 20/32 (62,5%) para
+  28/32 (87,5%). Reduzir de 15 fontes × 100 trechos para 13 × 60 preservou a
+  cobertura e baixou a média das perguntas difíceis de 1.197,3 para 719,3
+  candidatos.
+- **Decisão técnica**: manter a estratégia apenas para avaliação. O volume ainda é
+  alto e não há ordenação final validada para oito trechos.
+- **Próximo critério**: testar decomposição para P17 e P23 e resolver a falta de
+  contexto de P24; qualquer configuração final deve ser verificada em perguntas
+  reservadas.
+- **Registro**:
+  `docs/avaliacao/roteamento-automatico-fontes-2026-09-09.md`.
+
+## ADR-026 — Decomposição curada define teto, não desempenho validado
+- **Data**: 09/09/2026
+- **Contexto**: foram formuladas subconsultas específicas após a leitura das
+  respostas e evidências aprovadas para P14–P18, P23 e P24.
+- **Resultado**: o conjunto candidato alcançou 32/32 evidências, com média de
+  232,4 candidatos nas sete perguntas difíceis, contra 28/32 e média de 719,3 no
+  roteamento 13 × 60 sem decomposição.
+- **Decisão metodológica**: registrar o resultado somente como teto curado. As
+  consultas tiveram acesso ao gabarito e não podem justificar promoção para a
+  busca pública.
+- **Critério de passagem**: gerar subconsultas sem gabarito, avaliar em perguntas
+  reservadas e validar a ordenação final em até oito trechos.
+- **Pendências editoriais**: explicitar o contexto de P24 e reexaminar a
+  segmentação/âncora de P17 antes do teste reservado.
+- **Registro**: `docs/avaliacao/decomposicao-curada-2026-09-09.md`.
+- **Implementação experimental**: após autorização de Yuri, a migração 0027 criou
+  a RPC restrita `buscar_chunks_textuais_por_fontes`. A validação no PostgreSQL,
+  ainda com a fonte correta fornecida ao teste, encontrou 9/12 evidências no top
+  50 e 10/12 no top 100. A rota pública não foi alterada.
+
+## ADR-027 — Separar ausência de registro e crítica do inquérito de Ismene
+- **Data**: 09/09/2026
+- **Decisão (Yuri)**: manter P24 como pergunta geral, apoiada somente na página 350
+  do Volume I da CNV, e criar P31 para avaliar as lacunas do inquérito policial no
+  caso Ismene Mendes, apoiada em C20-24 e C39-42.
+- **Justificativa**: a formulação anterior exigia evidências de Ismene sem nomear o
+  caso. A divisão remove esse contexto implícito e permite avaliar separadamente
+  detenções clandestinas e crítica documental.
+- **Impacto**: o conjunto-ouro passa de 24 para 25 perguntas e mantém as mesmas 32
+  unidades de evidência. P25–P30 continuam reservadas e não foram renumeradas.
+- **Medição após a decisão**: vetorial e híbrida recuperaram 15/32 evidências no
+  top 8; o diagnóstico vetorial encontrou 22/32 no top 50; o roteamento em duas
+  etapas chegou a 29/32; e a decomposição curada chegou a 31/32. P15/E350 ficou
+  fora porque a CNV Volume I não foi selecionada como fonte candidata.
+- **Registro**:
+  `docs/avaliacao/proposta-revisao-p17-p24-2026-09-09.md`.
+
+## ADR-028 — Aprovar lote conversacional P25–P30
+- **Data**: 10/09/2026
+- **Decisão (Yuri)**: aprovar seis testes separados para continuidade de conversa,
+  privacidade, pedido de esclarecimento e resistência à fabricação de citações.
+- **Separação metodológica**: P25–P30 não alteram o recall das 25 perguntas factuais;
+  avaliam comportamento e uso do histórico em uma rubrica própria.
+- **Execução autorizada**: uma rodada de seis chamadas ao chat pelo OpenRouter, com
+  teto total de US$ 0,10. O ambiente usa `deepseek/deepseek-v4-flash-0731` e limite
+  de 2.048 tokens de saída por chamada.
+- **Registro**: `docs/avaliacao/proposta-revisao-p25-p30-2026-09-10.md`.
+
+## ADR-029 — Proteger contatos pessoais antes da recuperação
+- **Data**: 10/09/2026
+- **Contexto**: na primeira execução de P28, o modelo recusou confirmar um contato
+  atual, mas reproduziu números pessoais presentes em um documento de 2014.
+- **Decisão técnica e editorial**: pedidos explícitos de contato pessoal recebem
+  resposta determinística sem busca nem LLM. Telefones e e-mails também são
+  ocultados dos chunks, do prompt, das citações e da resposta.
+- **Comportamentos relacionados**: referentes sem antecedente e ordens para fabricar
+  citação também são tratados antes da busca. Continuações válidas combinam a última
+  pergunta do usuário com a mensagem atual para a recuperação.
+- **Resultado**: P28–P30 foram aprovadas na segunda rodada; P25–P27 ficaram parciais.
+  A rota pública mantém a exigência de base documental para respostas factuais.
+- **Remediação**: Yuri autorizou substituir o telefone da primeira interação de
+  P28 por `[contato pessoal omitido]`. A atualização foi enviada, mas a confirmação
+  remota ficou pendente porque as consultas seguintes à tabela expiraram.
+- **Registro**: `docs/avaliacao/avaliacao-conversacional-2026-09-10.md`.
+
+## ADR-030 — Continuidade documental por token assinado
+- **Data**: 14/09/2026
+- **Decisão (Yuri)**: aprovar CF01–CF06 como casos de desenvolvimento e implementar
+  a experiência local de continuidade documental, sem chamada paga, migração,
+  commit ou deploy nesta autorização.
+- **Transporte**: o servidor emite token opaco, assinado, válido por 30 minutos e
+  contendo somente versão, tempos, nonce e até oito fontes efetivamente citadas.
+  O navegador o mantém apenas em memória. IDs de fonte livres e `interacao_id` não
+  são aceitos como prova da trilha anterior.
+- **Recuperação experimental**: manter a busca vetorial e o limiar 0,82; em
+  seguimentos válidos, acrescentar busca textual restrita às fontes do token.
+  Filtrar candidatos por termos substantivos, ordenar cada ramo separadamente e
+  intercalar por posição, começando pelo vetor, sem comparar ou somar os escores.
+- **Parâmetros congelados**: até oito fontes, quatro candidatos textuais por fonte,
+  ao menos dois termos substantivos distintos e oito trechos finais.
+- **Privacidade e falhas**: o token não contém conversa ou identidade, não é salvo
+  no navegador e não permite consultar interação. Token inválido/expirado recua
+  silenciosamente à busca geral. Telefones e e-mails continuam omitidos.
+- **Limite metodológico**: CF01–CF06 reutilizam evidências conhecidas e não validam
+  generalização. Uma eventual promoção exige outro lote após o congelamento.
+- **Registro**: `docs/avaliacao/decisao-pendente-continuidade-2026-09-14.md` e
+  `docs/avaliacao/revisao-tecnica-continuidade-2026-09-14.md`.

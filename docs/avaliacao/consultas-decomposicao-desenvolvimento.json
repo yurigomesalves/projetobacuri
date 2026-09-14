@@ -1,0 +1,41 @@
+{
+  "estado": "teto_curado_sobre_gabarito_visivel",
+  "ressalva": "Consultas formuladas após leitura das respostas e evidências aprovadas; não usar como resultado de avaliação final.",
+  "itens": {
+    "P14": {
+      "consultas": [
+        "trabalhadores rurais sindicalistas ligas camponesas latifundiários jagunços pistoleiros ameaças prisões assassinatos vigilância direitos trabalhistas conflitos agrários",
+        "trabalhadores rurais sindicalistas camponeses latifundiários agentes privados Estado ameaças prisões torturas assassinatos despejos direitos humanos"
+      ]
+    },
+    "P15": {
+      "consultas": [
+        "camponeses do Araguaia presos e torturados nas bases militares de Bacaba e Xambioá em buracos do Vietnã sem registro formal de detenção"
+      ],
+      "consulta_roteamento": "camponeses do Araguaia presos e torturados nas bases militares de Bacaba e Xambioá em buracos do Vietnã sem registro formal de detenção",
+      "fontes_adicionais": 5
+    },
+    "P16": {
+      "consultas": [
+        "povos indígenas graves violações de direitos humanos esbulho de terras remoções epidemias omissão e violência direta do Estado"
+      ]
+    },
+    "P17": {
+      "consultas": [
+        "racismo preconceito racial Movimento Negro Unificado MNU identidade negra democracia racial repressão resistência ditadura"
+      ]
+    },
+    "P18": {
+      "consultas": [
+        "participação de setores civis empresas entidades privadas financiamento apoio estrutura da repressão benefícios ditadura"
+      ]
+    },
+    "P23": {
+      "consultas": [
+        "segmentos grupos movimentos sociais atingidos pela repressão na ditadura militares trabalhadores urbanos e rurais camponeses povos indígenas igrejas homossexuais docentes estudantes universitários",
+        "camponeses trabalhadores rurais posseiros sindicalistas e apoiadores atingidos por repressão violência do Estado e agentes privados",
+        "povos indígenas atingidos pela repressão e violência do Estado por ações omissões esbulho de terras e remoções"
+      ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+# Integrações exclusivas do Projeto Bacuri.
+# Esta configuração é carregada pelo Codex CLI e pela extensão do VSCodium
+# quando o repositório é marcado como confiável.
+
+model = "gpt-6-astra"
+model_reasoning_effort = "high"
+
+[agents]
+# A decisão do projeto permite até três especialistas independentes por tarefa.
+max_concurrent_threads_per_session = 3
+default_subagent_model = "gpt-5.6-terra"
+default_subagent_reasoning_effort = "medium"
+
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp"]
+startup_timeout_sec = 20
+
+[mcp_servers.supabase]
+url = "https://mcp.supabase.com/mcp?features=docs%2Caccount%2Cdatabase%2Cdebugging%2Cdevelopment%2Cfunctions%2Cbranching"
+auth = "oauth"
+startup_timeout_sec = 20
+
+[mcp_servers.supabase.oauth]
+# Escopos aceitos atualmente pelo servidor Supabase, sem leitura de segredos.
+scopes = [
+  "organizations:read",
+  "projects:read",
+  "database:read",
+  "database:write",
+  "analytics:read",
+  "edge_functions:read",
+  "edge_functions:write",
+]
+
+# O plugin oficial da Vercel fornece o MCP usado pelo deploy do projeto.
+[plugins."vercel@claude-plugins-official".mcp_servers.vercel]
+enabled = true
+
+# Não fazem parte do fluxo de desenvolvimento do Bacuri neste repositório.
+[plugins."cloudflare@cloudflare".mcp_servers.cloudflare]
+enabled = false
+
+[plugins."unified-computer-use@openai-bundled".mcp_servers.cua_repl]
+enabled = false
+
+[mcp_servers.node_repl]
+enabled = false

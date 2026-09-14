@@ -1,0 +1,2785 @@
+{
+  "resumo": {
+    "executado_em": "2026-09-09T13:23:10.343377+00:00",
+    "tipo": "teto_oraculo_com_evidencias_injetadas",
+    "modelo": "unicamp-dl/mMiniLM-L6-v2-en-pt-msmarco-v2",
+    "top_k": 8,
+    "perguntas": 7,
+    "unidades_evidencia": 12,
+    "unidades_encontradas": 0,
+    "recall_oraculo": 0.0
+  },
+  "resultados": [
+    {
+      "id": "P14",
+      "pergunta": "Como os relatórios documentam a repressão a trabalhadores e sindicalistas rurais?",
+      "candidatos": 52,
+      "evidencias": [
+        {
+          "rotulo": "C47-50",
+          "posicao": 33,
+          "encontrado_top_8": false
+        },
+        {
+          "rotulo": "D94",
+          "posicao": 19,
+          "encontrado_top_8": false
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "657df155-7b94-4373-8b1e-2bfde4362420",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "paginas": "[43,43]",
+          "secao": "parte_iii_violencia",
+          "pontuacao_reranqueador": 5.294357776641846
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "e4ce2b8b-2326-47dc-bce3-68bb0fddcced",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "65",
+          "secao": "2 - violações de direitos humanos dos trabalhadores",
+          "pontuacao_reranqueador": 4.764820575714111
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "936c03b6-87e6-40bc-bbbe-ace0db8e43e1",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "590-591",
+          "secao": "6. A Repressão ao Mundo do Trabalho e ao Movimento Sindical Urbano em Minas Gerais, de 1946 a 1988",
+          "pontuacao_reranqueador": 4.578639507293701
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "12634eba-ae5b-48fe-9956-d5b37f74557e",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "74",
+          "secao": "2 - violações de direitos humanos dos trabalhadores",
+          "pontuacao_reranqueador": 4.233534336090088
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "c973b291-f7b3-4cf1-883c-a6086994a7b1",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1150-1151",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": 3.137227773666382
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "9ed604ef-0637-4b0e-a39d-311ad1dcc0ae",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "833",
+          "secao": "6. A Repressão ao Mundo do Trabalho e ao Movimento Sindical Urbano em Minas Gerais, de 1946 a 1988",
+          "pontuacao_reranqueador": 3.0972564220428467
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "16af3d7a-1b24-4f8a-a996-8e641db5407c",
+          "fonte_id": "08552f59-27f9-4bb5-9536-4668af2a961e",
+          "paginas": "13",
+          "secao": "Prefácio",
+          "pontuacao_reranqueador": 2.7236740589141846
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "f6d3766a-108a-4696-97ef-c6eb73318b6c",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "58",
+          "secao": "2 - violações de direitos humanos dos trabalhadores",
+          "pontuacao_reranqueador": 2.536936044692993
+        },
+        {
+          "posicao": 9,
+          "chunk_id": "fc1f2893-f00d-4b79-af17-8b2c7321b500",
+          "fonte_id": "08552f59-27f9-4bb5-9536-4668af2a961e",
+          "paginas": "29",
+          "secao": "Parte I — Mortos e desaparecidos políticos na ditadura e na transição",
+          "pontuacao_reranqueador": 2.397278070449829
+        },
+        {
+          "posicao": 10,
+          "chunk_id": "e82dc7d3-5cc0-483b-bd68-a83241f9df9d",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "363-364",
+          "secao": "5. As Graves Violações de Direitos Humanos no Campo (1961-1988)",
+          "pontuacao_reranqueador": 2.342853307723999
+        },
+        {
+          "posicao": 11,
+          "chunk_id": "931b7d95-658a-4f1b-8479-b1caa5f5985b",
+          "fonte_id": "08552f59-27f9-4bb5-9536-4668af2a961e",
+          "paginas": "119",
+          "secao": "Artigos",
+          "pontuacao_reranqueador": 2.281090259552002
+        },
+        {
+          "posicao": 12,
+          "chunk_id": "3008f01c-f8cb-4167-a102-05123cc7e1fb",
+          "fonte_id": "ac92ca87-4725-4f7e-8409-c71ecaa323f6",
+          "paginas": "291",
+          "secao": "3. Partidos Políticos, Sindicatos e Ditadura",
+          "pontuacao_reranqueador": 2.2288002967834473
+        },
+        {
+          "posicao": 13,
+          "chunk_id": "1cd41e1b-081b-447a-a917-9ebd23691f45",
+          "fonte_id": "08552f59-27f9-4bb5-9536-4668af2a961e",
+          "paginas": "25",
+          "secao": "Parte I — Mortos e desaparecidos políticos na ditadura e na transição",
+          "pontuacao_reranqueador": 1.9657520055770874
+        },
+        {
+          "posicao": 14,
+          "chunk_id": "6a4b272b-8fa6-4cc9-8975-7721bdefd697",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "paginas": "[51,51]",
+          "secao": "parte_iii_violencia",
+          "pontuacao_reranqueador": 1.8543208837509155
+        },
+        {
+          "posicao": 15,
+          "chunk_id": "8ab5732b-ccb4-4e31-8722-a7e26aafd79d",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1151",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": 1.738381028175354
+        },
+        {
+          "posicao": 16,
+          "chunk_id": "484230c7-fb63-4c85-9b1f-c1f08f69670c",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "28-29",
+          "secao": "Capítulo III – Repressão aos Sindicalistas Rurais no Final da Ditadura",
+          "pontuacao_reranqueador": 1.7063987255096436
+        },
+        {
+          "posicao": 17,
+          "chunk_id": "960e60f6-a961-4807-80bf-e1d2d02027b6",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "362",
+          "secao": "5. As Graves Violações de Direitos Humanos no Campo (1961-1988)",
+          "pontuacao_reranqueador": 1.6317802667617798
+        },
+        {
+          "posicao": 18,
+          "chunk_id": "6d24726a-b5b8-4e2d-a49f-aecc5fe74f25",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1151",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": 1.5367839336395264
+        },
+        {
+          "posicao": 19,
+          "chunk_id": "4a680fac-c92e-4bec-87ff-e8ee41362a8a",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "94",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": 1.4026554822921753
+        },
+        {
+          "posicao": 20,
+          "chunk_id": "d4292652-0143-475b-811e-4e154717560d",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "798-799",
+          "secao": "6. A Repressão ao Mundo do Trabalho e ao Movimento Sindical Urbano em Minas Gerais, de 1946 a 1988",
+          "pontuacao_reranqueador": 1.2096492052078247
+        },
+        {
+          "posicao": 21,
+          "chunk_id": "d025364c-8eea-41e6-8406-5f5239d970c9",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "589-590",
+          "secao": "6. A Repressão ao Mundo do Trabalho e ao Movimento Sindical Urbano em Minas Gerais, de 1946 a 1988",
+          "pontuacao_reranqueador": 1.1142487525939941
+        },
+        {
+          "posicao": 22,
+          "chunk_id": "3456f9f3-7cef-4fe9-be7a-4177be0e367e",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "paginas": "[50,50]",
+          "secao": "parte_iii_violencia",
+          "pontuacao_reranqueador": 0.7979243993759155
+        },
+        {
+          "posicao": 23,
+          "chunk_id": "408461f0-8dbb-4c5d-b2d0-8206c40c0edb",
+          "fonte_id": "08552f59-27f9-4bb5-9536-4668af2a961e",
+          "paginas": "16-18",
+          "secao": "Parte I — Mortos e desaparecidos políticos na ditadura e na transição",
+          "pontuacao_reranqueador": 0.7681173086166382
+        },
+        {
+          "posicao": 24,
+          "chunk_id": "c4be1dd1-eba9-4966-b7eb-e9aedb095d8c",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "paginas": "[51,52]",
+          "secao": "parte_iii_violencia",
+          "pontuacao_reranqueador": 0.6136701107025146
+        },
+        {
+          "posicao": 25,
+          "chunk_id": "0ab1aab3-771c-4620-8769-d9909a48c6d8",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "107-108",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": -0.010884213261306286
+        },
+        {
+          "posicao": 26,
+          "chunk_id": "24562068-187b-4ea7-9d3b-1f9a17f90cae",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "86",
+          "secao": "2 - violações de direitos humanos dos trabalhadores",
+          "pontuacao_reranqueador": -0.013066664338111877
+        },
+        {
+          "posicao": 27,
+          "chunk_id": "2bd3faca-d138-4d53-9dd6-1a2c77c641bc",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "5123",
+          "secao": "87ª Audiência Pública — 16/10/2013",
+          "pontuacao_reranqueador": -0.2569957971572876
+        },
+        {
+          "posicao": 28,
+          "chunk_id": "d7a85e9d-3a60-4999-a7d2-cb89a834b29b",
+          "fonte_id": "ac92ca87-4725-4f7e-8409-c71ecaa323f6",
+          "paginas": "199-200",
+          "secao": "2. Outras Graves Violações de Direitos Humanos",
+          "pontuacao_reranqueador": -0.3094272315502167
+        },
+        {
+          "posicao": 29,
+          "chunk_id": "8082a6c3-3e89-45ae-af74-7f9d98ebca71",
+          "fonte_id": "fe0c64ce-f11e-45c6-aaa0-11b73fb2f134",
+          "paginas": "197",
+          "secao": "Capítulo 5 – Vítimas da Ditadura: Perseguidos, Cassados, Exilados, Torturados, Mortos e Desaparecidos",
+          "pontuacao_reranqueador": -0.8453184366226196
+        },
+        {
+          "posicao": 30,
+          "chunk_id": "5d67f047-fa69-488d-8e20-95b87d855676",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "366",
+          "secao": "5. As Graves Violações de Direitos Humanos no Campo (1961-1988)",
+          "pontuacao_reranqueador": -0.8882668018341064
+        },
+        {
+          "posicao": 31,
+          "chunk_id": "aa48a71a-89f2-4d61-a239-ea94e75d6b1d",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "587",
+          "secao": "5. As Graves Violações de Direitos Humanos no Campo (1961-1988)",
+          "pontuacao_reranqueador": -1.1736589670181274
+        },
+        {
+          "posicao": 32,
+          "chunk_id": "aea12213-7894-4562-8b3a-999de8cf212d",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "362-363",
+          "secao": "5. As Graves Violações de Direitos Humanos no Campo (1961-1988)",
+          "pontuacao_reranqueador": -1.2892247438430786
+        },
+        {
+          "posicao": 33,
+          "chunk_id": "f6cea94a-0a22-4432-a9fb-b9b2a6b03eb2",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "50",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "pontuacao_reranqueador": -1.7254068851470947
+        },
+        {
+          "posicao": 34,
+          "chunk_id": "69d4ec06-48f1-4e38-98c4-9f94dc9e0a11",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "356",
+          "secao": "5. As Graves Violações de Direitos Humanos no Campo (1961-1988)",
+          "pontuacao_reranqueador": -2.162025213241577
+        },
+        {
+          "posicao": 35,
+          "chunk_id": "c9b1f0ec-ed28-4c9c-9307-c6ccf75e5065",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "107",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": -2.43369460105896
+        },
+        {
+          "posicao": 36,
+          "chunk_id": "d16ebe3b-3171-4361-a895-bc224784faed",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "214-215",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": -2.8623640537261963
+        },
+        {
+          "posicao": 37,
+          "chunk_id": "82ddb6b9-b6ab-43b0-9489-df28f8fb465f",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "55-56",
+          "secao": "1. A Comissão da Verdade em Minas Gerais: História e Atuação",
+          "pontuacao_reranqueador": -3.244884490966797
+        },
+        {
+          "posicao": 38,
+          "chunk_id": "b1c18f67-0be3-4916-a771-91ad56a0224d",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "435",
+          "secao": "5. As Graves Violações de Direitos Humanos no Campo (1961-1988)",
+          "pontuacao_reranqueador": -3.5044894218444824
+        },
+        {
+          "posicao": 39,
+          "chunk_id": "d3df434a-5cbb-46d6-beed-f184c99f4c89",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "47",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "pontuacao_reranqueador": -3.5074079036712646
+        },
+        {
+          "posicao": 40,
+          "chunk_id": "7254fb89-1fe8-4184-8b9d-fa1f8e2c756d",
+          "fonte_id": "9a4bfbe7-e343-49f2-b478-34841d305d5d",
+          "paginas": "22",
+          "secao": null,
+          "pontuacao_reranqueador": -3.5635077953338623
+        },
+        {
+          "posicao": 41,
+          "chunk_id": "de23d6fc-0d85-45fa-b522-f242c1084d12",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "97",
+          "secao": "3 - violações de direitos humanos dos camponeses",
+          "pontuacao_reranqueador": -4.0988335609436035
+        },
+        {
+          "posicao": 42,
+          "chunk_id": "1ab96555-4483-45b7-8557-90ff96231112",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "49-50",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "pontuacao_reranqueador": -4.2280592918396
+        },
+        {
+          "posicao": 43,
+          "chunk_id": "d6ae75d5-987b-4bc2-aa3d-10ec4ba00bda",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "471",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "pontuacao_reranqueador": -4.499068260192871
+        },
+        {
+          "posicao": 44,
+          "chunk_id": "0321b8ce-31e6-415d-b445-c84e29b63981",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "50-51",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "pontuacao_reranqueador": -5.68412446975708
+        },
+        {
+          "posicao": 45,
+          "chunk_id": "86f36554-15da-4edf-99eb-480a796773d0",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "46-47",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "pontuacao_reranqueador": -5.724367618560791
+        },
+        {
+          "posicao": 46,
+          "chunk_id": "410a6ea0-bb3c-49e3-8218-a582ffdf3501",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "48",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "pontuacao_reranqueador": -6.466109752655029
+        },
+        {
+          "posicao": 47,
+          "chunk_id": "e7087e9d-b498-4ef5-99f0-93552a10a229",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "49",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "pontuacao_reranqueador": -7.658741474151611
+        },
+        {
+          "posicao": 48,
+          "chunk_id": "2709d3f3-1cb2-4a53-b5ca-c6f8b64aeb65",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "49",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "pontuacao_reranqueador": -7.706435203552246
+        },
+        {
+          "posicao": 49,
+          "chunk_id": "8fb02278-78e8-4366-b547-4f445e8896de",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "94-95",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": -7.976595878601074
+        },
+        {
+          "posicao": 50,
+          "chunk_id": "5d8a57ad-8c5f-4950-8598-ccb4ae2e7ac8",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "48",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "pontuacao_reranqueador": -8.078147888183594
+        },
+        {
+          "posicao": 51,
+          "chunk_id": "192c7aeb-063a-41d5-b85e-21c02b24a224",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "47",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "pontuacao_reranqueador": -8.151747703552246
+        },
+        {
+          "posicao": 52,
+          "chunk_id": "e03680e9-6dcb-41aa-82ba-f7b6528f7585",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "48-49",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "pontuacao_reranqueador": -9.746914863586426
+        }
+      ]
+    },
+    {
+      "id": "P15",
+      "pergunta": "Como a repressão atingiu camponeses na região do Araguaia?",
+      "candidatos": 43,
+      "evidencias": [
+        {
+          "rotulo": "E350",
+          "posicao": 23,
+          "encontrado_top_8": false
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "98f46415-0e22-4d80-8db6-99d54ab83432",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "102-103",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": 6.524652004241943
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "7d033559-21ca-4e42-a239-0f805fecc5b4",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "378-379",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": 5.638407230377197
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "c9c057fb-938a-4366-aa84-9909b2877c07",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "94",
+          "secao": "3 - violações de direitos humanos dos camponeses",
+          "pontuacao_reranqueador": 5.456953525543213
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "126d0a3e-caad-4580-9adb-8712e43cc887",
+          "fonte_id": "0e191cac-22b1-4039-bbb5-8e1892a19f11",
+          "paginas": "318",
+          "secao": "Capítulo 7 — Guerra dos Perdidos, do ocultamento histórico à busca de reparação",
+          "pontuacao_reranqueador": 4.960257053375244
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "94750c44-495b-4a50-b2ac-a1e3ddead802",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "373-375",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": 4.778615951538086
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "071d83c1-f3b0-4d3a-bf5d-cf114005115d",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "103-104",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": 4.457804203033447
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "9e7aa749-8284-4702-802d-8aa47fe86507",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "377-378",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": 4.365571975708008
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "e8f4a16d-3517-4f28-aa86-0b6078610559",
+          "fonte_id": "0e191cac-22b1-4039-bbb5-8e1892a19f11",
+          "paginas": "270",
+          "secao": "Capítulo 6 — A violência no Pará: relatório da Comissão Camponesa da Verdade",
+          "pontuacao_reranqueador": 4.284159183502197
+        },
+        {
+          "posicao": 9,
+          "chunk_id": "65569340-0ef8-4d20-a2f2-f859fa94e08c",
+          "fonte_id": "0e191cac-22b1-4039-bbb5-8e1892a19f11",
+          "paginas": "270-271",
+          "secao": "Capítulo 6 — A violência no Pará: relatório da Comissão Camponesa da Verdade",
+          "pontuacao_reranqueador": 3.889056921005249
+        },
+        {
+          "posicao": 10,
+          "chunk_id": "2848fc12-ea5e-428c-ae71-30768ed2067b",
+          "fonte_id": "e9fa4e92-a1ba-4452-8357-cba6696c28e3",
+          "paginas": "359-360",
+          "secao": "Capítulo 10 — Justiça de Transição: situação atual e repercussões no Pará",
+          "pontuacao_reranqueador": 3.799621820449829
+        },
+        {
+          "posicao": 11,
+          "chunk_id": "60f7950a-b4f2-461b-836a-f2b750a4e63d",
+          "fonte_id": "067ba85a-8b58-4089-9c9d-2da4d100adfd",
+          "paginas": "196",
+          "secao": "Perfil – LUIZ HIRATA",
+          "pontuacao_reranqueador": 3.571904182434082
+        },
+        {
+          "posicao": 12,
+          "chunk_id": "c622769f-4caa-435d-99d6-442c670611f3",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "699",
+          "secao": "14 – a guerrilha do araguaia",
+          "pontuacao_reranqueador": 3.5289995670318604
+        },
+        {
+          "posicao": 13,
+          "chunk_id": "ca6894a0-5833-4b81-9b19-fbe7f6e5579e",
+          "fonte_id": "0e191cac-22b1-4039-bbb5-8e1892a19f11",
+          "paginas": "318-319",
+          "secao": "Capítulo 7 — Guerra dos Perdidos, do ocultamento histórico à busca de reparação",
+          "pontuacao_reranqueador": 3.389232635498047
+        },
+        {
+          "posicao": 14,
+          "chunk_id": "ec2d506f-3e1a-4105-a432-00a40f3a5bba",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "161-162",
+          "secao": "4 - violações de direitos humanos nas igrejas cristãs",
+          "pontuacao_reranqueador": 3.2984588146209717
+        },
+        {
+          "posicao": 15,
+          "chunk_id": "11944769-b3c2-4b9e-83c9-ffc3d83a9930",
+          "fonte_id": "c9ddfae8-cbb3-40bb-a252-750b7708ac5f",
+          "paginas": "445-446",
+          "secao": "Capítulo 3 — Amazônia Paraense no Relatório Final da CNV",
+          "pontuacao_reranqueador": 3.1525795459747314
+        },
+        {
+          "posicao": 16,
+          "chunk_id": "2c609746-fff4-4420-947c-5acb95621652",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "123",
+          "secao": "3 - violações de direitos humanos dos camponeses",
+          "pontuacao_reranqueador": 2.9197795391082764
+        },
+        {
+          "posicao": 17,
+          "chunk_id": "fe1b2ddb-8db3-44c1-bb69-0f931f0b7e5b",
+          "fonte_id": "47662bb8-8688-421a-82ec-72c96e8558b4",
+          "paginas": "304",
+          "secao": "5. Graves Violações de Direitos Humanos no Campo",
+          "pontuacao_reranqueador": 2.913424253463745
+        },
+        {
+          "posicao": 18,
+          "chunk_id": "211ee09f-12a9-4116-a273-5ecfa69af45c",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "152",
+          "secao": "3 - violações de direitos humanos dos camponeses",
+          "pontuacao_reranqueador": 2.8017327785491943
+        },
+        {
+          "posicao": 19,
+          "chunk_id": "5de245a3-3584-4ac2-b2ea-33cf78b7b584",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "126-127",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": 2.7389094829559326
+        },
+        {
+          "posicao": 20,
+          "chunk_id": "ece93095-1563-44b6-b6fe-308a564d7b48",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "125-126",
+          "secao": "3 - violações de direitos humanos dos camponeses",
+          "pontuacao_reranqueador": 2.689847707748413
+        },
+        {
+          "posicao": 21,
+          "chunk_id": "b5249618-cade-468d-9cfa-2b429b165559",
+          "fonte_id": "efc10a75-5cf4-435e-a598-7abf57f88ff7",
+          "paginas": "33",
+          "secao": "Os desaparecidos da Guerrilha do Araguaia",
+          "pontuacao_reranqueador": 2.6656248569488525
+        },
+        {
+          "posicao": 22,
+          "chunk_id": "9c1598b1-6d35-49b6-8819-8577f2067b72",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "94-95",
+          "secao": "3 - violações de direitos humanos dos camponeses",
+          "pontuacao_reranqueador": 2.598784923553467
+        },
+        {
+          "posicao": 23,
+          "chunk_id": "83d8d58a-7430-4b34-a82b-32f64f38e174",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "350",
+          "secao": "9 – tortura",
+          "pontuacao_reranqueador": 2.593092679977417
+        },
+        {
+          "posicao": 24,
+          "chunk_id": "0edeaa1c-61c5-4ee8-b377-28b4aeafa8f3",
+          "fonte_id": "efc10a75-5cf4-435e-a598-7abf57f88ff7",
+          "paginas": "397",
+          "secao": "A Guerrilha do Araguaia",
+          "pontuacao_reranqueador": 2.5098555088043213
+        },
+        {
+          "posicao": 25,
+          "chunk_id": "0e3776b8-b3c1-4761-b966-c4751f025e47",
+          "fonte_id": "e9fa4e92-a1ba-4452-8357-cba6696c28e3",
+          "paginas": "328-329",
+          "secao": "Capítulo 10 — Justiça de Transição: situação atual e repercussões no Pará",
+          "pontuacao_reranqueador": 2.49369740486145
+        },
+        {
+          "posicao": 26,
+          "chunk_id": "52074453-ac41-43e8-9400-d4657e817ceb",
+          "fonte_id": "0e191cac-22b1-4039-bbb5-8e1892a19f11",
+          "paginas": "267-268",
+          "secao": "Capítulo 6 — A violência no Pará: relatório da Comissão Camponesa da Verdade",
+          "pontuacao_reranqueador": 2.3981926441192627
+        },
+        {
+          "posicao": 27,
+          "chunk_id": "bfcae896-b6f7-4fa5-bc6d-1d0c0514b31d",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "375-376",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": 1.6419661045074463
+        },
+        {
+          "posicao": 28,
+          "chunk_id": "48a5dfe2-e0fc-45a2-8158-9b4630acf750",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "377",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": 1.2909773588180542
+        },
+        {
+          "posicao": 29,
+          "chunk_id": "9a87429f-6eab-4c80-a390-63a053f7005f",
+          "fonte_id": "e9fa4e92-a1ba-4452-8357-cba6696c28e3",
+          "paginas": "355-356",
+          "secao": "Capítulo 10 — Justiça de Transição: situação atual e repercussões no Pará",
+          "pontuacao_reranqueador": 0.9044686555862427
+        },
+        {
+          "posicao": 30,
+          "chunk_id": "9dfe2077-131d-481b-9c51-bb937c7dd6a8",
+          "fonte_id": "a90aff91-0e1d-482c-9f1f-ced208edf078",
+          "paginas": "83-85",
+          "secao": "II Parte – Ditadura Civil-Militar no Amapá (1964-1988)",
+          "pontuacao_reranqueador": 0.7423961758613586
+        },
+        {
+          "posicao": 31,
+          "chunk_id": "1376b4ee-9dbb-4d76-a522-8fdde32c1e8e",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "paginas": "[41,41]",
+          "secao": "parte_iii_violencia",
+          "pontuacao_reranqueador": 0.6472713947296143
+        },
+        {
+          "posicao": 32,
+          "chunk_id": "ffee7894-478f-408d-a3ad-0407bfd0aa08",
+          "fonte_id": "de865a48-ad6f-43d4-a119-f0ddb62b35ef",
+          "paginas": "1269",
+          "secao": "ANEXO XIX — Parecer Jurídico (autor: Prof. José Carlos Moreira da Silva Filho)",
+          "pontuacao_reranqueador": 0.20565290749073029
+        },
+        {
+          "posicao": 33,
+          "chunk_id": "f982147d-3d71-43f9-a14a-281f393a49e4",
+          "fonte_id": "e9fa4e92-a1ba-4452-8357-cba6696c28e3",
+          "paginas": "453-454",
+          "secao": "Capítulo 10 — Justiça de Transição: situação atual e repercussões no Pará",
+          "pontuacao_reranqueador": -0.9404957294464111
+        },
+        {
+          "posicao": 34,
+          "chunk_id": "7c59edc9-01b6-4e17-8847-72d5428712a9",
+          "fonte_id": "0e191cac-22b1-4039-bbb5-8e1892a19f11",
+          "paginas": "305-306",
+          "secao": "Capítulo 7 — Guerra dos Perdidos, do ocultamento histórico à busca de reparação",
+          "pontuacao_reranqueador": -1.3238898515701294
+        },
+        {
+          "posicao": 35,
+          "chunk_id": "5af4b797-210a-46f2-a32c-665b6797b58a",
+          "fonte_id": "e9fa4e92-a1ba-4452-8357-cba6696c28e3",
+          "paginas": "420-421",
+          "secao": "Capítulo 10 — Justiça de Transição: situação atual e repercussões no Pará",
+          "pontuacao_reranqueador": -1.4964202642440796
+        },
+        {
+          "posicao": 36,
+          "chunk_id": "06848763-d8a4-4299-a40b-31a6d5465df8",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "228",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "pontuacao_reranqueador": -1.702325463294983
+        },
+        {
+          "posicao": 37,
+          "chunk_id": "2f8c193b-2974-42e3-863d-a0635d6fed0f",
+          "fonte_id": "2153407d-070b-4256-943f-81ad3cbb7d37",
+          "paginas": "337",
+          "secao": "VII. Transcrição das Palestras",
+          "pontuacao_reranqueador": -2.498181104660034
+        },
+        {
+          "posicao": 38,
+          "chunk_id": "350686e4-153d-40a5-80ef-affc7f0820bf",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "473-474",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": -2.7428410053253174
+        },
+        {
+          "posicao": 39,
+          "chunk_id": "2170e84b-df5d-4d96-b1b7-64074655ae53",
+          "fonte_id": "c9ddfae8-cbb3-40bb-a252-750b7708ac5f",
+          "paginas": "501-502",
+          "secao": "Capítulo 3 — Amazônia Paraense no Relatório Final da CNV",
+          "pontuacao_reranqueador": -3.0926477909088135
+        },
+        {
+          "posicao": 40,
+          "chunk_id": "03a438dd-d39f-4d0f-853f-312c4560b53c",
+          "fonte_id": "e9fa4e92-a1ba-4452-8357-cba6696c28e3",
+          "paginas": "358-359",
+          "secao": "Capítulo 10 — Justiça de Transição: situação atual e repercussões no Pará",
+          "pontuacao_reranqueador": -3.1650779247283936
+        },
+        {
+          "posicao": 41,
+          "chunk_id": "ebe20c8c-468a-49e7-ad3d-279d76dc20bd",
+          "fonte_id": "0e191cac-22b1-4039-bbb5-8e1892a19f11",
+          "paginas": "266-267",
+          "secao": "Capítulo 6 — A violência no Pará: relatório da Comissão Camponesa da Verdade",
+          "pontuacao_reranqueador": -3.192453622817993
+        },
+        {
+          "posicao": 42,
+          "chunk_id": "07d9f380-9843-4d11-8a9d-57308bf4ee4b",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "349-350",
+          "secao": "9 – tortura",
+          "pontuacao_reranqueador": -5.120498180389404
+        },
+        {
+          "posicao": 43,
+          "chunk_id": "fdd5f0b8-4ddc-405c-95cc-8342979feb11",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "350-351",
+          "secao": "9 – tortura",
+          "pontuacao_reranqueador": -10.210125923156738
+        }
+      ]
+    },
+    {
+      "id": "P16",
+      "pergunta": "Quais violações contra povos indígenas são discutidas nos textos temáticos da CNV?",
+      "candidatos": 42,
+      "evidencias": [
+        {
+          "rotulo": "F204",
+          "posicao": 13,
+          "encontrado_top_8": false
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "d0329c36-281c-43fa-94b2-84fa73ac283a",
+          "fonte_id": "47662bb8-8688-421a-82ec-72c96e8558b4",
+          "paginas": "141-142",
+          "secao": "3. Graves Violações de Direitos Humanos",
+          "pontuacao_reranqueador": 6.24949312210083
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "f90db60f-3aac-4ee8-b416-4e2a6d1c0b03",
+          "fonte_id": "47662bb8-8688-421a-82ec-72c96e8558b4",
+          "paginas": "191-192",
+          "secao": "4. Graves Violações de Direitos Humanos contra Povos Indígenas",
+          "pontuacao_reranqueador": 6.18197774887085
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "599eb8c2-c5b4-46f8-bfa8-3168d00ab190",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "963",
+          "secao": "18 – conclusões e recomendações",
+          "pontuacao_reranqueador": 6.151037216186523
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "af568da5-14c4-4dac-9655-1650364ac5fe",
+          "fonte_id": "c9ddfae8-cbb3-40bb-a252-750b7708ac5f",
+          "paginas": "537-538",
+          "secao": "Capítulo 3 — Amazônia Paraense no Relatório Final da CNV",
+          "pontuacao_reranqueador": 5.434995174407959
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "d728dfa0-8efb-4e7b-ac3e-99eb93b7ff77",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "253-254",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "pontuacao_reranqueador": 5.309455394744873
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "b2a6833d-adcb-4407-92d7-7e9a5fcfa9d7",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "252-253",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "pontuacao_reranqueador": 5.29923152923584
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "4a680fac-c92e-4bec-87ff-e8ee41362a8a",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "94",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": 5.015347957611084
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "74913d1d-667f-4298-a422-4f94ffefa914",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "38",
+          "secao": "1 – a criação da comissão nacional da verdade",
+          "pontuacao_reranqueador": 4.9512505531311035
+        },
+        {
+          "posicao": 9,
+          "chunk_id": "0880cf61-a164-4d47-bd91-58bea91cbfdd",
+          "fonte_id": "e9fa4e92-a1ba-4452-8357-cba6696c28e3",
+          "paginas": "474-475",
+          "secao": "Capítulo 11 — Recomendações",
+          "pontuacao_reranqueador": 4.9262776374816895
+        },
+        {
+          "posicao": 10,
+          "chunk_id": "539532be-d726-440f-bd37-71866ae1cce7",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "92",
+          "secao": "3 - violações de direitos humanos dos camponeses",
+          "pontuacao_reranqueador": 4.911028861999512
+        },
+        {
+          "posicao": 11,
+          "chunk_id": "92fb9009-7958-45e7-bfb5-7f04576f94e1",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "917",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": 4.832367420196533
+        },
+        {
+          "posicao": 12,
+          "chunk_id": "f141388c-c944-4fca-b998-afe5a7eef3c5",
+          "fonte_id": "e9fa4e92-a1ba-4452-8357-cba6696c28e3",
+          "paginas": "476",
+          "secao": "Capítulo 11 — Recomendações",
+          "pontuacao_reranqueador": 4.783055305480957
+        },
+        {
+          "posicao": 13,
+          "chunk_id": "91d436e4-22a8-4aa7-9209-ce66265e212c",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "204-205",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "pontuacao_reranqueador": 4.744813442230225
+        },
+        {
+          "posicao": 14,
+          "chunk_id": "cd82783b-5a56-42f6-8a6d-5e204dc7982f",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "1020",
+          "secao": "8. Violações de Direitos Humanos dos Povos Indígenas",
+          "pontuacao_reranqueador": 4.7410712242126465
+        },
+        {
+          "posicao": 15,
+          "chunk_id": "ac3c9d7a-cacc-40aa-8a6b-0103485c2985",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "869",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": 4.615503787994385
+        },
+        {
+          "posicao": 16,
+          "chunk_id": "caa6c0e0-b0a6-4e4b-a0e4-9d35a6c71b4c",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "22",
+          "secao": "Introdução",
+          "pontuacao_reranqueador": 4.538069725036621
+        },
+        {
+          "posicao": 17,
+          "chunk_id": "215f836a-f3ff-40d6-aa5a-805f3c6b08a8",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "205-206",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "pontuacao_reranqueador": 4.477905750274658
+        },
+        {
+          "posicao": 18,
+          "chunk_id": "7450a582-5436-4ee7-9726-a32738c2e248",
+          "fonte_id": "e9fa4e92-a1ba-4452-8357-cba6696c28e3",
+          "paginas": "348-349",
+          "secao": "Capítulo 10 — Justiça de Transição: situação atual e repercussões no Pará",
+          "pontuacao_reranqueador": 4.08281946182251
+        },
+        {
+          "posicao": 19,
+          "chunk_id": "40a28d14-073b-4a6c-bb8b-10d06e61b16c",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "461",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": 4.025654315948486
+        },
+        {
+          "posicao": 20,
+          "chunk_id": "e2446df8-044c-4f45-ab01-a20d5ad09749",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "868-869",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": 3.7807703018188477
+        },
+        {
+          "posicao": 21,
+          "chunk_id": "ca2ff3b1-75f0-4055-8f7b-1705aa653917",
+          "fonte_id": "e9fa4e92-a1ba-4452-8357-cba6696c28e3",
+          "paginas": "349-350",
+          "secao": "Capítulo 10 — Justiça de Transição: situação atual e repercussões no Pará",
+          "pontuacao_reranqueador": 3.7008912563323975
+        },
+        {
+          "posicao": 22,
+          "chunk_id": "83d1a47d-2629-44a6-82a6-5bf1e757a5fd",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "17",
+          "secao": "Resumo",
+          "pontuacao_reranqueador": 3.472634792327881
+        },
+        {
+          "posicao": 23,
+          "chunk_id": "b9f3440b-b20e-4b78-bdd5-5e1ff24f8a6c",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "204",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "pontuacao_reranqueador": 3.3527698516845703
+        },
+        {
+          "posicao": 24,
+          "chunk_id": "596fd2ee-d1d8-4a5b-8b97-2266ccedf47c",
+          "fonte_id": "c9ddfae8-cbb3-40bb-a252-750b7708ac5f",
+          "paginas": "424-425",
+          "secao": "Capítulo 3 — Amazônia Paraense no Relatório Final da CNV",
+          "pontuacao_reranqueador": 3.163977861404419
+        },
+        {
+          "posicao": 25,
+          "chunk_id": "228bf1a1-5f8a-48f5-8194-9b9fd53749b4",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "203",
+          "secao": "4 - violações de direitos humanos nas igrejas cristãs",
+          "pontuacao_reranqueador": 3.0748674869537354
+        },
+        {
+          "posicao": 26,
+          "chunk_id": "96ede0f2-3bed-4d12-a201-adfacdcda14f",
+          "fonte_id": "c9ddfae8-cbb3-40bb-a252-750b7708ac5f",
+          "paginas": "556",
+          "secao": "Capítulo 3 — Amazônia Paraense no Relatório Final da CNV",
+          "pontuacao_reranqueador": 2.668396234512329
+        },
+        {
+          "posicao": 27,
+          "chunk_id": "1d8fc7db-9b41-4b0f-94ff-1f5f0fc2e9e9",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "8272",
+          "secao": "148ª Audiência Pública — 03/11/2014",
+          "pontuacao_reranqueador": 2.5582034587860107
+        },
+        {
+          "posicao": 28,
+          "chunk_id": "72ef7d12-f7dc-4c2b-88fa-48b16ccb834a",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "8273-8274",
+          "secao": "148ª Audiência Pública — 03/11/2014",
+          "pontuacao_reranqueador": 2.4383764266967773
+        },
+        {
+          "posicao": 29,
+          "chunk_id": "fb6f79d8-b81a-40dd-884f-abd95ee9d913",
+          "fonte_id": "47662bb8-8688-421a-82ec-72c96e8558b4",
+          "paginas": "120",
+          "secao": "3. Graves Violações de Direitos Humanos",
+          "pontuacao_reranqueador": 1.6841775178909302
+        },
+        {
+          "posicao": 30,
+          "chunk_id": "7f853f42-e92c-4a3c-b8aa-9bb5a398d659",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "973",
+          "secao": "18 – conclusões e recomendações",
+          "pontuacao_reranqueador": 1.5740066766738892
+        },
+        {
+          "posicao": 31,
+          "chunk_id": "0b0f73d7-5209-4e62-8db2-61cf4197c5a0",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "881",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": 1.1773885488510132
+        },
+        {
+          "posicao": 32,
+          "chunk_id": "e9d7c740-7a74-4d3b-8a25-10980bf627fb",
+          "fonte_id": "47662bb8-8688-421a-82ec-72c96e8558b4",
+          "paginas": "246",
+          "secao": "4. Graves Violações de Direitos Humanos contra Povos Indígenas",
+          "pontuacao_reranqueador": 0.8000925779342651
+        },
+        {
+          "posicao": 33,
+          "chunk_id": "f844378a-e6db-423a-8277-e15e01e68aac",
+          "fonte_id": "0c76ea80-165e-427a-9880-074892c46a5b",
+          "paginas": "42",
+          "secao": "Parte II — Relatório final da Comissão da Verdade da UNE",
+          "pontuacao_reranqueador": 0.6233693361282349
+        },
+        {
+          "posicao": 34,
+          "chunk_id": "1f9448b3-793c-42da-ac2e-f089cbfc6640",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "920-921",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": 0.5739259719848633
+        },
+        {
+          "posicao": 35,
+          "chunk_id": "d23cb0ef-7664-44c9-b8e1-e16b3b36ae99",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "9-12",
+          "secao": "1 – violações de direitos humanos no meio militar",
+          "pontuacao_reranqueador": 0.030920647084712982
+        },
+        {
+          "posicao": 36,
+          "chunk_id": "4a22647e-f690-43b4-9983-3aab284ceff4",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "724",
+          "secao": "14 – a guerrilha do araguaia",
+          "pontuacao_reranqueador": -0.23823405802249908
+        },
+        {
+          "posicao": 37,
+          "chunk_id": "dcf403b8-11bb-4340-8c9a-e63865222bfc",
+          "fonte_id": "47662bb8-8688-421a-82ec-72c96e8558b4",
+          "paginas": "218",
+          "secao": "4. Graves Violações de Direitos Humanos contra Povos Indígenas",
+          "pontuacao_reranqueador": -1.1370145082473755
+        },
+        {
+          "posicao": 38,
+          "chunk_id": "4d808a28-895a-47bc-8049-5794a5eba59e",
+          "fonte_id": "ead2b032-09d6-413d-bd2f-ba3253d4e01e",
+          "paginas": "35",
+          "secao": "Introdução",
+          "pontuacao_reranqueador": -1.5714725255966187
+        },
+        {
+          "posicao": 39,
+          "chunk_id": "38633a25-ef28-4e29-9ee5-6569fcbb72b9",
+          "fonte_id": "c9ddfae8-cbb3-40bb-a252-750b7708ac5f",
+          "paginas": "23",
+          "secao": null,
+          "pontuacao_reranqueador": -1.5947719812393188
+        },
+        {
+          "posicao": 40,
+          "chunk_id": "f8384cf1-3de5-4d18-835e-c06390f707fb",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "42",
+          "secao": "1 – a criação da comissão nacional da verdade",
+          "pontuacao_reranqueador": -1.6054822206497192
+        },
+        {
+          "posicao": 41,
+          "chunk_id": "b45c857f-5341-4706-b6c6-bb44c734f430",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "920",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": -3.259206533432007
+        },
+        {
+          "posicao": 42,
+          "chunk_id": "3aa59625-9112-48fd-8018-89ebf81aa8fa",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "10298-10299",
+          "secao": "131ª Audiência Pública — 22/07/2014",
+          "pontuacao_reranqueador": -4.712028980255127
+        }
+      ]
+    },
+    {
+      "id": "P17",
+      "pergunta": "Como o racismo aparece na repressão e na resistência durante a ditadura?",
+      "candidatos": 43,
+      "evidencias": [
+        {
+          "rotulo": "F395",
+          "posicao": 23,
+          "encontrado_top_8": false
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "b0891965-7b7c-4541-b146-8bde9252b178",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "7310",
+          "secao": "98ª Audiência Pública — 26/11/2013",
+          "pontuacao_reranqueador": 3.34951114654541
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "352c0c74-a059-4623-98dc-9f6be1f2e561",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "paginas": "[64,64]",
+          "secao": "cap9_racismo",
+          "pontuacao_reranqueador": 2.5712201595306396
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "fbf6215b-9815-4f98-9817-a3e3225d5bf4",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "9328",
+          "secao": "151ª Audiência Pública — 12/12/2014",
+          "pontuacao_reranqueador": 1.9817602634429932
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "1abb2dbc-4574-41a9-8fdc-0e9c8b123b4d",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1200-1201",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": 1.9350894689559937
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "799ea89f-1cfe-45fd-99ee-21f8cdf2bf6f",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "paginas": "[63,63]",
+          "secao": "cap9_racismo",
+          "pontuacao_reranqueador": 1.1004385948181152
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "d5f59ee3-023d-43ff-8fe2-ed9119f0685a",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "paginas": "[68,68]",
+          "secao": "cap9_racismo",
+          "pontuacao_reranqueador": 1.0261163711547852
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "1e3ffc7f-0d51-4489-b4fa-22107ec9410a",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "paginas": "[65,65]",
+          "secao": "cap9_racismo",
+          "pontuacao_reranqueador": 0.3501737713813782
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "1e1ca841-be40-422a-adfa-6d1c7e3cd0b2",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1195-1196",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": 0.0941515862941742
+        },
+        {
+          "posicao": 9,
+          "chunk_id": "e76e9f9f-45f7-4501-961d-b969e6f083f1",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "paginas": "[66,66]",
+          "secao": "cap9_racismo",
+          "pontuacao_reranqueador": -0.3983162045478821
+        },
+        {
+          "posicao": 10,
+          "chunk_id": "8ce0f71c-0c58-43cd-b636-9c97d3f984ab",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "653",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": -0.6460733413696289
+        },
+        {
+          "posicao": 11,
+          "chunk_id": "b92d5767-686e-4435-80b2-d16185389242",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1193-1194",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": -1.3036469221115112
+        },
+        {
+          "posicao": 12,
+          "chunk_id": "6bae7a96-bf1a-4ef6-b543-746214abf00e",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "80-81",
+          "secao": "2 - violações de direitos humanos dos trabalhadores",
+          "pontuacao_reranqueador": -1.644011378288269
+        },
+        {
+          "posicao": 13,
+          "chunk_id": "668f2b78-e846-4156-ac06-d22adef28c73",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "677",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": -1.707450032234192
+        },
+        {
+          "posicao": 14,
+          "chunk_id": "455c3f76-d4da-431a-ba10-55d03a32c080",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "664",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": -1.8546730279922485
+        },
+        {
+          "posicao": 15,
+          "chunk_id": "0cb3dc6f-6638-4ba9-8fec-002573551a79",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1782-1783",
+          "secao": "PARTE 3 – AÇÕES DE RESISTÊNCIA E MEDIDAS DE JUSTIÇA DE TRANSIÇÃO Março 2015",
+          "pontuacao_reranqueador": -2.0455524921417236
+        },
+        {
+          "posicao": 16,
+          "chunk_id": "1bed8f11-f08f-433b-9fd8-dce7528be22c",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "7715-7716",
+          "secao": "99ª Audiência Pública — 28/11/2013",
+          "pontuacao_reranqueador": -2.2213308811187744
+        },
+        {
+          "posicao": 17,
+          "chunk_id": "8b4ad2d2-eb7e-45db-bf2c-506845f7679d",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "654",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": -2.518732786178589
+        },
+        {
+          "posicao": 18,
+          "chunk_id": "9ad54ce1-7b99-4eb7-a7b0-eebe17f631a1",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "654",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": -2.6498095989227295
+        },
+        {
+          "posicao": 19,
+          "chunk_id": "c9b1f0ec-ed28-4c9c-9307-c6ccf75e5065",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "107",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": -2.828148603439331
+        },
+        {
+          "posicao": 20,
+          "chunk_id": "687dccd7-e7d7-4c17-b061-46ffb2531723",
+          "fonte_id": "cb879294-267f-4cb0-ab8c-c2f20c316273",
+          "paginas": "9",
+          "secao": "Introdução",
+          "pontuacao_reranqueador": -2.9747321605682373
+        },
+        {
+          "posicao": 21,
+          "chunk_id": "00b12712-a79f-46b9-8f96-9ffe73e3dbba",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "690",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": -3.0481479167938232
+        },
+        {
+          "posicao": 22,
+          "chunk_id": "a17180f8-c445-46f4-90ea-74eb2fefc47d",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "10538",
+          "secao": "143ª Audiência Pública — 24/09/2014",
+          "pontuacao_reranqueador": -3.139944314956665
+        },
+        {
+          "posicao": 23,
+          "chunk_id": "c5d79acc-06ee-43db-a93d-422172ce8d9a",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "394-395",
+          "secao": "9 - a resistência da sociedade civil às graves violações de direitos humanos",
+          "pontuacao_reranqueador": -3.2536494731903076
+        },
+        {
+          "posicao": 24,
+          "chunk_id": "ec42a27a-1f08-4a24-850c-de8e46fe4e85",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "7775-7776",
+          "secao": "99ª Audiência Pública — 28/11/2013",
+          "pontuacao_reranqueador": -3.5763280391693115
+        },
+        {
+          "posicao": 25,
+          "chunk_id": "7743e890-cab1-4735-9dc6-fa3892f27e22",
+          "fonte_id": "ead2b032-09d6-413d-bd2f-ba3253d4e01e",
+          "paginas": "26",
+          "secao": "Introdução",
+          "pontuacao_reranqueador": -3.7648990154266357
+        },
+        {
+          "posicao": 26,
+          "chunk_id": "c144e1e5-8e68-4709-adb0-e4b45a28e084",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1753-1754",
+          "secao": "PARTE 3 – AÇÕES DE RESISTÊNCIA E MEDIDAS DE JUSTIÇA DE TRANSIÇÃO Março 2015",
+          "pontuacao_reranqueador": -3.768505811691284
+        },
+        {
+          "posicao": 27,
+          "chunk_id": "cf2fb2ab-a442-49f2-bdbd-ea6f7679a97b",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "7314-7315",
+          "secao": "98ª Audiência Pública — 26/11/2013",
+          "pontuacao_reranqueador": -4.042891025543213
+        },
+        {
+          "posicao": 28,
+          "chunk_id": "cc1ecbf3-4559-4389-99bc-9ac79f63f857",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "690",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": -4.417029857635498
+        },
+        {
+          "posicao": 29,
+          "chunk_id": "7bbdb19c-7de5-42af-8447-381a82d73043",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "16",
+          "secao": "Introdução – Justiça de Transição e Consolidação Democrática",
+          "pontuacao_reranqueador": -4.6842265129089355
+        },
+        {
+          "posicao": 30,
+          "chunk_id": "9c019725-ad24-4dac-863a-0090cbe75f5e",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "7719-7720",
+          "secao": "99ª Audiência Pública — 28/11/2013",
+          "pontuacao_reranqueador": -5.910849571228027
+        },
+        {
+          "posicao": 31,
+          "chunk_id": "e99eb823-0256-45b4-8cb6-d8a5d715bace",
+          "fonte_id": "08552f59-27f9-4bb5-9536-4668af2a961e",
+          "paginas": "81",
+          "secao": "Artigos",
+          "pontuacao_reranqueador": -6.028417587280273
+        },
+        {
+          "posicao": 32,
+          "chunk_id": "2edb90a8-ce67-4bde-ae85-f9ac44827eb7",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "1574",
+          "secao": "13. Impedimento de Convivência de Crianças com seus Genitores em Razão da sua Prisão, Morte ou Desaparecimento",
+          "pontuacao_reranqueador": -6.436666965484619
+        },
+        {
+          "posicao": 33,
+          "chunk_id": "499abd53-3a2f-41c6-a25f-03b8a821912f",
+          "fonte_id": "2298d148-7c79-4caf-b5ac-0e3f21c59f35",
+          "paginas": "269",
+          "secao": "Testemunhos Prestados à Comissão Municipal da Verdade de Petrópolis",
+          "pontuacao_reranqueador": -6.615642547607422
+        },
+        {
+          "posicao": 34,
+          "chunk_id": "d9c98be6-bcec-4fd9-b241-169e91159e22",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "7311",
+          "secao": "98ª Audiência Pública — 26/11/2013",
+          "pontuacao_reranqueador": -6.699541091918945
+        },
+        {
+          "posicao": 35,
+          "chunk_id": "77ac53d2-76a0-4c7c-92e2-95956a4182bc",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "665-666",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": -6.843801975250244
+        },
+        {
+          "posicao": 36,
+          "chunk_id": "db997a33-3db1-4e6e-b661-10e4b82a1e13",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "7353",
+          "secao": "98ª Audiência Pública — 26/11/2013",
+          "pontuacao_reranqueador": -6.84507417678833
+        },
+        {
+          "posicao": 37,
+          "chunk_id": "bca10f78-c6cc-4c61-b12c-65d373e8ff4f",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "689",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": -7.437910556793213
+        },
+        {
+          "posicao": 38,
+          "chunk_id": "8dfde24f-8fc0-4d7c-a0f8-57528c121b6c",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "395-396",
+          "secao": "9 - a resistência da sociedade civil às graves violações de direitos humanos",
+          "pontuacao_reranqueador": -7.491809368133545
+        },
+        {
+          "posicao": 39,
+          "chunk_id": "5c2395b5-3f1f-42c7-9364-b26482a81fc7",
+          "fonte_id": "cb879294-267f-4cb0-ab8c-c2f20c316273",
+          "paginas": "9-10",
+          "secao": "Introdução",
+          "pontuacao_reranqueador": -7.558861255645752
+        },
+        {
+          "posicao": 40,
+          "chunk_id": "124b2edc-9acb-410e-88a9-3b18ccc3204b",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "4369",
+          "secao": "55ª Audiência Pública — 15/07/2013",
+          "pontuacao_reranqueador": -7.950447082519531
+        },
+        {
+          "posicao": 41,
+          "chunk_id": "a7f27666-d7ee-40c6-8742-528b02edc3b6",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "395",
+          "secao": "9 - a resistência da sociedade civil às graves violações de direitos humanos",
+          "pontuacao_reranqueador": -8.087132453918457
+        },
+        {
+          "posicao": 42,
+          "chunk_id": "b5432648-7ec5-42f6-91b3-272bbdb47532",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "693",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": -8.117140769958496
+        },
+        {
+          "posicao": 43,
+          "chunk_id": "c86a8289-df5a-42be-934c-c968662e0361",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "689",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": -8.91158676147461
+        }
+      ]
+    },
+    {
+      "id": "P18",
+      "pergunta": "Que participação empresarial no apoio à repressão está documentada no acervo?",
+      "candidatos": 45,
+      "evidencias": [
+        {
+          "rotulo": "F314",
+          "posicao": 32,
+          "encontrado_top_8": false
+        },
+        {
+          "rotulo": "G3",
+          "posicao": 29,
+          "encontrado_top_8": false
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "6d24726a-b5b8-4e2d-a49f-aecc5fe74f25",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1151",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": 3.5026843547821045
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "1319e772-a5db-4501-acaa-69c113334a47",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "557",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "pontuacao_reranqueador": 2.2802298069000244
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "a5944658-4fa9-42c4-98fa-32d3be243dd9",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "9828-9829",
+          "secao": "115ª Audiência Pública — 17/03/2014",
+          "pontuacao_reranqueador": 1.8327466249465942
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "4d685bdc-ac26-494f-9647-76d632bc216f",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "paginas": "[35,35]",
+          "secao": "parte_ii_golpe",
+          "pontuacao_reranqueador": 1.7758114337921143
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "f33bed36-ea80-4645-b5be-ae8db7417f65",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1786-1787",
+          "secao": "PARTE 3 – AÇÕES DE RESISTÊNCIA E MEDIDAS DE JUSTIÇA DE TRANSIÇÃO Março 2015",
+          "pontuacao_reranqueador": 1.1015543937683105
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "1bd84a17-b4f4-44d4-a8d9-0c0bd68c7ff4",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "576-577",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "pontuacao_reranqueador": 0.6507184505462646
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "0bade1b5-6547-4357-a35c-676e3e7bf3e5",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "5138-5139",
+          "secao": "87ª Audiência Pública — 16/10/2013",
+          "pontuacao_reranqueador": 0.47307223081588745
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "8ab5732b-ccb4-4e31-8722-a7e26aafd79d",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1151",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": 0.24491585791110992
+        },
+        {
+          "posicao": 9,
+          "chunk_id": "2f607926-91f1-45e1-9c77-22558f5eaf7d",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "5139-5140",
+          "secao": "87ª Audiência Pública — 16/10/2013",
+          "pontuacao_reranqueador": -0.8173288106918335
+        },
+        {
+          "posicao": 10,
+          "chunk_id": "0410af32-54c3-4224-b6f9-eb18305f3719",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "557-558",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "pontuacao_reranqueador": -1.042998194694519
+        },
+        {
+          "posicao": 11,
+          "chunk_id": "2bd3faca-d138-4d53-9dd6-1a2c77c641bc",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "5123",
+          "secao": "87ª Audiência Pública — 16/10/2013",
+          "pontuacao_reranqueador": -1.1482385396957397
+        },
+        {
+          "posicao": 12,
+          "chunk_id": "bcac0bbd-6f15-488b-b075-47040d913bb6",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "9852",
+          "secao": "115ª Audiência Pública — 17/03/2014",
+          "pontuacao_reranqueador": -1.232845664024353
+        },
+        {
+          "posicao": 13,
+          "chunk_id": "a88c6c7f-56b7-40d0-b024-0ea461b901e6",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "8595-8596",
+          "secao": "150ª Audiência Pública — 08/12/2014",
+          "pontuacao_reranqueador": -1.2364155054092407
+        },
+        {
+          "posicao": 14,
+          "chunk_id": "d3867724-40f0-4bd5-bbd8-8bec055fda16",
+          "fonte_id": "cb879294-267f-4cb0-ab8c-c2f20c316273",
+          "paginas": "224-225",
+          "secao": "Considerações Finais",
+          "pontuacao_reranqueador": -1.40778648853302
+        },
+        {
+          "posicao": 15,
+          "chunk_id": "c05a943d-5de5-4ed7-ae1f-2a9a46335ebc",
+          "fonte_id": "ead2b032-09d6-413d-bd2f-ba3253d4e01e",
+          "paginas": "56-57",
+          "secao": "Introdução",
+          "pontuacao_reranqueador": -1.6241260766983032
+        },
+        {
+          "posicao": 16,
+          "chunk_id": "873974ad-5151-4e6b-886d-bd00f8ee1a83",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "333",
+          "secao": "8 – civis que colaboraram com a ditadura",
+          "pontuacao_reranqueador": -1.9308382272720337
+        },
+        {
+          "posicao": 17,
+          "chunk_id": "b29ec183-a845-4668-87d2-891d813f54e9",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "8601-8602",
+          "secao": "150ª Audiência Pública — 08/12/2014",
+          "pontuacao_reranqueador": -2.1711087226867676
+        },
+        {
+          "posicao": 18,
+          "chunk_id": "7c02eaba-9c4c-4cc3-a10d-58e1f1fbf2fd",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1847",
+          "secao": "PARTE 4 – ARQUIVOS E MEMÓRIA Março 2015",
+          "pontuacao_reranqueador": -2.444023847579956
+        },
+        {
+          "posicao": 19,
+          "chunk_id": "24562068-187b-4ea7-9d3b-1f9a17f90cae",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "86",
+          "secao": "2 - violações de direitos humanos dos trabalhadores",
+          "pontuacao_reranqueador": -2.816955327987671
+        },
+        {
+          "posicao": 20,
+          "chunk_id": "9f2bd136-03f3-42ca-9cfa-f878de072322",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "5096-5097",
+          "secao": "87ª Audiência Pública — 16/10/2013",
+          "pontuacao_reranqueador": -2.96047043800354
+        },
+        {
+          "posicao": 21,
+          "chunk_id": "a0706237-20ae-4e69-8aed-2b19687f8f30",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "5152-5153",
+          "secao": "87ª Audiência Pública — 16/10/2013",
+          "pontuacao_reranqueador": -3.0345675945281982
+        },
+        {
+          "posicao": 22,
+          "chunk_id": "c53f84d6-1bb5-429c-a1ac-cb04a781f418",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "569",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "pontuacao_reranqueador": -3.5997519493103027
+        },
+        {
+          "posicao": 23,
+          "chunk_id": "76e2644d-8906-407d-ad2e-8f6f08b4956e",
+          "fonte_id": "4d2e8758-647a-40f4-bcaa-38c36eca378f",
+          "paginas": "161",
+          "secao": null,
+          "pontuacao_reranqueador": -3.828824758529663
+        },
+        {
+          "posicao": 24,
+          "chunk_id": "a3e647c7-6762-41b2-85e2-db385a206926",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "567",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "pontuacao_reranqueador": -3.8849122524261475
+        },
+        {
+          "posicao": 25,
+          "chunk_id": "ae8fd08d-6a2f-4782-862e-343199c5f6e6",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "567-568",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "pontuacao_reranqueador": -4.109958648681641
+        },
+        {
+          "posicao": 26,
+          "chunk_id": "0359ee6b-0153-4dc6-a9b4-b77fe6cef1f5",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1821",
+          "secao": "PARTE 4 – ARQUIVOS E MEMÓRIA Março 2015",
+          "pontuacao_reranqueador": -4.469117164611816
+        },
+        {
+          "posicao": 27,
+          "chunk_id": "3e90dfd7-ddec-49f9-b612-84e41d6f8b45",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1820-1821",
+          "secao": "PARTE 4 – ARQUIVOS E MEMÓRIA Março 2015",
+          "pontuacao_reranqueador": -4.473636150360107
+        },
+        {
+          "posicao": 28,
+          "chunk_id": "c9f59aa2-207c-48f9-a801-b50656a70953",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "8595",
+          "secao": "150ª Audiência Pública — 08/12/2014",
+          "pontuacao_reranqueador": -4.474117755889893
+        },
+        {
+          "posicao": 29,
+          "chunk_id": "69bd0d33-9093-4300-a1a2-3a6c989a942d",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1-3",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "pontuacao_reranqueador": -4.478992462158203
+        },
+        {
+          "posicao": 30,
+          "chunk_id": "6888fc7e-27f6-4a89-80ad-b4bb3b12de29",
+          "fonte_id": "ead2b032-09d6-413d-bd2f-ba3253d4e01e",
+          "paginas": "53-54",
+          "secao": "Introdução",
+          "pontuacao_reranqueador": -5.150936126708984
+        },
+        {
+          "posicao": 31,
+          "chunk_id": "ec2520c5-f292-4c72-b508-e3e1e47a25ec",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1145",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": -5.239691734313965
+        },
+        {
+          "posicao": 32,
+          "chunk_id": "6fb4cd63-468c-4be0-a995-0602d29e0d0a",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "314",
+          "secao": "8 – civis que colaboraram com a ditadura",
+          "pontuacao_reranqueador": -5.309549808502197
+        },
+        {
+          "posicao": 33,
+          "chunk_id": "afe9425f-48be-4334-a878-7af940888d68",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "565",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "pontuacao_reranqueador": -5.325913906097412
+        },
+        {
+          "posicao": 34,
+          "chunk_id": "f0315170-43b0-46d8-a3c6-c033c26966e5",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "779-780",
+          "secao": "6. A Repressão ao Mundo do Trabalho e ao Movimento Sindical Urbano em Minas Gerais, de 1946 a 1988",
+          "pontuacao_reranqueador": -5.645928859710693
+        },
+        {
+          "posicao": 35,
+          "chunk_id": "284fbed8-9757-4899-8a77-9e139e09f3ae",
+          "fonte_id": "fe0c64ce-f11e-45c6-aaa0-11b73fb2f134",
+          "paginas": "216-217",
+          "secao": "Capítulo 5 – Vítimas da Ditadura: Perseguidos, Cassados, Exilados, Torturados, Mortos e Desaparecidos",
+          "pontuacao_reranqueador": -5.966922283172607
+        },
+        {
+          "posicao": 36,
+          "chunk_id": "2a85e7de-8b4d-4983-8a17-d765ab9ee0b6",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "19-20",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "pontuacao_reranqueador": -6.015244960784912
+        },
+        {
+          "posicao": 37,
+          "chunk_id": "dbb7f796-d74d-4165-8e2c-11e8312b25a9",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "66",
+          "secao": "2 - violações de direitos humanos dos trabalhadores",
+          "pontuacao_reranqueador": -6.183570861816406
+        },
+        {
+          "posicao": 38,
+          "chunk_id": "dde63337-bab0-4310-8375-224d91e6b928",
+          "fonte_id": "9a55bb5e-8614-4fa0-b7dc-9ae0bee0ebfa",
+          "paginas": "64-65",
+          "secao": "Parte II – Contexto Histórico",
+          "pontuacao_reranqueador": -6.444115161895752
+        },
+        {
+          "posicao": 39,
+          "chunk_id": "5c42146c-4705-4ce5-a175-a3faa80f33b6",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "3",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "pontuacao_reranqueador": -7.119430065155029
+        },
+        {
+          "posicao": 40,
+          "chunk_id": "2db0b685-0738-4f74-b88c-e53f4240429b",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "314",
+          "secao": "8 – civis que colaboraram com a ditadura",
+          "pontuacao_reranqueador": -7.143896102905273
+        },
+        {
+          "posicao": 41,
+          "chunk_id": "b3813a9e-7e09-44ea-8a60-ceded4370651",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "322",
+          "secao": "8 – civis que colaboraram com a ditadura",
+          "pontuacao_reranqueador": -7.279267311096191
+        },
+        {
+          "posicao": 42,
+          "chunk_id": "127ea092-c5ee-4a63-995c-f0f1241b312d",
+          "fonte_id": "2153407d-070b-4256-943f-81ad3cbb7d37",
+          "paginas": "354",
+          "secao": "VIII. Conclusão e Recomendações",
+          "pontuacao_reranqueador": -7.319496154785156
+        },
+        {
+          "posicao": 43,
+          "chunk_id": "703a2685-6309-4c67-9564-6bb1f9d2e3a3",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "9825-9826",
+          "secao": "115ª Audiência Pública — 17/03/2014",
+          "pontuacao_reranqueador": -8.068924903869629
+        },
+        {
+          "posicao": 44,
+          "chunk_id": "5846ba30-b6fa-4916-be16-a80f1b9dc54f",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1835",
+          "secao": "PARTE 4 – ARQUIVOS E MEMÓRIA Março 2015",
+          "pontuacao_reranqueador": -8.69770336151123
+        },
+        {
+          "posicao": 45,
+          "chunk_id": "669f9b7d-0af9-4c9e-9031-d1d78bd23d93",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "314-315",
+          "secao": "8 – civis que colaboraram com a ditadura",
+          "pontuacao_reranqueador": -9.184708595275879
+        }
+      ]
+    },
+    {
+      "id": "P23",
+      "pergunta": "A repressão atingiu grupos além das organizações envolvidas na luta armada?",
+      "candidatos": 47,
+      "evidencias": [
+        {
+          "rotulo": "F9",
+          "posicao": 41,
+          "encontrado_top_8": false
+        },
+        {
+          "rotulo": "D94",
+          "posicao": 21,
+          "encontrado_top_8": false
+        },
+        {
+          "rotulo": "F204/206",
+          "posicao": 38,
+          "encontrado_top_8": false
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "a1bd040f-c632-4087-8c8c-077a94445a5d",
+          "fonte_id": "067ba85a-8b58-4089-9c9d-2da4d100adfd",
+          "paginas": "475",
+          "secao": "Perfil – VAR - VAR Palmares",
+          "pontuacao_reranqueador": 5.609193325042725
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "6e8beb95-5033-4a97-ba0a-3ae471820af1",
+          "fonte_id": "a4fa15ad-6c73-463a-a9ad-c34363c46f5c",
+          "paginas": "266",
+          "secao": "Parte III – Volta Redonda na Ditadura Civil-Militar (1970-1973)",
+          "pontuacao_reranqueador": 5.056049823760986
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "00ce2399-a34f-45c1-a73f-3b1964867980",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "103-104",
+          "secao": "3 – contexto histórico das graves violações entre 1946 e 1988",
+          "pontuacao_reranqueador": 4.898902416229248
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "4dae25a9-a536-4779-842d-d2c218d65b52",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "44",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "pontuacao_reranqueador": 4.867014408111572
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "d0dfe480-4018-4472-b685-03ecf958b195",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "7317-7318",
+          "secao": "98ª Audiência Pública — 26/11/2013",
+          "pontuacao_reranqueador": 3.8759710788726807
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "53be4ed5-86c8-4c39-b52f-5323b229ea8a",
+          "fonte_id": "067ba85a-8b58-4089-9c9d-2da4d100adfd",
+          "paginas": "474",
+          "secao": "Perfil – VAR - VAR Palmares",
+          "pontuacao_reranqueador": 3.809551954269409
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "3a4b21fb-2828-4933-882d-bbf6a16bed9a",
+          "fonte_id": "9a4bfbe7-e343-49f2-b478-34841d305d5d",
+          "paginas": "172",
+          "secao": null,
+          "pontuacao_reranqueador": 3.640313148498535
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "4ba24d29-2fb2-42af-ab96-28c8a3128734",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "8519-8520",
+          "secao": "149ª Audiência Pública — 04/12/2014",
+          "pontuacao_reranqueador": 3.6036489009857178
+        },
+        {
+          "posicao": 9,
+          "chunk_id": "0aec122f-a6b3-41de-95f8-55a5a304c501",
+          "fonte_id": "9a4bfbe7-e343-49f2-b478-34841d305d5d",
+          "paginas": "68",
+          "secao": null,
+          "pontuacao_reranqueador": 2.7830593585968018
+        },
+        {
+          "posicao": 10,
+          "chunk_id": "a4367d8f-6751-4085-8846-41f2e31ff860",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "28-29",
+          "secao": "Prefácio",
+          "pontuacao_reranqueador": 1.863111138343811
+        },
+        {
+          "posicao": 11,
+          "chunk_id": "2b191204-e13f-4555-b5ef-15ab24f09f8b",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1180-1181",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "pontuacao_reranqueador": 1.8517650365829468
+        },
+        {
+          "posicao": 12,
+          "chunk_id": "f6cea94a-0a22-4432-a9fb-b9b2a6b03eb2",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "50",
+          "secao": "Capítulo V – Das Ligas Camponesas ao MST",
+          "pontuacao_reranqueador": 1.7734538316726685
+        },
+        {
+          "posicao": 13,
+          "chunk_id": "afb4b915-1c55-4c38-89bc-b2af6c07358c",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "813",
+          "secao": "6. A Repressão ao Mundo do Trabalho e ao Movimento Sindical Urbano em Minas Gerais, de 1946 a 1988",
+          "pontuacao_reranqueador": 1.7651151418685913
+        },
+        {
+          "posicao": 14,
+          "chunk_id": "69ebcd7c-86f4-4ba8-aaf0-97718d3910a7",
+          "fonte_id": "a4fa15ad-6c73-463a-a9ad-c34363c46f5c",
+          "paginas": "255-256",
+          "secao": "Parte III – Volta Redonda na Ditadura Civil-Militar (1970-1973)",
+          "pontuacao_reranqueador": 1.629752278327942
+        },
+        {
+          "posicao": 15,
+          "chunk_id": "0ff4a5fc-6b6b-4888-a129-92dbdb53869d",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "8546-8547",
+          "secao": "149ª Audiência Pública — 04/12/2014",
+          "pontuacao_reranqueador": 1.5080792903900146
+        },
+        {
+          "posicao": 16,
+          "chunk_id": "772e104b-66c4-42a5-b9f3-556548202a7c",
+          "fonte_id": "067ba85a-8b58-4089-9c9d-2da4d100adfd",
+          "paginas": "476-477",
+          "secao": "Perfil – POC - Partido Operário Comunista",
+          "pontuacao_reranqueador": 1.302423357963562
+        },
+        {
+          "posicao": 17,
+          "chunk_id": "05c17954-5981-4bad-9395-9fb25d793489",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "8546",
+          "secao": "149ª Audiência Pública — 04/12/2014",
+          "pontuacao_reranqueador": 1.1261216402053833
+        },
+        {
+          "posicao": 18,
+          "chunk_id": "86e8487c-39fd-46a1-bd52-d065d0a652e9",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "523",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "pontuacao_reranqueador": 0.2293960005044937
+        },
+        {
+          "posicao": 19,
+          "chunk_id": "55e9fc03-de8a-4d95-bf40-29cac5d9e660",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "782-783",
+          "secao": "6. A Repressão ao Mundo do Trabalho e ao Movimento Sindical Urbano em Minas Gerais, de 1946 a 1988",
+          "pontuacao_reranqueador": 0.021441712975502014
+        },
+        {
+          "posicao": 20,
+          "chunk_id": "347e0711-8d8b-4c43-b22c-9a5b0138953b",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "812",
+          "secao": "6. A Repressão ao Mundo do Trabalho e ao Movimento Sindical Urbano em Minas Gerais, de 1946 a 1988",
+          "pontuacao_reranqueador": -0.4092528820037842
+        },
+        {
+          "posicao": 21,
+          "chunk_id": "4a680fac-c92e-4bec-87ff-e8ee41362a8a",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "94",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": -0.48984578251838684
+        },
+        {
+          "posicao": 22,
+          "chunk_id": "fdfaebd6-56b9-4500-81b6-290b53c7b847",
+          "fonte_id": "08552f59-27f9-4bb5-9536-4668af2a961e",
+          "paginas": "96",
+          "secao": "Artigos",
+          "pontuacao_reranqueador": -0.8411580324172974
+        },
+        {
+          "posicao": 23,
+          "chunk_id": "3ceb8926-9cb2-4746-a73d-9531918d2b11",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "640-641",
+          "secao": "13 – casos emblemáticos",
+          "pontuacao_reranqueador": -0.9268736839294434
+        },
+        {
+          "posicao": 24,
+          "chunk_id": "c9b1f0ec-ed28-4c9c-9307-c6ccf75e5065",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "107",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": -1.1598337888717651
+        },
+        {
+          "posicao": 25,
+          "chunk_id": "01af20d8-a2b9-46b1-914a-5aa4cc9c8f91",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "8548",
+          "secao": "149ª Audiência Pública — 04/12/2014",
+          "pontuacao_reranqueador": -1.4343557357788086
+        },
+        {
+          "posicao": 26,
+          "chunk_id": "899f0f08-6313-46d3-b811-bd617bb9143b",
+          "fonte_id": "ac92ca87-4725-4f7e-8409-c71ecaa323f6",
+          "paginas": "55",
+          "secao": "1. Operação Condor",
+          "pontuacao_reranqueador": -1.5201234817504883
+        },
+        {
+          "posicao": 27,
+          "chunk_id": "42b62c03-2084-46e7-a3f0-02e30a37e19d",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "8549",
+          "secao": "149ª Audiência Pública — 04/12/2014",
+          "pontuacao_reranqueador": -1.889870524406433
+        },
+        {
+          "posicao": 28,
+          "chunk_id": "88966117-32f1-4ffc-a82e-dcf6811eef1f",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "65",
+          "secao": "2 - violações de direitos humanos dos trabalhadores",
+          "pontuacao_reranqueador": -1.9309253692626953
+        },
+        {
+          "posicao": 29,
+          "chunk_id": "b84cc8b3-15a8-4824-a6dd-bd537644afe4",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "38-39",
+          "secao": "1 – violações de direitos humanos no meio militar",
+          "pontuacao_reranqueador": -2.0469777584075928
+        },
+        {
+          "posicao": 30,
+          "chunk_id": "ae828cff-b362-403e-85e3-7b9e5d87bbca",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "523",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "pontuacao_reranqueador": -2.222327947616577
+        },
+        {
+          "posicao": 31,
+          "chunk_id": "3ac7637b-c794-4a48-88ad-b37ef1fb7866",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "821",
+          "secao": "6. A Repressão ao Mundo do Trabalho e ao Movimento Sindical Urbano em Minas Gerais, de 1946 a 1988",
+          "pontuacao_reranqueador": -2.82407546043396
+        },
+        {
+          "posicao": 32,
+          "chunk_id": "34fd183b-8584-4139-aa5f-0d35294b0e17",
+          "fonte_id": "c9ddfae8-cbb3-40bb-a252-750b7708ac5f",
+          "paginas": "428-429",
+          "secao": "Capítulo 3 — Amazônia Paraense no Relatório Final da CNV",
+          "pontuacao_reranqueador": -3.0591626167297363
+        },
+        {
+          "posicao": 33,
+          "chunk_id": "8fb02278-78e8-4366-b547-4f445e8896de",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "paginas": "94-95",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "pontuacao_reranqueador": -3.218691110610962
+        },
+        {
+          "posicao": 34,
+          "chunk_id": "de23d6fc-0d85-45fa-b522-f242c1084d12",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "97",
+          "secao": "3 - violações de direitos humanos dos camponeses",
+          "pontuacao_reranqueador": -3.43424391746521
+        },
+        {
+          "posicao": 35,
+          "chunk_id": "04447896-1ec0-4d32-96cb-48f416343cf9",
+          "fonte_id": "82ec029b-45e6-499e-a34d-05e79dbdb670",
+          "paginas": "27-28",
+          "secao": "Capítulo 2 – 1972: Estudantes no Olho do Furacão",
+          "pontuacao_reranqueador": -3.597825288772583
+        },
+        {
+          "posicao": 36,
+          "chunk_id": "69d4ec06-48f1-4e38-98c4-9f94dc9e0a11",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "356",
+          "secao": "5. As Graves Violações de Direitos Humanos no Campo (1961-1988)",
+          "pontuacao_reranqueador": -3.603498697280884
+        },
+        {
+          "posicao": 37,
+          "chunk_id": "0fc35978-7dfb-49fa-ba07-34074bcf5227",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "paginas": "[134,134]",
+          "secao": "parte_iv_estrutura",
+          "pontuacao_reranqueador": -3.610210657119751
+        },
+        {
+          "posicao": 38,
+          "chunk_id": "215f836a-f3ff-40d6-aa5a-805f3c6b08a8",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "205-206",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "pontuacao_reranqueador": -4.005473613739014
+        },
+        {
+          "posicao": 39,
+          "chunk_id": "8b2f1f43-3e47-4cc3-979f-6481afa34870",
+          "fonte_id": "cb879294-267f-4cb0-ab8c-c2f20c316273",
+          "paginas": "220-221",
+          "secao": "Parte II – A Cidade e o Contexto Dentro da Universidade",
+          "pontuacao_reranqueador": -4.363118648529053
+        },
+        {
+          "posicao": 40,
+          "chunk_id": "329905d5-c48c-44b2-95ab-d7f771aceee0",
+          "fonte_id": "2153407d-070b-4256-943f-81ad3cbb7d37",
+          "paginas": "34-35",
+          "secao": "III. O Golpe Civil Militar no Brasil e no Estado do Espírito Santo",
+          "pontuacao_reranqueador": -5.01060152053833
+        },
+        {
+          "posicao": 41,
+          "chunk_id": "d23cb0ef-7664-44c9-b8e1-e16b3b36ae99",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "9-12",
+          "secao": "1 – violações de direitos humanos no meio militar",
+          "pontuacao_reranqueador": -5.06117057800293
+        },
+        {
+          "posicao": 42,
+          "chunk_id": "23ae97f6-e371-415c-b4f4-4c023610e6c0",
+          "fonte_id": "a90aff91-0e1d-482c-9f1f-ced208edf078",
+          "paginas": "30-31",
+          "secao": "II Parte – Ditadura Civil-Militar no Amapá (1964-1988)",
+          "pontuacao_reranqueador": -5.551079273223877
+        },
+        {
+          "posicao": 43,
+          "chunk_id": "4d25eb4a-5261-4087-bfb5-40c6db4e975f",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "9191-9192",
+          "secao": "142ª Audiência Pública — 11/09/2014",
+          "pontuacao_reranqueador": -6.2200188636779785
+        },
+        {
+          "posicao": 44,
+          "chunk_id": "b9f3440b-b20e-4b78-bdd5-5e1ff24f8a6c",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "204",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "pontuacao_reranqueador": -7.3743367195129395
+        },
+        {
+          "posicao": 45,
+          "chunk_id": "91d436e4-22a8-4aa7-9209-ce66265e212c",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "204-205",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "pontuacao_reranqueador": -7.594395160675049
+        },
+        {
+          "posicao": 46,
+          "chunk_id": "6fe39775-2737-4716-9691-9f192a91f777",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "206",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "pontuacao_reranqueador": -8.629834175109863
+        },
+        {
+          "posicao": 47,
+          "chunk_id": "94ed1230-bc05-45e8-98ae-46028f03007e",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "paginas": "206-207",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "pontuacao_reranqueador": -8.730502128601074
+        }
+      ]
+    },
+    {
+      "id": "P24",
+      "pergunta": "A ausência de registro policial permite concluir que não houve tortura?",
+      "candidatos": 59,
+      "evidencias": [
+        {
+          "rotulo": "C20-24",
+          "posicao": 23,
+          "encontrado_top_8": false
+        },
+        {
+          "rotulo": "C39-42",
+          "posicao": 33,
+          "encontrado_top_8": false
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "eab71cf4-4d37-492e-9499-36073d872fe8",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "3621",
+          "secao": "73ª Audiência Pública — 13/09/2013",
+          "pontuacao_reranqueador": 3.506230592727661
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "62666ae6-6d1c-41e4-80b7-c2386ca6aac4",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "343",
+          "secao": "9 – tortura",
+          "pontuacao_reranqueador": 1.754194736480713
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "bd6cd0c1-b7d3-4248-9ed4-3195c05e5aea",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "349",
+          "secao": "9 – tortura",
+          "pontuacao_reranqueador": 1.751125454902649
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "07d9f380-9843-4d11-8a9d-57308bf4ee4b",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "349-350",
+          "secao": "9 – tortura",
+          "pontuacao_reranqueador": 0.5396358966827393
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "0660cd33-eeaf-42cf-81ca-d04dde1783eb",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "945",
+          "secao": "17 – o judiciário na ditadura",
+          "pontuacao_reranqueador": 0.5241435170173645
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "3c1893c4-ba1a-45fb-ae73-22786309b520",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "948",
+          "secao": "17 – o judiciário na ditadura",
+          "pontuacao_reranqueador": 0.05149378255009651
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "022e35a1-d03d-4f4b-bdad-4553fce68b9e",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "944-945",
+          "secao": "17 – o judiciário na ditadura",
+          "pontuacao_reranqueador": -0.6968616247177124
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "d139f450-7eb1-43fe-aad6-fb7d1080988d",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "379-380",
+          "secao": "9 – tortura",
+          "pontuacao_reranqueador": -1.257642149925232
+        },
+        {
+          "posicao": 9,
+          "chunk_id": "2cb83a14-670f-4c46-86e4-27c9370ba87b",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "363",
+          "secao": "9 – tortura",
+          "pontuacao_reranqueador": -2.1965978145599365
+        },
+        {
+          "posicao": 10,
+          "chunk_id": "1fd0e288-d9a2-4c1d-b046-e0abe90ffb57",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "364",
+          "secao": "9 – tortura",
+          "pontuacao_reranqueador": -2.3499605655670166
+        },
+        {
+          "posicao": 11,
+          "chunk_id": "29e04a55-425c-4831-8261-171e820b4874",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "7717",
+          "secao": "99ª Audiência Pública — 28/11/2013",
+          "pontuacao_reranqueador": -2.438180446624756
+        },
+        {
+          "posicao": 12,
+          "chunk_id": "3cc424a8-b95e-43d1-9690-db1306ad5972",
+          "fonte_id": "9efe2441-d042-4edd-a4e2-5c3040f9b6a6",
+          "paginas": "89-90",
+          "secao": null,
+          "pontuacao_reranqueador": -2.5459659099578857
+        },
+        {
+          "posicao": 13,
+          "chunk_id": "a5f03e1f-417f-4e0d-beb0-5e661cef5121",
+          "fonte_id": "efc10a75-5cf4-435e-a598-7abf57f88ff7",
+          "paginas": "709",
+          "secao": "Seção 1983",
+          "pontuacao_reranqueador": -2.776654005050659
+        },
+        {
+          "posicao": 14,
+          "chunk_id": "3f1bb962-f124-4556-9ca7-acf9fc2d2f71",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "24-25",
+          "secao": "1 – a criação da comissão nacional da verdade",
+          "pontuacao_reranqueador": -2.976066827774048
+        },
+        {
+          "posicao": 15,
+          "chunk_id": "2e59e0b6-f5a7-4d40-bf3a-33ebc8c1e8b7",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "paginas": "[217,217]",
+          "secao": "parte_vi_legado",
+          "pontuacao_reranqueador": -2.9872853755950928
+        },
+        {
+          "posicao": 16,
+          "chunk_id": "34df3515-2950-4ded-8732-dd4df48fa0b4",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "paginas": "1237",
+          "secao": "PARTE 3 – AÇÕES DE RESISTÊNCIA E MEDIDAS DE JUSTIÇA DE TRANSIÇÃO Março 2015",
+          "pontuacao_reranqueador": -3.806769609451294
+        },
+        {
+          "posicao": 17,
+          "chunk_id": "02cd85b2-3e7e-4b7a-8e4d-8d85d5798d0e",
+          "fonte_id": "efc10a75-5cf4-435e-a598-7abf57f88ff7",
+          "paginas": "709",
+          "secao": "Seção 1983",
+          "pontuacao_reranqueador": -3.9803202152252197
+        },
+        {
+          "posicao": 18,
+          "chunk_id": "cf733bde-0bc3-4307-8b0c-17bd8f2a5fa8",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "paginas": "953-954",
+          "secao": "17 – o judiciário na ditadura",
+          "pontuacao_reranqueador": -4.1168131828308105
+        },
+        {
+          "posicao": 19,
+          "chunk_id": "1b2d1b1c-4186-4665-9779-b6d4bb1c1792",
+          "fonte_id": "c9ddfae8-cbb3-40bb-a252-750b7708ac5f",
+          "paginas": "433",
+          "secao": "Capítulo 3 — Amazônia Paraense no Relatório Final da CNV",
+          "pontuacao_reranqueador": -4.178813457489014
+        },
+        {
+          "posicao": 20,
+          "chunk_id": "ce95700a-79f9-46c7-924e-04b65b887575",
+          "fonte_id": "2298d148-7c79-4caf-b5ac-0e3f21c59f35",
+          "paginas": "88-89",
+          "secao": "1. O Golpe e a Formação da Ditadura Militar (1964-1969)",
+          "pontuacao_reranqueador": -4.3025593757629395
+        },
+        {
+          "posicao": 21,
+          "chunk_id": "5936762f-7772-4736-87d3-f779380bbf46",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "6015-6016",
+          "secao": "7ª Audiência Pública — 21/02/2013",
+          "pontuacao_reranqueador": -4.7731804847717285
+        },
+        {
+          "posicao": 22,
+          "chunk_id": "131801eb-acc4-4b0a-9103-c876d9709441",
+          "fonte_id": "2298d148-7c79-4caf-b5ac-0e3f21c59f35",
+          "paginas": "93-94",
+          "secao": "1. O Golpe e a Formação da Ditadura Militar (1964-1969)",
+          "pontuacao_reranqueador": -4.948462963104248
+        },
+        {
+          "posicao": 23,
+          "chunk_id": "fc838bfe-311a-4263-9815-e2174da0c824",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "22",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "pontuacao_reranqueador": -5.274487495422363
+        },
+        {
+          "posicao": 24,
+          "chunk_id": "28f40ba8-8550-45cd-9968-6b6d03afc2cf",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "23",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "pontuacao_reranqueador": -5.369479656219482
+        },
+        {
+          "posicao": 25,
+          "chunk_id": "6a202a0b-ee71-49a7-b4b9-c997baac5cd5",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "9800",
+          "secao": "115ª Audiência Pública — 17/03/2014",
+          "pontuacao_reranqueador": -5.458917617797852
+        },
+        {
+          "posicao": 26,
+          "chunk_id": "7ec4426e-d334-426f-aa88-92f5ca2a5329",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "6141-6142",
+          "secao": "7ª Audiência Pública — 21/02/2013",
+          "pontuacao_reranqueador": -5.631728649139404
+        },
+        {
+          "posicao": 27,
+          "chunk_id": "ee77a507-9043-4de1-92f2-2856f5da4fdc",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "6941-6942",
+          "secao": "97ª Audiência Pública — 25/11/2013",
+          "pontuacao_reranqueador": -5.651322364807129
+        },
+        {
+          "posicao": 28,
+          "chunk_id": "543cf336-b15d-44b9-8c2d-895ed48b6b72",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "paginas": "[164,164]",
+          "secao": "parte_iv_estrutura",
+          "pontuacao_reranqueador": -5.654896259307861
+        },
+        {
+          "posicao": 29,
+          "chunk_id": "931a9671-8416-4802-b5aa-347becde9aba",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "23-24",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "pontuacao_reranqueador": -5.747823238372803
+        },
+        {
+          "posicao": 30,
+          "chunk_id": "051d9dae-5769-4715-92fe-8a0329e719a2",
+          "fonte_id": "2298d148-7c79-4caf-b5ac-0e3f21c59f35",
+          "paginas": "89-90",
+          "secao": "1. O Golpe e a Formação da Ditadura Militar (1964-1969)",
+          "pontuacao_reranqueador": -5.959660053253174
+        },
+        {
+          "posicao": 31,
+          "chunk_id": "93f226e8-fc8c-4d1d-9f15-d014cd1b9809",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "paginas": "[217,218]",
+          "secao": "parte_vi_legado",
+          "pontuacao_reranqueador": -6.066903591156006
+        },
+        {
+          "posicao": 32,
+          "chunk_id": "5e83bff1-e20c-45c4-b0e1-add6864c40c8",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "22",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "pontuacao_reranqueador": -6.1153244972229
+        },
+        {
+          "posicao": 33,
+          "chunk_id": "1c7eafd3-8389-4273-8103-eb6dd3119bf1",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "40-41",
+          "secao": "Capítulo IV – Ditadura Civil-Militar e a Questão de Gênero",
+          "pontuacao_reranqueador": -6.17271089553833
+        },
+        {
+          "posicao": 34,
+          "chunk_id": "89d0cc63-afcc-49bf-b030-8e62b466eb93",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "21",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "pontuacao_reranqueador": -6.191195011138916
+        },
+        {
+          "posicao": 35,
+          "chunk_id": "a1ccc107-e682-4223-b534-a4b8b64fb407",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "6015-6016",
+          "secao": "7ª Audiência Pública — 21/02/2013",
+          "pontuacao_reranqueador": -6.3250555992126465
+        },
+        {
+          "posicao": 36,
+          "chunk_id": "e6149f2e-e20c-4998-a850-2c390975d1b0",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "6142",
+          "secao": "7ª Audiência Pública — 21/02/2013",
+          "pontuacao_reranqueador": -6.614518642425537
+        },
+        {
+          "posicao": 37,
+          "chunk_id": "a958a33b-fc1f-4c76-ae24-3e7257dad9b8",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "169-170",
+          "secao": "3. Tortura e Violência Institucional aos Opositores à Ditadura em Minas Gerais",
+          "pontuacao_reranqueador": -6.62774133682251
+        },
+        {
+          "posicao": 38,
+          "chunk_id": "84ba264f-25b5-41a4-a804-7c492a4cf1a5",
+          "fonte_id": "ceb83b81-0470-4594-b8f6-b717e094f5ee",
+          "paginas": "97",
+          "secao": "Capítulo 3 – Vítimas da ditadura",
+          "pontuacao_reranqueador": -6.675426006317139
+        },
+        {
+          "posicao": 39,
+          "chunk_id": "16d2673a-d6f3-4dbe-b76e-5dd5adad9a45",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "6140-6141",
+          "secao": "7ª Audiência Pública — 21/02/2013",
+          "pontuacao_reranqueador": -6.691997051239014
+        },
+        {
+          "posicao": 40,
+          "chunk_id": "6fd9e630-66a8-4b84-8d6d-3a5c4a50b756",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "paginas": "169",
+          "secao": "3. Tortura e Violência Institucional aos Opositores à Ditadura em Minas Gerais",
+          "pontuacao_reranqueador": -6.844818592071533
+        },
+        {
+          "posicao": 41,
+          "chunk_id": "ce074cfe-3706-4eed-8467-7c15acad3252",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "20",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "pontuacao_reranqueador": -7.113276481628418
+        },
+        {
+          "posicao": 42,
+          "chunk_id": "3c6f4832-e548-4214-87a5-0826689b24c5",
+          "fonte_id": "2298d148-7c79-4caf-b5ac-0e3f21c59f35",
+          "paginas": "95-96",
+          "secao": "1. O Golpe e a Formação da Ditadura Militar (1964-1969)",
+          "pontuacao_reranqueador": -7.2584757804870605
+        },
+        {
+          "posicao": 43,
+          "chunk_id": "f34c7939-3de6-49e4-856c-36de82b23107",
+          "fonte_id": "de865a48-ad6f-43d4-a119-f0ddb62b35ef",
+          "paginas": "1106",
+          "secao": "ANEXO XVII — Parecer Jurídico (autor: Prof. Emílio Peluso Neder Meyer)",
+          "pontuacao_reranqueador": -7.2753586769104
+        },
+        {
+          "posicao": 44,
+          "chunk_id": "6ebe42d1-1f5b-4c95-a9b9-74c5bf7b6475",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "paginas": "8487",
+          "secao": "149ª Audiência Pública — 04/12/2014",
+          "pontuacao_reranqueador": -7.33417272567749
+        },
+        {
+          "posicao": 45,
+          "chunk_id": "90dc40aa-2581-40da-a4a7-e440b1d2aa68",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "21",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "pontuacao_reranqueador": -7.707245349884033
+        },
+        {
+          "posicao": 46,
+          "chunk_id": "6a1ae698-2b08-4398-b5d3-8ea84b8f1f03",
+          "fonte_id": "e9fa4e92-a1ba-4452-8357-cba6696c28e3",
+          "paginas": "276",
+          "secao": "Capítulo 10 — Justiça de Transição: situação atual e repercussões no Pará",
+          "pontuacao_reranqueador": -7.804120063781738
+        },
+        {
+          "posicao": 47,
+          "chunk_id": "21a3e9f4-2c8c-4379-9fe2-268b1a51c42c",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "40",
+          "secao": "Capítulo IV – Ditadura Civil-Militar e a Questão de Gênero",
+          "pontuacao_reranqueador": -7.874546051025391
+        },
+        {
+          "posicao": 48,
+          "chunk_id": "804772ab-3914-4666-bc41-03d9c5670ca4",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "22-23",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "pontuacao_reranqueador": -8.156877517700195
+        },
+        {
+          "posicao": 49,
+          "chunk_id": "61e3c0a6-4b7e-4aa6-b495-f7a5cbde38b6",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "21",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "pontuacao_reranqueador": -8.216344833374023
+        },
+        {
+          "posicao": 50,
+          "chunk_id": "46a8df0e-74e2-4e94-b545-b308e9e9d512",
+          "fonte_id": "e9fa4e92-a1ba-4452-8357-cba6696c28e3",
+          "paginas": "277",
+          "secao": "Capítulo 10 — Justiça de Transição: situação atual e repercussões no Pará",
+          "pontuacao_reranqueador": -8.546093940734863
+        },
+        {
+          "posicao": 51,
+          "chunk_id": "7bfe887b-6fbe-4d35-b853-08a60f55048e",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "40",
+          "secao": "Capítulo IV – Ditadura Civil-Militar e a Questão de Gênero",
+          "pontuacao_reranqueador": -8.67982006072998
+        },
+        {
+          "posicao": 52,
+          "chunk_id": "19a031dd-23ba-4bff-8e2c-658f2b104bda",
+          "fonte_id": "2298d148-7c79-4caf-b5ac-0e3f21c59f35",
+          "paginas": "130-131",
+          "secao": "2. A Consolidação da Ditadura Militar (1970-1979)",
+          "pontuacao_reranqueador": -8.952792167663574
+        },
+        {
+          "posicao": 53,
+          "chunk_id": "04e035c2-b3a4-4e4f-a697-eb4a67435c53",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "19-20",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "pontuacao_reranqueador": -8.963744163513184
+        },
+        {
+          "posicao": 54,
+          "chunk_id": "5046e702-24c4-4ed8-9b26-7b125aa37d87",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "39",
+          "secao": "Capítulo IV – Ditadura Civil-Militar e a Questão de Gênero",
+          "pontuacao_reranqueador": -9.15108871459961
+        },
+        {
+          "posicao": 55,
+          "chunk_id": "fa6cfbf4-fe84-490e-b950-feb0276d2121",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "23",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "pontuacao_reranqueador": -9.184724807739258
+        },
+        {
+          "posicao": 56,
+          "chunk_id": "96b6c882-96fd-414a-aa88-f1f1fa2473a6",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "42-43",
+          "secao": "Capítulo IV – Ditadura Civil-Militar e a Questão de Gênero",
+          "pontuacao_reranqueador": -9.297669410705566
+        },
+        {
+          "posicao": 57,
+          "chunk_id": "2fefd39b-7476-4159-a154-f7694407ca86",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "39",
+          "secao": "Capítulo IV – Ditadura Civil-Militar e a Questão de Gênero",
+          "pontuacao_reranqueador": -9.416518211364746
+        },
+        {
+          "posicao": 58,
+          "chunk_id": "6eb10ac6-9132-4a94-87e7-e9f30d23c715",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "20",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "pontuacao_reranqueador": -9.52560806274414
+        },
+        {
+          "posicao": 59,
+          "chunk_id": "03c9df47-6258-4811-a498-353f7ec1141e",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "paginas": "38-39",
+          "secao": "Capítulo IV – Ditadura Civil-Militar e a Questão de Gênero",
+          "pontuacao_reranqueador": -10.438502311706543
+        }
+      ]
+    }
+  ]
+}

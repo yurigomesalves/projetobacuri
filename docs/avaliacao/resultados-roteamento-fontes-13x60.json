@@ -1,0 +1,434 @@
+{
+  "resumo": {
+    "executado_em": "2026-09-09T17:30:48.715Z",
+    "estrategia": "vetorial_top_50_e_textual_nas_13_fontes",
+    "consulta": "pergunta_original_sem_decomposicao",
+    "maximo_fontes": 13,
+    "quantidade_por_fonte": 60,
+    "fontes_por_consulta": 3,
+    "unidades_evidencia": 32,
+    "encontradas_no_vetorial_top_50": 22,
+    "recuperadas_na_segunda_etapa": 7,
+    "unidades_encontradas_no_conjunto_candidato": 29,
+    "recall_do_conjunto_candidato": 0.90625,
+    "pares_pergunta_fonte_dificeis": 9,
+    "pares_com_fonte_roteada": 8,
+    "maior_conjunto_candidato": 791,
+    "media_candidatos_perguntas_dificeis": 735.6666666666666,
+    "ressalva": "Mede cobertura antes da ordenação final; não equivale a recall@8 da resposta pública."
+  },
+  "resultados": [
+    {
+      "id": "P01",
+      "pergunta": "Como familiares de mortos e desaparecidos participaram dos trabalhos da CNV?",
+      "fontes_candidatas": 6,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "A",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 1
+        }
+      ]
+    },
+    {
+      "id": "P02",
+      "pergunta": "Que arquivos a CNV buscou para localizar fotografias e laudos de vítimas?",
+      "fontes_candidatas": 10,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "A",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 7
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "pergunta": "Qual foi a contribuição de Brasil: Nunca Mais às linhas de investigação da CNV?",
+      "fontes_candidatas": 12,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "A",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 19
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "pergunta": "O que representa o número de 434 pessoas mencionado pela CNV?",
+      "fontes_candidatas": 9,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "A",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 1
+        }
+      ]
+    },
+    {
+      "id": "P05",
+      "pergunta": "A discriminação contra pessoas LGBT começou com a ditadura?",
+      "fontes_candidatas": 4,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "B",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 1
+        }
+      ]
+    },
+    {
+      "id": "P06",
+      "pergunta": "Como a ditadura dificultou a organização política de pessoas LGBT?",
+      "fontes_candidatas": 4,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "B",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 1
+        }
+      ]
+    },
+    {
+      "id": "P07",
+      "pergunta": "Por que os registros de violência contra pessoas LGBT nesse período são incompletos?",
+      "fontes_candidatas": 6,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "B",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 5
+        }
+      ]
+    },
+    {
+      "id": "P08",
+      "pergunta": "Quem é responsável pelo texto Ditadura e homossexualidades no volume II?",
+      "fontes_candidatas": 13,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "B",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 3
+        }
+      ]
+    },
+    {
+      "id": "P09",
+      "pergunta": "Onde e quando foi publicado o Relatório I sobre Ismene Mendes?",
+      "fontes_candidatas": 4,
+      "candidatos_unicos": 39,
+      "evidencias": [
+        {
+          "rotulo": "C2",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 4
+        }
+      ]
+    },
+    {
+      "id": "P10",
+      "pergunta": "Que capítulos do relatório sobre Ismene Mendes ajudam a estudar classe e gênero?",
+      "fontes_candidatas": 9,
+      "candidatos_unicos": 39,
+      "evidencias": [
+        {
+          "rotulo": "C6",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 3
+        }
+      ]
+    },
+    {
+      "id": "P11",
+      "pergunta": "Quem foi Ismene Mendes e qual sua atuação junto aos trabalhadores rurais?",
+      "fontes_candidatas": 3,
+      "candidatos_unicos": 39,
+      "evidencias": [
+        {
+          "rotulo": "C18",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 1
+        }
+      ]
+    },
+    {
+      "id": "P12",
+      "pergunta": "Como o relatório sobre Ismene Mendes critica o inquérito policial?",
+      "fontes_candidatas": 4,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "C20-24",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 4
+        }
+      ]
+    },
+    {
+      "id": "P13",
+      "pergunta": "Que relações entre gênero e repressão o relatório sobre Ismene Mendes apresenta?",
+      "fontes_candidatas": 12,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "C39-42",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 11
+        }
+      ]
+    },
+    {
+      "id": "P14",
+      "pergunta": "Como os relatórios documentam a repressão a trabalhadores e sindicalistas rurais?",
+      "fontes_candidatas": 11,
+      "candidatos_unicos": 673,
+      "evidencias": [
+        {
+          "rotulo": "C47-50",
+          "encontrada": true,
+          "etapa": "textual_na_fonte",
+          "posicao_na_fonte": 25,
+          "posicao_fonte": 3,
+          "fonte_foi_roteada": true
+        },
+        {
+          "rotulo": "D94",
+          "encontrada": true,
+          "etapa": "textual_na_fonte",
+          "posicao_na_fonte": 46,
+          "posicao_fonte": 7,
+          "fonte_foi_roteada": true
+        }
+      ]
+    },
+    {
+      "id": "P15",
+      "pergunta": "Como a repressão atingiu camponeses na região do Araguaia?",
+      "fontes_candidatas": 13,
+      "candidatos_unicos": 791,
+      "evidencias": [
+        {
+          "rotulo": "E350",
+          "encontrada": false,
+          "etapa": null,
+          "posicao_na_fonte": null,
+          "posicao_fonte": null,
+          "fonte_foi_roteada": false
+        }
+      ]
+    },
+    {
+      "id": "P16",
+      "pergunta": "Quais violações contra povos indígenas são discutidas nos textos temáticos da CNV?",
+      "fontes_candidatas": 12,
+      "candidatos_unicos": 733,
+      "evidencias": [
+        {
+          "rotulo": "F204",
+          "encontrada": true,
+          "etapa": "textual_na_fonte",
+          "posicao_na_fonte": 9,
+          "posicao_fonte": 1,
+          "fonte_foi_roteada": true
+        },
+        {
+          "rotulo": "F206",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 12
+        }
+      ]
+    },
+    {
+      "id": "P17",
+      "pergunta": "Como o racismo aparece na repressão e na resistência durante a ditadura?",
+      "fontes_candidatas": 11,
+      "candidatos_unicos": 680,
+      "evidencias": [
+        {
+          "rotulo": "F395",
+          "encontrada": false,
+          "etapa": null,
+          "posicao_na_fonte": null,
+          "posicao_fonte": null,
+          "fonte_foi_roteada": true
+        }
+      ]
+    },
+    {
+      "id": "P18",
+      "pergunta": "Que participação empresarial no apoio à repressão está documentada no acervo?",
+      "fontes_candidatas": 12,
+      "candidatos_unicos": 746,
+      "evidencias": [
+        {
+          "rotulo": "F314",
+          "encontrada": true,
+          "etapa": "textual_na_fonte",
+          "posicao_na_fonte": 54,
+          "posicao_fonte": 6,
+          "fonte_foi_roteada": true
+        },
+        {
+          "rotulo": "G3",
+          "encontrada": true,
+          "etapa": "textual_na_fonte",
+          "posicao_na_fonte": 2,
+          "posicao_fonte": 1,
+          "fonte_foi_roteada": true
+        }
+      ]
+    },
+    {
+      "id": "P19",
+      "pergunta": "O que eram os DOI-CODI e como se relacionavam com outros órgãos repressivos?",
+      "fontes_candidatas": 11,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "E138",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 18
+        }
+      ]
+    },
+    {
+      "id": "P20",
+      "pergunta": "Quais foram os efeitos do AI-5 indicados pela CNV?",
+      "fontes_candidatas": 13,
+      "candidatos_unicos": 41,
+      "evidencias": [
+        {
+          "rotulo": "E100-101",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 30
+        }
+      ]
+    },
+    {
+      "id": "P21",
+      "pergunta": "Como comparar o depoimento de Islene Mendes com o relatório policial?",
+      "fontes_candidatas": 6,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "C20-24",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 11
+        },
+        {
+          "rotulo": "C128-131",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 1
+        }
+      ]
+    },
+    {
+      "id": "P22",
+      "pergunta": "Quais são as conclusões da Subcomissão sobre a morte de Ismene e a atuação policial?",
+      "fontes_candidatas": 5,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "C20-24",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 1
+        }
+      ]
+    },
+    {
+      "id": "P23",
+      "pergunta": "A repressão atingiu grupos além das organizações envolvidas na luta armada?",
+      "fontes_candidatas": 13,
+      "candidatos_unicos": 791,
+      "evidencias": [
+        {
+          "rotulo": "F9",
+          "encontrada": false,
+          "etapa": null,
+          "posicao_na_fonte": null,
+          "posicao_fonte": null,
+          "fonte_foi_roteada": true
+        },
+        {
+          "rotulo": "D94",
+          "encontrada": true,
+          "etapa": "textual_na_fonte",
+          "posicao_na_fonte": 31,
+          "posicao_fonte": 11,
+          "fonte_foi_roteada": true
+        },
+        {
+          "rotulo": "F204/206",
+          "encontrada": true,
+          "etapa": "textual_na_fonte",
+          "posicao_na_fonte": 20,
+          "posicao_fonte": 4,
+          "fonte_foi_roteada": true
+        }
+      ]
+    },
+    {
+      "id": "P24",
+      "pergunta": "A ausência de registro formal de detenção permite concluir que não houve tortura?",
+      "fontes_candidatas": 13,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "E350",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 24
+        }
+      ]
+    },
+    {
+      "id": "P31",
+      "pergunta": "No caso Ismene Mendes, como as lacunas do inquérito policial afetam a avaliação da versão oficial?",
+      "fontes_candidatas": 9,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "C20-24",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 1
+        },
+        {
+          "rotulo": "C39-42",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 4
+        }
+      ]
+    }
+  ]
+}

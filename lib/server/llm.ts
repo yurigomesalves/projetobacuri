@@ -54,7 +54,13 @@ function obterConfiguracao(): ConfiguracaoProvedor {
  */
 export async function gerarResposta(mensagens: MensagemLLM[]): Promise<string> {
   const { baseUrl, chave, modeloPadrao } = obterConfiguracao();
+  const provedor = (process.env.LLM_PROVIDER ?? "groq").toLowerCase();
   const modelo = process.env.LLM_MODELO ?? modeloPadrao;
+  const maxTokens = Number(process.env.LLM_MAX_TOKENS ?? "2048");
+
+  if (!Number.isInteger(maxTokens) || maxTokens < 1 || maxTokens > 8192) {
+    throw new Error("LLM_MAX_TOKENS deve ser um inteiro entre 1 e 8192.");
+  }
 
   if (!modelo) {
     throw new Error(
@@ -75,14 +81,21 @@ export async function gerarResposta(mensagens: MensagemLLM[]): Promise<string> {
   let resposta: Response | null = null;
 
   for (let tentativa = 1; tentativa <= TENTATIVAS; tentativa++) {
+    const corpo = {
+      model: modelo,
+      messages: mensagens,
+      temperature: 0.2,
+      max_tokens: maxTokens,
+      // Alguns modelos OpenRouter ativam raciocínio interno por padrão e
+      // podem consumir todo o limite antes de devolver texto útil à demo.
+      ...(provedor === "openrouter" ? { reasoning: { effort: "none" } } : {}),
+    };
+
     resposta = await fetch(baseUrl, {
       method: "POST",
       headers: cabecalhos,
-      body: JSON.stringify({
-        model: modelo,
-        messages: mensagens,
-        temperature: 0.2,
-      }),
+      signal: AbortSignal.timeout(45_000),
+      body: JSON.stringify(corpo),
     });
 
     const transitorio = resposta.status === 429 || resposta.status >= 500;
@@ -109,7 +122,7 @@ export async function gerarResposta(mensagens: MensagemLLM[]): Promise<string> {
   const dados = await resposta.json();
   const conteudo = dados?.choices?.[0]?.message?.content;
 
-  if (typeof conteudo !== "string") {
+  if (typeof conteudo !== "string" || !conteudo.trim()) {
     throw new Error("Resposta do provedor de LLM em formato inesperado.");
   }
 

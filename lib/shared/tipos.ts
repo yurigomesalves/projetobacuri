@@ -125,6 +125,9 @@ export type RespostaErro = {
 export type RequisicaoChat = {
   mensagem: string;
   historico?: Mensagem[];
+  continuidade?: {
+    token: string;
+  };
 };
 
 export type RespostaChat = {
@@ -133,6 +136,7 @@ export type RespostaChat = {
   citacoes: Citacao[];
   sugestoes_pesquisa: string[];
   interacao_id: string;
+  token_continuidade?: string;
 };
 
 // --- POST /api/feedback ---

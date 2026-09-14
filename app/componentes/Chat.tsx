@@ -34,8 +34,29 @@ type MensagemExibida = Mensagem & {
   citacoes?: RespostaChat["citacoes"];
   sugestoesPesquisa?: string[];
   interacaoId?: string;
+  // Referência opaca do servidor, mantida só no estado desta conversa.
+  // Ela não entra no histórico, não é exibida e nunca é persistida.
+  tokenContinuidade?: string;
   erro?: string;
 };
+
+const PADRAO_MUDANCA_DE_ASSUNTO =
+  /\b(mudando\s+de\s+assunto|outro\s+tema|em\s+outro\s+tema|outra\s+quest[aã]o|agora\s+sobre)\b/i;
+const PADRAO_REFERENTE_CONTINUIDADE =
+  /\b(acabei\s+de\s+mencionar|deles|delas|esse|essa|esses|essas|isso|aquilo)\b/i;
+const PADRAO_INICIO_E = /^\s*e(?:\s|[,.!?;:])/i;
+
+/**
+ * Heurística conservadora para não ampliar uma busca anterior quando a pessoa
+ * explicitamente abriu outro assunto. Referentes e perguntas iniciadas por "E"
+ * normalmente dependem da resposta imediatamente anterior.
+ */
+export function pareceContinuidade(texto: string): boolean {
+  return (
+    !PADRAO_MUDANCA_DE_ASSUNTO.test(texto) &&
+    (PADRAO_REFERENTE_CONTINUIDADE.test(texto) || PADRAO_INICIO_E.test(texto))
+  );
+}
 
 /** Cria um link de marcador [n] que aponta para a fonte correspondente. */
 function criarLinkMarcador(idResposta: string): Components["a"] {
@@ -279,6 +300,17 @@ export default function Chat() {
       .slice(-MAX_HISTORICO)
       .map((m) => ({ papel: m.papel, conteudo: m.conteudo }));
 
+    // O token só vale para o seguimento direto da última resposta válida.
+    // Assim, não associamos uma pergunta nova a fontes de um assunto anterior.
+    const ultimaMensagem = mensagens[mensagens.length - 1];
+    const tokenContinuidade =
+      ultimaMensagem?.papel === "assistente" &&
+      !ultimaMensagem.erro &&
+      ultimaMensagem.tokenContinuidade &&
+      pareceContinuidade(conteudo)
+        ? ultimaMensagem.tokenContinuidade
+        : undefined;
+
     const mensagemUsuario: MensagemExibida = {
       id: `${idBase}-msg-${mensagens.length}`,
       papel: "usuario",
@@ -293,7 +325,13 @@ export default function Chat() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ mensagem: conteudo, historico }),
+        body: JSON.stringify({
+          mensagem: conteudo,
+          historico,
+          ...(tokenContinuidade
+            ? { continuidade: { token: tokenContinuidade } }
+            : {}),
+        }),
       });
 
       if (res.ok) {
@@ -308,6 +346,7 @@ export default function Chat() {
             citacoes: dados.citacoes,
             sugestoesPesquisa: dados.sugestoes_pesquisa,
             interacaoId: dados.interacao_id,
+            tokenContinuidade: dados.token_continuidade,
           },
         ]);
       } else {

@@ -1,0 +1,440 @@
+{
+  "resumo": {
+    "executado_em": "2026-09-09T17:39:55.349Z",
+    "tipo": "teto_curado_sobre_gabarito_visivel",
+    "ressalva": "Consultas formuladas após leitura das respostas e evidências aprovadas; não usar como resultado de avaliação final.",
+    "maximo_fontes_originais": 13,
+    "quantidade_por_fonte_e_consulta": 12,
+    "fontes_por_consulta": 1,
+    "unidades_evidencia": 32,
+    "recuperadas_na_decomposicao": 9,
+    "unidades_encontradas_no_conjunto_candidato": 31,
+    "recall_do_conjunto_candidato": 0.96875,
+    "maior_conjunto_candidato": 412,
+    "media_candidatos_perguntas_dificeis": 223.16666666666666
+  },
+  "resultados": [
+    {
+      "id": "P01",
+      "fontes_candidatas": 6,
+      "consultas": 0,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "A",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 1
+        }
+      ]
+    },
+    {
+      "id": "P02",
+      "fontes_candidatas": 10,
+      "consultas": 0,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "A",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 7
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "fontes_candidatas": 12,
+      "consultas": 0,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "A",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 19
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "fontes_candidatas": 9,
+      "consultas": 0,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "A",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 1
+        }
+      ]
+    },
+    {
+      "id": "P05",
+      "fontes_candidatas": 4,
+      "consultas": 0,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "B",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 1
+        }
+      ]
+    },
+    {
+      "id": "P06",
+      "fontes_candidatas": 4,
+      "consultas": 0,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "B",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 1
+        }
+      ]
+    },
+    {
+      "id": "P07",
+      "fontes_candidatas": 6,
+      "consultas": 0,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "B",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 5
+        }
+      ]
+    },
+    {
+      "id": "P08",
+      "fontes_candidatas": 13,
+      "consultas": 0,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "B",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 3
+        }
+      ]
+    },
+    {
+      "id": "P09",
+      "fontes_candidatas": 4,
+      "consultas": 0,
+      "candidatos_unicos": 39,
+      "evidencias": [
+        {
+          "rotulo": "C2",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 4
+        }
+      ]
+    },
+    {
+      "id": "P10",
+      "fontes_candidatas": 9,
+      "consultas": 0,
+      "candidatos_unicos": 39,
+      "evidencias": [
+        {
+          "rotulo": "C6",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 3
+        }
+      ]
+    },
+    {
+      "id": "P11",
+      "fontes_candidatas": 3,
+      "consultas": 0,
+      "candidatos_unicos": 39,
+      "evidencias": [
+        {
+          "rotulo": "C18",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 1
+        }
+      ]
+    },
+    {
+      "id": "P12",
+      "fontes_candidatas": 4,
+      "consultas": 0,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "C20-24",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 4
+        }
+      ]
+    },
+    {
+      "id": "P13",
+      "fontes_candidatas": 12,
+      "consultas": 0,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "C39-42",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 11
+        }
+      ]
+    },
+    {
+      "id": "P14",
+      "fontes_candidatas": 11,
+      "consultas": 2,
+      "candidatos_unicos": 228,
+      "evidencias": [
+        {
+          "rotulo": "C47-50",
+          "encontrada": true,
+          "etapa": "decomposicao_curada",
+          "consulta_indice": 1,
+          "posicao_na_fonte": 4,
+          "posicao_fonte": 3,
+          "fonte_foi_roteada": true
+        },
+        {
+          "rotulo": "D94",
+          "encontrada": true,
+          "etapa": "decomposicao_curada",
+          "consulta_indice": 1,
+          "posicao_na_fonte": 9,
+          "posicao_fonte": 7,
+          "fonte_foi_roteada": true
+        }
+      ]
+    },
+    {
+      "id": "P15",
+      "fontes_candidatas": 14,
+      "consultas": 1,
+      "candidatos_unicos": 197,
+      "evidencias": [
+        {
+          "rotulo": "E350",
+          "encontrada": false,
+          "etapa": null,
+          "consulta_indice": null,
+          "posicao_na_fonte": null,
+          "posicao_fonte": null,
+          "fonte_foi_roteada": false
+        }
+      ]
+    },
+    {
+      "id": "P16",
+      "fontes_candidatas": 12,
+      "consultas": 1,
+      "candidatos_unicos": 171,
+      "evidencias": [
+        {
+          "rotulo": "F204",
+          "encontrada": true,
+          "etapa": "decomposicao_curada",
+          "consulta_indice": 1,
+          "posicao_na_fonte": 8,
+          "posicao_fonte": 1,
+          "fonte_foi_roteada": true
+        },
+        {
+          "rotulo": "F206",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 12
+        }
+      ]
+    },
+    {
+      "id": "P17",
+      "fontes_candidatas": 11,
+      "consultas": 1,
+      "candidatos_unicos": 159,
+      "evidencias": [
+        {
+          "rotulo": "F395",
+          "encontrada": true,
+          "etapa": "decomposicao_curada",
+          "consulta_indice": 1,
+          "posicao_na_fonte": 1,
+          "posicao_fonte": 10,
+          "fonte_foi_roteada": true
+        }
+      ]
+    },
+    {
+      "id": "P18",
+      "fontes_candidatas": 12,
+      "consultas": 1,
+      "candidatos_unicos": 172,
+      "evidencias": [
+        {
+          "rotulo": "F314",
+          "encontrada": true,
+          "etapa": "decomposicao_curada",
+          "consulta_indice": 1,
+          "posicao_na_fonte": 2,
+          "posicao_fonte": 6,
+          "fonte_foi_roteada": true
+        },
+        {
+          "rotulo": "G3",
+          "encontrada": true,
+          "etapa": "decomposicao_curada",
+          "consulta_indice": 1,
+          "posicao_na_fonte": 2,
+          "posicao_fonte": 1,
+          "fonte_foi_roteada": true
+        }
+      ]
+    },
+    {
+      "id": "P19",
+      "fontes_candidatas": 11,
+      "consultas": 0,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "E138",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 18
+        }
+      ]
+    },
+    {
+      "id": "P20",
+      "fontes_candidatas": 13,
+      "consultas": 0,
+      "candidatos_unicos": 41,
+      "evidencias": [
+        {
+          "rotulo": "E100-101",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 30
+        }
+      ]
+    },
+    {
+      "id": "P21",
+      "fontes_candidatas": 6,
+      "consultas": 0,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "C20-24",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 11
+        },
+        {
+          "rotulo": "C128-131",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 1
+        }
+      ]
+    },
+    {
+      "id": "P22",
+      "fontes_candidatas": 5,
+      "consultas": 0,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "C20-24",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 1
+        }
+      ]
+    },
+    {
+      "id": "P23",
+      "fontes_candidatas": 13,
+      "consultas": 3,
+      "candidatos_unicos": 412,
+      "evidencias": [
+        {
+          "rotulo": "F9",
+          "encontrada": true,
+          "etapa": "decomposicao_curada",
+          "consulta_indice": 1,
+          "posicao_na_fonte": 1,
+          "posicao_fonte": 4,
+          "fonte_foi_roteada": true
+        },
+        {
+          "rotulo": "D94",
+          "encontrada": true,
+          "etapa": "decomposicao_curada",
+          "consulta_indice": 2,
+          "posicao_na_fonte": 11,
+          "posicao_fonte": 11,
+          "fonte_foi_roteada": true
+        },
+        {
+          "rotulo": "F204/206",
+          "encontrada": true,
+          "etapa": "decomposicao_curada",
+          "consulta_indice": 1,
+          "posicao_na_fonte": 2,
+          "posicao_fonte": 4,
+          "fonte_foi_roteada": true
+        }
+      ]
+    },
+    {
+      "id": "P24",
+      "fontes_candidatas": 13,
+      "consultas": 0,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "E350",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 24
+        }
+      ]
+    },
+    {
+      "id": "P31",
+      "fontes_candidatas": 9,
+      "consultas": 0,
+      "candidatos_unicos": 40,
+      "evidencias": [
+        {
+          "rotulo": "C20-24",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 1
+        },
+        {
+          "rotulo": "C39-42",
+          "encontrada": true,
+          "etapa": "vetorial_top_50",
+          "posicao": 4
+        }
+      ]
+    }
+  ]
+}

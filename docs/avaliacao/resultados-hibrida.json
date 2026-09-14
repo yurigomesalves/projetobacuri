@@ -1,0 +1,2203 @@
+{
+  "resumo": {
+    "executado_em": "2026-09-09T17:27:56.290Z",
+    "estrategia": "hibrida",
+    "modelo": "Xenova/multilingual-e5-small",
+    "prefixo": "query: ",
+    "limiar": 0.82,
+    "quantidade": 8,
+    "perguntas": 25,
+    "unidades_evidencia": 32,
+    "unidades_encontradas": 15,
+    "recall_k": 0.46875,
+    "perguntas_com_algum_acerto": 14,
+    "taxa_perguntas_com_algum_acerto": 0.56
+  },
+  "resultados": [
+    {
+      "id": "P01",
+      "pergunta": "Como familiares de mortos e desaparecidos participaram dos trabalhos da CNV?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "A",
+          "encontrado": true,
+          "posicao": 4
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "9d735790-2519-466a-908b-94cf8c9d8c49",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "26-27",
+          "secao": "1 – a criação da comissão nacional da verdade",
+          "similaridade": 0.889511094893396
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "c263e93d-129f-4c35-bfec-b55b7924ea93",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "titulo": "Relatório Final da Comissão da Verdade do Rio (CEV-Rio)",
+          "paginas": "[22,22]",
+          "secao": "parte_i_comissao",
+          "similaridade": 0.885085928702304
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "5b5b4c86-42f9-4692-959b-ba331799429e",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "294",
+          "secao": "7 – quadro conceitual das graves violações",
+          "similaridade": 0.888038675294453
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "a06633aa-9fda-4b97-808a-c6068fe92563",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "68",
+          "secao": "2 – as atividades da cnv",
+          "similaridade": 0.914153904621455
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "ebd80381-3845-4b68-b7e3-f5bb22be62e2",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "67",
+          "secao": "2 – as atividades da cnv",
+          "similaridade": 0.872503624259185
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "a701300a-40ff-4874-9ea6-7ba8020a4735",
+          "fonte_id": "c9ddfae8-cbb3-40bb-a252-750b7708ac5f",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho' — Tomo I",
+          "paginas": "427-428",
+          "secao": "Capítulo 3 — Amazônia Paraense no Relatório Final da CNV",
+          "similaridade": 0.903958003061691
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "4b3ad42a-3012-4ea4-8cd5-d97abb9b2b1a",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "titulo": "Relatório Final da Comissão da Verdade do Rio (CEV-Rio)",
+          "paginas": "[69,69]",
+          "secao": "cap10_mulheres",
+          "similaridade": 0.866534008625987
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "27db50c3-01f1-40f1-83a6-a9387c418d06",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "500-501",
+          "secao": "12 – desaparecimentos forçados",
+          "similaridade": 0.899753499148633
+        }
+      ]
+    },
+    {
+      "id": "P02",
+      "pergunta": "Que arquivos a CNV buscou para localizar fotografias e laudos de vítimas?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "A",
+          "encontrado": true,
+          "posicao": 7
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "80898619-ed72-4b71-a4c1-5c529cd37cc6",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "55",
+          "secao": "2 – as atividades da cnv",
+          "similaridade": 0.890304618495992
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "6e01aba7-f14f-4170-8d6a-5e5eff58ce40",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "53",
+          "secao": "2 – as atividades da cnv",
+          "similaridade": 0.889244841247188
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "40abadc5-88f3-417e-ae5a-2382dda4b51b",
+          "fonte_id": "13bfe3a0-41f1-46b8-bf8c-6852c847a4c8",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume III (mortos e desaparecidos políticos)",
+          "paginas": "28",
+          "secao": null,
+          "similaridade": 0.888393574261297
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "fd7c0211-6dab-4322-af61-acbfbeb8601e",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "60",
+          "secao": "2 – as atividades da cnv",
+          "similaridade": 0.886262012461131
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "8df58cd5-3af7-44be-8fc3-b6d71104d7e6",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "71",
+          "secao": "2 – as atividades da cnv",
+          "similaridade": 0.884164386043824
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "c924c68c-92c5-406a-8bb9-5bb1e87b13d9",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "61",
+          "secao": "2 – as atividades da cnv",
+          "similaridade": 0.882926635916643
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "c2e7aca9-4ee2-4df5-ab00-b4e63b009119",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "68",
+          "secao": "2 – as atividades da cnv",
+          "similaridade": 0.882909999240643
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "01f9e194-cced-4920-96ad-56fb1553643d",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "72",
+          "secao": "2 – as atividades da cnv",
+          "similaridade": 0.882860699211486
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "pergunta": "Qual foi a contribuição de Brasil: Nunca Mais às linhas de investigação da CNV?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "A",
+          "encontrado": false,
+          "posicao": null
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "3acc5711-0b1e-468b-aaf5-cc2e137abf88",
+          "fonte_id": "a90aff91-0e1d-482c-9f1f-ced208edf078",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade do Amapá Francisco das Chagas Bezerra – Chaguinha",
+          "paginas": "12",
+          "secao": null,
+          "similaridade": 0.873953521251678
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "3aa59625-9112-48fd-8018-89ebf81aa8fa",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "10298-10299",
+          "secao": "131ª Audiência Pública — 22/07/2014",
+          "similaridade": 0.873952381250406
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "1c96613d-7185-4423-ae82-7d88c42e9744",
+          "fonte_id": "de865a48-ad6f-43d4-a119-f0ddb62b35ef",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo IV: Contribuições e Relatórios dos Grupos de Trabalho",
+          "paginas": "885",
+          "secao": "ANEXO IV — E-mails de Lea Vidigal Medeiros ao coordenador da CNV, Pedro Dallari (abril-maio/2014)",
+          "similaridade": 0.873884454502535
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "85c507f8-8bb9-4fe9-85f4-d92caea8d4b4",
+          "fonte_id": "de865a48-ad6f-43d4-a119-f0ddb62b35ef",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo IV: Contribuições e Relatórios dos Grupos de Trabalho",
+          "paginas": "301",
+          "secao": "RELATÓRIO SOBRE A MORTE DO PRESIDENTE",
+          "similaridade": 0.872917473316193
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "151e0226-74a7-4311-b26b-d20f525ef787",
+          "fonte_id": "c9ddfae8-cbb3-40bb-a252-750b7708ac5f",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho' — Tomo I",
+          "paginas": "558-560",
+          "secao": "Capítulo 3 — Amazônia Paraense no Relatório Final da CNV",
+          "similaridade": 0.872448973205626
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "9efd0447-f76a-4a94-96c0-d77376963df7",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "973",
+          "secao": "18 – conclusões e recomendações",
+          "similaridade": 0.872177422046661
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "a121bddb-0b2a-4167-aec2-db1cc964e35f",
+          "fonte_id": "de865a48-ad6f-43d4-a119-f0ddb62b35ef",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo IV: Contribuições e Relatórios dos Grupos de Trabalho",
+          "paginas": "284-285",
+          "secao": "RELATÓRIO SOBRE A MORTE DO PRESIDENTE",
+          "similaridade": 0.871991395950317
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "ea1eeb1d-09db-4562-be51-8707b78bcdd5",
+          "fonte_id": "4d2e8758-647a-40f4-bcaa-38c36eca378f",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade Paulo Stuart Wright — Santa Catarina",
+          "paginas": "57-58",
+          "secao": null,
+          "similaridade": 0.871670842170715
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "pergunta": "O que representa o número de 434 pessoas mencionado pela CNV?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "A",
+          "encontrado": true,
+          "posicao": 1
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "a06633aa-9fda-4b97-808a-c6068fe92563",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "68",
+          "secao": "2 – as atividades da cnv",
+          "similaridade": 0.881020426750183
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "be87c04e-e6b1-4fa4-b38d-8c126c423997",
+          "fonte_id": "13bfe3a0-41f1-46b8-bf8c-6852c847a4c8",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume III (mortos e desaparecidos políticos)",
+          "paginas": "26",
+          "secao": null,
+          "similaridade": 0.873138181754244
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "af568da5-14c4-4dac-9655-1650364ac5fe",
+          "fonte_id": "c9ddfae8-cbb3-40bb-a252-750b7708ac5f",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho' — Tomo I",
+          "paginas": "537-538",
+          "secao": "Capítulo 3 — Amazônia Paraense no Relatório Final da CNV",
+          "similaridade": 0.867872544057815
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "2733be65-0af8-4e8f-8633-9816e2ed87ac",
+          "fonte_id": "c9ddfae8-cbb3-40bb-a252-750b7708ac5f",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho' — Tomo I",
+          "paginas": "379",
+          "secao": "Capítulo 3 — Amazônia Paraense no Relatório Final da CNV",
+          "similaridade": 0.866728689275047
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "27db50c3-01f1-40f1-83a6-a9387c418d06",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "500-501",
+          "secao": "12 – desaparecimentos forçados",
+          "similaridade": 0.866327659329461
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "dbc2b41e-1c88-419c-9f1b-3be72e87c766",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume II (textos temáticos)",
+          "paginas": "87",
+          "secao": "2 - violações de direitos humanos dos trabalhadores",
+          "similaridade": 0.865914549407797
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "264815ac-2484-4179-a67b-1d6f00665fbb",
+          "fonte_id": "13bfe3a0-41f1-46b8-bf8c-6852c847a4c8",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume III (mortos e desaparecidos políticos)",
+          "paginas": "61",
+          "secao": "Perfil – Antônio José dos Reis",
+          "similaridade": 0.864851474761963
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "4fe98f4a-8cec-415c-976c-e85f5248f2e5",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "21",
+          "secao": "1 – a criação da comissão nacional da verdade",
+          "similaridade": 0.864229372991884
+        }
+      ]
+    },
+    {
+      "id": "P05",
+      "pergunta": "A discriminação contra pessoas LGBT começou com a ditadura?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "B",
+          "encontrado": true,
+          "posicao": 4
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "319eb448-7256-457e-a199-6a93412cc908",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "titulo": "Relatório Final da Comissão da Verdade do Rio (CEV-Rio)",
+          "paginas": "[80,80]",
+          "secao": "cap11_homossexualidades",
+          "similaridade": 0.885539776050421
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "093608dc-e2d7-45f7-b2c4-893a12171ea7",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "titulo": "Relatório Final da Comissão da Verdade do Rio (CEV-Rio)",
+          "paginas": "[75,75]",
+          "secao": "cap11_homossexualidades",
+          "similaridade": 0.87620658080121
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "771d777f-1939-45cf-9d71-98e48e8cca16",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "titulo": "Relatório Final da Comissão da Verdade do Rio (CEV-Rio)",
+          "paginas": "[80,80]",
+          "secao": "cap11_homossexualidades",
+          "similaridade": 0.872043731937014
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "a63139a7-1faf-4b1c-9821-dc4c87061d65",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume II (textos temáticos)",
+          "paginas": "300",
+          "secao": "7 - ditadura e homossexualidades",
+          "similaridade": 0.887901021227425
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "0b669bde-c3d5-4777-ad77-d7ead0590b5f",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume II (textos temáticos)",
+          "paginas": "300-301",
+          "secao": "7 - ditadura e homossexualidades",
+          "similaridade": 0.879703652814607
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "eda0a6c1-531a-46d7-8a5c-8c46310d4697",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "7314",
+          "secao": "98ª Audiência Pública — 26/11/2013",
+          "similaridade": 0.877929162670579
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "b48f4113-fc1a-4a1a-b15a-c72d360e989e",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "1204",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "similaridade": 0.851640759750782
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "b92d5767-686e-4435-80b2-d16185389242",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "1193-1194",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "similaridade": 0.876721274364216
+        }
+      ]
+    },
+    {
+      "id": "P06",
+      "pergunta": "Como a ditadura dificultou a organização política de pessoas LGBT?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "B",
+          "encontrado": true,
+          "posicao": 1
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "0b669bde-c3d5-4777-ad77-d7ead0590b5f",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume II (textos temáticos)",
+          "paginas": "300-301",
+          "secao": "7 - ditadura e homossexualidades",
+          "similaridade": 0.897323209525967
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "99650a42-32fc-487c-912d-fef570411820",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "titulo": "Relatório Final da Comissão da Verdade do Rio (CEV-Rio)",
+          "paginas": "[77,77]",
+          "secao": "cap11_homossexualidades",
+          "similaridade": 0.88866449729628
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "f79b1fe3-1fb0-403d-8003-9cb5f039ce8b",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "1195",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "similaridade": 0.888391097475692
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "7db41b5e-11bd-4471-b049-5a2fbce31b78",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "1198-1199",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "similaridade": 0.884770294766971
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "2b8facee-50bb-4d0f-9026-912e269c5be1",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "7340-7341",
+          "secao": "98ª Audiência Pública — 26/11/2013",
+          "similaridade": 0.883717934752897
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "3031a263-d61e-4052-930f-d01d56e397aa",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume II (textos temáticos)",
+          "paginas": "301",
+          "secao": "7 - ditadura e homossexualidades",
+          "similaridade": 0.882863177911863
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "771d777f-1939-45cf-9d71-98e48e8cca16",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "titulo": "Relatório Final da Comissão da Verdade do Rio (CEV-Rio)",
+          "paginas": "[80,80]",
+          "secao": "cap11_homossexualidades",
+          "similaridade": 0.882792606020861
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "00b4cb99-48ad-4188-98d0-75f997f541c5",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "7337-7338",
+          "secao": "98ª Audiência Pública — 26/11/2013",
+          "similaridade": 0.882390751553691
+        }
+      ]
+    },
+    {
+      "id": "P07",
+      "pergunta": "Por que os registros de violência contra pessoas LGBT nesse período são incompletos?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "B",
+          "encontrado": true,
+          "posicao": 5
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "c6c7d11e-501e-44e0-8efc-6a1c3a1bbd82",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "7360-7361",
+          "secao": "98ª Audiência Pública — 26/11/2013",
+          "similaridade": 0.889634251594543
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "7db41b5e-11bd-4471-b049-5a2fbce31b78",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "1198-1199",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "similaridade": 0.878240532979935
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "b92d5767-686e-4435-80b2-d16185389242",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "1193-1194",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "similaridade": 0.876696713167626
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "2670b6ae-9853-4212-908c-b25022b9442a",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "7359-7360",
+          "secao": "98ª Audiência Pública — 26/11/2013",
+          "similaridade": 0.875073857601057
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "0b669bde-c3d5-4777-ad77-d7ead0590b5f",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume II (textos temáticos)",
+          "paginas": "300-301",
+          "secao": "7 - ditadura e homossexualidades",
+          "similaridade": 0.874657042344986
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "ff5b695c-8f1f-41a1-888c-f4cff57c9fce",
+          "fonte_id": "e9fa4e92-a1ba-4452-8357-cba6696c28e3",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho' — Tomo III",
+          "paginas": "126",
+          "secao": "Capítulo 9 — Ditadura e Gênero",
+          "similaridade": 0.873089075088501
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "4bdd9ebb-6020-4bae-be41-a0e381f44fc1",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "6208-6209",
+          "secao": "54ª Audiência Pública — 21/06/2013",
+          "similaridade": 0.872975222645715
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "fcc75a18-6a34-4025-8ca7-1c529db25c7a",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "7318-7319",
+          "secao": "98ª Audiência Pública — 26/11/2013",
+          "similaridade": 0.872311770915985
+        }
+      ]
+    },
+    {
+      "id": "P08",
+      "pergunta": "Quem é responsável pelo texto Ditadura e homossexualidades no volume II?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "B",
+          "encontrado": true,
+          "posicao": 3
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "487611f3-84d3-4aa4-86b5-5011359f3bbd",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume II (textos temáticos)",
+          "paginas": "299",
+          "secao": "6 - violações de direitos humanos na universidade",
+          "similaridade": 0.881512866200557
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "78ddb538-bee7-4987-8a48-a7c2e74b4ae5",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "1193",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "similaridade": 0.881425075615961
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "a63139a7-1faf-4b1c-9821-dc4c87061d65",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume II (textos temáticos)",
+          "paginas": "300",
+          "secao": "7 - ditadura e homossexualidades",
+          "similaridade": 0.874881498508557
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "93fe273b-91c5-4d3a-a671-a97009d388ec",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume II (textos temáticos)",
+          "paginas": "301-302",
+          "secao": "7 - ditadura e homossexualidades",
+          "similaridade": 0.871526822033748
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "b92d5767-686e-4435-80b2-d16185389242",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "1193-1194",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "similaridade": 0.869330458005112
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "5753c8f2-bb95-4cd4-aa81-78bd2e0992db",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "1197-1198",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "similaridade": 0.869330450216592
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "625bbb7f-5b96-439e-b685-798a94deb713",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "7309-7310",
+          "secao": "98ª Audiência Pública — 26/11/2013",
+          "similaridade": 0.867981589075613
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "40797c22-8034-437f-a210-d0ab8696f1d4",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "7309",
+          "secao": "98ª Audiência Pública — 26/11/2013",
+          "similaridade": 0.866651833057428
+        }
+      ]
+    },
+    {
+      "id": "P09",
+      "pergunta": "Onde e quando foi publicado o Relatório I sobre Ismene Mendes?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "C2",
+          "encontrado": true,
+          "posicao": 4
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "c1bbdd91-8b16-4527-a711-d8eaa52591ab",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "titulo": "Relatório Final da Comissão da Verdade em Minas Gerais (Covemg)",
+          "paginas": "477-478",
+          "secao": "5. As Graves Violações de Direitos Humanos no Campo (1961-1988)",
+          "similaridade": 0.875216748571895
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "73e66c48-9205-460d-812a-c44e698efe81",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "67",
+          "secao": "Anexo I – Perfil CNV: Mortos e Desaparecidos Políticos",
+          "similaridade": 0.871449112892151
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "11b5bd42-0f84-405c-87d5-d1e2a4a6b454",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "64",
+          "secao": "Anexo I – Perfil CNV: Mortos e Desaparecidos Políticos",
+          "similaridade": 0.87078820888926
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "21d60cf9-6ae2-417e-b3e1-21dbfe374a65",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "18",
+          "secao": "Biografia de Ismene Mendes",
+          "similaridade": 0.869977183939388
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "7e5c6039-dac8-4c21-bed5-e570d78cfaa0",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "31",
+          "secao": "Capítulo III – Repressão aos Sindicalistas Rurais no Final da Ditadura",
+          "similaridade": 0.868841171264648
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "626eb4cc-af3d-4ccd-aa35-56c2ce384781",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "6",
+          "secao": null,
+          "similaridade": 0.868559420108795
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "1dd24cf9-f0f4-4499-bad0-36a9851cda96",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "71-72",
+          "secao": "Anexo II – A Vida de Ismene Mendes",
+          "similaridade": 0.868337512016296
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "5235e33e-ed8f-4d00-a34f-e63604a397e6",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "68-69",
+          "secao": "Anexo II – A Vida de Ismene Mendes",
+          "similaridade": 0.867415189743042
+        }
+      ]
+    },
+    {
+      "id": "P10",
+      "pergunta": "Que capítulos do relatório sobre Ismene Mendes ajudam a estudar classe e gênero?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "C6",
+          "encontrado": true,
+          "posicao": 3
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "15f81402-9dad-4bc8-a5e4-b3d2aecd01cb",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "15",
+          "secao": "Introdução – Justiça de Transição e Consolidação Democrática",
+          "similaridade": 0.875960067257911
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "c1bbdd91-8b16-4527-a711-d8eaa52591ab",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "titulo": "Relatório Final da Comissão da Verdade em Minas Gerais (Covemg)",
+          "paginas": "477-478",
+          "secao": "5. As Graves Violações de Direitos Humanos no Campo (1961-1988)",
+          "similaridade": 0.871699447789659
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "626eb4cc-af3d-4ccd-aa35-56c2ce384781",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "6",
+          "secao": null,
+          "similaridade": 0.866223362975947
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "3a1f7ecc-f6eb-42f4-baef-c59e30c2b6b7",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "38",
+          "secao": "Capítulo IV – Ditadura Civil-Militar e a Questão de Gênero",
+          "similaridade": 0.866098372006053
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "90dc40aa-2581-40da-a4a7-e440b1d2aa68",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "21",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "similaridade": 0.864462001855667
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "11b5bd42-0f84-405c-87d5-d1e2a4a6b454",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "64",
+          "secao": "Anexo I – Perfil CNV: Mortos e Desaparecidos Políticos",
+          "similaridade": 0.864279766166154
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "03b80b1a-5caa-4be6-96e3-f3231a619bd7",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "63",
+          "secao": "Anexo I – Perfil CNV: Mortos e Desaparecidos Políticos",
+          "similaridade": 0.863641841845787
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "999f936d-5071-45d6-b0e7-2136ffe8b978",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "34-35",
+          "secao": "Capítulo IV – Ditadura Civil-Militar e a Questão de Gênero",
+          "similaridade": 0.863612993194277
+        }
+      ]
+    },
+    {
+      "id": "P11",
+      "pergunta": "Quem foi Ismene Mendes e qual sua atuação junto aos trabalhadores rurais?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "C18",
+          "encontrado": true,
+          "posicao": 1
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "21d60cf9-6ae2-417e-b3e1-21dbfe374a65",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "18",
+          "secao": "Biografia de Ismene Mendes",
+          "similaridade": 0.901478463499469
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "1dd24cf9-f0f4-4499-bad0-36a9851cda96",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "71-72",
+          "secao": "Anexo II – A Vida de Ismene Mendes",
+          "similaridade": 0.895116435899316
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "4a90a0fd-f42c-4f53-b3d8-c2ebfe1e9dcb",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "62-63",
+          "secao": "Anexo I – Perfil CNV: Mortos e Desaparecidos Políticos",
+          "similaridade": 0.882983312962456
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "5235e33e-ed8f-4d00-a34f-e63604a397e6",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "68-69",
+          "secao": "Anexo II – A Vida de Ismene Mendes",
+          "similaridade": 0.8821052768356
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "0fda09b2-85f6-4e93-a7fd-120bc3c66ed8",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "126",
+          "secao": "Anexo IV – Principais Depoimentos",
+          "similaridade": 0.87946163171073
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "6d31cddb-8bb8-4acf-b0e6-a7f96da83739",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "titulo": "Relatório Final da Comissão da Verdade em Minas Gerais (Covemg)",
+          "paginas": "477",
+          "secao": "5. As Graves Violações de Direitos Humanos no Campo (1961-1988)",
+          "similaridade": 0.877430848922198
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "d0149bb7-aa3e-47a7-b263-09a250314c6e",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "31-32",
+          "secao": "Capítulo III – Repressão aos Sindicalistas Rurais no Final da Ditadura",
+          "similaridade": 0.876220859805501
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "11cddf87-8b87-4a25-8ff1-9be4bd8cf47e",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "125-126",
+          "secao": "Anexo IV – Principais Depoimentos",
+          "similaridade": 0.874827966073515
+        }
+      ]
+    },
+    {
+      "id": "P12",
+      "pergunta": "Como o relatório sobre Ismene Mendes critica o inquérito policial?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "C20-24",
+          "encontrado": true,
+          "posicao": 4
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "73e66c48-9205-460d-812a-c44e698efe81",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "67",
+          "secao": "Anexo I – Perfil CNV: Mortos e Desaparecidos Políticos",
+          "similaridade": 0.88377092883241
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "21a3e9f4-2c8c-4379-9fe2-268b1a51c42c",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "40",
+          "secao": "Capítulo IV – Ditadura Civil-Militar e a Questão de Gênero",
+          "similaridade": 0.881642274954469
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "6422715c-f38e-45eb-a01c-0b1ef202f0a3",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "titulo": "Relatório Final da Comissão da Verdade em Minas Gerais (Covemg)",
+          "paginas": "479",
+          "secao": "5. As Graves Violações de Direitos Humanos no Campo (1961-1988)",
+          "similaridade": 0.881414473056818
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "6eb10ac6-9132-4a94-87e7-e9f30d23c715",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "20",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "similaridade": 0.881348483642859
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "7bfe887b-6fbe-4d35-b853-08a60f55048e",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "40",
+          "secao": "Capítulo IV – Ditadura Civil-Militar e a Questão de Gênero",
+          "similaridade": 0.881299786645175
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "90dc40aa-2581-40da-a4a7-e440b1d2aa68",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "21",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "similaridade": 0.880053222179438
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "aa6be497-b5bc-43dd-af0f-183dd6b25fca",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "66",
+          "secao": "Anexo I – Perfil CNV: Mortos e Desaparecidos Políticos",
+          "similaridade": 0.87961118695804
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "04e035c2-b3a4-4e4f-a697-eb4a67435c53",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "19-20",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "similaridade": 0.8778425382282
+        }
+      ]
+    },
+    {
+      "id": "P13",
+      "pergunta": "Que relações entre gênero e repressão o relatório sobre Ismene Mendes apresenta?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "C39-42",
+          "encontrado": false,
+          "posicao": null
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "3a1f7ecc-f6eb-42f4-baef-c59e30c2b6b7",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "38",
+          "secao": "Capítulo IV – Ditadura Civil-Militar e a Questão de Gênero",
+          "similaridade": 0.873334631125293
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "626eb4cc-af3d-4ccd-aa35-56c2ce384781",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "6",
+          "secao": null,
+          "similaridade": 0.872513219417724
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "c1bbdd91-8b16-4527-a711-d8eaa52591ab",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "titulo": "Relatório Final da Comissão da Verdade em Minas Gerais (Covemg)",
+          "paginas": "477-478",
+          "secao": "5. As Graves Violações de Direitos Humanos no Campo (1961-1988)",
+          "similaridade": 0.871970783467711
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "999f936d-5071-45d6-b0e7-2136ffe8b978",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "34-35",
+          "secao": "Capítulo IV – Ditadura Civil-Militar e a Questão de Gênero",
+          "similaridade": 0.868898570537592
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "15f81402-9dad-4bc8-a5e4-b3d2aecd01cb",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "15",
+          "secao": "Introdução – Justiça de Transição e Consolidação Democrática",
+          "similaridade": 0.868779866404502
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "73e66c48-9205-460d-812a-c44e698efe81",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "67",
+          "secao": "Anexo I – Perfil CNV: Mortos e Desaparecidos Políticos",
+          "similaridade": 0.866719826068864
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "03b80b1a-5caa-4be6-96e3-f3231a619bd7",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "63",
+          "secao": "Anexo I – Perfil CNV: Mortos e Desaparecidos Políticos",
+          "similaridade": 0.864090800285364
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "b92d5767-686e-4435-80b2-d16185389242",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "1193-1194",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "similaridade": 0.863684705715474
+        }
+      ]
+    },
+    {
+      "id": "P14",
+      "pergunta": "Como os relatórios documentam a repressão a trabalhadores e sindicalistas rurais?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "C47-50",
+          "encontrado": false,
+          "posicao": null
+        },
+        {
+          "rotulo": "D94",
+          "encontrado": false,
+          "posicao": null
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "657df155-7b94-4373-8b1e-2bfde4362420",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "titulo": "Relatório Final da Comissão da Verdade do Rio (CEV-Rio)",
+          "paginas": "[43,43]",
+          "secao": "parte_iii_violencia",
+          "similaridade": 0.901398593270695
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "840ab9c0-d32a-4a66-ae6a-0b90754c4f7b",
+          "fonte_id": "08552f59-27f9-4bb5-9536-4668af2a961e",
+          "titulo": "Relatório da Comissão Nacional da Memória, Verdade e Justiça da Central Única dos Trabalhadores (CUT)",
+          "paginas": "13",
+          "secao": "Prefácio",
+          "similaridade": 0.875403087550135
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "16af3d7a-1b24-4f8a-a996-8e641db5407c",
+          "fonte_id": "08552f59-27f9-4bb5-9536-4668af2a961e",
+          "titulo": "Relatório da Comissão Nacional da Memória, Verdade e Justiça da Central Única dos Trabalhadores (CUT)",
+          "paginas": "13",
+          "secao": "Prefácio",
+          "similaridade": 0.888631191510892
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "04aca7f5-e5a7-4217-9177-a725564b9cc1",
+          "fonte_id": "0e191cac-22b1-4039-bbb5-8e1892a19f11",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho' — Tomo II",
+          "paginas": "201",
+          "secao": "Capítulo 6 — A violência no Pará: relatório da Comissão Camponesa da Verdade",
+          "similaridade": 0.826446459313063
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "484230c7-fb63-4c85-9b1f-c1f08f69670c",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "28-29",
+          "secao": "Capítulo III – Repressão aos Sindicalistas Rurais no Final da Ditadura",
+          "similaridade": 0.887968566655176
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "d025364c-8eea-41e6-8406-5f5239d970c9",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "titulo": "Relatório Final da Comissão da Verdade em Minas Gerais (Covemg)",
+          "paginas": "589-590",
+          "secao": "6. A Repressão ao Mundo do Trabalho e ao Movimento Sindical Urbano em Minas Gerais, de 1946 a 1988",
+          "similaridade": 0.887488033994676
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "2d83a782-5f21-4496-af3a-56599e66e01a",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "titulo": "Relatório Final da Comissão da Verdade do Rio (CEV-Rio)",
+          "paginas": "[45,46]",
+          "secao": "parte_iii_violencia",
+          "similaridade": 0.871009748785826
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "aea12213-7894-4562-8b3a-999de8cf212d",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "titulo": "Relatório Final da Comissão da Verdade em Minas Gerais (Covemg)",
+          "paginas": "362-363",
+          "secao": "5. As Graves Violações de Direitos Humanos no Campo (1961-1988)",
+          "similaridade": 0.887015488356814
+        }
+      ]
+    },
+    {
+      "id": "P15",
+      "pergunta": "Como a repressão atingiu camponeses na região do Araguaia?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "E350",
+          "encontrado": false,
+          "posicao": null
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "c9c057fb-938a-4366-aa84-9909b2877c07",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume II (textos temáticos)",
+          "paginas": "94",
+          "secao": "3 - violações de direitos humanos dos camponeses",
+          "similaridade": 0.885716398273388
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "4ee1d20f-754d-4df9-b0f9-d8bc236a60de",
+          "fonte_id": "e9fa4e92-a1ba-4452-8357-cba6696c28e3",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho' — Tomo III",
+          "paginas": "350-351",
+          "secao": "Capítulo 10 — Justiça de Transição: situação atual e repercussões no Pará",
+          "similaridade": 0.862955528165898
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "350686e4-153d-40a5-80ef-affc7f0820bf",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "titulo": "Relatório Final da Comissão Camponesa da Verdade — Violações de Direitos no Campo (1946–1988)",
+          "paginas": "473-474",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "similaridade": 0.884324801612616
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "3e3d4dd3-15cf-4d1a-9f49-faabd139c252",
+          "fonte_id": "c9ddfae8-cbb3-40bb-a252-750b7708ac5f",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho' — Tomo I",
+          "paginas": "508-509",
+          "secao": "Capítulo 3 — Amazônia Paraense no Relatório Final da CNV",
+          "similaridade": 0.858959410817659
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "e8f4a16d-3517-4f28-aa86-0b6078610559",
+          "fonte_id": "0e191cac-22b1-4039-bbb5-8e1892a19f11",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho' — Tomo II",
+          "paginas": "270",
+          "secao": "Capítulo 6 — A violência no Pará: relatório da Comissão Camponesa da Verdade",
+          "similaridade": 0.883229096224529
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "9a1168a5-a9a7-4a36-9cc2-a55498f7347f",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "717-718",
+          "secao": "14 – a guerrilha do araguaia",
+          "similaridade": 0.855962046379156
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "9a87429f-6eab-4c80-a390-63a053f7005f",
+          "fonte_id": "e9fa4e92-a1ba-4452-8357-cba6696c28e3",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho' — Tomo III",
+          "paginas": "355-356",
+          "secao": "Capítulo 10 — Justiça de Transição: situação atual e repercussões no Pará",
+          "similaridade": 0.87998943090313
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "416dc016-74c5-4e60-a12e-b60e62d202da",
+          "fonte_id": "0e191cac-22b1-4039-bbb5-8e1892a19f11",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho' — Tomo II",
+          "paginas": "276-277",
+          "secao": "Capítulo 6 — A violência no Pará: relatório da Comissão Camponesa da Verdade",
+          "similaridade": 0.85043064205557
+        }
+      ]
+    },
+    {
+      "id": "P16",
+      "pergunta": "Quais violações contra povos indígenas são discutidas nos textos temáticos da CNV?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "F204",
+          "encontrado": false,
+          "posicao": null
+        },
+        {
+          "rotulo": "F206",
+          "encontrado": false,
+          "posicao": null
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "d728dfa0-8efb-4e7b-ac3e-99eb93b7ff77",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume II (textos temáticos)",
+          "paginas": "253-254",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "similaridade": 0.890647331716391
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "ac3c9d7a-cacc-40aa-8a6b-0103485c2985",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "869",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "similaridade": 0.88315000085384
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "b2a6833d-adcb-4407-92d7-7e9a5fcfa9d7",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume II (textos temáticos)",
+          "paginas": "252-253",
+          "secao": "5 - violações de direitos humanos dos povos indígenas",
+          "similaridade": 0.881311085263235
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "4a22647e-f690-43b4-9983-3aab284ceff4",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "724",
+          "secao": "14 – a guerrilha do araguaia",
+          "similaridade": 0.881189544307254
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "228bf1a1-5f8a-48f5-8194-9b9fd53749b4",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume II (textos temáticos)",
+          "paginas": "203",
+          "secao": "4 - violações de direitos humanos nas igrejas cristãs",
+          "similaridade": 0.880389664161533
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "fb6f79d8-b81a-40dd-884f-abd95ee9d913",
+          "fonte_id": "47662bb8-8688-421a-82ec-72c96e8558b4",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade do Paraná Teresa Urban — Volume 1",
+          "paginas": "120",
+          "secao": "3. Graves Violações de Direitos Humanos",
+          "similaridade": 0.87985773800532
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "596fd2ee-d1d8-4a5b-8b97-2266ccedf47c",
+          "fonte_id": "c9ddfae8-cbb3-40bb-a252-750b7708ac5f",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho' — Tomo I",
+          "paginas": "424-425",
+          "secao": "Capítulo 3 — Amazônia Paraense no Relatório Final da CNV",
+          "similaridade": 0.878388781403496
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "40a28d14-073b-4a6c-bb8b-10d06e61b16c",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "titulo": "Relatório Final da Comissão Camponesa da Verdade — Violações de Direitos no Campo (1946–1988)",
+          "paginas": "461",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "similaridade": 0.876819524859819
+        }
+      ]
+    },
+    {
+      "id": "P17",
+      "pergunta": "Como o racismo aparece na repressão e na resistência durante a ditadura?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "F395",
+          "encontrado": false,
+          "posicao": null
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "b92d5767-686e-4435-80b2-d16185389242",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "1193-1194",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "similaridade": 0.87193983029962
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "799ea89f-1cfe-45fd-99ee-21f8cdf2bf6f",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "titulo": "Relatório Final da Comissão da Verdade do Rio (CEV-Rio)",
+          "paginas": "[63,63]",
+          "secao": "cap9_racismo",
+          "similaridade": 0.871309589044692
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "455c3f76-d4da-431a-ba10-55d03a32c080",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "664",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "similaridade": 0.871308967031123
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "9ad54ce1-7b99-4eb7-a7b0-eebe17f631a1",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "654",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "similaridade": 0.869971319433614
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "668f2b78-e846-4156-ac06-d22adef28c73",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "677",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "similaridade": 0.867316655356699
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "c9b1f0ec-ed28-4c9c-9307-c6ccf75e5065",
+          "fonte_id": "49b2ea23-2a1f-4c66-8716-02d6419e8381",
+          "titulo": "Relatório Final da Comissão Camponesa da Verdade — Violações de Direitos no Campo (1946–1988)",
+          "paginas": "107",
+          "secao": "III. Violações aos direitos humanos dos camponeses",
+          "similaridade": 0.86650071936855
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "1e1ca841-be40-422a-adfa-6d1c7e3cd0b2",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "1195-1196",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "similaridade": 0.865751556500899
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "7bbdb19c-7de5-42af-8447-381a82d73043",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "16",
+          "secao": "Introdução – Justiça de Transição e Consolidação Democrática",
+          "similaridade": 0.865629555565325
+        }
+      ]
+    },
+    {
+      "id": "P18",
+      "pergunta": "Que participação empresarial no apoio à repressão está documentada no acervo?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "F314",
+          "encontrado": false,
+          "posicao": null
+        },
+        {
+          "rotulo": "G3",
+          "encontrado": false,
+          "posicao": null
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "1bd84a17-b4f4-44d4-a8d9-0c0bd68c7ff4",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "576-577",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "similaridade": 0.875596448565806
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "0410af32-54c3-4224-b6f9-eb18305f3719",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "557-558",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "similaridade": 0.873732187231737
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "9f2bd136-03f3-42ca-9cfa-f878de072322",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "5096-5097",
+          "secao": "87ª Audiência Pública — 16/10/2013",
+          "similaridade": 0.870097574869335
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "d3867724-40f0-4bd5-bbd8-8bec055fda16",
+          "fonte_id": "cb879294-267f-4cb0-ab8c-c2f20c316273",
+          "titulo": "Relatório da Comissão da Verdade em Minas Gerais — GT UFOP (Universidade Federal de Ouro Preto)",
+          "paginas": "224-225",
+          "secao": "Considerações Finais",
+          "similaridade": 0.869902462982569
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "f0315170-43b0-46d8-a3c6-c033c26966e5",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "titulo": "Relatório Final da Comissão da Verdade em Minas Gerais (Covemg)",
+          "paginas": "779-780",
+          "secao": "6. A Repressão ao Mundo do Trabalho e ao Movimento Sindical Urbano em Minas Gerais, de 1946 a 1988",
+          "similaridade": 0.868258761790248
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "6d24726a-b5b8-4e2d-a49f-aecc5fe74f25",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "1151",
+          "secao": "PARTE 2 – GRUPOS SOCIAIS E MOVIMENTOS PERSEGUIDOS OU ATINGIDOS PELA DITADURA Março 2015",
+          "similaridade": 0.867111968834894
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "0bade1b5-6547-4357-a35c-676e3e7bf3e5",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "5138-5139",
+          "secao": "87ª Audiência Pública — 16/10/2013",
+          "similaridade": 0.866883071212061
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "6888fc7e-27f6-4a89-80ad-b4bb3b12de29",
+          "fonte_id": "ead2b032-09d6-413d-bd2f-ba3253d4e01e",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade de Sergipe 'Paulo Barbosa de Araújo'",
+          "paginas": "53-54",
+          "secao": "Introdução",
+          "similaridade": 0.865112277242619
+        }
+      ]
+    },
+    {
+      "id": "P19",
+      "pergunta": "O que eram os DOI-CODI e como se relacionavam com outros órgãos repressivos?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "E138",
+          "encontrado": false,
+          "posicao": null
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "917c7faa-f992-4c18-b4a9-c0ae4c0e6221",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "1781",
+          "secao": "PARTE 3 – AÇÕES DE RESISTÊNCIA E MEDIDAS DE JUSTIÇA DE TRANSIÇÃO Março 2015",
+          "similaridade": 0.887079000473022
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "bc539a98-c611-4d8f-904b-8d40f7b6e44d",
+          "fonte_id": "fe0c64ce-f11e-45c6-aaa0-11b73fb2f134",
+          "titulo": "Relatório Final de Atividades da Comissão Estadual da Verdade – Bahia — Volume 1 (agosto/2013–abril/2016)",
+          "paginas": "76",
+          "secao": "Capítulo 3 – Sistema de Segurança e de Justiça: Estrutura da Repressão",
+          "similaridade": 0.886264324188232
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "c37a6d59-d185-42f7-81b5-db80a3a73f65",
+          "fonte_id": "47662bb8-8688-421a-82ec-72c96e8558b4",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade do Paraná Teresa Urban — Volume 1",
+          "paginas": "406",
+          "secao": "6. Segurança Pública e Militarização",
+          "similaridade": 0.88601553440094
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "8392e166-f07e-43f9-aeaa-22af7431aa71",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "93",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "similaridade": 0.882766379980287
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "0fc35978-7dfb-49fa-ba07-34074bcf5227",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "titulo": "Relatório Final da Comissão da Verdade do Rio (CEV-Rio)",
+          "paginas": "[134,134]",
+          "secao": "parte_iv_estrutura",
+          "similaridade": 0.882580346907358
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "9d0a5048-bf3b-40a3-8e6d-5c36699a95b8",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume II (textos temáticos)",
+          "paginas": "332-333",
+          "secao": "8 – civis que colaboraram com a ditadura",
+          "similaridade": 0.881720125675201
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "e9564d7c-f927-4765-9605-0937a85ed313",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "titulo": "Relatório Final da Comissão da Verdade do Rio (CEV-Rio)",
+          "paginas": "[135,135]",
+          "secao": "parte_iv_estrutura",
+          "similaridade": 0.880598630922992
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "287c4cf8-a3b6-4996-8fd2-0e4b1d0c0380",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "153",
+          "secao": "4 – órgãos e procedimentos da repressão política",
+          "similaridade": 0.87835419178009
+        }
+      ]
+    },
+    {
+      "id": "P20",
+      "pergunta": "Quais foram os efeitos do AI-5 indicados pela CNV?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "E100-101",
+          "encontrado": false,
+          "posicao": null
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "cb7b1e24-5310-4771-9697-dfe11d644a43",
+          "fonte_id": "efc10a75-5cf4-435e-a598-7abf57f88ff7",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo II: Dossiê Ditadura — Mortos e Desaparecidos Políticos no Brasil (1964-1985) [síntese]",
+          "paginas": "120",
+          "secao": "O Ato Institucional nº 5",
+          "similaridade": 0.879209649445068
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "56e14c32-d25c-4dbf-a1a7-a719f5749f97",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "956-957",
+          "secao": "17 – o judiciário na ditadura",
+          "similaridade": 0.875571064685065
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "8529522f-dde5-42bb-9d85-3490749503ef",
+          "fonte_id": "efc10a75-5cf4-435e-a598-7abf57f88ff7",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo II: Dossiê Ditadura — Mortos e Desaparecidos Políticos no Brasil (1964-1985) [síntese]",
+          "paginas": "120",
+          "secao": "O Ato Institucional nº 5",
+          "similaridade": 0.871091954177152
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "22d71f0d-8271-4f43-a4a7-c8ef430bdf8a",
+          "fonte_id": "47662bb8-8688-421a-82ec-72c96e8558b4",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade do Paraná Teresa Urban — Volume 1",
+          "paginas": "80",
+          "secao": "2. Ditadura, Sistemas de Justiça e Repressão",
+          "similaridade": 0.871025725725386
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "592b4781-b21a-4e86-ad2e-54e58646255f",
+          "fonte_id": "2298d148-7c79-4caf-b5ac-0e3f21c59f35",
+          "titulo": "Relatório Final da Comissão Municipal da Verdade de Petrópolis",
+          "paginas": "117",
+          "secao": "1. O Golpe e a Formação da Ditadura Militar (1964-1969)",
+          "similaridade": 0.870224944962572
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "fed42c7f-82d7-43a6-85f4-ba616105e2bd",
+          "fonte_id": "90eca765-c38d-45c7-9246-33af80f89020",
+          "titulo": "Relatório da Comissão da Verdade da Universidade Federal do Espírito Santo (CVUfes)",
+          "paginas": "105-106",
+          "secao": "A Terceira Onda Repressiva na UFES: Graves Violações dos Direitos Humanos no Espírito Santo",
+          "similaridade": 0.864869646124236
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "80dd9ec2-335f-4a54-af37-5ed8a16f0cbc",
+          "fonte_id": "faa5ff3d-b4dc-4873-8b6c-2206816baee1",
+          "titulo": "Relatório Final da Comissão da Verdade em Minas Gerais (Covemg)",
+          "paginas": "1238-1239",
+          "secao": "12. Repressão ao Movimento Estudantil e às Universidades em Minas Gerais",
+          "similaridade": 0.863457500934625
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "7b0669e5-9810-4334-82d5-e34d8d98aeca",
+          "fonte_id": "f6d0a34e-abb6-4a5b-a687-23d71733b7da",
+          "titulo": "Relatório da Comissão da Verdade do Sindicato dos Jornalistas Profissionais de Minas Gerais (SJPMG)",
+          "paginas": "40",
+          "secao": "Depoimentos",
+          "similaridade": 0.862007013678983
+        }
+      ]
+    },
+    {
+      "id": "P21",
+      "pergunta": "Como comparar o depoimento de Islene Mendes com o relatório policial?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "C20-24",
+          "encontrado": false,
+          "posicao": null
+        },
+        {
+          "rotulo": "C128-131",
+          "encontrado": true,
+          "posicao": 1
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "bde87a7c-c531-4f6f-9851-38eb7c6372c8",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "129-130",
+          "secao": "Anexo IV – Principais Depoimentos",
+          "similaridade": 0.883648528617802
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "5d8e6167-4ea2-404a-9c97-8e53cbcbbff3",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "4148",
+          "secao": "52ª Audiência Pública — 14/06/2013",
+          "similaridade": 0.878817691943927
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "65daac73-047a-44f3-9636-0c6d5c8acc04",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "5535",
+          "secao": "64ª Audiência Pública — 19/08/2013",
+          "similaridade": 0.87695414561308
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "2fefd39b-7476-4159-a154-f7694407ca86",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "39",
+          "secao": "Capítulo IV – Ditadura Civil-Militar e a Questão de Gênero",
+          "similaridade": 0.87693460262602
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "5fabbd02-ba26-419d-96cc-85e980d0f685",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "4147-4148",
+          "secao": "52ª Audiência Pública — 14/06/2013",
+          "similaridade": 0.876153424244717
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "000182e3-9209-4f7f-86d5-f1b21b086aa9",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "10676",
+          "secao": "109ª Audiência Pública",
+          "similaridade": 0.875950842869081
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "5da87461-d28d-4e26-bd3c-f5fc35afc43e",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "5054",
+          "secao": "87ª Audiência Pública — 16/10/2013",
+          "similaridade": 0.875526323851791
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "7bfe887b-6fbe-4d35-b853-08a60f55048e",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "40",
+          "secao": "Capítulo IV – Ditadura Civil-Militar e a Questão de Gênero",
+          "similaridade": 0.87523701037699
+        }
+      ]
+    },
+    {
+      "id": "P22",
+      "pergunta": "Quais são as conclusões da Subcomissão sobre a morte de Ismene e a atuação policial?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "C20-24",
+          "encontrado": true,
+          "posicao": 1
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "04e035c2-b3a4-4e4f-a697-eb4a67435c53",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "19-20",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "similaridade": 0.890408290575947
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "3a8fa4ec-768b-44e8-bdda-e5aed6cc0057",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "133",
+          "secao": "Anexo IV – Principais Depoimentos",
+          "similaridade": 0.879710145013921
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "03b80b1a-5caa-4be6-96e3-f3231a619bd7",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "63",
+          "secao": "Anexo I – Perfil CNV: Mortos e Desaparecidos Políticos",
+          "similaridade": 0.877066813039755
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "3c9278ec-e4dc-4a32-86bb-60ddf2adbd1c",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "133-134",
+          "secao": "Anexo IV – Principais Depoimentos",
+          "similaridade": 0.876668877800175
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "ce074cfe-3706-4eed-8467-7c15acad3252",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "20",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "similaridade": 0.876042857641833
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "bf0d7cb1-44cb-4a7a-a610-ba82467da3ea",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "9804-9805",
+          "secao": "115ª Audiência Pública — 17/03/2014",
+          "similaridade": 0.876042068004614
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "04d67e63-00c1-4a84-b444-656ffccc92a0",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "122",
+          "secao": "Anexo IV – Principais Depoimentos",
+          "similaridade": 0.875646196190204
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "7bfe887b-6fbe-4d35-b853-08a60f55048e",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "40",
+          "secao": "Capítulo IV – Ditadura Civil-Militar e a Questão de Gênero",
+          "similaridade": 0.873816028378483
+        }
+      ]
+    },
+    {
+      "id": "P23",
+      "pergunta": "A repressão atingiu grupos além das organizações envolvidas na luta armada?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "F9",
+          "encontrado": false,
+          "posicao": null
+        },
+        {
+          "rotulo": "D94",
+          "encontrado": false,
+          "posicao": null
+        },
+        {
+          "rotulo": "F204/206",
+          "encontrado": false,
+          "posicao": null
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "42b62c03-2084-46e7-a3f0-02e30a37e19d",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "8549",
+          "secao": "149ª Audiência Pública — 04/12/2014",
+          "similaridade": 0.875090628840798
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "05c17954-5981-4bad-9395-9fb25d793489",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "8546",
+          "secao": "149ª Audiência Pública — 04/12/2014",
+          "similaridade": 0.873891324069209
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "0ff4a5fc-6b6b-4888-a129-92dbdb53869d",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "8546-8547",
+          "secao": "149ª Audiência Pública — 04/12/2014",
+          "similaridade": 0.870856792722538
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "0aec122f-a6b3-41de-95f8-55a5a304c501",
+          "fonte_id": "9a4bfbe7-e343-49f2-b478-34841d305d5d",
+          "titulo": "Relatório Final da Comissão Estadual da Memória e Verdade Dom Helder Câmara — Pernambuco, Volume I",
+          "paginas": "68",
+          "secao": null,
+          "similaridade": 0.870678686378276
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "fdfaebd6-56b9-4500-81b6-290b53c7b847",
+          "fonte_id": "08552f59-27f9-4bb5-9536-4668af2a961e",
+          "titulo": "Relatório da Comissão Nacional da Memória, Verdade e Justiça da Central Única dos Trabalhadores (CUT)",
+          "paginas": "96",
+          "secao": "Artigos",
+          "similaridade": 0.867981107716321
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "01af20d8-a2b9-46b1-914a-5aa4cc9c8f91",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "8548",
+          "secao": "149ª Audiência Pública — 04/12/2014",
+          "similaridade": 0.867623241514411
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "88966117-32f1-4ffc-a82e-dcf6811eef1f",
+          "fonte_id": "d67febc5-8530-4961-8c71-5f2370aa390c",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume II (textos temáticos)",
+          "paginas": "65",
+          "secao": "2 - violações de direitos humanos dos trabalhadores",
+          "similaridade": 0.867052594705657
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "86e8487c-39fd-46a1-bd52-d065d0a652e9",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "523",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "similaridade": 0.866678772367526
+        }
+      ]
+    },
+    {
+      "id": "P24",
+      "pergunta": "A ausência de registro formal de detenção permite concluir que não houve tortura?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "E350",
+          "encontrado": false,
+          "posicao": null
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "2e59e0b6-f5a7-4d40-bf3a-33ebc8c1e8b7",
+          "fonte_id": "b6d6371b-e40e-444b-b562-1e5ceea2573b",
+          "titulo": "Relatório Final da Comissão da Verdade do Rio (CEV-Rio)",
+          "paginas": "[217,217]",
+          "secao": "parte_vi_legado",
+          "similaridade": 0.876345936489767
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "bd6cd0c1-b7d3-4248-9ed4-3195c05e5aea",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "349",
+          "secao": "9 – tortura",
+          "similaridade": 0.874095518061165
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "c77b72dc-f3be-4fd4-88fa-720469275cf1",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "5490-5491",
+          "secao": "53ª Audiência Pública — 19/06/2013",
+          "similaridade": 0.873769193594277
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "9bbf44cf-026c-43b1-8e99-7922a57ebcfd",
+          "fonte_id": "25cb7955-900b-47b5-9ac3-096e1a3cd075",
+          "titulo": "Relatório Final de Atividades da Comissão Estadual da Verdade – Bahia — Volume 2: Íntegra dos Depoimentos (agosto/2013–abril/2016)",
+          "paginas": "416-417",
+          "secao": null,
+          "similaridade": 0.873321715392251
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "3c1893c4-ba1a-45fb-ae73-22786309b520",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "948",
+          "secao": "17 – o judiciário na ditadura",
+          "similaridade": 0.872319880313867
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "64c82cb4-7af9-4bd7-9587-2314cc32e178",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "286-287",
+          "secao": "7 – quadro conceitual das graves violações",
+          "similaridade": 0.872229281234908
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "c232a918-4bd3-4065-ac55-42dcd63b28db",
+          "fonte_id": "cc230d2d-c6b6-42bf-8c94-ef2d92194990",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume I",
+          "paginas": "440",
+          "secao": "11 – execuções e mortes decorrentes de tortura",
+          "similaridade": 0.871769975389568
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "06d5e401-992e-4485-8757-3afcf125c5f9",
+          "fonte_id": "c5f751ff-b1bb-4411-97cc-3fb239af0607",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas",
+          "paginas": "6017",
+          "secao": "7ª Audiência Pública — 21/02/2013",
+          "similaridade": 0.870721418028051
+        }
+      ]
+    },
+    {
+      "id": "P31",
+      "pergunta": "No caso Ismene Mendes, como as lacunas do inquérito policial afetam a avaliação da versão oficial?",
+      "quantidade_retornada": 8,
+      "evidencias": [
+        {
+          "rotulo": "C20-24",
+          "encontrado": true,
+          "posicao": 1
+        },
+        {
+          "rotulo": "C39-42",
+          "encontrado": true,
+          "posicao": 4
+        }
+      ],
+      "resultados": [
+        {
+          "posicao": 1,
+          "chunk_id": "04e035c2-b3a4-4e4f-a697-eb4a67435c53",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "19-20",
+          "secao": "Capítulo I – Caso Ismene: do Inquérito Policial à Realidade dos Fatos",
+          "similaridade": 0.868731089309987
+        },
+        {
+          "posicao": 2,
+          "chunk_id": "4eef418e-6b08-4e4c-9e36-ff799d89deb5",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "1278-1281",
+          "secao": "PARTE 3 – AÇÕES DE RESISTÊNCIA E MEDIDAS DE JUSTIÇA DE TRANSIÇÃO Março 2015",
+          "similaridade": 0.865847722786943
+        },
+        {
+          "posicao": 3,
+          "chunk_id": "b3da0948-bf54-4afd-bd67-578a93eeeb10",
+          "fonte_id": "13bfe3a0-41f1-46b8-bf8c-6852c847a4c8",
+          "titulo": "Relatório Final da Comissão Nacional da Verdade — Volume III (mortos e desaparecidos políticos)",
+          "paginas": "623",
+          "secao": "Perfil – Mariano Joaquim da Silva",
+          "similaridade": 0.864227320677857
+        },
+        {
+          "posicao": 4,
+          "chunk_id": "1c7eafd3-8389-4273-8103-eb6dd3119bf1",
+          "fonte_id": "83d25f19-2185-40e7-a3bf-896e4cf50180",
+          "titulo": "Relatório I da Comissão da Verdade do Triângulo Mineiro e Alto Paranaíba 'Ismene Mendes' — Caso Ismene Mendes: o legado classista, machista e fascista da Ditadura Civil-Militar",
+          "paginas": "40-41",
+          "secao": "Capítulo IV – Ditadura Civil-Militar e a Questão de Gênero",
+          "similaridade": 0.862554796781852
+        },
+        {
+          "posicao": 5,
+          "chunk_id": "20f37862-f7d0-4c78-910c-b64ecc36f507",
+          "fonte_id": "de865a48-ad6f-43d4-a119-f0ddb62b35ef",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo IV: Contribuições e Relatórios dos Grupos de Trabalho",
+          "paginas": "1164",
+          "secao": "ANEXO XVIII — Parecer Jurídico (autor: Prof. Alessandro Octaviani)",
+          "similaridade": 0.862112547818201
+        },
+        {
+          "posicao": 6,
+          "chunk_id": "41361409-516b-4d4d-bed8-fecc9d509b99",
+          "fonte_id": "de865a48-ad6f-43d4-a119-f0ddb62b35ef",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo IV: Contribuições e Relatórios dos Grupos de Trabalho",
+          "paginas": "1055",
+          "secao": "ANEXO XVII — Parecer Jurídico (autor: Prof. Emílio Peluso Neder Meyer)",
+          "similaridade": 0.86062064351501
+        },
+        {
+          "posicao": 7,
+          "chunk_id": "7fc32c5f-823e-4da6-b17d-856998382d31",
+          "fonte_id": "4d2e8758-647a-40f4-bcaa-38c36eca378f",
+          "titulo": "Relatório Final da Comissão Estadual da Verdade Paulo Stuart Wright — Santa Catarina",
+          "paginas": "74-75",
+          "secao": null,
+          "similaridade": 0.859632756103062
+        },
+        {
+          "posicao": 8,
+          "chunk_id": "e44f865d-d386-4fa2-bef9-b1264a5adba6",
+          "fonte_id": "68df5bef-3256-4d3c-ab48-bea0a2703652",
+          "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas",
+          "paginas": "330",
+          "secao": "PARTE 1 – ESTRUTURAS E SISTEMAS DE REPRESSÃO Março 2015",
+          "similaridade": 0.859347488264665
+        }
+      ]
+    }
+  ]
+}

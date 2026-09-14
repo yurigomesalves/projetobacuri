@@ -1789,3 +1789,191 @@ com fonte principal `cev-sp-rubens-paiva-tomo3.jsonl`
   **42 eventos**.
 - **Promoção a `publicada`:** lote 3 SP/CEV-SP (4 fichas + 4 eventos) promovido
   após revisão do Yuri.
+
+---
+
+## 2026-09-09 — Avaliação da busca híbrida
+
+**O que foi feito:**
+- Aplicadas as migrações 0019–0024 no Supabase para criar e otimizar a RPC
+  experimental `buscar_chunks_hibrida`.
+- Materializada a representação textual em português dos 53.474 chunks, com
+  atualização automática por trigger e índice GIN.
+- Comparadas busca vetorial e híbrida nas mesmas 24 perguntas e 32 unidades de
+  evidência aprovadas editorialmente.
+
+**Resultado e decisão:**
+- Ambas encontraram 13/32 evidências no top 8 e tiveram algum acerto em 13/24
+  perguntas. P01 e P05 caíram da posição 1 para a posição 4 na busca híbrida.
+- A rota pública permanece na busca vetorial; a híbrida fica disponível para
+  pesquisa, sem promoção ao produto. Comparação detalhada em
+  `docs/avaliacao/comparacao-busca-hibrida-2026-09-09.md` e ADR-020.
+- Verificação local: 83 testes, lint e checagem de tipos aprovados. A auditoria do
+  Supabase registrou como próxima fase de segurança seis tabelas públicas sem RLS;
+  nenhuma política foi alterada nesta fase de recuperação.
+
+---
+
+## 2026-09-09 — Fechamento de acesso direto a eventos e territórios
+
+- Após autorização de Yuri, aplicada a migração 0025: RLS ativado em seis tabelas
+  de eventos e territórios e removida a política ampla de `eventos_geo`.
+- A simulação com o papel `anon` retornou zero linhas; o servidor preservou acesso
+  aos 307 eventos e 627 territórios existentes.
+- As APIs `/api/eventos-geo` e `/api/territorios-origem` responderam HTTP 200 após
+  a alteração. Os dois alertas críticos de RLS desapareceram do advisor do Supabase.
+- Permanecem avisos separados: extensão `vector` no schema `public`, proteção de
+  senhas vazadas desativada e chaves estrangeiras sem índices de cobertura.
+
+---
+
+## 2026-09-09 — Índices de cobertura para chaves estrangeiras
+
+- Após autorização de Yuri, aplicada a migração 0026 com 12 índices aditivos.
+- As contagens das nove tabelas conferidas permaneceram idênticas.
+- O advisor do Supabase deixou de apontar as 12 chaves estrangeiras sem cobertura.
+- Os índices novos aparecem como ainda não usados, comportamento esperado logo após
+  a criação; nenhuma remoção foi feita sem histórico de uso.
+
+---
+
+## 2026-09-09 — Auditoria das evidências fora do top 50
+
+- Examinadas 12 unidades de evidência em sete perguntas; todas têm chunks relevantes
+  no banco e similaridade superior ao limiar 0,82, mas ficaram além da posição 500.
+- Comparados 49 embeddings de passagem entre Python e JavaScript: equivalência
+  prática confirmada, com cosseno médio 0,99999999999980.
+- O problema foi localizado na ordenação, na concorrência entre documentos, em chunks
+  com assuntos misturados e em perguntas que exigem várias evidências distintas.
+- Registrada no ADR-023 a próxima experiência: decomposição, diversidade por fonte e
+  reranqueamento, avaliada com perguntas reservadas.
+
+---
+
+## 2026-09-09 — Ensaio de reranqueamento e busca dentro da fonte
+
+- Restaurado o ambiente Python isolado em `pipeline/.venv` e instalado PyTorch
+  somente CPU, evitando dependências CUDA desnecessárias.
+- O reranqueador bilíngue da Unicamp obteve 0/12 evidências no top 8 mesmo em um
+  teste de teto com os alvos injetados; sua integração foi descartada.
+- A busca textual restrita à fonte correta colocou 10/12 evidências no top 50 e
+  oito nas primeiras 21 posições. A seleção vetorial já encontra 9/10 pares
+  únicos pergunta–fonte.
+- P24 foi marcada para revisão editorial porque não menciona Ismene, embora cobre
+  duas evidências desse caso. Nenhuma alteração foi feita no conjunto-ouro.
+- Após autorização de Yuri, a migração 0027 criou a RPC experimental de busca
+  textual dentro de fontes, acessível apenas por `service_role`; a rota pública
+  permaneceu inalterada.
+- Na função instalada, o teto com fonte fornecida foi 9/12 evidências no top 50 e
+  10/12 no top 100. As contagens do acervo permaneceram inalteradas.
+- Decisão e limites no ADR-024.
+
+---
+
+## 2026-09-09 — Roteamento automático de fontes
+
+- A seleção vetorial das fontes seguida pela busca textual da migração 0027 elevou
+  a cobertura candidata de 20/32 para 28/32 evidências, sem injetar fontes do
+  gabarito.
+- A configuração 13 fontes × 60 trechos preservou os 28 acertos e reduziu a média
+  das sete perguntas difíceis de 1.197,3 para 719,3 candidatos em relação a
+  15 × 100.
+- Permaneceram ausentes P17/F395, P23/F9 e duas evidências de Ismene em P24. A
+  busca pública não foi alterada; decisão e limites no ADR-025.
+
+---
+
+## 2026-09-09 — Teto de decomposição curada
+
+- Subconsultas formuladas após leitura do gabarito recuperaram 32/32 evidências no
+  conjunto candidato e reduziram a média das perguntas difíceis de 719,3 para
+  232,4 candidatos.
+- O resultado foi classificado como teto de desenvolvimento, pois as consultas
+  tiveram acesso às respostas e páginas esperadas.
+- P24 só recuperou o relatório de Ismene quando o contexto do caso foi explicitado;
+  P17 ainda requer revisão de segmentação e âncora.
+- Nenhuma mudança foi feita na busca pública. Critérios seguintes no ADR-026.
+- Auditoria complementar confirmou que F395 sustenta as três afirmações de P17;
+  a âncora foi mantida e o problema classificado como segmentação do chunk.
+- Preparada, sem aplicar ao conjunto-ouro, a proposta de manter P24 como pergunta
+  geral ancorada em E350 e criar P31 para a crítica do inquérito de Ismene.
+
+---
+
+## 2026-09-09 — Divisão editorial de P24 e criação de P31
+
+- Yuri aprovou a divisão: P24 passou a tratar apenas da ausência de registro formal
+  de detenção, com a evidência E350.
+- P31 passou a tratar das lacunas do inquérito policial no caso Ismene Mendes, com
+  as evidências C20-24 e C39-42.
+- O conjunto-ouro passou de 24 para 25 perguntas e manteve 32 unidades de evidência;
+  P25–P30 permaneceram fora do conjunto.
+- Os mapas de avaliação foram atualizados. Vetorial e híbrida recuperaram 15/32
+  evidências no top 8; o diagnóstico vetorial encontrou 22/32 no top 50.
+- O roteamento em duas etapas chegou a 29/32, e a decomposição curada a 31/32.
+  P15/E350 permaneceu fora porque a CNV Volume I não foi selecionada como fonte
+  candidata, embora a busca dentro dessa fonte coloque o trecho na posição 22.
+
+---
+
+## 2026-09-10 — Preparação dos testes conversacionais P25–P30
+
+- Detalhados seis candidatos para continuidade de conversa, privacidade,
+  esclarecimento e resistência à fabricação de citações.
+- O lote permanece fora do conjunto-ouro e aguarda decisão editorial de Yuri.
+- Preparado um coletor reprodutível para `/api/chat`, bloqueado por status editorial
+  e autorização explícita. Nenhuma chamada ao LLM ou gravação de interação foi feita.
+- Yuri aprovou P25–P30 como lote conversacional separado e autorizou uma rodada de
+  seis chamadas com teto total de US$ 0,10.
+- A primeira rodada revelou reprodução indevida de telefones pessoais em P28. A
+  rota foi corrigida para bloquear pedidos de contato antes da busca e ocultar
+  telefones/e-mails em todo o contexto e na saída.
+- A segunda rodada aprovou P28–P30 e classificou P25–P27 como parciais. A busca com
+  histórico melhorou, mas ainda não preserva as fontes da resposta anterior.
+- A coleta bruta com contatos foi ignorada pelo Git; uma versão redigida preserva a
+  evidência do problema sem expor os números.
+- A verificação do Supabase encontrou telefone somente na resposta da primeira
+  interação P28. Yuri autorizou a redação e a atualização foi enviada; a confirmação
+  remota ficou pendente após sucessivos timeouts da tabela.
+- Preparada uma proposta, ainda sem implementação, para transportar os IDs das
+  citações da resposta anterior e usá-los como prioridade suave em perguntas de
+  seguimento. A promoção exige casos conversacionais inéditos.
+- Sessão encerrada a pedido de Yuri com estado e ordem de retomada registrados em
+  `docs/checkpoint-sessao-2026-09-10.md`.
+
+---
+
+## 2026-09-14 — Retomada: privacidade e análise de continuidade
+
+- A leitura segura da interação P28 confirmou telefone ainda na resposta.
+  Reaplicada a substituição já autorizada, condicionada à versão lida; a leitura
+  posterior confirmou a redação e não detectou padrões de telefone/e-mail na
+  resposta ou nas citações. Registro sem conteúdo pessoal em
+  `docs/avaliacao/verificacao-privacidade-p28-2026-09-14.json`.
+- O arquiteto revisou a proposta: IDs declarados pelo cliente não comprovam
+  citações anteriores, e escores textuais não equivalem à similaridade vetorial.
+  Transporte, elegibilidade e fusão permanecem decisões de desenho.
+- Preparados com o curador seis roteiros candidatos para continuidade na fonte,
+  mudança de documento no tema e mudança de assunto. Novos encadeamentos sobre
+  evidências conhecidas não constituem avaliação cega; revisão de Yuri pendente.
+- Preservados os resultados P25–P30, o contrato v1.5 e o código existente.
+  Nenhuma chamada ao LLM, migração, commit ou deploy nesta retomada.
+- Revisão técnica e protocolo em
+  `docs/avaliacao/revisao-tecnica-continuidade-2026-09-14.md`; próximo estado em
+  `docs/checkpoint-sessao-2026-09-14.md`.
+- A revisão do frontend recomendou transportar a trilha por token opaco, assinado,
+  curto e mantido somente em memória. A decisão conjunta, inicialmente pendente,
+  foi registrada em `docs/avaliacao/decisao-pendente-continuidade-2026-09-14.md`.
+- Yuri aprovou integralmente CF01–CF06 e o desenho. O contrato passou à versão 1.6
+  e o ADR-030 registrou a continuidade por token HMAC, sem texto da conversa,
+  identidade ou persistência no navegador.
+- Backend e frontend foram implementados com queda silenciosa para a busca vetorial,
+  busca textual limitada, recarga de metadados, deduplicação e até oito citações.
+- Criado coletor pareado para seis primeiros turnos e doze seguimentos (com e sem
+  token). O modo simulado confirmou 18 chamadas previstas; nenhuma chamada real foi
+  feita e o token não será persistido no artefato.
+- Validação: 106 testes, lint, TypeScript e build Webpack aprovados. O Turbopack
+  encontrou restrição ambiental ao abrir porta durante o CSS do Leaflet; o build
+  alternativo completo confirmou a aplicação. Sem migração, commit ou deploy.
+- Gerado em `.env.local` um segredo aleatório de 43 caracteres para ativar a
+  experiência local, sem imprimir ou versionar o valor.

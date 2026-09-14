@@ -1,0 +1,19 @@
+{
+  "verificado_em": "2026-09-14T15:48:39.508Z",
+  "interacao_id": "082efdb1-e05f-4c8a-abc8-3575a857881a",
+  "escopo": "Uma interação, campos resposta e citacoes; nenhum conteúdo pessoal incluído neste registro.",
+  "autorizacao": "Substituição por [contato pessoal omitido] autorizada por Yuri e registrada no checkpoint de 10/09/2026.",
+  "leitura_inicial": {
+    "registros": 1,
+    "resposta": { "telefone_detectado": true, "email_detectado": false, "marcador_redacao_presente": false },
+    "citacoes": { "telefone_detectado": false, "email_detectado": false }
+  },
+  "acao": "PATCH somente no campo resposta, condicionado ao UUID e à resposta ainda corresponder à versão lida; substituição dos padrões de contato.",
+  "leitura_posterior": {
+    "resposta": { "contato_detectado": false, "marcador_redacao_presente": true },
+    "citacoes": { "contato_detectado": false, "marcador_redacao_presente": false },
+    "resposta_confere_com_redacao_esperada": true
+  },
+  "metodo": "GET autenticado via PostgREST, padrões de telefone e e-mail iguais aos usados em omitirContatosPessoais de app/api/chat/route.ts; saída apenas com indicadores.",
+  "limite": "Confirmação restrita aos padrões reconhecidos nesses dois campos dessa interação; não constitui auditoria geral de dados pessoais do banco."
+}
