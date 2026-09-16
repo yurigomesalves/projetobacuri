@@ -29,10 +29,10 @@ export default function Citacoes({ citacoes, idResposta }: Props) {
           <li
             key={citacao.n}
             id={`${idResposta}-fonte-${citacao.n}`}
-            className="scroll-mt-20 rounded-md border border-papel-200 bg-papel-50 p-3 dark:border-tinta-900 dark:bg-tinta-900"
+            className="bk-card scroll-mt-20 rounded-md border border-papel-200 bg-papel-50 p-3 dark:border-tinta-900 dark:bg-tinta-900"
           >
             <div className="flex flex-wrap items-baseline gap-2">
-              <span className="font-sans font-semibold text-carmim-700">
+              <span className="font-sans font-semibold text-carmim-700 dark:text-carmim-400">
                 [{citacao.n}]
               </span>
               <span className="font-medium text-tinta-950 dark:text-neutral-100">

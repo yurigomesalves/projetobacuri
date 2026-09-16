@@ -184,11 +184,12 @@ export default function CuradoriaPage() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <header className="border-b border-papel-200 px-4 py-4 sm:px-6 dark:border-tinta-900">
+      <header className="px-4 pb-4 pt-7 sm:px-6 sm:pt-10">
         <div className="mx-auto w-full max-w-3xl">
           <div className="flex flex-wrap items-start justify-between gap-2">
             <div>
-              <h1 className="text-xl font-semibold tracking-tight text-tinta-950 sm:text-2xl dark:text-neutral-100">
+              <p className="bk-eyebrow">Área restrita</p>
+              <h1 className="bk-page-heading mt-2">
                 Curadoria de avaliações
               </h1>
               <p className="mt-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
@@ -211,7 +212,7 @@ export default function CuradoriaPage() {
                 <button
                   type="button"
                   onClick={sair}
-                  className="rounded-md border border-papel-200 px-3 py-1.5 font-medium text-neutral-800 hover:bg-papel-100 dark:border-tinta-800 dark:text-neutral-200 dark:hover:bg-tinta-800"
+                  className="bk-button bk-button-secondary"
                 >
                   Sair
                 </button>
@@ -221,13 +222,13 @@ export default function CuradoriaPage() {
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-6 sm:px-6">
+      <main className="mx-auto w-full max-w-3xl flex-1 px-4 pb-10 pt-4 sm:px-6">
         {verificandoSessao ? (
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
             Verificando sessão...
           </p>
         ) : !curador ? (
-          <form onSubmit={entrar} className="max-w-sm space-y-3">
+          <form onSubmit={entrar} className="bk-card max-w-md space-y-4 p-5">
             <label className="block text-sm text-neutral-700 dark:text-neutral-300">
               E-mail
               <input
@@ -236,7 +237,7 @@ export default function CuradoriaPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 autoComplete="email"
                 required
-                className="mt-1 w-full rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
+                className="mt-1 w-full rounded-lg border border-papel-200 bg-white px-3 py-2.5 text-sm text-tinta-950 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
               />
             </label>
             <label className="block text-sm text-neutral-700 dark:text-neutral-300">
@@ -247,13 +248,13 @@ export default function CuradoriaPage() {
                 onChange={(e) => setSenha(e.target.value)}
                 autoComplete="current-password"
                 required
-                className="mt-1 w-full rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
+                className="mt-1 w-full rounded-lg border border-papel-200 bg-white px-3 py-2.5 text-sm text-tinta-950 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
               />
             </label>
             <button
               type="submit"
               disabled={entrando || email.length === 0 || senha.length === 0}
-              className="rounded-md border border-tinta-950 bg-tinta-950 px-4 py-1.5 text-sm font-medium text-papel-50 hover:bg-tinta-800 disabled:opacity-60 dark:border-papel-100 dark:bg-papel-100 dark:text-tinta-950 dark:hover:bg-papel-200"
+              className="bk-button disabled:opacity-60"
             >
               {entrando ? "Entrando..." : "Entrar"}
             </button>
@@ -279,7 +280,7 @@ export default function CuradoriaPage() {
             <div
               role="tablist"
               aria-label="Filtrar por status"
-              className="mb-4 flex gap-2 border-b border-papel-200 dark:border-tinta-900"
+              className="mb-5 flex gap-1 rounded-xl border border-papel-200 bg-papel-50 p-1 dark:border-tinta-900 dark:bg-tinta-900"
             >
               {ABAS.map((aba) => (
                 <button
@@ -287,10 +288,10 @@ export default function CuradoriaPage() {
                   role="tab"
                   aria-selected={status === aba.valor}
                   onClick={() => trocarStatus(aba.valor)}
-                  className={`border-b-2 px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                     status === aba.valor
-                      ? "border-tinta-950 text-tinta-950 dark:border-papel-100 dark:text-neutral-100"
-                      : "border-transparent text-neutral-500 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
+                      ? "bg-tinta-950 text-papel-50 shadow-sm dark:bg-papel-100 dark:text-tinta-950"
+                      : "text-neutral-500 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
                   }`}
                 >
                   {aba.rotulo}
@@ -339,7 +340,7 @@ export default function CuradoriaPage() {
                 <button
                   onClick={() => setPagina((p) => Math.max(1, p - 1))}
                   disabled={pagina <= 1 || carregando}
-                  className="rounded-md border border-papel-200 px-3 py-1.5 disabled:opacity-50 dark:border-tinta-800"
+                  className="bk-button bk-button-secondary disabled:opacity-50"
                 >
                   Anterior
                 </button>
@@ -349,7 +350,7 @@ export default function CuradoriaPage() {
                 <button
                   onClick={() => setPagina((p) => Math.min(totalPaginas, p + 1))}
                   disabled={pagina >= totalPaginas || carregando}
-                  className="rounded-md border border-papel-200 px-3 py-1.5 disabled:opacity-50 dark:border-tinta-800"
+                  className="bk-button bk-button-secondary disabled:opacity-50"
                 >
                   Próxima
                 </button>
@@ -490,7 +491,7 @@ function PainelMeuPerfil({
   const fotoExibida = previewFoto ?? (removerFoto ? undefined : fotoAtual);
 
   return (
-    <details className="mb-6 rounded-md border border-papel-200 bg-papel-50 p-4 dark:border-tinta-900 dark:bg-tinta-900">
+    <details className="bk-card mb-6 p-5">
       <summary className="cursor-pointer text-sm font-semibold text-tinta-950 dark:text-neutral-100">
         Meu perfil
       </summary>
@@ -560,7 +561,7 @@ function PainelMeuPerfil({
               value={nome}
               onChange={(e) => setNome(e.target.value.slice(0, 120))}
               required
-              className="mt-1 w-full rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none dark:border-tinta-800 dark:bg-tinta-950 dark:text-neutral-100"
+              className="mt-1 w-full rounded-lg border border-papel-200 bg-white px-3 py-2.5 text-sm text-tinta-950 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-tinta-800 dark:bg-tinta-950 dark:text-neutral-100"
             />
           </label>
 
@@ -571,7 +572,7 @@ function PainelMeuPerfil({
               value={lattesUrl}
               onChange={(e) => setLattesUrl(e.target.value)}
               placeholder="https://lattes.cnpq.br/..."
-              className="mt-1 w-full rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none dark:border-tinta-800 dark:bg-tinta-950 dark:text-neutral-100"
+              className="mt-1 w-full rounded-lg border border-papel-200 bg-white px-3 py-2.5 text-sm text-tinta-950 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-tinta-800 dark:bg-tinta-950 dark:text-neutral-100"
             />
           </label>
 
@@ -581,7 +582,7 @@ function PainelMeuPerfil({
               type="text"
               value={organizacao}
               onChange={(e) => setOrganizacao(e.target.value.slice(0, 200))}
-              className="mt-1 w-full rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none dark:border-tinta-800 dark:bg-tinta-950 dark:text-neutral-100"
+              className="mt-1 w-full rounded-lg border border-papel-200 bg-white px-3 py-2.5 text-sm text-tinta-950 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-tinta-800 dark:bg-tinta-950 dark:text-neutral-100"
             />
           </label>
 
@@ -591,7 +592,7 @@ function PainelMeuPerfil({
               value={sobre}
               onChange={(e) => setSobre(e.target.value.slice(0, 2000))}
               rows={4}
-              className="mt-1 w-full rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none dark:border-tinta-800 dark:bg-tinta-950 dark:text-neutral-100"
+              className="mt-1 w-full rounded-lg border border-papel-200 bg-white px-3 py-2.5 text-sm text-tinta-950 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-tinta-800 dark:bg-tinta-950 dark:text-neutral-100"
             />
             <span className="mt-1 block text-right text-xs text-neutral-500">
               {sobre.length}/2000
@@ -602,7 +603,7 @@ function PainelMeuPerfil({
             <button
               type="submit"
               disabled={salvando}
-              className="rounded-md border border-tinta-950 bg-tinta-950 px-4 py-1.5 text-sm font-medium text-papel-50 hover:bg-tinta-800 disabled:opacity-60 dark:border-papel-100 dark:bg-papel-100 dark:text-tinta-950 dark:hover:bg-papel-200"
+              className="bk-button disabled:opacity-60"
             >
               {salvando ? "Salvando..." : "Salvar perfil"}
             </button>
@@ -749,7 +750,7 @@ function PainelConvites() {
   }
 
   return (
-    <details className="mb-6 rounded-md border border-papel-200 bg-papel-50 p-4 dark:border-tinta-900 dark:bg-tinta-900">
+    <details className="bk-card mb-6 p-5">
       <summary className="cursor-pointer text-sm font-semibold text-tinta-950 dark:text-neutral-100">
         Convidar curadores
       </summary>
@@ -763,13 +764,13 @@ function PainelConvites() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="mt-1 w-full rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none dark:border-tinta-800 dark:bg-tinta-950 dark:text-neutral-100"
+              className="mt-1 w-full rounded-lg border border-papel-200 bg-white px-3 py-2.5 text-sm text-tinta-950 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-tinta-800 dark:bg-tinta-950 dark:text-neutral-100"
             />
           </label>
           <button
             type="submit"
             disabled={gerando || email.length === 0}
-            className="rounded-md border border-tinta-950 bg-tinta-950 px-4 py-1.5 text-sm font-medium text-papel-50 hover:bg-tinta-800 disabled:opacity-60 dark:border-papel-100 dark:bg-papel-100 dark:text-tinta-950 dark:hover:bg-papel-200"
+            className="bk-button disabled:opacity-60"
           >
             {gerando ? "Gerando..." : "Gerar convite"}
           </button>
@@ -953,7 +954,7 @@ function ItemFeedback({
   }
 
   return (
-    <article className="rounded-md border border-papel-200 bg-papel-50 p-4 dark:border-tinta-900 dark:bg-tinta-900">
+    <article className="bk-card p-5">
       <p className="text-xs text-neutral-500 dark:text-neutral-500">
         Enviado em {formatarData(item.criado_em)}
       </p>
@@ -1009,7 +1010,7 @@ function ItemFeedback({
               value={justificativa}
               onChange={(e) => setJustificativa(e.target.value.slice(0, 2000))}
               rows={3}
-              className="mt-1 w-full rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none dark:border-tinta-800 dark:bg-tinta-950 dark:text-neutral-100"
+              className="mt-1 w-full rounded-lg border border-papel-200 bg-white px-3 py-2.5 text-sm text-tinta-950 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-tinta-800 dark:bg-tinta-950 dark:text-neutral-100"
             />
             <span className="mt-1 block text-right text-xs text-neutral-500">
               {justificativa.length}/2000
@@ -1025,7 +1026,7 @@ function ItemFeedback({
               type="button"
               onClick={() => decidir("aceito")}
               disabled={enviando || !justificativaValida}
-              className="rounded-md border border-tinta-950 bg-tinta-950 px-4 py-1.5 text-sm font-medium text-papel-50 hover:bg-tinta-800 disabled:opacity-60 dark:border-papel-100 dark:bg-papel-100 dark:text-tinta-950 dark:hover:bg-papel-200"
+              className="bk-button disabled:opacity-60"
             >
               {enviando ? "Enviando..." : "Aceitar"}
             </button>
@@ -1033,7 +1034,7 @@ function ItemFeedback({
               type="button"
               onClick={() => decidir("recusado")}
               disabled={enviando || !justificativaValida}
-              className="rounded-md border border-papel-200 px-4 py-1.5 text-sm font-medium text-neutral-800 hover:bg-papel-100 disabled:opacity-60 dark:border-tinta-800 dark:text-neutral-200 dark:hover:bg-tinta-800"
+              className="bk-button bk-button-secondary disabled:opacity-60"
             >
               {enviando ? "Enviando..." : "Recusar"}
             </button>

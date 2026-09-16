@@ -30,7 +30,7 @@ export default function Cabecalho() {
         <Link href="/" className="inline-flex items-center">
           <Image
             src="/marca/logo_horizontal_fundo_claro_transparente.png"
-            alt="Projeto Bacuri"
+            alt="projeto_BACURI"
             width={600}
             height={100}
             className="h-7 w-auto dark:hidden"
@@ -38,7 +38,7 @@ export default function Cabecalho() {
           />
           <Image
             src="/marca/logo_horizontal_fundo_escuro_transparente.png"
-            alt="Projeto Bacuri"
+            alt="projeto_BACURI"
             width={600}
             height={100}
             className="hidden h-7 w-auto dark:block"

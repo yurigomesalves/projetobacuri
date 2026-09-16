@@ -1,6 +1,6 @@
-# O que é o projeto_Bacuri?
+# O que é o **projeto_BACURI**?
 
-projeto_Bacuri é uma plataforma de história da Ditadura Militar-Empresarial brasileira, com assistente de IA e ferramentas digitais de memória, blog/revista e fórum colaborativo.
+**projeto_BACURI** é uma plataforma de história da Ditadura Militar-Empresarial brasileira, com assistente de IA e ferramentas digitais de memória, blog/revista e fórum colaborativo.
 
 O seu propósito principal é oferecer respostas e soluções estruturadas e fundamentadas em documentação histórica verificável, tais como relatórios oficiais, pesquisas acadêmicas, testemunhos e acervos de memória, em um coletivo que integra pesquisadores, estudantes, professores, movimentos sociais e testemunhas históricas interagindo colaborativamente com usuários da plataforma.
 
@@ -10,7 +10,7 @@ O funcionamento do assistente de IA adota uma política rigorosa de referência,
 
 ## Sobre o nome "Bacuri"
 
-O nome "Bacuri" constitui uma homenagem a Eduardo Collen Leite (conhecido pelo pseudônimo "Bacuri"), um militante da resistência que foi detido pelos órgãos de repressão política, submetido a torturas prolongadas e assassinado pelo Estado em dezembro de 1970. Também faz referência ao fruto (*Platonia insignis*) de uma árvore nativa brasileira célebre por suas raízes profundas e indestrutíveis. Mesmo diante das tentativas de devastação, queimadas ou soterramentos históricos, o bacurizeiro tem uma capacidade única de rebrotar a partir de suas bases ocultas no solo. Da mesma forma, a memória social e o desejo de justiça possuem raízes fortes demais para serem apagadas pelo tempo, pelo negacionismo histórico ou pelo silenciamento.
+O nome "Bacuri" constitui uma homenagem a Eduardo Collen Leite (conhecido pelo pseudônimo "Bacuri"), um militante da resistência que foi detido pelos órgãos de repressão política, submetido a torturas prolongadas e assassinado pelo Estado em dezembro de 1970. Também faz referência ao fruto (_Platonia insignis_) de uma árvore nativa brasileira célebre por suas raízes profundas e indestrutíveis. Mesmo diante das tentativas de devastação, queimadas ou soterramentos históricos, o bacurizeiro tem uma capacidade única de rebrotar a partir de suas bases ocultas no solo. Da mesma forma, a memória social e o desejo de justiça possuem raízes fortes demais para serem apagadas pelo tempo, pelo negacionismo histórico ou pelo silenciamento.
 
 ## Compromissos e princípios editoriais
 

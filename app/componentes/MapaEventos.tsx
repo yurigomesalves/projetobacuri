@@ -2,6 +2,7 @@
 
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { useEffect } from "react";
 import {
   MapContainer,
   TileLayer,
@@ -10,6 +11,7 @@ import {
   CircleMarker,
   Tooltip,
   Popup,
+  useMap,
 } from "react-leaflet";
 import type { Feature } from "geojson";
 
@@ -43,6 +45,23 @@ const COR_ORIGEM = "#1d4ed8";
 // de naturalidades (#1d4ed8).
 const COR_TERRITORIO_ORIGEM = "#14532d";
 
+// A largura do mapa muda quando a navegação lateral abre ou recolhe. O Leaflet
+// não percebe essa mudança sozinho, por isso observamos o contêiner e redesenhamos
+// apenas quando ele efetivamente muda de tamanho.
+function AjustarMapaAoContainer() {
+  const map = useMap();
+
+  useEffect(() => {
+    const container = map.getContainer();
+    const alvo = container.parentElement ?? container;
+    const observador = new ResizeObserver(() => map.invalidateSize());
+    observador.observe(alvo);
+    return () => observador.disconnect();
+  }, [map]);
+
+  return null;
+}
+
 export default function MapaEventos({ features, origem = [], territorios = [], onSelecionar }: Props) {
   return (
     <MapContainer
@@ -51,6 +70,7 @@ export default function MapaEventos({ features, origem = [], territorios = [], o
       className="h-full w-full"
       aria-label="Mapa do Brasil com eventos documentados"
     >
+      <AjustarMapaAoContainer />
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> colaboradores'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

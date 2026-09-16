@@ -16,7 +16,7 @@ export default function CadastroPage() {
     <Suspense
       fallback={
         <div className="mx-auto w-full max-w-md px-4 py-10 sm:px-6">
-          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+          <p className="bk-card text-sm text-neutral-600 dark:text-neutral-400">
             Carregando...
           </p>
         </div>
@@ -32,7 +32,9 @@ function CadastroConteudo() {
   const token = searchParams.get("token") ?? "";
 
   const [verificando, setVerificando] = useState(true);
-  const [conviteValido, setConviteValido] = useState<ConviteValido | null>(null);
+  const [conviteValido, setConviteValido] = useState<ConviteValido | null>(
+    null,
+  );
   const [erroConvite, setErroConvite] = useState<string | null>(null);
 
   useEffect(() => {
@@ -47,7 +49,7 @@ function CadastroConteudo() {
       }
       try {
         const res = await fetch(
-          `/api/curadoria/convites/validar?token=${encodeURIComponent(token)}`
+          `/api/curadoria/convites/validar?token=${encodeURIComponent(token)}`,
         );
         if (!res.ok) {
           if (!cancelado) {
@@ -59,7 +61,9 @@ function CadastroConteudo() {
         if (!cancelado) setConviteValido(dados);
       } catch {
         if (!cancelado) {
-          setErroConvite("Não foi possível verificar o convite. Verifique sua conexão.");
+          setErroConvite(
+            "Não foi possível verificar o convite. Verifique sua conexão.",
+          );
         }
       } finally {
         if (!cancelado) setVerificando(false);
@@ -73,9 +77,10 @@ function CadastroConteudo() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <header className="border-b border-papel-200 px-4 py-4 sm:px-6 dark:border-tinta-900">
+      <header className="px-4 pb-4 pt-7 sm:px-6 sm:pt-10">
         <div className="mx-auto w-full max-w-md">
-          <h1 className="text-xl font-semibold tracking-tight text-tinta-950 sm:text-2xl dark:text-neutral-100">
+          <p className="bk-eyebrow">Área restrita</p>
+          <h1 className="bk-page-heading mt-2 text-3xl">
             Cadastro de curadoria
           </h1>
           <p className="mt-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
@@ -85,7 +90,7 @@ function CadastroConteudo() {
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-md flex-1 px-4 py-6 sm:px-6">
+      <main className="mx-auto w-full max-w-md flex-1 px-4 pb-10 pt-4 sm:px-6">
         {verificando && (
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
             Verificando convite...
@@ -126,7 +131,11 @@ function Formulario({ token, email }: { token: string; email: string }) {
   const senhasIguais = senha === confirmarSenha;
 
   const formularioValido =
-    nome.trim().length > 0 && senhaValida && senhasIguais && concordo && !erroFoto;
+    nome.trim().length > 0 &&
+    senhaValida &&
+    senhasIguais &&
+    concordo &&
+    !erroFoto;
 
   function aoEscolherFoto(arquivo: File | null) {
     setErroFoto(null);
@@ -158,7 +167,8 @@ function Formulario({ token, email }: { token: string; email: string }) {
       formData.append("senha", senha);
       if (foto) formData.append("foto", foto);
       if (lattesUrl.trim()) formData.append("lattes_url", lattesUrl.trim());
-      if (organizacao.trim()) formData.append("organizacao", organizacao.trim());
+      if (organizacao.trim())
+        formData.append("organizacao", organizacao.trim());
       if (sobre.trim()) formData.append("sobre", sobre.trim());
 
       const res = await fetch("/api/curadoria/cadastro", {
@@ -182,14 +192,11 @@ function Formulario({ token, email }: { token: string; email: string }) {
 
   if (sucesso) {
     return (
-      <div className="space-y-3">
+      <div className="bk-card space-y-3 p-5">
         <p className="text-sm text-neutral-800 dark:text-neutral-200">
           Cadastro concluído. Agora você já pode entrar.
         </p>
-        <a
-          href="/curadoria"
-          className="inline-block rounded-md border border-tinta-950 bg-tinta-950 px-4 py-1.5 text-sm font-medium text-papel-50 hover:bg-tinta-800 dark:border-papel-100 dark:bg-papel-100 dark:text-tinta-950 dark:hover:bg-papel-200"
-        >
+        <a href="/curadoria" className="bk-button inline-flex">
           Ir para a área de curadoria
         </a>
       </div>
@@ -197,14 +204,14 @@ function Formulario({ token, email }: { token: string; email: string }) {
   }
 
   return (
-    <form onSubmit={enviar} className="space-y-4">
+    <form onSubmit={enviar} className="bk-card space-y-4 p-5">
       <label className="block text-sm text-neutral-700 dark:text-neutral-300">
         E-mail do convite
         <input
           type="email"
           value={email}
           readOnly
-          className="mt-1 w-full rounded-md border border-papel-200 bg-papel-100 p-2 text-sm text-neutral-600 dark:border-tinta-800 dark:bg-tinta-950 dark:text-neutral-400"
+          className="mt-1 w-full rounded-lg border border-papel-200 bg-papel-100 px-3 py-2.5 text-sm text-neutral-600 dark:border-tinta-800 dark:bg-tinta-950 dark:text-neutral-400"
         />
       </label>
 
@@ -215,7 +222,7 @@ function Formulario({ token, email }: { token: string; email: string }) {
           value={nome}
           onChange={(e) => setNome(e.target.value)}
           required
-          className="mt-1 w-full rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
+          className="mt-1 w-full rounded-lg border border-papel-200 bg-white px-3 py-2.5 text-sm text-tinta-950 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
         />
       </label>
 
@@ -229,11 +236,15 @@ function Formulario({ token, email }: { token: string; email: string }) {
           required
           minLength={8}
           aria-describedby="erro-senha"
-          className="mt-1 w-full rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
+          className="mt-1 w-full rounded-lg border border-papel-200 bg-white px-3 py-2.5 text-sm text-tinta-950 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
         />
       </label>
       {senha.length > 0 && !senhaValida && (
-        <p id="erro-senha" role="alert" className="text-sm text-red-700 dark:text-red-400">
+        <p
+          id="erro-senha"
+          role="alert"
+          className="text-sm text-red-700 dark:text-red-400"
+        >
           A senha precisa ter pelo menos 8 caracteres.
         </p>
       )}
@@ -247,7 +258,7 @@ function Formulario({ token, email }: { token: string; email: string }) {
           autoComplete="new-password"
           required
           aria-describedby="erro-confirmar-senha"
-          className="mt-1 w-full rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
+          className="mt-1 w-full rounded-lg border border-papel-200 bg-white px-3 py-2.5 text-sm text-tinta-950 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
         />
       </label>
       {confirmarSenha.length > 0 && !senhasIguais && (
@@ -272,7 +283,11 @@ function Formulario({ token, email }: { token: string; email: string }) {
           />
         </label>
         {erroFoto && (
-          <p id="erro-foto" role="alert" className="mt-1 text-sm text-red-700 dark:text-red-400">
+          <p
+            id="erro-foto"
+            role="alert"
+            className="mt-1 text-sm text-red-700 dark:text-red-400"
+          >
             {erroFoto}
           </p>
         )}
@@ -293,7 +308,7 @@ function Formulario({ token, email }: { token: string; email: string }) {
           value={lattesUrl}
           onChange={(e) => setLattesUrl(e.target.value)}
           placeholder="https://www.lattes.cnpq.br/..."
-          className="mt-1 w-full rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
+          className="mt-1 w-full rounded-lg border border-papel-200 bg-white px-3 py-2.5 text-sm text-tinta-950 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
         />
       </label>
 
@@ -303,7 +318,7 @@ function Formulario({ token, email }: { token: string; email: string }) {
           type="text"
           value={organizacao}
           onChange={(e) => setOrganizacao(e.target.value)}
-          className="mt-1 w-full rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
+          className="mt-1 w-full rounded-lg border border-papel-200 bg-white px-3 py-2.5 text-sm text-tinta-950 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
         />
       </label>
 
@@ -313,22 +328,22 @@ function Formulario({ token, email }: { token: string; email: string }) {
           value={sobre}
           onChange={(e) => setSobre(e.target.value.slice(0, SOBRE_MAX))}
           rows={4}
-          className="mt-1 w-full rounded-md border border-papel-200 bg-papel-50 p-2 text-sm text-tinta-950 focus:border-tinta-700 focus:outline-none dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
+          className="mt-1 w-full rounded-lg border border-papel-200 bg-white px-3 py-2.5 text-sm text-tinta-950 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100"
         />
         <span className="mt-1 block text-right text-xs text-neutral-500">
           {sobre.length}/{SOBRE_MAX}
         </span>
       </label>
 
-      <div className="rounded-md border border-papel-200 bg-papel-100 p-3 text-sm text-neutral-700 dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-300">
+      <div className="rounded-xl border border-papel-200 bg-papel-100 p-4 text-sm leading-relaxed text-neutral-700 dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-300">
         <p>
-          O Projeto Bacuri publica, na página de Transparência, quem é
-          responsável pelas decisões de curadoria sobre o acervo. Por isso, a
-          foto, a organização política ou movimento social, o link do
-          Currículo Lattes e o texto &quot;Sobre&quot; que você preencher
-          acima ficarão visíveis publicamente nessa página. Os campos
-          opcionais que você não preencher não serão exibidos. Quem lê o
-          acervo tem o direito de saber quem o avalia.
+          O <strong>projeto_BACURI</strong> publica, na página de Transparência,
+          quem é responsável pelas decisões de curadoria sobre o acervo. Por
+          isso, a foto, a organização política ou movimento social, o link do
+          Currículo Lattes e o texto &quot;Sobre&quot; que você preencher acima
+          ficarão visíveis publicamente nessa página. Os campos opcionais que
+          você não preencher não serão exibidos. Quem lê o acervo tem o direito
+          de saber quem o avalia.
         </p>
         <label className="mt-2 flex items-start gap-2">
           <input
@@ -348,7 +363,7 @@ function Formulario({ token, email }: { token: string; email: string }) {
       <button
         type="submit"
         disabled={enviando || !formularioValido}
-        className="rounded-md border border-tinta-950 bg-tinta-950 px-4 py-1.5 text-sm font-medium text-papel-50 hover:bg-tinta-800 disabled:opacity-60 dark:border-papel-100 dark:bg-papel-100 dark:text-tinta-950 dark:hover:bg-papel-200"
+        className="bk-button disabled:opacity-60"
       >
         {enviando ? "Enviando..." : "Concluir cadastro"}
       </button>

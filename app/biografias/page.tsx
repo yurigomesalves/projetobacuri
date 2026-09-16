@@ -29,7 +29,7 @@ function anoDe(iso: string | null): number | null {
 }
 
 const classeCampo =
-  "mt-1 w-full rounded-md border border-papel-200 px-3 py-2 text-sm text-tinta-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100";
+  "mt-1 w-full rounded-lg border border-papel-200 bg-white px-3 py-2.5 text-sm text-tinta-950 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-tinta-800 dark:bg-tinta-900 dark:text-neutral-100";
 
 const classeRotulo =
   "block text-sm font-medium text-neutral-800 dark:text-neutral-200";
@@ -144,25 +144,26 @@ export default function BiografiasPage() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <header className="border-b border-papel-200 px-4 py-6 sm:px-6 dark:border-tinta-900">
-        <div className="mx-auto w-full max-w-3xl">
-          <h1 className="font-sans text-2xl font-bold tracking-tight text-tinta-950 sm:text-3xl dark:text-papel-50">
+      <header className="px-4 pb-4 pt-7 sm:px-6 sm:pt-10">
+        <div className="mx-auto w-full max-w-6xl">
+          <p className="bk-eyebrow">Acervo de pessoas e coletivos</p>
+          <h1 className="bk-page-heading mt-2">
             Nomes e histórias
           </h1>
-          <p className="mt-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+          <p className="mt-2 max-w-2xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
             Pessoas, organizações e lugares ligados à Ditadura Militar-Empresarial,
             com minibiografia e fontes documentais. Acervo em construção.
           </p>
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-6 sm:px-6">
+      <main className="mx-auto w-full max-w-6xl flex-1 px-4 pb-10 pt-4 sm:px-6">
         <form
           onSubmit={(e) => {
             e.preventDefault();
             setPagina(1);
           }}
-          className="flex flex-col gap-3"
+          className="bk-card grid gap-4 p-4 sm:p-5"
         >
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
             <div className="flex-1">
@@ -254,7 +255,7 @@ export default function BiografiasPage() {
             </div>
           </div>
 
-          <fieldset className="rounded-md border border-papel-200 p-3 dark:border-tinta-900">
+          <fieldset className="rounded-xl border border-papel-200 p-3 dark:border-tinta-900">
             <legend className="px-1 text-sm font-medium text-neutral-800 dark:text-neutral-200">
               Período de atuação / perseguição
             </legend>
@@ -305,7 +306,7 @@ export default function BiografiasPage() {
               <button
                 type="button"
                 onClick={limparFiltros}
-                className="rounded-md border border-papel-200 px-3 py-1.5 text-sm text-neutral-700 hover:border-tinta-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-tinta-800 dark:text-neutral-300"
+                className="bk-button bk-button-secondary"
               >
                 Limpar filtros
               </button>
@@ -332,18 +333,18 @@ export default function BiografiasPage() {
             </p>
           )}
 
-          <ul className="space-y-3">
+          <ul className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {itens.map((item) => (
               <li key={item.slug}>
                 <Link
                   href={`/biografias/${item.slug}`}
-                  className="block rounded-md border border-papel-200 bg-papel-50 p-4 hover:border-tinta-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:border-tinta-900 dark:bg-tinta-900 dark:hover:border-neutral-600"
+                  className="bk-card block h-full p-5 transition-colors hover:border-tinta-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:hover:border-neutral-600"
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h2 className="text-base font-semibold text-tinta-950 dark:text-neutral-100">
+                    <h2 className="text-lg font-semibold tracking-tight text-tinta-950 dark:text-neutral-100">
                       {item.nome}
                     </h2>
-                    <span className="rounded border border-tinta-700 px-1.5 py-0.5 text-xs font-medium text-neutral-700 dark:border-tinta-700 dark:text-neutral-300">
+                    <span className="rounded-full border border-tinta-700 px-2 py-0.5 text-xs font-medium text-neutral-700 dark:border-tinta-700 dark:text-neutral-300">
                       {ROTULO_TIPO[item.tipo] ?? item.tipo}
                     </span>
                   </div>
@@ -369,7 +370,7 @@ export default function BiografiasPage() {
             <button
               onClick={() => setPagina((p) => Math.max(1, p - 1))}
               disabled={pagina <= 1 || carregando}
-              className="rounded-md border border-papel-200 px-3 py-1.5 disabled:opacity-50 dark:border-tinta-800"
+              className="bk-button bk-button-secondary disabled:opacity-50"
             >
               Anterior
             </button>
@@ -379,7 +380,7 @@ export default function BiografiasPage() {
             <button
               onClick={() => setPagina((p) => Math.min(totalPaginas, p + 1))}
               disabled={pagina >= totalPaginas || carregando}
-              className="rounded-md border border-papel-200 px-3 py-1.5 disabled:opacity-50 dark:border-tinta-800"
+              className="bk-button bk-button-secondary disabled:opacity-50"
             >
               Próxima
             </button>

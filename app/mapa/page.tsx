@@ -245,12 +245,13 @@ function MapaConteudo() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <header className="border-b border-papel-200 px-4 py-6 sm:px-6 dark:border-tinta-900">
-        <div className="mx-auto w-full max-w-5xl">
-          <h1 className="font-sans text-2xl font-bold tracking-tight text-tinta-950 sm:text-3xl dark:text-papel-50">
+      <header className="px-4 pb-4 pt-7 sm:px-6 sm:pt-10">
+        <div className="mx-auto w-full max-w-6xl">
+          <p className="bk-eyebrow">Memória em território</p>
+          <h1 className="bk-page-heading mt-2">
             Mapa
           </h1>
-          <p className="mt-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+          <p className="mt-2 max-w-3xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
             Casos, operações e territórios documentados da Ditadura
             Militar-Empresarial no Brasil. Clique em um marcador ou área para ver os
             detalhes.
@@ -265,13 +266,13 @@ function MapaConteudo() {
         </div>
       </header>
 
-      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-4 px-4 py-4 sm:px-6 lg:flex-row">
-        <div className="flex flex-1 flex-col gap-3 lg:order-1">
-          <fieldset className="flex flex-wrap gap-4 rounded-md border border-papel-200 p-3 text-sm dark:border-tinta-900">
-            <legend className="px-1 text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
+      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-5 px-4 pb-10 pt-4 sm:px-6 lg:flex-row">
+        <div className="flex flex-1 flex-col gap-4 lg:order-1">
+          <fieldset className="bk-card flex flex-wrap gap-x-6 gap-y-3 p-4 text-sm">
+            <legend className="bk-eyebrow px-1">
               Camadas
             </legend>
-            <label className="flex items-center gap-2">
+            <label className="flex items-center gap-2 text-neutral-800 dark:text-neutral-200">
               <input
                 type="checkbox"
                 checked={mostrarCasos}
@@ -279,7 +280,7 @@ function MapaConteudo() {
               />
               Casos e operações
             </label>
-            <label className="flex items-center gap-2">
+            <label className="flex items-center gap-2 text-neutral-800 dark:text-neutral-200">
               <input
                 type="checkbox"
                 checked={mostrarIndigena}
@@ -287,7 +288,7 @@ function MapaConteudo() {
               />
               Violência contra povos indígenas
             </label>
-            <label className="flex items-center gap-2">
+            <label className="flex items-center gap-2 text-neutral-800 dark:text-neutral-200">
               <input
                 type="checkbox"
                 checked={mostrarOrigem}
@@ -295,7 +296,7 @@ function MapaConteudo() {
               />
               Cidades e territórios natais das vítimas
             </label>
-            <label className="flex items-center gap-2">
+            <label className="flex items-center gap-2 text-neutral-800 dark:text-neutral-200">
               <input
                 type="checkbox"
                 checked={mostrarTerritorios}
@@ -369,7 +370,7 @@ function MapaConteudo() {
               Carregando mapa...
             </p>
           ) : (
-            <div className="h-[60vh] min-h-[320px] overflow-hidden rounded-md border border-papel-200 dark:border-tinta-900">
+            <div className="h-[60vh] min-h-[360px] overflow-hidden rounded-[18px] border border-papel-200 bg-papel-50 shadow-sm dark:border-tinta-900 dark:bg-tinta-900">
               <MapaEventos
                 features={featuresVisiveis}
                 origem={mostrarOrigem ? origem : []}
@@ -380,9 +381,9 @@ function MapaConteudo() {
           )}
         </div>
 
-        <aside className="w-full lg:order-2 lg:w-96" aria-label="Detalhes do evento selecionado">
+        <aside className="w-full lg:order-2 lg:w-[23rem]" aria-label="Detalhes do evento selecionado">
           {carregandoEvento && (
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
+            <p className="bk-card text-sm text-neutral-600 dark:text-neutral-400">
               Carregando evento...
             </p>
           )}
@@ -401,7 +402,7 @@ function MapaConteudo() {
           )}
 
           {eventoSelecionado && (
-            <div className="rounded-md border border-papel-200 bg-papel-50 p-4 dark:border-tinta-900 dark:bg-tinta-900">
+            <div className="bk-card p-5">
               <h2 className="text-base font-semibold text-tinta-950 dark:text-neutral-100">
                 {eventoSelecionado.titulo}
               </h2>
@@ -415,7 +416,7 @@ function MapaConteudo() {
                   {eventoSelecionado.tipos_crime.map((tipo) => (
                     <li
                       key={tipo}
-                      className="rounded border border-tinta-700 px-1.5 py-0.5 text-xs font-medium text-neutral-700 dark:border-tinta-700 dark:text-neutral-300"
+                        className="rounded-full border border-tinta-700 px-2 py-0.5 text-xs font-medium text-neutral-700 dark:border-tinta-700 dark:text-neutral-300"
                     >
                       {rotuloCrime(tipo)}
                     </li>
@@ -423,7 +424,7 @@ function MapaConteudo() {
                 </ul>
               )}
 
-              <div className="mt-3 space-y-2 text-sm leading-relaxed text-neutral-800 [&_a]:underline [&_a]:underline-offset-2 dark:text-neutral-200">
+              <div className="bk-reading mt-4 text-base [&_a]:underline [&_a]:underline-offset-2">
                 <ReactMarkdown>{eventoSelecionado.descricao_md}</ReactMarkdown>
               </div>
 

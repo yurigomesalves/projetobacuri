@@ -441,7 +441,7 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
 
     const promptSistema =
       "Você é um assistente educativo sobre a história da Ditadura Militar-Empresarial " +
-      "no Brasil (1964–1985), parte do Projeto Bacuri. O tema envolve " +
+      "no Brasil (1964–1985), parte do **projeto_BACURI**. O tema envolve " +
       "tortura, mortes e desaparecimentos de pessoas reais, com familiares vivos: " +
       "mantenha tom sóbrio, respeitoso e factual, em português brasileiro.\n\n" +
       "Responda EXCLUSIVAMENTE com base nos trechos numerados abaixo. Após cada " +

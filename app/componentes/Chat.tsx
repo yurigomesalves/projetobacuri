@@ -3,11 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
-import type {
-  Mensagem,
-  RespostaChat,
-  RespostaErro,
-} from "@/lib/shared/tipos";
+import type { Mensagem, RespostaChat, RespostaErro } from "@/lib/shared/tipos";
 import Citacoes from "./Citacoes";
 import Feedback from "./Feedback";
 
@@ -106,7 +102,7 @@ function prefereReducaoDeMovimento(): boolean {
 function useTypewriter(
   textoCompleto: string,
   ativo: boolean,
-  aoTerminar?: () => void
+  aoTerminar?: () => void,
 ): string {
   const [textoVisivel, setTextoVisivel] = useState("");
   const semMovimento = useRef(prefereReducaoDeMovimento());
@@ -131,7 +127,10 @@ function useTypewriter(
     let posicao = 0;
 
     const intervalo = setInterval(() => {
-      posicao = Math.min(posicao + TYPEWRITER_CHARS_POR_TICK, textoCompleto.length);
+      posicao = Math.min(
+        posicao + TYPEWRITER_CHARS_POR_TICK,
+        textoCompleto.length,
+      );
       setTextoVisivel(textoCompleto.slice(0, posicao));
 
       if (posicao >= textoCompleto.length) {
@@ -156,7 +155,10 @@ type MensagemAssistenteProps = {
   ehAMaisRecente: boolean;
 };
 
-function MensagemAssistente({ mensagem, ehAMaisRecente }: MensagemAssistenteProps) {
+function MensagemAssistente({
+  mensagem,
+  ehAMaisRecente,
+}: MensagemAssistenteProps) {
   // Citações e sugestões só aparecem após o texto terminar de "digitar".
   const [digitacaoConcluida, setDigitacaoConcluida] = useState(!ehAMaisRecente);
 
@@ -164,7 +166,7 @@ function MensagemAssistente({ mensagem, ehAMaisRecente }: MensagemAssistenteProp
     mensagem.conteudo,
     // Só anima se for a mensagem mais recente; as antigas já aparecem completas.
     ehAMaisRecente,
-    () => setDigitacaoConcluida(true)
+    () => setDigitacaoConcluida(true),
   );
 
   // Se não for a mais recente, mostra o texto completo direto.
@@ -172,10 +174,10 @@ function MensagemAssistente({ mensagem, ehAMaisRecente }: MensagemAssistenteProp
   const mostrarRodape = !ehAMaisRecente || digitacaoConcluida;
 
   return (
-    <div className="w-full rounded-md border border-papel-200 bg-papel-50 px-3 py-3 text-sm dark:border-tinta-900 dark:bg-tinta-950">
-      <span className="mb-2 block text-xs font-medium text-neutral-500 dark:text-neutral-400">
-        Projeto Bacuri
-      </span>
+    <div className="bk-card w-full rounded-md border border-papel-200 bg-papel-50 px-3 py-3 text-sm dark:border-tinta-900 dark:bg-tinta-950">
+      <strong className="mb-2 block text-xs font-semibold text-neutral-500 dark:text-neutral-400">
+        projeto_BACURI
+      </strong>
 
       {mensagem.erro ? (
         <p role="alert" className="text-red-700 dark:text-red-400">
@@ -195,15 +197,18 @@ function MensagemAssistente({ mensagem, ehAMaisRecente }: MensagemAssistenteProp
             </div>
           )}
 
+          <p className="sr-only" role="status">
+            {mostrarRodape
+              ? "Resposta disponível com fontes abaixo."
+              : "Preparando apresentação da resposta."}
+          </p>
           <div
-            className="prose prose-neutral prose-sm max-w-none font-serif dark:prose-invert prose-a:font-sans prose-a:font-semibold prose-a:text-carmim-700 dark:prose-a:text-carmim-700"
+            className="prose prose-neutral prose-sm max-w-none font-serif dark:prose-invert prose-a:font-sans prose-a:font-semibold prose-a:text-carmim-700 dark:prose-a:text-carmim-400"
             // Anuncia ao leitor de tela que o conteúdo está sendo atualizado.
-            aria-live={ehAMaisRecente ? "polite" : undefined}
+            aria-live={undefined}
             aria-atomic={ehAMaisRecente ? "false" : undefined}
           >
-            <ReactMarkdown
-              components={{ a: criarLinkMarcador(mensagem.id) }}
-            >
+            <ReactMarkdown components={{ a: criarLinkMarcador(mensagem.id) }}>
               {linkificarMarcadores(conteudoFinal)}
             </ReactMarkdown>
           </div>
@@ -269,8 +274,7 @@ export default function Chat() {
   const ultimaPerguntaRef = useRef<HTMLDivElement>(null);
 
   const tamanhoValido =
-    entrada.trim().length >= MIN_CARACTERES &&
-    entrada.length <= MAX_CARACTERES;
+    entrada.trim().length >= MIN_CARACTERES && entrada.length <= MAX_CARACTERES;
 
   // Sempre que `mensagens` muda e a última é do usuário, rola até ela.
   // Quando a resposta chega, ela fica abaixo — o usuário a descobre rolando,
@@ -366,7 +370,7 @@ export default function Chat() {
       }
     } catch {
       setErroGeral(
-        "Não foi possível conectar ao servidor. Verifique sua conexão e tente novamente."
+        "Não foi possível conectar ao servidor. Verifique sua conexão e tente novamente.",
       );
     } finally {
       setCarregando(false);
@@ -433,8 +437,7 @@ export default function Chat() {
             key={mensagem.id}
             // O ref da última pergunta do usuário fica no container dela.
             ref={
-              mensagem.papel === "usuario" &&
-              indice === mensagens.length - 1
+              mensagem.papel === "usuario" && indice === mensagens.length - 1
                 ? ultimaPerguntaRef
                 : undefined
             }
@@ -500,7 +503,9 @@ export default function Chat() {
           <textarea
             id="campo-pergunta"
             value={entrada}
-            onChange={(e) => setEntrada(e.target.value.slice(0, MAX_CARACTERES))}
+            onChange={(e) =>
+              setEntrada(e.target.value.slice(0, MAX_CARACTERES))
+            }
             onKeyDown={aoPressionarTecla}
             rows={2}
             placeholder="Pergunte sobre a Ditadura Militar-Empresarial no Brasil (1964–1985)..."
@@ -509,7 +514,8 @@ export default function Chat() {
           />
           <div className="flex items-center justify-between">
             <span className="text-xs text-neutral-500 dark:text-neutral-400">
-              {entrada.length}/{MAX_CARACTERES} caracteres (mínimo {MIN_CARACTERES})
+              {entrada.length}/{MAX_CARACTERES} caracteres (mínimo{" "}
+              {MIN_CARACTERES})
             </span>
             <button
               type="submit"
