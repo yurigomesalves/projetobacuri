@@ -6,6 +6,7 @@ import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import Citacoes from "@/app/componentes/Citacoes";
+import { Icone } from "@/app/componentes/Estrutura";
 import type { EventoGeo, RespostaErro } from "@/lib/shared/tipos";
 import type { Feature, FeatureCollection } from "geojson";
 
@@ -13,7 +14,7 @@ const MapaEventos = dynamic(() => import("@/app/componentes/MapaEventos"), {
   ssr: false,
   loading: () => (
     <p className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
-      Carregando mapa...
+      Carregando cartografia...
     </p>
   ),
 });
@@ -33,7 +34,8 @@ const ROTULOS_CRIME: Record<string, string> = {
   censura: "Censura",
   atentado_a_populacao_civil: "Atentado contra a população civil",
   grilagem_de_territorio_indigena: "Grilagem de território indígena",
-  apagamento_de_registros_e_testemunhos: "Apagamento de registros e testemunhos",
+  apagamento_de_registros_e_testemunhos:
+    "Apagamento de registros e testemunhos",
 };
 
 function rotuloCrime(tipo: string): string {
@@ -78,7 +80,7 @@ function MapaConteudo() {
 
   // Camada de origem (ADR-016, decisão 4): desligada por padrão. Os pontos só
   // são buscados quando o usuário ativa a camada pela primeira vez.
-  const [mostrarOrigem, setMostrarOrigem] = useState(false);
+  const [mostrarOrigens, setMostrarOrigens] = useState(false);
   const [origem, setOrigem] = useState<Feature[]>([]);
   const [origemCarregada, setOrigemCarregada] = useState(false);
   const [carregandoOrigem, setCarregandoOrigem] = useState(false);
@@ -86,13 +88,14 @@ function MapaConteudo() {
 
   // Camada de territórios de origem (ADR-019): povos indígenas, desligada por padrão.
   // Só buscada quando o usuário ativa pela primeira vez.
-  const [mostrarTerritorios, setMostrarTerritorios] = useState(false);
   const [territorios, setTerritorios] = useState<Feature[]>([]);
   const [territoriosCarregados, setTerritoriosCarregados] = useState(false);
   const [carregandoTerritorios, setCarregandoTerritorios] = useState(false);
   const [erroTerritorios, setErroTerritorios] = useState<string | null>(null);
 
-  const [eventoSelecionado, setEventoSelecionado] = useState<EventoGeo | null>(null);
+  const [eventoSelecionado, setEventoSelecionado] = useState<EventoGeo | null>(
+    null,
+  );
   const [carregandoEvento, setCarregandoEvento] = useState(false);
   const [erroEvento, setErroEvento] = useState<string | null>(null);
 
@@ -106,7 +109,9 @@ function MapaConteudo() {
         if (!res.ok) {
           const dados: RespostaErro = await res.json();
           if (!cancelado) {
-            setErroLista(dados.erro?.mensagem ?? "Não foi possível carregar o mapa.");
+            setErroLista(
+              dados.erro?.mensagem ?? "Não foi possível carregar o mapa.",
+            );
           }
           return;
         }
@@ -114,7 +119,9 @@ function MapaConteudo() {
         if (!cancelado) setFeatures(dados.features ?? []);
       } catch {
         if (!cancelado) {
-          setErroLista("Não foi possível carregar o mapa. Verifique sua conexão.");
+          setErroLista(
+            "Não foi possível carregar o mapa. Verifique sua conexão.",
+          );
         }
       } finally {
         if (!cancelado) setCarregandoLista(false);
@@ -134,7 +141,7 @@ function MapaConteudo() {
 
   // Busca a camada de origem só na primeira ativação (cache em `origem`).
   useEffect(() => {
-    if (!mostrarOrigem || origemCarregada) return;
+    if (!mostrarOrigens || origemCarregada) return;
     let cancelado = false;
     async function carregarOrigem() {
       setCarregandoOrigem(true);
@@ -145,7 +152,8 @@ function MapaConteudo() {
           const dados: RespostaErro = await res.json();
           if (!cancelado) {
             setErroOrigem(
-              dados.erro?.mensagem ?? "Não foi possível carregar a camada de origem."
+              dados.erro?.mensagem ??
+                "Não foi possível carregar a camada de origem.",
             );
           }
           return;
@@ -158,7 +166,7 @@ function MapaConteudo() {
       } catch {
         if (!cancelado) {
           setErroOrigem(
-            "Não foi possível carregar a camada de origem. Verifique sua conexão."
+            "Não foi possível carregar a camada de origem. Verifique sua conexão.",
           );
         }
       } finally {
@@ -171,11 +179,11 @@ function MapaConteudo() {
     return () => {
       cancelado = true;
     };
-  }, [mostrarOrigem, origemCarregada]);
+  }, [mostrarOrigens, origemCarregada]);
 
   // Busca a camada de territórios de origem só na primeira ativação.
   useEffect(() => {
-    if (!mostrarTerritorios || territoriosCarregados) return;
+    if (!mostrarOrigens || territoriosCarregados) return;
     let cancelado = false;
     async function carregarTerritorios() {
       setCarregandoTerritorios(true);
@@ -186,7 +194,8 @@ function MapaConteudo() {
           const dados: RespostaErro = await res.json();
           if (!cancelado) {
             setErroTerritorios(
-              dados.erro?.mensagem ?? "Não foi possível carregar a camada de territórios."
+              dados.erro?.mensagem ??
+                "Não foi possível carregar a camada de territórios.",
             );
           }
           return;
@@ -199,7 +208,7 @@ function MapaConteudo() {
       } catch {
         if (!cancelado) {
           setErroTerritorios(
-            "Não foi possível carregar a camada de territórios. Verifique sua conexão."
+            "Não foi possível carregar a camada de territórios. Verifique sua conexão.",
           );
         }
       } finally {
@@ -210,7 +219,7 @@ function MapaConteudo() {
     return () => {
       cancelado = true;
     };
-  }, [mostrarTerritorios, territoriosCarregados]);
+  }, [mostrarOrigens, territoriosCarregados]);
 
   async function selecionarEvento(eventoId: string) {
     setCarregandoEvento(true);
@@ -220,20 +229,25 @@ function MapaConteudo() {
       const res = await fetch(`/api/eventos-geo/${eventoId}`);
       if (!res.ok) {
         const dados: RespostaErro = await res.json();
-        setErroEvento(dados.erro?.mensagem ?? "Não foi possível carregar este evento.");
+        setErroEvento(
+          dados.erro?.mensagem ?? "Não foi possível carregar este evento.",
+        );
         return;
       }
       const dados: EventoGeo = await res.json();
       setEventoSelecionado(dados);
     } catch {
-      setErroEvento("Não foi possível carregar este evento. Verifique sua conexão.");
+      setErroEvento(
+        "Não foi possível carregar este evento. Verifique sua conexão.",
+      );
     } finally {
       setCarregandoEvento(false);
     }
   }
 
   function ehEventoIndigena(feature: Feature): boolean {
-    const tipos = (feature.properties as { tipos_crime?: string[] })?.tipos_crime ?? [];
+    const tipos =
+      (feature.properties as { tipos_crime?: string[] })?.tipos_crime ?? [];
     return tipos.includes(TIPO_VIOLENCIA_INDIGENA);
   }
 
@@ -243,239 +257,258 @@ function MapaConteudo() {
     return mostrarCasos;
   });
 
+  const totalIndigenas = features.filter(ehEventoIndigena).length;
+  const camadasAtivas = [mostrarCasos, mostrarIndigena, mostrarOrigens].filter(
+    Boolean,
+  ).length;
+
   return (
-    <div className="flex flex-1 flex-col">
-      <header className="px-4 pb-4 pt-7 sm:px-6 sm:pt-10">
-        <div className="mx-auto w-full max-w-6xl">
-          <p className="bk-eyebrow">Memória em território</p>
-          <h1 className="bk-page-heading mt-2">
-            Mapa
-          </h1>
-          <p className="mt-2 max-w-3xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
-            Casos, operações e territórios documentados da Ditadura
-            Militar-Empresarial no Brasil. Clique em um marcador ou área para ver os
-            detalhes.
-          </p>
-          <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-500">
-            Nota de precisão geográfica: as localizações e áreas exibidas são
-            aproximadas, para fins de representação histórica e educativa.
-            Os polígonos não correspondem a limites oficiais de territórios ou
-            terras indígenas. A proveniência de cada geometria está documentada
-            no repositório público do projeto.
+    <main className="bk-territory">
+      <header className="bk-territory-hero">
+        <div className="bk-territory-heading">
+          <p className="bk-eyebrow">Memória e território</p>
+          <h1>Territórios da memória</h1>
+          <p>
+            Explore onde ocorreram casos, operações e violações documentadas da
+            Ditadura Militar-Empresarial brasileira.
           </p>
         </div>
+        <dl className="bk-territory-stats" aria-label="Resumo territorial">
+          <div>
+            <dt>Registros mapeados</dt>
+            <dd>{carregandoLista ? "—" : features.length}</dd>
+          </div>
+          <div>
+            <dt>Violência contra povos indígenas</dt>
+            <dd>{carregandoLista ? "—" : totalIndigenas}</dd>
+          </div>
+          <div>
+            <dt>Camadas ativas</dt>
+            <dd>{camadasAtivas}/3</dd>
+          </div>
+        </dl>
       </header>
 
-      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-5 px-4 pb-10 pt-4 sm:px-6 lg:flex-row">
-        <div className="flex flex-1 flex-col gap-4 lg:order-1">
-          <fieldset className="bk-card flex flex-wrap gap-x-6 gap-y-3 p-4 text-sm">
-            <legend className="bk-eyebrow px-1">
-              Camadas
-            </legend>
-            <label className="flex items-center gap-2 text-neutral-800 dark:text-neutral-200">
-              <input
-                type="checkbox"
-                checked={mostrarCasos}
-                onChange={(e) => setMostrarCasos(e.target.checked)}
-              />
-              Casos e operações
-            </label>
-            <label className="flex items-center gap-2 text-neutral-800 dark:text-neutral-200">
-              <input
-                type="checkbox"
-                checked={mostrarIndigena}
-                onChange={(e) => setMostrarIndigena(e.target.checked)}
-              />
-              Violência contra povos indígenas
-            </label>
-            <label className="flex items-center gap-2 text-neutral-800 dark:text-neutral-200">
-              <input
-                type="checkbox"
-                checked={mostrarOrigem}
-                onChange={(e) => setMostrarOrigem(e.target.checked)}
-              />
-              Cidades e territórios natais das vítimas
-            </label>
-            <label className="flex items-center gap-2 text-neutral-800 dark:text-neutral-200">
-              <input
-                type="checkbox"
-                checked={mostrarTerritorios}
-                onChange={(e) => setMostrarTerritorios(e.target.checked)}
-              />
-              Territórios de origem (povos indígenas)
-            </label>
-          </fieldset>
+      <section
+        className="bk-territory-method"
+        aria-labelledby="precisao-geografica"
+      >
+        <Icone nome="info" />
+        <div>
+          <h2 id="precisao-geografica">Como ler esta cartografia</h2>
+          <p>
+            As localizações são referências históricas aproximadas. Polígonos
+            não representam limites oficiais, e cada geometria mantém sua
+            proveniência documentada no repositório público.
+          </p>
+        </div>
+      </section>
 
-          {mostrarOrigem && (
-            <p className="text-xs leading-relaxed text-neutral-500 dark:text-neutral-500">
-              Esta camada mostra a cidade natal (origem) de cada vítima com ficha
-              publicada, não o local do crime. Vítimas sem naturalidade
-              documentada não aparecem.
-            </p>
+      <section className="bk-territory-layers" aria-labelledby="titulo-camadas">
+        <div className="bk-territory-section-title">
+          <div>
+            <p className="bk-eyebrow">Leitura cartográfica</p>
+            <h2 id="titulo-camadas">Camadas territoriais</h2>
+          </div>
+          <p>{featuresVisiveis.length} registros visíveis</p>
+        </div>
+        <fieldset>
+          <legend className="sr-only">Escolha as camadas exibidas</legend>
+          <label className="bk-layer-option bk-layer-event">
+            <span className="bk-layer-mark" aria-hidden="true" />
+            <span>
+              <strong>Casos e operações</strong>
+              <small>Locais de ocorrência documentados</small>
+            </span>
+            <input
+              type="checkbox"
+              checked={mostrarCasos}
+              onChange={(e) => setMostrarCasos(e.target.checked)}
+            />
+          </label>
+          <label className="bk-layer-option bk-layer-indigenous">
+            <span className="bk-layer-mark" aria-hidden="true" />
+            <span>
+              <strong>Violência contra povos indígenas</strong>
+              <small>Casos identificados no acervo</small>
+            </span>
+            <input
+              type="checkbox"
+              checked={mostrarIndigena}
+              onChange={(e) => setMostrarIndigena(e.target.checked)}
+            />
+          </label>
+          <label className="bk-layer-option bk-layer-origin">
+            <span className="bk-layer-mark" aria-hidden="true" />
+            <span>
+              <strong>Cidades e territórios de origem</strong>
+              <small>Naturalidades e referências de povos indígenas</small>
+            </span>
+            <input
+              type="checkbox"
+              checked={mostrarOrigens}
+              onChange={(e) => setMostrarOrigens(e.target.checked)}
+            />
+          </label>
+        </fieldset>
+      </section>
+
+      <div className="bk-territory-notices" aria-live="polite">
+        {mostrarOrigens && (
+          <p>
+            Cidades indicam a naturalidade documentada da vítima, não o local do
+            crime. Territórios usam referências contemporâneas aproximadas e não
+            reconstituem os limites do período de 1964–1985.
+          </p>
+        )}
+        {(carregandoOrigem || carregandoTerritorios) && (
+          <p>Carregando camadas complementares…</p>
+        )}
+        {erroOrigem && <p role="alert">{erroOrigem}</p>}
+        {erroTerritorios && <p role="alert">{erroTerritorios}</p>}
+        {mostrarOrigens && origemCarregada && origem.length === 0 && (
+          <p>Ainda não há cidades de origem documentadas no acervo.</p>
+        )}
+        {mostrarOrigens &&
+          territoriosCarregados &&
+          territorios.length === 0 && (
+            <p>Ainda não há territórios de origem documentados no acervo.</p>
           )}
+      </div>
 
-          {carregandoOrigem && (
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              Carregando camada de origem...
-            </p>
-          )}
-
-          {erroOrigem && (
-            <p role="alert" className="text-sm text-red-700 dark:text-red-400">
-              {erroOrigem}
-            </p>
-          )}
-
-          {mostrarOrigem && origemCarregada && origem.length === 0 && (
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              Ainda não há vítimas com cidade natal documentada no acervo.
-            </p>
-          )}
-
-          {mostrarTerritorios && (
-            <p className="text-xs leading-relaxed text-neutral-500 dark:text-neutral-500">
-              Esta camada mostra o território do povo indígena ao qual a vítima pertence,
-              segundo fonte documental. Referência geográfica aproximada e contemporânea —
-              os limites atuais da Terra Indígena não correspondem ao território de 1964–1985.
-              Vítimas sem referência territorial documentada não aparecem.
-            </p>
-          )}
-
-          {carregandoTerritorios && (
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              Carregando territórios de origem...
-            </p>
-          )}
-
-          {erroTerritorios && (
-            <p role="alert" className="text-sm text-red-700 dark:text-red-400">
-              {erroTerritorios}
-            </p>
-          )}
-
-          {mostrarTerritorios && territoriosCarregados && territorios.length === 0 && (
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              Ainda não há vítimas com território de origem documentado no acervo.
-            </p>
-          )}
-
+      <section
+        className="bk-territory-workspace"
+        aria-label="Cartografia documental"
+      >
+        <div className="bk-territory-map-card">
+          <div className="bk-territory-map-heading">
+            <div>
+              <p className="bk-eyebrow">Brasil</p>
+              <h2>Geografia da repressão</h2>
+            </div>
+            <span>Selecione um ponto para consultar as evidências</span>
+          </div>
           {erroLista && (
-            <p role="alert" className="text-sm text-red-700 dark:text-red-400">
+            <p role="alert" className="bk-territory-error">
               {erroLista}
             </p>
           )}
-
           {carregandoLista ? (
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              Carregando mapa...
-            </p>
+            <div className="bk-territory-loading">
+              Carregando cartografia documental…
+            </div>
           ) : (
-            <div className="h-[60vh] min-h-[360px] overflow-hidden rounded-[18px] border border-papel-200 bg-papel-50 shadow-sm dark:border-tinta-900 dark:bg-tinta-900">
+            <div className="bk-territory-map">
               <MapaEventos
                 features={featuresVisiveis}
-                origem={mostrarOrigem ? origem : []}
-                territorios={mostrarTerritorios ? territorios : []}
+                origem={mostrarOrigens ? origem : []}
+                territorios={mostrarOrigens ? territorios : []}
                 onSelecionar={selecionarEvento}
               />
             </div>
           )}
         </div>
 
-        <aside className="w-full lg:order-2 lg:w-[23rem]" aria-label="Detalhes do evento selecionado">
+        <aside
+          className="bk-territory-detail"
+          aria-label="Detalhes do evento selecionado"
+        >
           {carregandoEvento && (
-            <p className="bk-card text-sm text-neutral-600 dark:text-neutral-400">
-              Carregando evento...
-            </p>
+            <div className="bk-territory-detail-state">
+              Carregando registro…
+            </div>
           )}
 
           {erroEvento && (
-            <p role="alert" className="text-sm text-red-700 dark:text-red-400">
+            <p role="alert" className="bk-territory-error">
               {erroEvento}
             </p>
           )}
 
           {!carregandoEvento && !erroEvento && !eventoSelecionado && (
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              Selecione um marcador ou área no mapa para ver os detalhes do
-              evento.
-            </p>
+            <div className="bk-territory-detail-state">
+              <span>
+                <Icone nome="map" />
+              </span>
+              <p className="bk-eyebrow">Documento associado</p>
+              <h2>Selecione uma localização</h2>
+              <p>
+                Cada localização conduz ao registro histórico, às pessoas
+                relacionadas e às fontes que sustentam sua inclusão.
+              </p>
+            </div>
           )}
 
           {eventoSelecionado && (
-            <div className="bk-card p-5">
-              <h2 className="text-base font-semibold text-tinta-950 dark:text-neutral-100">
-                {eventoSelecionado.titulo}
-              </h2>
-              <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-500">
+            <article className="bk-territory-event">
+              <div className="bk-territory-event-head">
+                <p className="bk-eyebrow">Registro documental</p>
+                <button
+                  type="button"
+                  onClick={() => setEventoSelecionado(null)}
+                  aria-label="Fechar detalhes"
+                >
+                  ×
+                </button>
+              </div>
+              <h2>{eventoSelecionado.titulo}</h2>
+              <p className="bk-territory-event-meta">
                 {formatarData(eventoSelecionado.data)} ·{" "}
                 {eventoSelecionado.municipio} — {eventoSelecionado.uf}
               </p>
 
               {eventoSelecionado.tipos_crime.length > 0 && (
-                <ul className="mt-2 flex flex-wrap gap-1">
+                <ul className="bk-territory-tags">
                   {eventoSelecionado.tipos_crime.map((tipo) => (
-                    <li
-                      key={tipo}
-                        className="rounded-full border border-tinta-700 px-2 py-0.5 text-xs font-medium text-neutral-700 dark:border-tinta-700 dark:text-neutral-300"
-                    >
-                      {rotuloCrime(tipo)}
-                    </li>
+                    <li key={tipo}>{rotuloCrime(tipo)}</li>
                   ))}
                 </ul>
               )}
 
-              <div className="bk-reading mt-4 text-base [&_a]:underline [&_a]:underline-offset-2">
+              <div className="bk-reading bk-territory-description">
                 <ReactMarkdown>{eventoSelecionado.descricao_md}</ReactMarkdown>
               </div>
 
               {eventoSelecionado.vitimas.length > 0 && (
-                <div className="mt-3">
-                  <h3 className="text-sm font-semibold text-tinta-950 dark:text-neutral-100">
-                    Vítimas
-                  </h3>
-                  <ul className="mt-1 space-y-1">
+                <section className="bk-territory-related">
+                  <h3>Pessoas relacionadas</h3>
+                  <ul>
                     {eventoSelecionado.vitimas.map((slug) => (
                       <li key={slug}>
-                        <Link
-                          href={`/biografias/${slug}`}
-                          className="text-sm font-medium text-neutral-800 underline underline-offset-2 dark:text-neutral-200"
-                        >
-                          Ver biografia
-                        </Link>
+                        <Link href={`/biografias/${slug}`}>Ver biografia</Link>
                       </li>
                     ))}
                   </ul>
-                </div>
+                </section>
               )}
 
               {eventoSelecionado.marcadores.length > 0 && (
-                <div className="mt-3">
-                  <h3 className="text-sm font-semibold text-tinta-950 dark:text-neutral-100">
-                    Marcadores
-                  </h3>
-                  <ul className="mt-2 space-y-3">
+                <section className="bk-territory-related">
+                  <h3>Evidências localizadas</h3>
+                  <ul className="bk-territory-evidence">
                     {eventoSelecionado.marcadores.map((m, i) => (
-                      <li
-                        key={i}
-                        className="rounded-md border border-papel-200 bg-papel-50 p-3 dark:border-tinta-900 dark:bg-tinta-950"
-                      >
-                        <p className="text-sm font-medium text-tinta-950 dark:text-neutral-100">
-                          {m.marcador}
-                        </p>
-                        <Citacoes citacoes={[m.fonte]} idResposta={`evento-marcador-${i}`} />
+                      <li key={i}>
+                        <p>{m.marcador}</p>
+                        <Citacoes
+                          citacoes={[m.fonte]}
+                          idResposta={`evento-marcador-${i}`}
+                        />
                       </li>
                     ))}
                   </ul>
-                </div>
+                </section>
               )}
 
               {eventoSelecionado.fontes.length > 0 && (
-                <Citacoes citacoes={eventoSelecionado.fontes} idResposta="evento" />
+                <Citacoes
+                  citacoes={eventoSelecionado.fontes}
+                  idResposta="evento"
+                />
               )}
-            </div>
+            </article>
           )}
         </aside>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }

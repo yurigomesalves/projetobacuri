@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 const LINKS = [
   { href: "/", rotulo: "INÍCIO" },
   { href: "/biografias", rotulo: "NOMES E HISTÓRIAS" },
-  { href: "/mapa", rotulo: "MAPA" },
+  { href: "/mapa", rotulo: "TERRITÓRIOS" },
   { href: "/transparencia", rotulo: "TRANSPARÊNCIA" },
   { href: "/sobre", rotulo: "SOBRE projeto_BACURI" },
 ];

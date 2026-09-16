@@ -1,12 +1,10 @@
 "use client";
 
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
 import { useEffect } from "react";
 import {
   MapContainer,
   TileLayer,
-  Marker,
   Polygon,
   CircleMarker,
   Tooltip,
@@ -14,15 +12,6 @@ import {
   useMap,
 } from "react-leaflet";
 import type { Feature } from "geojson";
-
-// Corrige o problema clássico dos ícones padrão do Leaflet com bundlers:
-// os caminhos relativos das imagens não são resolvidos pelo Next.js, então
-// apontamos para os arquivos servidos pelo unpkg (mesma versão instalada).
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
-  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-});
 
 const CENTRO_BRASIL: [number, number] = [-15.8, -47.9];
 
@@ -38,12 +27,10 @@ type Props = {
   onSelecionar: (eventoId: string) => void;
 };
 
-// Cor sóbria e distinta dos pinos de evento, para marcar a camada de origem.
-const COR_ORIGEM = "#1d4ed8";
-
-// Verde-escuro: distinto do marrom de territórios de crime (#7c2d12) e do azul
-// de naturalidades (#1d4ed8).
-const COR_TERRITORIO_ORIGEM = "#14532d";
+// Variações neutras da identidade do projeto. Forma, contorno e opacidade
+// também distinguem as camadas para que a leitura não dependa só da cor.
+const COR_ORIGEM = "#686864";
+const COR_TERRITORIO_ORIGEM = "#4a4a4a";
 
 // A largura do mapa muda quando a navegação lateral abre ou recolhe. O Leaflet
 // não percebe essa mudança sozinho, por isso observamos o contêiner e redesenhamos
@@ -62,7 +49,12 @@ function AjustarMapaAoContainer() {
   return null;
 }
 
-export default function MapaEventos({ features, origem = [], territorios = [], onSelecionar }: Props) {
+export default function MapaEventos({
+  features,
+  origem = [],
+  territorios = [],
+  onSelecionar,
+}: Props) {
   return (
     <MapContainer
       center={CENTRO_BRASIL}
@@ -76,16 +68,31 @@ export default function MapaEventos({ features, origem = [], territorios = [], o
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {features.map((feature) => {
-        const props = feature.properties as { evento_id: string; titulo: string };
+        const props = feature.properties as {
+          evento_id: string;
+          titulo: string;
+          tipos_crime?: string[];
+        };
         if (feature.geometry.type === "Point") {
           const [lng, lat] = feature.geometry.coordinates as [number, number];
+          const indigena = props.tipos_crime?.includes(
+            "violencia_contra_povos_indigenas",
+          );
           return (
-            <Marker
+            <CircleMarker
               key={props.evento_id}
-              position={[lat, lng]}
+              center={[lat, lng]}
+              radius={indigena ? 7 : 6}
+              pathOptions={{
+                color: "#ffffff",
+                weight: 2,
+                fillColor: indigena ? "#8a8177" : "#232323",
+                fillOpacity: 0.92,
+              }}
               eventHandlers={{ click: () => onSelecionar(props.evento_id) }}
-              alt={props.titulo}
-            />
+            >
+              <Tooltip>{props.titulo}</Tooltip>
+            </CircleMarker>
           );
         }
         if (
@@ -100,9 +107,14 @@ export default function MapaEventos({ features, origem = [], territorios = [], o
             <Polygon
               key={`${props.evento_id}-${i}`}
               positions={rings.map((ring) =>
-                ring.map(([lng, lat]) => [lat, lng] as [number, number])
+                ring.map(([lng, lat]) => [lat, lng] as [number, number]),
               )}
-              pathOptions={{ color: "#7c2d12", weight: 2, fillOpacity: 0.15 }}
+              pathOptions={{
+                color: "#3a3a3a",
+                weight: 2,
+                fillColor: "#686864",
+                fillOpacity: 0.16,
+              }}
               eventHandlers={{ click: () => onSelecionar(props.evento_id) }}
             />
           ));
@@ -130,8 +142,8 @@ export default function MapaEventos({ features, origem = [], territorios = [], o
             pathOptions={{
               color: COR_ORIGEM,
               weight: 2,
-              fillColor: COR_ORIGEM,
-              fillOpacity: 0.6,
+              fillColor: "#f4f4f2",
+              fillOpacity: 0.9,
             }}
           >
             <Tooltip>
@@ -170,17 +182,20 @@ export default function MapaEventos({ features, origem = [], territorios = [], o
           <Polygon
             key={`territorio-${props.slug}-${i}-${j}`}
             positions={rings.map((ring) =>
-              ring.map(([lng, lat]) => [lat, lng] as [number, number])
+              ring.map(([lng, lat]) => [lat, lng] as [number, number]),
             )}
             pathOptions={{
               color: COR_TERRITORIO_ORIGEM,
               weight: 2,
-              fillOpacity: 0.2,
+              dashArray: "6 5",
+              fillColor: "#686864",
+              fillOpacity: 0.14,
             }}
           >
             <Tooltip>
               Território de origem do povo {props.povo_origem} — referência
-              aproximada e contemporânea, não o limite do território em 1964–1985
+              aproximada e contemporânea, não o limite do território em
+              1964–1985
             </Tooltip>
             <Popup>
               <span className="block font-medium">{props.nome}</span>
