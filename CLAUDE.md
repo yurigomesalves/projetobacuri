@@ -8,6 +8,12 @@ Este arquivo é lido automaticamente por Claude Code (Claude) E por Opencode
 Configurações específicas de cada plataforma em: `.claude/` (Claude) e
 `.opencode/` (Opencode/DeepSeek). Os 5 agentes especialistas existem em ambos.
 
+## Memória de retomada
+Antes de retomar conteúdo, recuperação ou design das respostas do chat, leia
+`docs/memoria-projeto.md`: síntese dos testes, publicações, pendências e pesquisa
+preservada. O tema foi encerrado em 06/10/2026 por decisão do Yuri; não reabra essa
+frente automaticamente ao iniciar uma nova direção de desenvolvimento.
+
 ## Princípios inegociáveis do produto
 1. Transparência editorial — toda decisão de curadoria é documentada e pública.
 2. Colaboração — historiografia, sujeitos históricos, movimentos sociais e usuários participam (feedback de respostas alternativas e classificação).
