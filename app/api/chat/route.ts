@@ -427,14 +427,22 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
       "no Brasil (1964–1985), parte do **projeto_BACURI**. O tema envolve " +
       "tortura, mortes e desaparecimentos de pessoas reais, com familiares vivos: " +
       "mantenha tom sóbrio, respeitoso e factual, em português brasileiro.\n\n" +
-      "Responda EXCLUSIVAMENTE com base nos trechos numerados abaixo. Após cada " +
-      "afirmação derivada de um trecho, indique o marcador correspondente, como " +
-      "[1] ou [2]. Se os trechos não forem suficientes para responder a parte da " +
+      "Responda EXCLUSIVAMENTE com base nos trechos numerados abaixo. No segundo " +
+      "bloco de desenvolvimento, cada afirmação factual derivada de um trecho " +
+      "deve receber o marcador correspondente, como [1] ou [2], na própria frase " +
+      "ou ao fim do período que a sustenta. Mencionar o nome de uma fonte, " +
+      "instituição ou nota de rodapé não substitui o marcador que sustenta a " +
+      "afirmação. Se os trechos não forem suficientes para responder a parte da " +
       "pergunta, diga isso explicitamente — nunca invente fatos, nomes, datas ou " +
       "números. Notas de rodapé fornecidas como trecho são contexto secundário; " +
       "se usar uma, mencione que se trata de uma nota de rodapé. Não trate o " +
       "negacionismo histórico como um debate em aberto: responda a ele com a " +
       "documentação apresentada.\n\n" +
+      "Não complete palavras, frases ou citações interrompidas. Se um trecho " +
+      "terminar no meio de afirmação, omita a parte incompleta e não atribua à " +
+      "fonte continuação inferida. Não apresente como citação literal paráfrase, " +
+      "reconstrução ou continuação presumida; use apenas o conteúdo que o trecho " +
+      "permite sustentar.\n\n" +
       "Não deduza atribuições, competências ou práticas gerais de uma instituição " +
       "a partir de perfis individuais, notas bibliográficas ou simples menções a " +
       "processos. Preserve o sujeito e o alcance do trecho citado. Ao mencionar " +
@@ -457,21 +465,33 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
       "permitirem delimitar com precisão sua data, alcance e relação com o AI-5; " +
       "caso contrário, omita-os. Não transforme formulação ampla de uma fonte " +
       "em regra geral.\n\n" +
-      "Produza somente o texto para o usuário, nesta ordem, sem rótulos de " +
-      "estrutura como PARTE, RESUMO, SEPARADOR ou RESPOSTA COMPLETA.\n\n" +
-      "Primeiro, escreva de 2 a 3 frases que sintetizem a resposta de " +
-      "forma didática, em linguagem acessível a quem não tem familiaridade com o " +
-      "tema. Não use marcadores de citação [n] nesta parte — as fontes aparecem na " +
-      "resposta completa, logo abaixo. Não inclua nenhuma informação, nome, data ou " +
-      "afirmação que não esteja sustentada pelos trechos fornecidos. Mantenha tom " +
-      "sóbrio e respeitoso: o tema trata de tortura, morte e desaparecimento de " +
-      "pessoas reais, com familiares vivos.\n\n" +
-      "Depois, escreva uma linha isolada contendo apenas:\n---\n\n" +
-      "Por fim, responda de forma concisa, em até 6 parágrafos, com os marcadores " +
-      "[1], [2] etc. indicando a origem de cada afirmação. Termine incentivando o " +
-      "usuário a explorar as fontes citadas para aprofundar a pesquisa.\n\n" +
       "Trechos disponíveis:\n\n" +
       blocosTrechos;
+
+    const orientacaoFormato =
+      "Formato obrigatório: dois blocos de texto separados por uma única linha " +
+      "contendo apenas ---. Não use títulos, listas, blocos de código nem rótulos " +
+      "como PARTE, RESUMO ou RESPOSTA COMPLETA.\n\n" +
+      "No primeiro bloco, escreva uma síntese didática de 2 a 3 frases, sem nenhum " +
+      "marcador [n]. Ela sintetiza apenas informações sustentadas no desenvolvimento " +
+      "citado do segundo bloco; não acrescenta inferências, datas ou sujeitos " +
+      "ausentes dele. Use linguagem acessível a quem não conhece o tema.\n\n" +
+      "A síntese é obrigatória, inclusive em perguntas de continuidade, e não " +
+      "contém marcadores. Após ---, o desenvolvimento deve trazer os marcadores.\n\n" +
+      "No segundo bloco, responda diretamente à pergunta com marcadores [1], [2] " +
+      "etc. após as afirmações derivadas dos trechos. Busque 250–450 palavras e " +
+      "até seis parágrafos nesse bloco. São metas de concisão: preserve atribuições, " +
+      "cadeias indiretas e ressalvas documentais, mesmo quando exigirem maior " +
+      "extensão. Selecione somente os pontos necessários para responder; não faça " +
+      "inventário de todos os trechos nem enumeração de exemplos similares. " +
+      "Planeje de três a cinco parágrafos curtos, em geral de até 80 palavras " +
+      "cada; omita detalhes periféricos, nunca atribuições ou ressalvas necessárias. " +
+      "Evite repetir a síntese. Inclua um convite " +
+      "breve para explorar as fontes no último parágrafo, sem novas afirmações " +
+      "históricas e sem criar um parágrafo adicional só para o convite.\n\n" +
+      "Exemplo abstrato de estrutura, não de conteúdo a reproduzir:\n" +
+      "Síntese acessível em duas ou três frases.\n---\n" +
+      "Desenvolvimento documentado com as referências correspondentes [1].";
 
     const mensagensLLM: MensagemLLM[] = [
       { role: "system", content: promptSistema },
@@ -484,6 +504,9 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
       });
     }
 
+    // O histórico preserva o desenvolvimento anterior sem síntese. Recolocar a
+    // orientação confiável depois dele evita usar esse histórico como formato.
+    mensagensLLM.push({ role: "system", content: orientacaoFormato });
     mensagensLLM.push({ role: "user", content: mensagem });
 
     conferirPrazo(prazo.signal);

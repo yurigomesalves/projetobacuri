@@ -250,6 +250,39 @@ describe("POST /api/chat — resposta com base documental", () => {
     expect(estado.supabase.chamadas.find((c) => c.metodo === "insert")?.args[0]).toMatchObject({ resposta: corpo.resposta, citacoes: corpo.citacoes });
   });
 
+  it("mantém separadores posteriores e suas citações no desenvolvimento", async () => {
+    estado.supabase = criarSupabaseFalso({
+      rpc: { data: [trechoBuscado()] },
+      tabelas: { interacoes: { data: { interacao_id: UUID_INTERACAO } } },
+    });
+    vi.mocked(gerarResposta).mockResolvedValueOnce("Síntese acessível.\n---\nTexto documentado [1].\n\n---\n\nRessalva documentada [1].");
+    const retorno = await POST(requisicao({ mensagem: "O que foi o AI-5?" }));
+    const corpo = await retorno.json();
+    expect(retorno.status).toBe(200);
+    expect(corpo.resumo).toBe("Síntese acessível.");
+    expect(corpo.resposta).toBe("Texto documentado [1].\n\n---\n\nRessalva documentada [1].");
+    expect(corpo.citacoes).toHaveLength(1);
+    expect(gerarResposta).toHaveBeenCalledTimes(1);
+  });
+
+  it.each(["\n---\nTexto documentado [1].", "Texto documentado [1].\n---\n"])(
+    "preserva o texto integral quando um lado do separador está vazio: %s",
+    async (texto) => {
+      estado.supabase = criarSupabaseFalso({
+        rpc: { data: [trechoBuscado()] },
+        tabelas: { interacoes: { data: { interacao_id: UUID_INTERACAO } } },
+      });
+      vi.mocked(gerarResposta).mockResolvedValueOnce(texto);
+      const retorno = await POST(requisicao({ mensagem: "O que foi o AI-5?" }));
+      const corpo = await retorno.json();
+      expect(retorno.status).toBe(200);
+      expect(corpo.resumo).toBe("");
+      expect(corpo.resposta).toBe(texto.trim());
+      expect(corpo.citacoes).toHaveLength(1);
+      expect(gerarResposta).toHaveBeenCalledTimes(1);
+    },
+  );
+
   it("trunca trechos longos das citações em 400 caracteres", async () => {
     const conteudoLongo = "a".repeat(600);
     estado.supabase = criarSupabaseFalso({
@@ -278,11 +311,15 @@ describe("POST /api/chat — resposta com base documental", () => {
 
     expect(resposta.status).toBe(200);
     const mensagensLLM = vi.mocked(gerarResposta).mock.calls[0][0];
-    // sistema + 2 do histórico + pergunta atual
-    expect(mensagensLLM).toHaveLength(4);
+    // regras/fontes + histórico intacto + orientação confiável + pergunta atual
+    expect(mensagensLLM).toHaveLength(5);
     expect(mensagensLLM[1]).toEqual({ role: "user", content: "Pergunta anterior." });
     expect(mensagensLLM[2]).toEqual({ role: "assistant", content: "Resposta anterior [1]." });
-    expect(mensagensLLM[3]).toEqual({ role: "user", content: "E depois disso?" });
+    expect(mensagensLLM[3].role).toBe("system");
+    expect(mensagensLLM[3].content).not.toContain("Pergunta anterior.");
+    expect(mensagensLLM[3].content).not.toContain("Resposta anterior [1].");
+    expect(mensagensLLM[3].content).not.toContain("E depois disso?");
+    expect(mensagensLLM[4]).toEqual({ role: "user", content: "E depois disso?" });
     expect(gerarEmbeddingConsulta).toHaveBeenCalledWith(
       "Pergunta anterior.\nE depois disso?"
     );
