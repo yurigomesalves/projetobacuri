@@ -174,7 +174,7 @@ function MensagemAssistente({
   const mostrarRodape = !ehAMaisRecente || digitacaoConcluida;
 
   return (
-    <div className="bk-card w-full rounded-md border border-papel-200 bg-papel-50 px-3 py-3 text-sm dark:border-tinta-900 dark:bg-tinta-950">
+    <article className="bk-card bk-chat-answer w-full rounded-md border border-papel-200 bg-papel-50 text-sm dark:border-tinta-900 dark:bg-tinta-950">
       <strong className="mb-2 block text-xs font-semibold text-neutral-500 dark:text-neutral-400">
         projeto_BACURI
       </strong>
@@ -187,14 +187,16 @@ function MensagemAssistente({
         <>
           {/* O resumo já estava disponível antes do typewriter — exibe completo. */}
           {mensagem.resumo && (
-            <div className="mb-3 rounded-md border-l-2 border-carmim-700 bg-papel-100 px-3 py-2 dark:bg-tinta-900">
-              <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-600 dark:text-neutral-400">
-                Resumo
-              </h3>
-              <p className="mt-1 text-sm text-neutral-800 dark:text-neutral-200">
-                {mensagem.resumo}
+            <section
+              className="bk-chat-summary"
+              aria-labelledby={`${mensagem.id}-resumo`}
+            >
+              <h3 id={`${mensagem.id}-resumo`}>Em síntese</h3>
+              <p>{mensagem.resumo}</p>
+              <p className="bk-chat-summary-note">
+                A explicação e as fontes estão abaixo.
               </p>
-            </div>
+            </section>
           )}
 
           <p className="sr-only" role="status">
@@ -202,16 +204,24 @@ function MensagemAssistente({
               ? "Resposta disponível com fontes abaixo."
               : "Preparando apresentação da resposta."}
           </p>
-          <div
-            className="prose prose-neutral prose-sm max-w-none font-serif dark:prose-invert prose-a:font-sans prose-a:font-semibold prose-a:text-carmim-700 dark:prose-a:text-carmim-400"
-            // Anuncia ao leitor de tela que o conteúdo está sendo atualizado.
-            aria-live={undefined}
-            aria-atomic={ehAMaisRecente ? "false" : undefined}
+          <section
+            className="bk-chat-document"
+            aria-labelledby={`${mensagem.id}-resposta`}
           >
-            <ReactMarkdown components={{ a: criarLinkMarcador(mensagem.id) }}>
-              {linkificarMarcadores(conteudoFinal)}
-            </ReactMarkdown>
-          </div>
+            <h3 id={`${mensagem.id}-resposta`}>
+              {mensagem.citacoes?.length ? "Resposta documentada" : "Resposta"}
+            </h3>
+            <div
+              className="bk-chat-prose prose prose-neutral prose-sm max-w-none font-serif dark:prose-invert prose-a:font-sans prose-a:font-semibold prose-a:text-carmim-700 dark:prose-a:text-carmim-400"
+              // Anuncia ao leitor de tela que o conteúdo está sendo atualizado.
+              aria-live={undefined}
+              aria-atomic={ehAMaisRecente ? "false" : undefined}
+            >
+              <ReactMarkdown components={{ a: criarLinkMarcador(mensagem.id) }}>
+                {linkificarMarcadores(conteudoFinal)}
+              </ReactMarkdown>
+            </div>
+          </section>
 
           {/* Cursor piscante durante a digitação */}
           {ehAMaisRecente && !digitacaoConcluida && (
@@ -252,7 +262,7 @@ function MensagemAssistente({
           )}
         </>
       )}
-    </div>
+    </article>
   );
 }
 

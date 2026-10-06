@@ -19,71 +19,66 @@ export default function Citacoes({ citacoes, idResposta }: Props) {
   return (
     <section
       aria-label="Fontes citadas nesta resposta"
-      className="mt-3 border-t border-papel-200 pt-3 dark:border-tinta-900"
+      className="bk-chat-sources"
     >
-      <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
-        Fontes
+      <h3 className="bk-chat-sources-heading">
+        Fontes citadas <span>({citacoes.length})</span>
       </h3>
-      <ol className="space-y-3 font-serif text-sm">
+      <ol className="bk-chat-source-list">
         {citacoes.map((citacao) => (
           <li
             key={citacao.n}
             id={`${idResposta}-fonte-${citacao.n}`}
-            className="bk-card scroll-mt-20 rounded-md border border-papel-200 bg-papel-50 p-3 dark:border-tinta-900 dark:bg-tinta-900"
+            tabIndex={-1}
+            className="bk-chat-source scroll-mt-20"
           >
-            <div className="flex flex-wrap items-baseline gap-2">
-              <span className="font-sans font-semibold text-carmim-700 dark:text-carmim-400">
+            <div className="bk-chat-source-title">
+              <span aria-label={`Fonte ${citacao.n}`} className="bk-chat-source-number">
                 [{citacao.n}]
               </span>
-              <span className="font-medium text-tinta-950 dark:text-neutral-100">
-                {citacao.titulo}
-              </span>
+              <span className="bk-chat-source-name">{citacao.titulo}</span>
               {citacao.tipo_chunk === "nota_rodape" && (
-                <span className="rounded border border-tinta-700 px-1.5 py-0.5 text-xs font-medium text-neutral-700 dark:border-tinta-700 dark:text-neutral-300">
+                <span className="bk-chat-source-badge">
                   nota de rodapé
                 </span>
               )}
             </div>
 
-            <p className="mt-1 text-neutral-700 dark:text-neutral-300">
+            <p className="bk-chat-source-meta">
               {citacao.autor_orgao}
               {citacao.data_documento && ` — ${citacao.data_documento}`}
-            </p>
-
-            <p className="mt-1 text-neutral-600 dark:text-neutral-400">
+              {" · "}
               {citacao.paginas
-                ? `Página(s): ${citacao.paginas}`
-                : "Página não informada"}
-              {citacao.secao && ` · Seção: ${citacao.secao}`}
+                ? `p. ${citacao.paginas}`
+                : "página não informada"}
+              {citacao.secao && ` · ${citacao.secao}`}
             </p>
 
             {citacao.nota_contexto && (
-              <p className="mt-2 rounded border border-amber-300 bg-amber-50 p-2 text-xs text-amber-900 dark:border-amber-700 dark:bg-amber-950 dark:text-amber-200">
-                <strong>Nota de contexto: </strong>
+              <p className="bk-chat-source-context">
+                <strong>Contexto da fonte: </strong>
                 {citacao.nota_contexto}
               </p>
             )}
 
-            <details className="mt-2">
-              <summary className="cursor-pointer text-sm font-medium text-neutral-700 underline underline-offset-2 dark:text-neutral-300">
-                ver trecho
-              </summary>
-              <blockquote className="mt-2 border-l-2 border-papel-200 pl-3 text-sm italic text-neutral-600 dark:border-tinta-800 dark:text-neutral-400">
-                {citacao.trecho}
-              </blockquote>
-            </details>
-
-            <p className="mt-2">
+            <div className="bk-chat-source-actions">
+              <details>
+                <summary>
+                  Ver trecho citado
+                </summary>
+                <blockquote className="bk-chat-source-excerpt">
+                  {citacao.trecho}
+                </blockquote>
+              </details>
               <a
                 href={citacao.url_origem}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-neutral-800 underline underline-offset-2 hover:text-neutral-950 dark:text-neutral-200 dark:hover:text-white"
               >
                 Ver fonte original
                 <span className="sr-only"> (abre em nova aba)</span>
               </a>
-            </p>
+            </div>
           </li>
         ))}
       </ol>
