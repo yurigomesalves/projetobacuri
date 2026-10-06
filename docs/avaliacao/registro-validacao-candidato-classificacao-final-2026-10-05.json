@@ -1,0 +1,66 @@
+{
+  "deployment_id": "dpl_67Q3jyeCGNqNhARrEWPToNPetkwy",
+  "url": "https://projetobacuri-21297ye7a-yuri-gomes-alves-projects.vercel.app",
+  "commit_candidato": "7e50d6e9f38e7aef03c62ca040123c0bcdafd712",
+  "branch": "entrega/chat-publicacao-20261005",
+  "smoke": {
+    "aprovados": 12,
+    "total": 12,
+    "p95_ms": 13096.1,
+    "limite": "12casos operacionais desta rodada; não mede SLO ou qualidade geral"
+  },
+  "auditoria_documental": {
+    "casos": [
+      1,
+      3,
+      4,
+      6,
+      12
+    ],
+    "citacoes": 31,
+    "ambiguos": 0,
+    "ausentes": 0,
+    "consultas_somente_leitura": 23
+  },
+  "interface": {
+    "desktop": 1280,
+    "mobile": 390,
+    "sem_rolagem_horizontal_documento": true,
+    "console_erros": 0
+  },
+  "consumo_observado_usd": {
+    "rodada_final": 0.017500956,
+    "etapa_com_retentativas_e_candidatos_descartados": 0.067126188,
+    "limite_mensal": 5,
+    "limite_restante": 4.885359272
+  },
+  "max_tokens_chat": 4096,
+  "prazo_ms": 20000,
+  "dominio_publico_preservado": "dpl_7CuqHSYBaHrSdz7ZTNVHSL5ZxNcX",
+  "publicacao_autorizada_nesta_etapa": false,
+  "revisao_humana_anterior": "D2at; seguir com pendências; não transferida automaticamente para novas respostas",
+  "flags_experimentais": "desativadas",
+  "artefatos_gerados_em_utc": "2026-10-06T01:30:40.232Z",
+  "data_local": "2026-10-05 America/Sao_Paulo",
+  "revisao_assistida": "seguir com ressalvas de apresentação; veto histórico retirado somente da amostra",
+  "ressalvas": {
+    "resumo_vazio": [
+      "S01",
+      "S12"
+    ],
+    "paragrafos": "7–9, orientação de até6 não rigidamente cumprida"
+  },
+  "sha256_respostas_amostra": {
+    "S01": "1afee4ce6b33fd7530077f5114842c5f8ad44aa378cc2e575ddf96d203a05536",
+    "S03": "74bf00c69bdc4135f0f69dd3548e74174dc1dea3b7b99f31eace0a27004506b7",
+    "S04": "a5fea59bf423c892a81109d750fc918d8eae18a2517cb15f0a5b3d0cd7830f8f",
+    "S06": "11d2d557966989d9882b3b53562e0e552ce76d69ce37d505e818c6c5f11ccdab",
+    "S12": "df70ec421c73e11141a0fb2b90e214e95044568fda0494cdfe6a66b380160478"
+  },
+  "testes_locais": {
+    "suite_completa": 146,
+    "arquivos": 19,
+    "reexecutados_apos_ajuste_final": 39,
+    "typecheck_lint": true
+  }
+}
