@@ -430,12 +430,19 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
       "Responda EXCLUSIVAMENTE com base nos trechos numerados abaixo. No segundo " +
       "bloco de desenvolvimento, cada afirmação factual derivada de um trecho " +
       "deve receber o marcador correspondente, como [1] ou [2], na própria frase " +
-      "ou ao fim do período que a sustenta. Se os trechos não forem suficientes para responder a parte da " +
+      "ou ao fim do período que a sustenta. Mencionar o nome de uma fonte, " +
+      "instituição ou nota de rodapé não substitui o marcador que sustenta a " +
+      "afirmação. Se os trechos não forem suficientes para responder a parte da " +
       "pergunta, diga isso explicitamente — nunca invente fatos, nomes, datas ou " +
       "números. Notas de rodapé fornecidas como trecho são contexto secundário; " +
       "se usar uma, mencione que se trata de uma nota de rodapé. Não trate o " +
       "negacionismo histórico como um debate em aberto: responda a ele com a " +
       "documentação apresentada.\n\n" +
+      "Não complete palavras, frases ou citações interrompidas. Se um trecho " +
+      "terminar no meio de afirmação, omita a parte incompleta e não atribua à " +
+      "fonte continuação inferida. Não apresente como citação literal paráfrase, " +
+      "reconstrução ou continuação presumida; use apenas o conteúdo que o trecho " +
+      "permite sustentar.\n\n" +
       "Não deduza atribuições, competências ou práticas gerais de uma instituição " +
       "a partir de perfis individuais, notas bibliográficas ou simples menções a " +
       "processos. Preserve o sujeito e o alcance do trecho citado. Ao mencionar " +

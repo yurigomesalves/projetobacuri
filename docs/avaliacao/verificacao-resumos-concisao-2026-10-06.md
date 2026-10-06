@@ -29,3 +29,31 @@ Código `5ef8f06e7cf73c024e4a527f07b076deadcc0aac`; candidato `dpl_2kRiwxXnVkNJd
 Evidências locais em `output/resumos-concisao-2026-10-06/`: respostas sanitizadas sem token de continuidade, relatório operacional, medidas de apresentação e trechos integrais associados para revisão editorial. O custo observado desta amostra foi US$ 0,015174216; contabilização sujeita a atraso.
 
 Esta primeira amostra não autoriza publicação. Revisão editorial e eventual reforço da instrução de concisão devem preceder a apresentação do candidato final. Nenhuma avaliação científica v4, reindexação ou migração de banco foi executada.
+
+## Segunda amostra e ajuste de continuidade
+
+O curador aprovou a seleção dos pontos necessários à pergunta em vez de inventariar todos os trechos. O candidato `dpl_2w69jNsMrXxX7KTXLf9MVo8ouCTn`, código `6430d94`, passou nos cinco casos; palavras 324/446/439/560/379 e blocos 5/6/5/8/5. S12 conservou o fallback seguro de resumo vazio. A auditoria editorial não encontrou veto histórico, mas registrou a pendência de apresentação e a extensão de S06. Evidências preservadas em `output/resumos-concisao-final-2026-10-06/`; 27 citações únicas, 20 consultas somente leitura.
+
+Após revisão do curador, a instrução geral foi delimitada: marcadores acompanham as afirmações factuais no desenvolvimento após `---`; a síntese permanece obrigatória também na continuidade e não recebe marcadores. O parser, o fallback e o tratamento das citações não foram alterados para forçar um resumo artificial.
+
+## Candidato 03
+
+Código `6e74581`, deployment `dpl_GjrwujcRKMn6QgisH6WeNebG8jQN`, URL https://projetobacuri-5u9ulpzyc-yuri-gomes-alves-projects.vercel.app, READY com configuração de produção e acesso protegido. Criado sem promover `memoria-e-verdade.vercel.app`.
+
+| Caso | Palavras | Blocos | Resumo preenchido sem marcadores |
+| --- | ---: | ---: | --- |
+| S01 | 410 | 6 | Sim |
+| S03 | 358 | 6 | Sim |
+| S04 | 481 | 5 | Sim |
+| S06 | 406 | 5 | Sim |
+| S12 | 330 | 5 | Sim |
+
+5/5 casos passaram nos critérios operacionais. Não apareceram rótulos internos. Todos ficaram dentro da orientação de seis blocos; quatro no intervalo de 250–450 palavras, com S04 acima da meta em 31 palavras. As 23 citações tiveram correspondência única em 19 consultas somente de leitura. O máximo observado de duração do cliente foi 14.426,4 ms.
+
+Em comparação exploratória com os cinco textos do candidato publicado, a média de palavras do campo `resposta` caiu de 753,4 para 397,0 (aproximadamente 47%). Os dois textos antigos com resumo vazio continham o texto integral preservado, enquanto os novos separam a síntese; essa diferença de formato e a amostra pequena limitam a comparação. Não se trata de avaliação estatística da qualidade nem garantia para novas perguntas.
+
+Os 152 testes passaram novamente após essa mudança. Lint e checagem de tipos passaram; o build remoto do candidato também passou. A auditoria editorial vetou o candidato 03: S04 completou uma citação interrompida sem apoio no chunk e S01 descreveu uma nota sem marcador. Correspondência de citações e qualidade de apresentação não bastam para comprovar sustentação histórica. Esse candidato não deve ser publicado. Evidências preservadas em `output/resumos-candidato-03-2026-10-06/`; os resultados anteriores não foram sobrescritos.
+
+Consumo observado das três rodadas: US$ 0,039172272 (de US$ 0,127067460 a US$ 0,166239732). Restante observado no limite mensal de US$ 5: US$ 4,833760268, sujeito a atraso de contabilização. Não houve chamada adicional de correção no fluxo do usuário; as rodadas foram testes explícitos de candidatos diferentes.
+
+O fallback ainda pode ser necessário em futuras gerações; a falha de S12 na segunda amostra foi mantida no registro. A extensão é orientação editorial, não limite que apaga conteúdo. PR permanece em rascunho e a publicação requer decisão específica sobre este candidato após revisão das evidências.
