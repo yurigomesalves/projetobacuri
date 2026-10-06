@@ -465,6 +465,10 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
       "permitirem delimitar com precisão sua data, alcance e relação com o AI-5; " +
       "caso contrário, omita-os. Não transforme formulação ampla de uma fonte " +
       "em regra geral.\n\n" +
+      "Trechos disponíveis:\n\n" +
+      blocosTrechos;
+
+    const orientacaoFormato =
       "Formato obrigatório: dois blocos de texto separados por uma única linha " +
       "contendo apenas ---. Não use títulos, listas, blocos de código nem rótulos " +
       "como PARTE, RESUMO ou RESPOSTA COMPLETA.\n\n" +
@@ -487,9 +491,7 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
       "históricas e sem criar um parágrafo adicional só para o convite.\n\n" +
       "Exemplo abstrato de estrutura, não de conteúdo a reproduzir:\n" +
       "Síntese acessível em duas ou três frases.\n---\n" +
-      "Desenvolvimento documentado com as referências correspondentes [1].\n\n" +
-      "Trechos disponíveis:\n\n" +
-      blocosTrechos;
+      "Desenvolvimento documentado com as referências correspondentes [1].";
 
     const mensagensLLM: MensagemLLM[] = [
       { role: "system", content: promptSistema },
@@ -502,6 +504,9 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
       });
     }
 
+    // O histórico preserva o desenvolvimento anterior sem síntese. Recolocar a
+    // orientação confiável depois dele evita usar esse histórico como formato.
+    mensagensLLM.push({ role: "system", content: orientacaoFormato });
     mensagensLLM.push({ role: "user", content: mensagem });
 
     conferirPrazo(prazo.signal);

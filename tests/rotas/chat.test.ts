@@ -311,11 +311,15 @@ describe("POST /api/chat — resposta com base documental", () => {
 
     expect(resposta.status).toBe(200);
     const mensagensLLM = vi.mocked(gerarResposta).mock.calls[0][0];
-    // sistema + 2 do histórico + pergunta atual
-    expect(mensagensLLM).toHaveLength(4);
+    // regras/fontes + histórico intacto + orientação confiável + pergunta atual
+    expect(mensagensLLM).toHaveLength(5);
     expect(mensagensLLM[1]).toEqual({ role: "user", content: "Pergunta anterior." });
     expect(mensagensLLM[2]).toEqual({ role: "assistant", content: "Resposta anterior [1]." });
-    expect(mensagensLLM[3]).toEqual({ role: "user", content: "E depois disso?" });
+    expect(mensagensLLM[3].role).toBe("system");
+    expect(mensagensLLM[3].content).not.toContain("Pergunta anterior.");
+    expect(mensagensLLM[3].content).not.toContain("Resposta anterior [1].");
+    expect(mensagensLLM[3].content).not.toContain("E depois disso?");
+    expect(mensagensLLM[4]).toEqual({ role: "user", content: "E depois disso?" });
     expect(gerarEmbeddingConsulta).toHaveBeenCalledWith(
       "Pergunta anterior.\nE depois disso?"
     );
