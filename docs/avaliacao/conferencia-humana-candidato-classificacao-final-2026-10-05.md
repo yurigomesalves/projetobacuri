@@ -2,7 +2,7 @@
 
 Candidato: `dpl_67Q3jyeCGNqNhARrEWPToNPetkwy`. Esta ficha preserva os novos textos reais para decisão de Yuri. Revisão assistida favorável com ressalvas; nenhuma marcação humana foi presumida. A conferência anterior permanece registrada separadamente.
 
-Ressalvas: S01/S12 não têm resumo separado; texto integral preservado. Há7–9parágrafos. As páginas abaixo são os localizadores públicos do catálogo, não certificação de todos os PDFs. No Dossiê, os pontos já conferidos são físico30/impressa36 e físico120/impressa126.
+Ressalvas: S01/S12 não têm resumo separado; texto integral preservado. Há 7–9 parágrafos. As páginas abaixo são os localizadores públicos do catálogo, não certificação de todos os PDFs. No Dossiê, os pontos já conferidos são físico30/impressa36 e físico120/impressa126.
 
 ## S01
 

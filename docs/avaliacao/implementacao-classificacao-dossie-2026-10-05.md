@@ -1,6 +1,6 @@
 # Classificação e catálogo do Dossiê — aplicação verificada (05/10/2026)
 
-> Atualização posterior à aplicação: os rótulos e glossários estão no candidato final READY `dpl_67Q3jyeCGNqNhARrEWPToNPetkwy`, com12/12casos remotos aprovados. O domínio público ainda aguarda decisão de publicação. O estado da etapa de migração abaixo foi preservado; veja `verificacao-candidato-classificacao-final-2026-10-05.md`.
+> Atualização posterior à aplicação: os rótulos e glossários estão no candidato final READY `dpl_67Q3jyeCGNqNhARrEWPToNPetkwy`, com12/12 casos remotos aprovados. O domínio público ainda aguarda decisão de publicação. O estado da etapa de migração abaixo foi preservado; veja `verificacao-candidato-classificacao-final-2026-10-05.md`.
 
 Estado: migração 0033 aplicada e classificação atualizada após autorização explícita de Yuri. Catálogo e banco coincidem; os 2.773 chunks e seus embeddings foram preservados. As APIs do candidato e do domínio público entregam a nova classificação e a nota. Não houve reindexação, fusão/exclusão do duplicado, geração paga ou publicação de novo deploy. Os rótulos e glossários atualizados permanecem na branch de entrega, aguardando deploy.
 

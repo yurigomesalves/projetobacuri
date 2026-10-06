@@ -7,7 +7,7 @@
     "aprovados": 12,
     "total": 12,
     "p95_ms": 13096.1,
-    "limite": "12casos operacionais desta rodada; não mede SLO ou qualidade geral"
+    "limite": "12 casos operacionais desta rodada; não mede SLO ou qualidade geral"
   },
   "auditoria_documental": {
     "casos": [
@@ -48,7 +48,7 @@
       "S01",
       "S12"
     ],
-    "paragrafos": "7–9, orientação de até6 não rigidamente cumprida"
+    "paragrafos": "7–9, orientação de até 6 não rigidamente cumprida"
   },
   "sha256_respostas_amostra": {
     "S01": "1afee4ce6b33fd7530077f5114842c5f8ad44aa378cc2e575ddf96d203a05536",
