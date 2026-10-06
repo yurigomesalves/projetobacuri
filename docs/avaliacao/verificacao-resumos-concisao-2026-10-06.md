@@ -57,3 +57,41 @@ Os 152 testes passaram novamente após essa mudança. Lint e checagem de tipos p
 Consumo observado das três rodadas: US$ 0,039172272 (de US$ 0,127067460 a US$ 0,166239732). Restante observado no limite mensal de US$ 5: US$ 4,833760268, sujeito a atraso de contabilização. Não houve chamada adicional de correção no fluxo do usuário; as rodadas foram testes explícitos de candidatos diferentes.
 
 O fallback ainda pode ser necessário em futuras gerações; a falha de S12 na segunda amostra foi mantida no registro. A extensão é orientação editorial, não limite que apaga conteúdo. PR permanece em rascunho e a publicação requer decisão específica sobre este candidato após revisão das evidências.
+
+## Candidato 04 e reteste focalizado
+
+Código `c834f98`, deployment `dpl_DAwNZu2hLRLv7DBVpyecUiPKmV7P`, confirmado READY por inspeção independente apesar de erro transitório de autorização no acompanhamento da CLI. As instruções passaram a proibir completar trechos interrompidos e a explicitar que nomear uma fonte não substitui o marcador. O login permaneceu válido; não houve novo login nem repetição do deploy.
+
+A amostra inicial teve três aprovações: S01 retornou 500 por prazo, conforme indicadores sanitizados dos logs; S12 não foi executado porque dependia do token de S01. O reteste somente de S01/S12 passou no contrato, mas S12 voltou ao fallback de resumo vazio. O prazo compartilhado não foi aumentado e não foi introduzida repetição paga no fluxo do usuário. Evidências preservadas em `output/resumos-candidato-04-2026-10-06/` e `output/resumos-candidato-04-reteste-2026-10-06/`. Esta rodada não atende à meta de cinco resumos preenchidos.
+
+## Organização das instruções após o histórico
+
+Para avaliar a influência do histórico sobre o formato, a orientação existente foi movida para uma mensagem de sistema após o histórico, antes da pergunta atual. Não houve duplicação da orientação, alteração do histórico nem nova chamada ao modelo. As regras editoriais e fontes continuam na primeira mensagem de sistema. O teste verifica histórico intacto e orientação confiável sem incorporar a pergunta ou o histórico como instruções. O contrato `Message[]` do [OpenRouter](https://github.com/openrouterteam/docs/blob/main/api_reference/overview.mdx) foi conferido na documentação atual; a eficácia da organização depende da avaliação real, não apenas da aceitação sintática.
+
+## Candidato 05 — amostra de aceitação
+
+Código `9d7c8a6`, deployment `dpl_5Aefw5cPyifaVHg8cKtVEzX8HPJ3`, URL https://projetobacuri-aw30cyvmo-yuri-gomes-alves-projects.vercel.app, READY com configuração de produção e proteção de acesso. O domínio público segue no deployment anterior; não foi promovido este candidato.
+
+| Caso | Palavras | Blocos | Resumo preenchido sem marcadores |
+| --- | ---: | ---: | --- |
+| S01 | 359 | 5 | Sim |
+| S03 | 384 | 5 | Sim |
+| S04 | 389 | 5 | Sim |
+| S06 | 374 | 5 | Sim |
+| S12 | 291 | 5 | Sim |
+
+5/5 casos passaram no contrato e nas metas de apresentação da amostra, sem rótulos internos. As 22 citações tiveram correspondência única com os trechos em 18 consultas somente de leitura. O máximo observado de duração do cliente foi 12.157,2 ms. Isso não garante latência nem formato em futuras gerações; o fallback continua disponível.
+
+A média de palavras do campo `resposta` nesta amostra foi 359,4, contra 753,4 nos cinco textos do candidato publicado (redução exploratória de aproximadamente 52%). A comparação tem as mesmas limitações de formato e tamanho amostral descritas acima. A auditoria editorial final fica em `auditoria-resumos-candidato-05-2026-10-06.md` e deve ser consultada separadamente da validação estrutural.
+
+Os 152 testes passaram após a organização final das mensagens, com lint e checagem de tipos sem erros e build remoto aprovado. Evidências completas em `output/resumos-candidato-05-2026-10-06/`; todos os candidatos e a falha de prazo anteriores foram mantidos em seus diretórios originais.
+
+Consumo observado desde o início das avaliações desta implementação: US$ 0,065337888 (de US$ 0,127067460 a US$ 0,192405348), incluindo as rodadas substituídas e o reteste focalizado. Restante observado no limite mensal de US$ 5: US$ 4,807594652. A contabilização pode ter atraso ou incluir outra utilização simultânea da chave.
+
+A entrega contém apenas a implementação, os testes, os relatórios e a proteção de `.local`; configuração pessoal, pesquisa e evidências brutas ficam locais. Nenhuma migração, reindexação ou etapa experimental foi ativada. A autorização anterior cobria a versão já publicada; a mesclagem deste PR e a promoção do candidato 05 dependem de uma nova decisão específica, conforme o plano aprovado.
+
+### Decisão editorial da amostra final
+
+O curador retirou o veto desta amostra e recomendou seguir com ressalva menor. Os cinco resumos e desenvolvimentos têm apoio nos trechos; S04 não completou a citação interrompida, S01 não deixou a descrição de nota sem marcador, S06 preservou a cadeia indireta e S03 manteve a atribuição testemunhal. A ressalva é de concordância no resumo S03: “ataques armados e aéreas”, em vez de “ataques armados e aéreos”. A resposta registrada não foi editada para ocultar o erro. A revisão não certifica outras gerações, corpus, PDFs integrais ou avaliação v4, nem substitui a decisão de publicação.
+
+A consulta de logs do candidato 05 não encontrou HTTP 5xx na janela iniciada em 2026-10-06T04:22:00Z. A ocorrência de prazo do candidato 04 permanece registrada; a consulta final é observação pontual, não garantia de disponibilidade.
