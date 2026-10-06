@@ -468,7 +468,11 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
       "etc. após as afirmações derivadas dos trechos. Busque 250–450 palavras e " +
       "até seis parágrafos nesse bloco. São metas de concisão: preserve atribuições, " +
       "cadeias indiretas e ressalvas documentais, mesmo quando exigirem maior " +
-      "extensão. Evite repetir a síntese e detalhes periféricos. Inclua um convite " +
+      "extensão. Selecione somente os pontos necessários para responder; não faça " +
+      "inventário de todos os trechos nem enumeração de exemplos similares. " +
+      "Planeje de três a cinco parágrafos curtos, em geral de até 80 palavras " +
+      "cada; omita detalhes periféricos, nunca atribuições ou ressalvas necessárias. " +
+      "Evite repetir a síntese. Inclua um convite " +
       "breve para explorar as fontes no último parágrafo, sem novas afirmações " +
       "históricas e sem criar um parágrafo adicional só para o convite.\n\n" +
       "Exemplo abstrato de estrutura, não de conteúdo a reproduzir:\n" +
