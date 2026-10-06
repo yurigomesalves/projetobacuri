@@ -27,6 +27,7 @@
 | valor | descrição | confiabilidade padrão |
 |---|---|---|
 | `relatorio_oficial` | Relatórios de comissões da verdade (CNV, CEMDP, comissões estaduais/municipais), órgãos públicos pós-redemocratização | `alta` |
+| `compilacao_documental` | Obra de memória e pesquisa com responsabilidade editorial identificada que reúne e contextualiza documentos, relatos, denúncias e registros de proveniências diversas. Não se torna relatório oficial por estar hospedada em portal estatal, nem material didático apenas por ser usada em ensino. | Avaliação por obra; no Dossiê de Familiares/IEVE, `alta` pela proveniência e rastreabilidade amostral. Nota de contexto obrigatória; autoria e alcance verificados por trecho, sem validação automática de todas as peças reunidas. |
 | `documento_repressao` | Documentos produzidos pelos próprios órgãos de repressão (DOPS, DOI-CODI, SNI, CISA, CENIMAR, Polícia Federal, processos do STM/BNM) | `alta_como_evidencia_de_autoria` — autêntico quanto à autoria/intenção do órgão, mas o **conteúdo factual sobre a vítima é hostil/distorcido por definição** e deve ser contextualizado |
 | `documento_inteligencia_estrangeira` | Documentos desclassificados de governos estrangeiros (CIA, Departamento de Estado dos EUA, FRUS, National Security Archive) | `media_alta` — boa qualidade informativa, mas reflete interesses geopolíticos do país de origem; contextualizar |
 | `imprensa_epoca` | Jornais e revistas publicados entre 1964–1985 (incluindo imprensa alternativa/clandestina) | `baixa_factual_alta_documental` — ver subcategorias abaixo |

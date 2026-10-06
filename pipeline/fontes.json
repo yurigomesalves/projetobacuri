@@ -99,7 +99,7 @@
     "url_oficial": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-ii/downloads/II_Tomo_Dossie-ditadura-mortos-e-desparecidos-politicos-no-brasil-1964-1985.pdf",
     "url_download": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-ii/downloads/II_Tomo_Dossie-ditadura-mortos-e-desparecidos-politicos-no-brasil-1964-1985.pdf",
     "data_captura_wayback": null,
-    "descricao_curta": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva', Tomo II (Dossiê Ditadura: Mortos e Desaparecidos Políticos no Brasil 1964-1985) — versão de síntese disponível no portal oficial, ~16 p., 839 KB. NÃO é o dossiê completo (que não foi localizado em versão oficial digital).",
+    "descricao_curta": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva', Tomo II (Dossiê Ditadura: Mortos e Desaparecidos Políticos no Brasil 1964-1985) — versão de síntese disponível no portal oficial, ~16 p., 839 KB. NÃO é o dossiê completo (catalogado separadamente como dossie-ditadura-cevsp).",
     "fonte": {
       "titulo": "Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo II: Dossiê Ditadura — Mortos e Desaparecidos Políticos no Brasil (1964-1985) [síntese]",
       "autor_orgao": "Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' (Assembleia Legislativa do Estado de São Paulo)",
@@ -145,21 +145,25 @@
     }
   },
   "dossie-ditadura-cevsp": {
-    "url_oficial": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-ii/downloads/II_Tomo_Dossie-ditadura-mortos-e-desparecidos-politicos-no-brasil-1964-1985.pdf",
-    "url_download": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-ii/downloads/II_Tomo_Dossie-ditadura-mortos-e-desparecidos-politicos-no-brasil-1964-1985.pdf",
+    "url_oficial": "https://comissaodaverdade.al.sp.gov.br/livros/downloads/Livro-Dossie-ditadura.pdf",
+    "url_download": "https://comissaodaverdade.al.sp.gov.br/livros/downloads/Livro-Dossie-ditadura.pdf",
     "data_captura_wayback": null,
-    "descricao_curta": "Dossiê Ditadura: Mortos e Desaparecidos Políticos no Brasil (1964-1985) — edição 2009 publicada pela Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' como Tomo II do relatório final; 762 p., 75 MB, PDF com camada de texto.",
+    "descricao_curta": "Dossiê Ditadura: Mortos e Desaparecidos Políticos no Brasil (1964-1985), edição de 2009, 762 páginas. Compilação de Familiares/IEVE, publicada pela Imprensa Oficial e hospedada no portal da CEV-SP.",
     "fonte": {
       "titulo": "Dossiê Ditadura: Mortos e Desaparecidos Políticos no Brasil (1964-1985)",
-      "autor_orgao": "Grupo Tortura Nunca Mais — RJ, Comissão de Familiares de Mortos e Desaparecidos Políticos (IEVE-SP) e Instituto de Estudos sobre a Violência do Estado (IEVE); incorporado ao Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' como Tomo II",
-      "tipo_fonte": "relatorio_oficial",
+      "autor_orgao": "Comissão de Familiares de Mortos e Desaparecidos Políticos; Instituto de Estudos sobre a Violência do Estado (IEVE)",
+      "tipo_fonte": "compilacao_documental",
+      "subtipo": null,
       "confiabilidade": "alta",
-      "data_documento": "2009-03-02",
+      "data_documento": null,
       "periodo": "pos_1985",
-      "url_origem": "https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-ii/downloads/II_Tomo_Dossie-ditadura-mortos-e-desparecidos-politicos-no-brasil-1964-1985.pdf",
-      "licenca": "documento público oficial",
-      "nota_contexto": "O URL registrado aponta para o portal da CEV-SP, onde está disponível a versão de síntese do Tomo II (16 p., 839 KB), já indexada separadamente como 'cev-sp-rubens-paiva-tomo2'. O arquivo PDF processado nesta entrada (dossie-ditadura-cevsp.pdf, 75 MB, 762 páginas) é a versão COMPLETA do dossiê, edição de 2009, com artefatos de produção gráfica do software InDesign (marcadores 'Livro DH Final.indd N' e timestamps). Esse PDF não foi localizado em URL oficial distinto; o URL da CEV-SP é usado como referência canônica da fonte primária."
-    }
+      "url_origem": "https://comissaodaverdade.al.sp.gov.br/livros/downloads/Livro-Dossie-ditadura.pdf",
+      "licenca": null,
+      "proveniencia": "Dossiê completo hospedado no portal da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva'. Download oficial em 05/10/2026: PDF com 762 páginas e 77.707.471 bytes; SHA-256 e902047328adfa21ca523121684dd657ded74e28015199e2df59950cba0758a4, idêntico ao exemplar local pipeline/dados/brutos/dossie-ditadura-cevsp.pdf. A autoria editorial da edição de 2009 é atribuída à Comissão de Familiares de Mortos e Desaparecidos Políticos e ao Instituto de Estudos sobre a Violência do Estado (IEVE); a Imprensa Oficial do Estado de São Paulo é indicada como editora. Não atribuir coautoria ao Grupo Tortura Nunca Mais/RJ, usado apenas como fonte corroborativa da informação editorial.",
+      "nota_contexto": "Compilação documental de memória e direitos humanos organizada pela Comissão de Familiares de Mortos e Desaparecidos Políticos e pelo IEVE (edição de 2009). Reúne pesquisa, documentos e relatos de proveniências diversas; a atribuição e o alcance devem ser verificados no trecho citado. Não é relatório originalmente produzido pela CEV-SP, que apenas hospeda o PDF."
+    },
+    "fonte_id_existente": "efc10a75-5cf4-435e-a598-7abf57f88ff7",
+    "sha256_esperado": "e902047328adfa21ca523121684dd657ded74e28015199e2df59950cba0758a4"
   },
   "cev-rj-relatorio-final": {
     "url_oficial": "https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/CEVRioRelatorioFinal.pdf",

@@ -1,0 +1,312 @@
+# Conferência humana — candidato de produção (05/10/2026)
+
+> **Ainda não aprovada por humano.** Esta ficha reúne a amostra real do candidato de produção para leitura e decisão de Yuri. Marcar “seguir” não certifica leitura do PDF, não promove a recuperação experimental e não publica o sistema.
+
+## Alcance e pendências
+
+Foram copiados fielmente os resumos, respostas e referências públicas dos casos S01, S03, S04, S06 e S12. Os chunks integrais permanecem em `output/auditoria-editorial-producao-2026-10-05-01/`. A auditoria encontrou uma ressalva menor em S06, reproduzida abaixo; ela **não foi corrigida nesta ficha**. Houve conferência assistida do PDF local somente para essa frase (página física 576, impressa 26), que confirmou a lacuna no exemplar; isso não é aceite humano, não certifica autenticidade do download atual e não vale para outras páginas.
+
+As páginas são localizadores declarados nos chunks, sem certificação de página física do PDF ou página impressa. A amostra não contém o prompt completo nem fontes recuperadas e não citadas. Ela não substitui a revisão humana geral, o gate de staging ou a validação independente v4; flags em 0 não são aprovação v4 nem evidência de latência.
+
+> **Pendência de referência antes de publicação:** a fonte exibida como “Tomo II [síntese]” aponta para PDF de 16 páginas, mas é usada com páginas declaradas 30 e 120. A frase do AI-5 da página 120 foi encontrada em Dossiê completo local; o título e o link públicos precisam de correção de metadados antes de publicar. Para esta conferência, usar o Dossiê completo para páginas 30/120; isto não certifica a página 30 nem a URL canônica do completo.
+
+## Como usar
+
+Leia resumo e resposta juntos; abra a fonte quando a decisão depender de sujeito, atribuição, conclusão de comissão, testemunho, nota de rodapé ou palavra truncada. Marque “revisar” se o PDF precisar ser conferido. As caixas em branco são a decisão humana.
+
+## S01
+
+**Pergunta:** O que foi o AI-5 e quais garantias ele suspendeu?
+
+### Resumo atual
+
+O AI-5 foi um ato institucional editado em 13 de dezembro de 1968 pelo marechal-presidente Costa e Silva, considerado o mais discricionário dos 17 atos institucionais do regime militar e o único decretado por tempo indeterminado. Ele ampliou os poderes de exceção do presidente — permitindo fechar o Congresso, intervir em estados e municípios, cassar mandatos e suspender direitos políticos — e suspendeu garantias constitucionais, entre elas o habeas corpus para crimes contra a Segurança Nacional. Também excluiu de apreciação judicial os atos praticados com base nele.
+
+### Resposta atual
+
+**O que foi o AI-5**
+
+Em 13 de dezembro de 1968, com o objetivo de pôr fim à agitação política e cultural do período, o marechal-presidente Costa e Silva editou o Ato Institucional nº 5 [1]. O ato constituiu-se no mais discricionário entre os 17 atos institucionais do regime militar implantado em 1964 e o único decretado por tempo indeterminado [1]. O AI-5 foi extinto em 31 de dezembro de 1978, mas alguns de seus dispositivos haviam sido inseridos na Constituição de 1969 e na Lei de Segurança Nacional, deixando heranças ainda hoje [1].
+
+Segundo a Comissão Nacional da Verdade, o AI-5, embora declarasse mantidas a Constituição de 1967 e as constituições estaduais, estabelecia regras em flagrante violação a elas [2]. A CNV registra que o país não tivera, em toda a sua vida republicana, um conjunto de medidas que concentrasse tanto poder discricionário nas mãos de um chefe de Estado [6].
+
+**Poderes de exceção que o AI-5 ampliou**
+
+O AI-5 ampliou os poderes de exceção do presidente ao dar-lhe plenos poderes de decretar estado de sítio e fechar o Congresso Nacional (arts. 1º, 2º, 7º), concedendo o domínio absoluto sobre os estados da Federação (arts. 3º, 6º) e extinguindo vários direitos civis e políticos (arts. 4º, 5º, 8º) [1]. Concedeu-se o direito de cassar mandatos, demitir e aposentar juízes e demais funcionários públicos (o que já havia ocorrido com os AI-1 e AI-2) [1].
+
+A CNV detalha que o AI-5 autorizava o presidente da República a decretar o recesso do Congresso Nacional, das Assembleias Legislativas e das Câmaras de Vereadores, por Ato Complementar, em estado de sítio ou fora dele, só voltando os mesmos a funcionar quando convocados pelo presidente da República [6]. Decretado o recesso parlamentar, o poder Executivo correspondente ficava autorizado a legislar em todas as matérias e exercer as atribuições previstas nas Constituições ou na Lei Orgânica dos Municípios [6]. Punido com a decretação de recesso, o Congresso sofreu, em acréscimo, o imediato expurgo de parlamentares [6].
+
+O AI-5 aprofundava a autorização para as cassações políticas, estabelecendo que o presidente da República, sem as limitações previstas na Constituição, poderia suspender os direitos políticos de qualquer cidadão pelo prazo de dez anos e cassar mandatos eletivos federais, estaduais e municipais [6]. O mencionado ato também suspendia as garantias constitucionais ou legais de vitaliciedade, inamovibilidade e estabilidade, bem como a de exercício em funções por prazo certo [6].
+
+A CNV também registra que o AI-5 limitou o acesso ao Judiciário, ao suspender a garantia de habeas corpus nos crimes mencionados em seu artigo 10 e ao ratificar a exclusão — já expressa nos atos institucionais anteriores — de qualquer apreciação judicial de todos os atos praticados de acordo com referido ato institucional e seus atos complementares, bem como os respectivos efeitos (artigo 11) [2]. Finalmente, todas as ações facultadas ao presidente não eram passíveis de recurso legal: o AI-5 excluía de apreciação judicial todos os atos alcançados por ele e por seus atos complementares, bem como os respectivos efeitos [6].
+
+**A suspensão do habeas corpus**
+
+O AI-5 investiu o Estado da prerrogativa de manipulação da vida de todos os cidadãos, de tal modo que o AI-14, editado a 14 de outubro de 1969, instituiu a pena de morte no Brasil [1]. Ficava suspensa (artigo 10º) a garantia do habeas corpus, instrumento usado por prisioneiros e perseguidos políticos do regime para garantir sua vida e liberdade [6]. O AI-5 suspendeu os direitos e garantias constitucionais dos cidadãos e permitia a intervenção em qualquer entidade; era proibida manifestação de natureza política, ficando a polícia (Ministério da Justiça) com o direito de vigiar os cidadãos, proibir o direito de ir e vir, obrigar a permanência do cidadão em domicílio determinado — conforme nota de rodapé do relatório da Comissão da Verdade do Sindicato dos Jornalistas Profissionais de Minas Gerais [3][4].
+
+**Contexto imediato**
+
+A ditadura impôs rígida censura aos meios de comunicação já na madrugada de 12 para 13 de dezembro de 1968, suspendeu o Congresso e, por algum tempo, não seria tolerada qualquer oposição ao governo, nem sequer a do moderado MDB; era a época do slogan oficial "Brasil: ame-o ou deixe-o" [1]. O governo militar fechou o Congresso, ordenou a prisão de Juscelino Kubitschek e decretou o AI-5, que cassou dezenas de mandatos, permitiu intervenção nos estados e municípios e suspendeu a garantia de habeas corpus em casos de crime contra a segurança nacional [5]. Ao noticiar a implantação do AI-5, em 14 de dezembro, o Jornal do Brasil anunciou, no box do lado esquerdo do cabeçalho, a seguinte avaliação climática: "Tempo negro. Temperatura sufocante. O ar está irrespirável. O país está sendo varrido por fortes ventos" [7].
+
+**Sobre o argumento de que não se tratava de ditadura**
+
+O relatório da Comissão Municipal da Verdade de Petrópolis registra que o ministro da Justiça, Antonio da Gama e Silva, em longa intervenção, comentava várias das posições adotadas pelos membros do Conselho, esclarecia e apoiava as posições de Antonio Delfim Netto e do general Afonso Augusto de Albuquerque Lima, ministro do Interior, no sentido de conceder ao presidente da República a possibilidade de emendar a Constituição, retirando-a, portanto, do Congresso Nacional; paradoxalmente, não percebia o AI-5 como instrumento de uma ditadura "porque a pessoa a quem esses poderes são confiados, pelo seu equilíbrio e o patriotismo, saberá dosar e aplicar, nos casos que se tornarem necessários" [7]. O mesmo relatório avalia que todos os argumentos acerca da tolerância e caráter democrático do governo do general-presidente Costa e Silva, a par de falaciosos, deixavam de lado a retomada da coesão social do empresariado em torno da ditadura no segundo semestre de 1968, quando começam a surgir os primeiros sinais de recuperação econômica divulgados pela Fundação Getúlio Vargas na revista "Conjuntura Econômica" [7].
+
+Para aprofundar a pesquisa, recomendo consultar diretamente os relatórios citados — em especial o Relatório Final da Comissão Nacional da Verdade (Volume I), o Relatório Final da Comissão da Verdade do Estado de São Paulo "Rubens Paiva" (Tomo II) e o Relatório Final da Comissão Municipal da Verdade de Petrópolis —, que trazem o detalhamento normativo e o contexto histórico aqui sintetizados.
+
+### Referências apresentadas
+
+1. Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' (Assembleia Legislativa do Estado de São Paulo). *Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo II: Dossiê Ditadura — Mortos e Desaparecidos Políticos no Brasil (1964-1985) [síntese]*. Páginas declaradas: 120. [Abrir fonte](https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-ii/downloads/II_Tomo_Dossie-ditadura-mortos-e-desparecidos-politicos-no-brasil-1964-1985.pdf)
+2. Comissão Nacional da Verdade (CNV). *Relatório Final da Comissão Nacional da Verdade — Volume I*. Páginas declaradas: 938. [Abrir fonte](https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_1_digital.pdf)
+3. Sindicato dos Jornalistas Profissionais de Minas Gerais (SJPMG). *Relatório da Comissão da Verdade do Sindicato dos Jornalistas Profissionais de Minas Gerais*. Páginas declaradas: 40. [Abrir fonte](http://www.comissaodaverdade.mg.gov.br/handle/123456789/468)
+4. Comissão da Verdade do Sindicato dos Jornalistas Profissionais de Minas Gerais (SJPMG). *Relatório da Comissão da Verdade do Sindicato dos Jornalistas Profissionais de Minas Gerais (SJPMG)*. Páginas declaradas: 40. [Abrir fonte](https://www.dhnet.org.br/verdade/cv/cv_mg_jornalistas_r_2013.pdf)
+5. Comissão Nacional da Verdade da União Nacional dos Estudantes (UNE). *Relatório da Comissão Nacional da Verdade da União Nacional dos Estudantes (UNE)*. Páginas declaradas: 23. [Abrir fonte](https://www.dhnet.org.br/verdade/cv/cv_df_une_r_2015.pdf)
+6. Comissão Nacional da Verdade (CNV). *Relatório Final da Comissão Nacional da Verdade — Volume I*. Páginas declaradas: 100-101. [Abrir fonte](https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_1_digital.pdf)
+7. Comissão Municipal da Verdade de Petrópolis (RJ). *Relatório Final da Comissão Municipal da Verdade de Petrópolis*. Páginas declaradas: 117. [Abrir fonte](https://www.dhnet.org.br/verdade/cv/cmv_rj_petropolis_r_2018.pdf)
+
+### Registro humano
+
+- Trechos/PDF conferidos: ________________________________________________
+- Atribuição e escopo: ☐ adequado ☐ revisar
+- Referências/localizadores declarados: ☐ adequados ☐ revisar
+- Resumo ligado à resposta: ☐ adequado ☐ revisar
+- Decisão: ☐ seguir ☐ seguir com ressalva ☐ revisar ☐ não seguir
+- Justificativa e marcadores: _____________________________________________
+- Nome/data: _____________________________________________________________
+
+## S03
+
+**Pergunta:** Que violações atingiram o povo Waimiri-Atroari durante a construção da BR-174?
+
+### Resumo atual
+
+Durante a construção da BR-174, o povo Waimiri-Atroari foi atingido por violências graves, incluindo bombardeios aéreos, ataques armados e a morte de milhares de pessoas. Documentos e testemunhos de sobreviventes apontam que a maioria das mortes foi causada por assassinatos, e o caso é descrito como genocídio cometido pela ditadura militar. A estrada também trouxe doenças e expulsão do território, ameaçando a própria existência do povo.
+
+### Resposta atual
+
+As violações contra o povo Waimiri-Atroari durante a construção da BR-174 incluem:
+
+**Bombardeios aéreos e ataques armados.** O povo Waimiri-Atroari foi vítima de genocídio cometido pela ditadura militar brasileira na abertura da BR-174, segundo o Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' [1]. Testemunhos de índios sobreviventes confirmam o bombardeio das tribos, e um ofício do Comando Militar da Amazônia determinava o uso de violência contra os índios, conforme documentou o relatório do Comitê Estadual de Direito à Verdade, à Memória e à Justiça do Amazonas [1]. O sobrevivente Viana Womé Atroari relatou em entrevista à TV Brasil um ataque aéreo a uma aldeia: "Foi assim tipo bomba, lá na aldeia. O índio que estava na aldeia não escapou ninguém. Ele veio no avião e de repente esquentou tudinho, aí morreu muita gente" [1]. Ele também mencionou a presença de "pessoal armado, assim, pessoal do Exército" [1].
+
+**Mortes em massa.** As estimativas demográficas do Povo Waimiri-Atroari entre as décadas de 1960 e 1970 indicam que mais de 2.000 pessoas morreram durante a construção da BR-174, a maioria assassinada, segundo o 1º Relatório do Comitê Estadual da Verdade do Amazonas [2]. O mesmo relatório afirma que a crueldade levou ao desaparecimento dessas milhares de pessoas nos vales dos Rios Urubú, Alalaú, Uatumã, Curiuaú, Camanaú e Jauaperí até o Baixo Rio Negro, e que isso ameaçou a existência de um povo, os Kiña, havendo indícios de que levou ao completo aniquilamento de pelo menos outro, os Piriutiti [2].
+
+**Invasão armada e resistência esmagada.** Em 5 de setembro de 1967, o Governo biônico do Estado do Amazonas iniciou, sob o comando do Coronel Mauro Carijó, a construção da BR-174, Manaus-Boa Vista, sem contato prévio com os índios Waimiri-Atroari, cujo território a estrada partiria ao meio como se fosse um "vazio demográfico" [3]. Na passagem do Rio Urubu, a menos de 100 km de Manaus, encontraram a primeira resistência dos índios; a partir daquele momento, o governo manteve um ambiente de invasão armada durante toda a construção da BR-174, até 1977, quando conseguiu esmagar toda a resistência daquele povo [3]. Durante o ano de 1968, os pedidos de armamento e munição se sucederam mês a mês [3].
+
+**Doenças e diminuição populacional.** O depoente Mário Parwé Atroari afirmou, em audiência pública registrada no Tomo III do Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva', que a BR "veio com muita, muita força, com doença, com sarampo, com malária, aí diminuiu a nossa população" [7]. Perguntado sobre o que mais matou o índio na época da BR, ele respondeu: "Nós acreditamos que foram as pessoas do Exército, né?" [7].
+
+**Expulsão do território e retaliações.** O narrador do filme exibido na mesma audiência pública registrou que, na medida em que foram sendo expulsos de seus territórios pela violência, os Waimiri-Atroari iniciaram as retaliações [7]. O mesmo narrador afirmou que os Waimiri-Atroari constituem a mais longa resistência de que se tem notícia em não aceitar contato com o homem branco, e que, nos anos 1970, os confrontos retornaram com tropas do Exército brasileiro durante a construção da BR-174, quando quase foram dizimados [7]. José Porfírio de Carvalho declarou na audiência que os Waimiri-Atroari eram tidos na Amazônia e no Brasil como os índios mais bravos, e que a sociedade tinha verdadeiro terror deles [7].
+
+**Contexto da decisão governamental.** O 1º Relatório do Comitê Estadual da Verdade do Amazonas registra que a estrada BR-174 motivou e efetivou uma invasão dirigida e espontânea do território Waimiri-Atroari, e foi pregada como fatalidade irreversível pela Ditadura Militar [4]. A FUNAI, desde o início, estava em sintonia com essa fatalidade, com submissão aos projetos da Ditadura e constante violação da legislação indigenista em vigor [4]. Na 81ª reunião do Conselho Indigenista da FUNAI (CIF/FUNAI), em 1973, que tratou da questão Waimiri-Atroari, os funcionários do órgão Olimpio Serra e Carlos Moreira Neto questionaram em vão a irreversibilidade da BR-174 [4]. Em resposta, o General Ismarth de Araújo, Presidente da FUNAI, declarou: "Há uma coisa que é certa: a decisão do Governo, que é irreversível, de continuar a estrada. Então, as nossas soluções tem de partir dessa premissa: com a estrada" [4]. O Coronel Arruda, comandante do 6º Batalhão de Engenharia e Construção (6º BEC), declarou que "a estrada é irreversível como é a integração da amazônia ao país. A estrada é importante e terá que ser construída, custe o que custar. Não vamos mudar o seu traçado" [4].
+
+**Pressão dos governadores biônicos.** Em 1968, o Governador do Amazonas, Danilo Duarte de Matos Areosa, em mensagem ao Ministro Albuquerque Lima, protestava contra pedido da FUNAI de interdição da área, como "medida absurda", e pedia providências para garantir "a construção da estrada através do território indígena, a qualquer custo", considerando o índio um inútil, que precisava "ser transformado em ser humano útil à Pátria" [6].
+
+**Nota de rodapé sobre a BR-174 e Balbina.** Uma nota de rodapé do Volume II do Relatório Final da Comissão Nacional da Verdade (texto de autoria individual, não posição colegiada da CNV) informa que a BR-174 foi concluída em 1979; em 1981, o governo federal iniciou a construção da Usina Hidrelétrica de Balbina e, para tanto, o general Figueiredo desmembrou a parte leste da TI Waimiri-Atroari por meio do Decreto nº 86.630 [5]. Esse processo está bem documentado e teve ampla repercussão internacional, tendo sido denunciado ao IV Tribunal Russell (1982), juntamente com outros casos de violações dos direitos indígenas cometidas pelo Estado brasileiro durante o período militar [5]. A Usina Hidrelétrica de Balbina inundou cerca de 30 mil hectares do território Waimiri-Atroari, implicando na remoção de pelo menos duas aldeias [5]. O desmembramento da terra indígena visava também ceder vastas porções do território a companhias mineradoras que, desde a década de 1970, pediam autorização para prospecção mineral na área; com o decreto de Figueiredo, as mineradoras Timbó/Parapanema e Taboca puderam se estabelecer numa área de 526.800 hectares dentro da reserva Waimiri-Atroari [5]. Em 9 de julho de 1982, a Funai celebrou contrato com a mineradora, permitindo a construção de outra estrada dentro das terras Waimiri-Atroari [5]. Trata-se de nota de rodapé, portanto contexto secundário.
+
+**Sobre a atribuição de responsabilidade.**
+
+### Referências apresentadas
+
+1. Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' (Assembleia Legislativa do Estado de São Paulo). *Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas*. Páginas declaradas: 890. [Abrir fonte](https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-i/downloads/Tomo_I_Completo.pdf)
+2. Comitê Estadual da Verdade do Amazonas. *1º Relatório do Comitê Estadual da Verdade do Amazonas — O Genocídio do Povo Waimiri-Atroari*. Páginas declaradas: 74-75. [Abrir fonte](https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/1r_cv_am_waimiri_atroari.pdf)
+3. Comitê Estadual da Verdade do Amazonas. *1º Relatório do Comitê Estadual da Verdade do Amazonas — O Genocídio do Povo Waimiri-Atroari*. Páginas declaradas: 42. [Abrir fonte](https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/1r_cv_am_waimiri_atroari.pdf)
+4. Comitê Estadual da Verdade do Amazonas. *1º Relatório do Comitê Estadual da Verdade do Amazonas — O Genocídio do Povo Waimiri-Atroari*. Páginas declaradas: 40. [Abrir fonte](https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/1r_cv_am_waimiri_atroari.pdf)
+5. Conselheiros da Comissão Nacional da Verdade (textos de autoria individual, não posição colegiada da CNV). *Relatório Final da Comissão Nacional da Verdade — Volume II (textos temáticos)*. Páginas declaradas: 235-236. [Abrir fonte](https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_2_digital.pdf)
+6. Comitê Estadual da Verdade do Amazonas. *1º Relatório do Comitê Estadual da Verdade do Amazonas — O Genocídio do Povo Waimiri-Atroari*. Páginas declaradas: 20-21. [Abrir fonte](https://www.gov.br/memoriasreveladas/pt-br/assuntos/comissoes-da-verdade/estaduais/1r_cv_am_waimiri_atroari.pdf)
+7. Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' (Assembleia Legislativa do Estado de São Paulo). *Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo III: Audiências Públicas*. Páginas declaradas: 8335. [Abrir fonte](https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-iii/downloads/III_Tomo_Completo.pdf)
+
+### Registro humano
+
+- Trechos/PDF conferidos: ________________________________________________
+- Atribuição e escopo: ☐ adequado ☐ revisar
+- Referências/localizadores declarados: ☐ adequados ☐ revisar
+- Resumo ligado à resposta: ☐ adequado ☐ revisar
+- Decisão: ☐ seguir ☐ seguir com ressalva ☐ revisar ☐ não seguir
+- Justificativa e marcadores: _____________________________________________
+- Nome/data: _____________________________________________________________
+
+## S04
+
+**Pergunta:** Qual era a função da Comissão Especial sobre Mortos e Desaparecidos Políticos?
+
+### Resumo atual
+
+A Comissão Especial sobre Mortos e Desaparecidos Políticos (CEMDP) foi criada pela Lei 9.140/95 para reconhecer e reparar casos de pessoas mortas ou desaparecidas por participação ou acusação de participação em atividades políticas, em dependências policiais ou assemelhadas, por causas não naturais, entre setembro de 1961 e agosto de 1979. Ao longo do tempo, leis posteriores ampliaram suas atribuições, incluindo casos de mortes em manifestações públicas, conflitos armados com agentes do poder público e suicídios ligados à iminência de prisão ou a sequelas de tortura. A comissão também tem poderes para buscar documentos, realizar perícias, ouvir testemunhas e empreender esforços para localizar restos mortais de desaparecidos.
+
+### Resposta atual
+
+A Comissão Especial sobre Mortos e Desaparecidos Políticos (CEMDP) foi instituída pela Lei 9.140/95, que lhe concedeu poderes para identificar aqueles que, em razão de participação ou acusação de participação em atividades políticas, no período de 2 de setembro de 1961 a 15 de agosto de 1979, faleceram em dependências policiais ou assemelhadas, por causas não naturais [1]. Ao decidir sobre os pedidos apresentados pelos familiares de Carlos Marighella e Carlos Lamarca, em 1996, a CEMDP conferiu interpretação ampliativa ao texto legal para contemplar, para fins da responsabilidade estatal pela morte e desaparecimento, as situações de custódia estatal [1]. A CEMDP é composta por sete membros, escolhidos por designação presidencial — dentre os quais representantes dos familiares dos mortos ou desaparecidos, da Comissão de Direitos Humanos da Câmara dos Deputados, do Ministério Público Federal e do Ministério da Defesa —, e tem poderes para solicitar documentos de qualquer órgão público, realizar perícias, receber a colaboração de testemunhas e obter informações junto a governos e entidades estrangeiras, por intermediação do Ministério das Relações Exteriores, além de poder empreender esforços na localização de restos mortais de pessoas desaparecidas [1]. Conferiu-se legitimidade ao cônjuge, ao companheiro e a descendentes, ascendentes e familiares colaterais até o quarto grau para formular, no prazo de 120 dias a contar da publicação da lei, o pedido de indenização a título reparatório [1].
+
+A CEMDP iniciou seus trabalhos em 8 de janeiro de 1996 com infra-estrutura fornecida pelo Ministério da Justiça; posteriormente, em 2003, foi transferida para a Secretaria Especial dos Direitos Humanos da Presidência da República [2]. Entre 1996 e 1998, na primeira fase dos trabalhos da CEMDP, foram protocolados no Ministério da Justiça 373 processos referentes a 366 pessoas [2].
+
+Outra importante mudança ocorreu em 2004, com a publicação da lei 10.875, que contemplou os casos de mortes em conseqüência da repressão policial em manifestações públicas ou em conflitos armados com agentes do poder público e, também, aqueles cuja morte/suicídio se deu para evitar a prisão ou em função de seqüelas das torturas [2]. De modo convergente, a Lei nº 10.875/2004 ampliou a atribuição da CEMDP para que ela pudesse proceder ao reconhecimento de pessoas que tivessem falecido em virtude de repressão policial sofrida em manifestações públicas ou em conflitos armados com agentes do poder público, bem como dos que tivessem falecido em decorrência de suicídio praticado na iminência de serem presos ou em decorrência de sequelas psicológicas resultantes de atos de tortura praticados por agentes públicos [4].
+
+Em cerimônia realizada em agosto de 2007, no Palácio do Planalto, ocorreu o lançamento do livro *Direito à memória e à verdade: Comissão Especial sobre Mortos e Desaparecidos Políticos*, o relatório das atividades do órgão [4]. Além dos nomes constantes do anexo da própria lei, os trabalhos da comissão especial conduziram à aprovação de 221 casos e ao indeferimento de 118 [4]. O relatório de 2007 contém, no seu Capítulo 4, uma narrativa referente a cada um dos casos de morte e desaparecimento, em ordem cronológica, bem como a síntese de respectivo processo administrativo e o reconhecimento da responsabilidade estatal [4]. Nas exatas palavras constantes do relatório final da CEMDP, esta "oficializou o reconhecimento histórico de que esses brasileiros não podiam ser considerados terroristas ou agentes de potências estrangeiras, como sempre martelaram os órgãos de segurança. Na verdade, morreram lutando como opositores políticos de um regime que havia nas..." [4] (o trecho fornecido está truncado nesse ponto).
+
+Uma iniciativa visava atender aos casos protocolados fora do prazo, mas ocorreu, especialmente, pela pressão do governo argentino para que se reconhecesse três argentinos desaparecidos no Brasil em 1980, cujos familiares não puderam ser contemplados porque estavam fora do período de abrangência da lei 9.140/95: Mónica Susana Binstock, Horacio Campiglia e Lorenzo Ismael Viñas, nomes ausentes do *Dossiê dos Mortos e Desaparecidos Políticos a Partir de 1964*, livro no qual o governo se baseou para a elaboração da lista de desaparecidos políticos [2].
+
+No processo de consolidação da Justiça de Transição brasileira, como passo importante na desconstrução do legado autoritário dos anos de ditadura, foi criada a Comissão Especial sobre Mortos e Desaparecidos Políticos (CEMDP), que hoje está inserida na estrutura da Secretaria de Direitos Humanos do Ministério da Justiça e Cidadania, tendo sido criada em 1995 pela Lei 9.140 da presidência da República; esta lei dá à CEMDP a prerrogativa legal pela busca e identificação das vítimas da violência de estado no período que compreende a ditadura civil-militar, sendo atribuída a esta comissão a função de garantir os meios e o acompanhamento necessário para que seja feita a análise das ossadas de Perus e outros casos no Brasil de desaparecimentos forçados e ocultação de cadáveres pelo estado brasileiro [5]. O caso da vala clandestina de Perus, revelada ao mundo em 1990 contendo mais de mil ossadas de pessoas que foram enterradas no cemitério Dom Bosco nos anos 1970, é apresentado como exemplo infame da disposição dos órgãos de repressão em ocultar os mortos naquele período e marcadamente os que lutaram pela restituição da democracia [5].
+
+Cabe observar que os trechos [3], [6], [7] e [8] consistem, no material fornecido, predominantemente em notas de rodapé e referências bibliográficas (com menção a obras como *Direito à memória e à verdade* e ao *Dossiê ditadura: mortos e desaparecidos políticos no Brasil (1964-1985)*), além de recomendações específicas da CNV sobre casos individuais — como a continuidade das investigações sobre as circunstâncias do caso de João Alfredo Dias, para localização de restos mortais e responsabilização dos demais agentes envolvidos [3], e a recomendação de investigação das circunstâncias da morte de Lourival Moura Paulino, com identificação e responsabilização dos demais agentes envolvidos, conforme sentença da Corte Interamericana de Direitos Humanos, e retificação da causa mortis na certidão de óbito [6]. Esses trechos não descrevem, por si, atribuições gerais da CEMDP, e por isso não foram usados para caracterizar a função do órgão.
+
+Para aprofundar a pesquisa, recomendo consultar diretamente os relatórios citados — em especial o Relatório Final da Comissão Estadual da Verdade do Pará "Paulo Fonteles Filho" (Tomo I), o Relatório Final da Comissão da Verdade do Estado de São Paulo "Rubens Paiva" (Tomo II), o Relatório Final da Comissão Nacional da Verdade (Volume III) e o Relatório Final da Comissão da Memória e Verdade da Prefeitura do Município de São Paulo —, bem como o livro *Direito à memória e à verdade*, que documenta as atividades da CEMDP
+
+### Referências apresentadas
+
+1. Comissão Estadual da Verdade do Pará (Assembleia Legislativa do Estado do Pará). *Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho' — Tomo I*. Páginas declaradas: 387-388. [Abrir fonte](https://armazemmemoria.com.br/wp-content/uploads/2023/03/COMISSAO_VERDADE_TOMO_1_WEB.pdf)
+2. Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' (Assembleia Legislativa do Estado de São Paulo). *Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo II: Dossiê Ditadura — Mortos e Desaparecidos Políticos no Brasil (1964-1985) [síntese]*. Páginas declaradas: 30. [Abrir fonte](https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-ii/downloads/II_Tomo_Dossie-ditadura-mortos-e-desparecidos-politicos-no-brasil-1964-1985.pdf)
+3. Comissão Nacional da Verdade (CNV). *Relatório Final da Comissão Nacional da Verdade — Volume III (mortos e desaparecidos políticos)*. Páginas declaradas: 174. [Abrir fonte](https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_3_digital.pdf)
+4. Comissão Estadual da Verdade do Pará (Assembleia Legislativa do Estado do Pará). *Relatório Final da Comissão Estadual da Verdade do Pará 'Paulo Fonteles Filho' — Tomo I*. Páginas declaradas: 389. [Abrir fonte](https://armazemmemoria.com.br/wp-content/uploads/2023/03/COMISSAO_VERDADE_TOMO_1_WEB.pdf)
+5. Comissão Municipal da Verdade de São Paulo Vladimir Herzog. *Relatório Final da Comissão da Memória e Verdade da Prefeitura do Município de São Paulo*. Páginas declaradas: 373-374. [Abrir fonte](https://www.dhnet.org.br/verdade/cv/cmv_sp_sao_paulo_r_2016.pdf)
+6. Comissão Nacional da Verdade (CNV). *Relatório Final da Comissão Nacional da Verdade — Volume III (mortos e desaparecidos políticos)*. Páginas declaradas: 946. [Abrir fonte](https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_3_digital.pdf)
+7. Comissão Nacional da Verdade (CNV). *Relatório Final da Comissão Nacional da Verdade — Volume III (mortos e desaparecidos políticos)*. Páginas declaradas: 1451. [Abrir fonte](https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_3_digital.pdf)
+8. Comissão Nacional da Verdade (CNV). *Relatório Final da Comissão Nacional da Verdade — Volume III (mortos e desaparecidos políticos)*. Páginas declaradas: 1766. [Abrir fonte](https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_3_digital.pdf)
+
+### Registro humano
+
+- Trechos/PDF conferidos: ________________________________________________
+- Atribuição e escopo: ☐ adequado ☐ revisar
+- Referências/localizadores declarados: ☐ adequados ☐ revisar
+- Resumo ligado à resposta: ☐ adequado ☐ revisar
+- Decisão: ☐ seguir ☐ seguir com ressalva ☐ revisar ☐ não seguir
+- Justificativa e marcadores: _____________________________________________
+- Nome/data: _____________________________________________________________
+
+## S06
+
+**Pergunta:** Que papel tiveram empresas e agentes civis na ditadura militar-empresarial?
+
+> **Ressalva editorial [menor]:** a frase “as empresas tiveram grande crescimento econômico” usa o marcador [5], mas o exemplar local do PDF, conferido de forma assistida na página física 576 (impressa 26), diz literalmente “tiveram um grande econômico”. A lacuna existe no próprio exemplar e não confirma “crescimento”. A frase abaixo foi preservada literalmente; esta conferência não preenche a caixa humana nem certifica o documento em geral.
+
+### Resumo atual
+
+As comissões da verdade documentam que empresas e empresários civis participaram ativamente da ditadura, tanto na articulação do golpe de 1964 quanto no financiamento e na manutenção do aparato repressivo. Essa colaboração assumiu várias formas, como fornecimento de veículos para prisões, doações em dinheiro, repasse de informações sobre trabalhadores aos órgãos de segurança e até a existência de locais de interrogatório e tortura dentro de instalações de empresas. Ainda assim, os relatórios ressaltam que os militares foram os detentores do poder e os tomadores de decisão em última instância do regime.
+
+### Resposta atual
+
+**Articulação do golpe e caráter empresarial-militar do regime**
+
+O golpe de Estado de 1º de abril de 1964 foi gestado de forma conjunta por civis e militares, destacando-se entre os civis os proprietários e gestores de empresas com relações econômicas multinacionais ou com interesses a estas associados; também foram importantes parlamentares, governadores, jornalistas, membros do clero católico e do Poder Judiciário [8]. Segundo René Dreifuss, citado no relatório, o empresariado multinacional e associado foi protagonista na articulação golpista por meio do Instituto Brasileiro de Ação Democrática (IBAD) e do Instituto de Pesquisas e Estudos Sociais (IPES), que articularam suas ações às dos oficiais militares da Escola Superior de Guerra (ESG) [8]. É nesse sentido que o relatório do ANDES-SN classifica não apenas a deposição de João Goulart, mas também a ditadura implementada a partir dela e todas as suas consequências como uma obra empresarial-militar [8].
+
+**Financiamento e suporte material ao aparato repressivo**
+
+O relatório da Comissão da Verdade do Estado de São Paulo "Rubens Paiva" afirma que as empreiteiras conseguiram ramificações profundas, aparelhando-se dentro do próprio Estado como beneficiárias de políticas públicas, e que essas empresas estavam muito próximas do governo, colaborando com a política e contribuindo financeiramente para o aparato repressivo [2]. O mesmo relatório conclui que a participação de empresas no golpe militar e durante a ditadura se deu de várias formas: empréstimo de carros para efetuar prisões de militantes políticos, contribuição com dinheiro, fornecimento de equipamentos militares, alimentação, cigarros, entre outras formas; e que as empresas tiveram grande crescimento econômico e contribuíram para a prática de violações aos direitos humanos, podendo ser caracterizadas como cúmplices dessas violações de acordo com as leis internacionais [5].
+
+O relatório do GT UFOP (subcomissão universitária vinculada à Comissão da Verdade em Minas Gerais) registra que empresas e empresários foram identificados como suporte dos órgãos de repressão do regime militar, citando a Volkswagen do Brasil, que, além de fornecer carros, mantinha um local de interrogatório e tortura de empregados no interior de suas instalações; e que Camilo Cola, deputado da Arena, dono da Viação Itapemirim, arrecadava dinheiro de outras empresas para a manutenção do aparato repressivo [1].
+
+**Fornecimento de veículos**
+
+Segundo a advogada e pesquisadora Maria Carolina Bissoto, citada no relatório da Comissão da Verdade do Estado de São Paulo, "o difícil é encontrar empresários que não colaboraram materialmente com a OBAN", e todas as empresas automobilísticas forneceram carros usados na captura de militantes, podendo ser citadas General Motors, Ford, Willys, Mercedes Benz, Volkswagen, Toyota e Chrysler; nas páginas do Diário Oficial do Estado de São Paulo de 1969 seria frequente ver listas de carros fornecidos à polícia paulista, com constante troca de veículos [3].
+
+**Motivações atribuídas ao envolvimento empresarial**
+
+O relatório paulista registra que, sem apoio institucional, não haveria como manter o aparato repressivo funcionando, e que empresários teriam sido chamados a colaborar financeiramente para sua manutenção [4]. Sobre os motivos, os pesquisadores Reinaldo Cabral e Ronaldo Lapa afirmam que os empresários se sentiam ameaçados e queriam unificar a luta em defesa de seus interesses; Fernando Pacheco Jordão acredita que os empresários estariam atemorizados pelas ações violentas praticadas pela guerrilha urbana [4]. O relatório também menciona Jorge José de Melo, autor da dissertação "Boilesen, um empresário da ditadura: a questão do apoio do empresariado paulista à OBAN/Operação Bandeirantes, 1969-1971" [4].
+
+**Caso Boilesen (nota de rodapé)**
+
+Uma nota de rodapé do relatório paulista [3] informa que o empresário Henning Albert Boilesen emigrou para o Brasil na década de 1930, tornou-se presidente do grupo Ultragás e, anticomunista, financiou e apoiou ativamente a Operação Bandeirante (Oban), incentivando outros empresários a fazer o mesmo; a Oban, criada pelo Exército brasileiro em 1969, foi o embrião do DOI-Codi. Trata-se de nota de rodapé, contexto secundário, e a própria nota registra que, de acordo com o documentário "Cidadão Boilesen", ele também teria sido colaborador da CIA — informação de caráter indireto, atribuída ao documentário, não a documento oficial [3].
+
+**Vigilância de trabalhadores e presença de agentes nas fábricas**
+
+Diversos depoimentos colhidos pela Comissão da Verdade do Estado de São Paulo "Rubens Paiva" em audiências públicas atestam que as empresas monitoravam seus funcionários e repassavam detalhadamente informações aos órgãos de segurança, incluindo informações sobre a organização dos trabalhadores e dados de caráter privado, como dados pessoais e informações profissionais de admissão e demissão [6]. Augusto Portugal, membro da Associação dos Metalúrgicos Anistiados do ABC, relatou em audiência que descobriu, em seu "habeas data", que toda a sua documentação na Scania — ficha de admissão, ficha funcional, ficha admissional — havia sido entregue à Seccional do DOPS no ABC pela empresa, fato atestado pela declaração de recebimento do delegado, e mencionou uma "lista negra" com mais de 400 nomes de São Bernardo, com informações de endereço e profissão [6]. Luiz Carlos Prates, metalúrgico e militante da CSP-Conlutas, relatou que trabalhou em várias empresas na época da ditadura, foi demitido de várias delas, como a "Monark", e descobriu anos depois que sua ficha funcional da referida empresa estava no DOPS [6][7]. O relatório acrescenta que, além da vigilância e do repasse de documentos, as empresas muitas vezes colocavam agentes da repressão pessoalmente dentro das fábricas, como conta Sebastião Neto [6][7].
+
+**Recomendações e reparação simbólica**
+
+O relatório paulista propõe, entre suas recomendações, que sejam nomeadas todas as empresas e empresários que contribuíram com a ditadura, dando conhecimento à sociedade do tipo de envolvimento que tiveram, e que as empresas que contribuíram com a prática de violações aos direitos humanos sejam responsabilizadas como cúmplices de acordo com as leis internacionais [5]. O mesmo relatório menciona medidas de reparação simbólica, como placas em locais indicando que ali funcionou um centro clandestino de repressão, e o desejo de fazer o mesmo em empresas, citando como exemplo a possibilidade de colocação de uma placa na FIESP [5].
+
+**O peso relativo dos militares**
+
+Ainda que documente o papel-chave de civis no regime autoritário, o relatório do GT UFOP reforça que os detentores do poder e os estruturadores do regime foram, em última instância, os militares [1]. O historiador Rodrigo Patto Sá Motta, em entrevista citada nesse relatório, defendeu que "o melhor adjetivo para a ditadura é militar, pois foram os homens de verde-oliva que conferiram unidade ao regime político instalado em 1964", sendo os militares ao mesmo tempo a principal fonte de poder e os tomadores de decisão em última instância, ou seja, quem resolvia os conflitos entre as diversas facções de apoiadores do regime — o que teria ficado claro na crise de
+
+### Referências apresentadas
+
+1. Grupo de Trabalho da Universidade Federal de Ouro Preto (UFOP) — subcomissão universitária vinculada à Comissão da Verdade em Minas Gerais (Covemg). *Relatório da Comissão da Verdade em Minas Gerais — GT UFOP (Universidade Federal de Ouro Preto)*. Páginas declaradas: 224-225. [Abrir fonte](https://www.dhnet.org.br/verdade/cv/cuv_mg_ufop_2017.pdf)
+2. Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' (Assembleia Legislativa do Estado de São Paulo). *Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas*. Páginas declaradas: 560-561. [Abrir fonte](https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-i/downloads/Tomo_I_Completo.pdf)
+3. Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' (Assembleia Legislativa do Estado de São Paulo). *Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas*. Páginas declaradas: 560-561. [Abrir fonte](https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-i/downloads/Tomo_I_Completo.pdf)
+4. Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' (Assembleia Legislativa do Estado de São Paulo). *Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas*. Páginas declaradas: 557-558. [Abrir fonte](https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-i/downloads/Tomo_I_Completo.pdf)
+5. Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' (Assembleia Legislativa do Estado de São Paulo). *Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas*. Páginas declaradas: 576. [Abrir fonte](https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-i/downloads/Tomo_I_Completo.pdf)
+6. Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' (Assembleia Legislativa do Estado de São Paulo). *Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas*. Páginas declaradas: 1151. [Abrir fonte](https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-i/downloads/Tomo_I_Completo.pdf)
+7. Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' (Assembleia Legislativa do Estado de São Paulo). *Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas*. Páginas declaradas: 1151. [Abrir fonte](https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-i/downloads/Tomo_I_Completo.pdf)
+8. Comissão da Verdade do Sindicato Nacional dos Docentes das Instituições de Ensino Superior (ANDES-SN). *Comissão da Verdade do ANDES-SN — Relatório Final da Pesquisa: A Ditadura Empresarial-Militar nas Universidades Públicas Brasileiras*. Páginas declaradas: 8. [Abrir fonte](https://www.dhnet.org.br/verdade/cv/cv_universidades_andes_2020.pdf)
+
+### Registro humano
+
+- Trechos/PDF conferidos: ________________________________________________
+- Atribuição e escopo: ☐ adequado ☐ revisar
+- Referências/localizadores declarados: ☐ adequados ☐ revisar
+- Resumo ligado à resposta: ☐ adequado ☐ revisar
+- Decisão: ☐ seguir ☐ seguir com ressalva ☐ revisar ☐ não seguir
+- Justificativa e marcadores: _____________________________________________
+- Nome/data: _____________________________________________________________
+
+## S12
+
+**Pergunta:** E quais foram as consequências políticas dessa medida? (continuação de S01; token omitido do artefato.)
+
+### Resumo atual
+
+**PARTE 1 — RESUMO**
+
+O AI-5 concentrou poderes excepcionais nas mãos do presidente da República, permitindo fechar o Congresso, cassar mandatos, suspender direitos políticos por dez anos e excluir atos do controle judicial. Como consequência, o Congresso foi fechado e sofreu expurgo de parlamentares, a censura foi imposta aos meios de comunicação e a repressão se intensificou, com aumento significativo de mortos e desaparecidos políticos a partir de então. O ato foi extinto em 1978, mas deixou dispositivos incorporados à Constituição de 1969 e à Lei de Segurança Nacional.
+
+### Resposta atual
+
+**PARTE 3 — RESPOSTA COMPLETA**
+
+**Fechamento do Congresso e expurgo de parlamentares**
+
+O AI-5 ampliou os poderes de exceção do presidente ao dar-lhe plenos poderes de decretar estado de sítio e fechar o Congresso Nacional (arts. 1º, 2º, 7º) [1]. A ditadura suspendeu o Congresso e, por algum tempo, não seria tolerada qualquer oposição ao governo, nem sequer a do moderado MDB [1]. Punido com a decretação de recesso, o Congresso sofreu, em acréscimo, o imediato expurgo de parlamentares [6]. O governo militar fechou o Congresso, ordenou a prisão de Juscelino Kubitschek e decretou o AI-5, que cassou dezenas de mandatos, permitiu intervenção nos estados e municípios e suspendeu a garantia de habeas corpus em casos de crime contra a segurança nacional [5].
+
+**Censura e restrição à oposição política**
+
+A ditadura impôs rígida censura aos meios de comunicação já na madrugada de 12 para 13 de dezembro de 1968 [1]. Era a época do slogan oficial "Brasil: ame-o ou deixe-o" [1]. Ao noticiar a implantação do AI-5, em 14 de dezembro, o Jornal do Brasil anunciou, no box do lado esquerdo do cabeçalho, a seguinte avaliação climática: "Tempo negro. Temperatura sufocante. O ar está irrespirável. O país está sendo varrido por fortes ventos" [7].
+
+**Intensificação da repressão e aumento de mortos e desaparecidos**
+
+O significativo aumento no número de mortos e desaparecidos políticos a partir do AI-5 demonstrou que a implantação do estado de exceção se tornou normalidade no país [1]. Ao ampliar os domínios da Doutrina de Segurança Nacional, garantiu a impunidade aos agentes da repressão e consolidou a institucionalização da tortura e do terrorismo de Estado no Brasil, conforme seu artigo 11º: "Excluem-se de qualquer apreciação judicial todos os atos praticados de acordo com este Ato Institucional e seus Atos Complementares, bem como os respectivos efeitos" [1]. Desde o AI-2, de outubro de 1965, os julgamentos por crimes políticos — aqueles incluídos na Lei de Segurança Nacional — passaram a ser de responsabilidade da Justiça Militar; a partir do AI-5, entretanto, a lei deixou de ter qualquer valia para os réus [1].
+
+**Concentração de poder e exclusão do controle judicial**
+
+O AI-5 excluía de apreciação judicial todos os atos alcançados por ele e por seus atos complementares, bem como os respectivos efeitos [6]. Todas as ações facultadas ao presidente não eram passíveis de recurso legal [6]. O país não tivera, em toda a sua vida republicana, um conjunto de medidas que concentrasse tanto poder discricionário nas mãos de um chefe de Estado [6]. O AI-5 limitou o acesso ao Judiciário, ao suspender a garantia de habeas corpus nos crimes mencionados em seu artigo 10 e ao ratificar a exclusão — já expressa nos atos institucionais anteriores — de qualquer apreciação judicial de todos os atos praticados de acordo com referido ato institucional e seus atos complementares, bem como os respectivos efeitos (artigo 11) [2].
+
+**Extinção e heranças institucionais**
+
+O AI-5 foi extinto em 31 de dezembro de 1978, mas alguns de seus dispositivos haviam sido inseridos na Constituição de 1969 e na Lei de Segurança Nacional, deixando heranças ainda hoje [1]. O AI-5 investiu o Estado da prerrogativa de manipulação da vida de todos os cidadãos, de tal modo que o AI-14, editado a 14 de outubro de 1969, instituiu a pena de morte no Brasil [1].
+
+**Sobre a estratégia posterior de distensão**
+
+O governo do general-presidente Ernesto Geisel (diante dos milhões de miseráveis e da crise econômica que afligia diretamente a classe média que apoiava a ditadura) adota a estratégia da distensão lenta, segura e gradual — o que vai se desdobrar, depois, na abertura política do general-presidente João Batista de Oliveira Figueiredo [3][4]. Mas, note-se, que tanto a distensão como a abertura não significaram possibilidade de livre organização e manifestação política: o PCB foi brutalmente enfraquecido pela prisão e assassinato de [trecho interrompido na fonte] [3][4]. Cabe registrar que os trechos [3] e [4] são provenientes do relatório da Comissão da Verdade do Sindicato dos Jornalistas Profissionais de Minas Gerais, documento majoritariamente composto por depoimentos transcritos de jornalistas, conforme sua nota de contexto — trata-se, portanto, de testemunho e análise, a ser cotejado com documentação [4].
+
+**Observação sobre os limites das fontes disponíveis**
+
+Os trechos fornecidos não detalham consequências políticas posteriores específicas, como os desdobramentos eleitorais, o processo de anistia ou a transição para o governo civil. Para essas dimensões, seria necessário consultar outras seções dos relatórios citados.
+
+Para aprofundar a pesquisa, recomendo consultar diretamente o Relatório Final da Comissão Nacional da Verdade (Volume I), o Relatório Final da Comissão da Verdade do Estado de São Paulo "Rubens Paiva" (Tomo II) e o Relatório da Comissão da Verdade do Sindicato dos Jornalistas Profissionais de Minas Gerais, que trazem o detalhamento normativo e o contexto histórico aqui sintetizados.
+
+### Referências apresentadas
+
+1. Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' (Assembleia Legislativa do Estado de São Paulo). *Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo II: Dossiê Ditadura — Mortos e Desaparecidos Políticos no Brasil (1964-1985) [síntese]*. Páginas declaradas: 120. [Abrir fonte](https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-ii/downloads/II_Tomo_Dossie-ditadura-mortos-e-desparecidos-politicos-no-brasil-1964-1985.pdf)
+2. Comissão Nacional da Verdade (CNV). *Relatório Final da Comissão Nacional da Verdade — Volume I*. Páginas declaradas: 100-101. [Abrir fonte](https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_1_digital.pdf)
+3. Comissão Nacional da Verdade (CNV). *Relatório Final da Comissão Nacional da Verdade — Volume I*. Páginas declaradas: 938. [Abrir fonte](https://cnv.memoriasreveladas.gov.br/images/pdf/relatorio/volume_1_digital.pdf)
+4. Sindicato dos Jornalistas Profissionais de Minas Gerais (SJPMG). *Relatório da Comissão da Verdade do Sindicato dos Jornalistas Profissionais de Minas Gerais*. Páginas declaradas: 40. [Abrir fonte](http://www.comissaodaverdade.mg.gov.br/handle/123456789/468)
+5. Comissão da Verdade do Sindicato dos Jornalistas Profissionais de Minas Gerais (SJPMG). *Relatório da Comissão da Verdade do Sindicato dos Jornalistas Profissionais de Minas Gerais (SJPMG)*. Páginas declaradas: 40. [Abrir fonte](https://www.dhnet.org.br/verdade/cv/cv_mg_jornalistas_r_2013.pdf)
+6. Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' (Assembleia Legislativa do Estado de São Paulo). *Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo II: Dossiê Ditadura — Mortos e Desaparecidos Políticos no Brasil (1964-1985) [síntese]*. Páginas declaradas: 120. [Abrir fonte](https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-ii/downloads/II_Tomo_Dossie-ditadura-mortos-e-desparecidos-politicos-no-brasil-1964-1985.pdf)
+7. Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' (Assembleia Legislativa do Estado de São Paulo). *Relatório Final da Comissão da Verdade do Estado de São Paulo 'Rubens Paiva' — Tomo I: Recomendações Gerais e Recomendações Temáticas*. Páginas declaradas: 40-41. [Abrir fonte](https://comissaodaverdade.al.sp.gov.br/relatorio/tomo-i/downloads/Tomo_I_Completo.pdf)
+
+### Registro humano
+
+- Trechos/PDF conferidos: ________________________________________________
+- Atribuição e escopo: ☐ adequado ☐ revisar
+- Referências/localizadores declarados: ☐ adequados ☐ revisar
+- Resumo ligado à resposta: ☐ adequado ☐ revisar
+- Decisão: ☐ seguir ☐ seguir com ressalva ☐ revisar ☐ não seguir
+- Justificativa e marcadores: _____________________________________________
+- Nome/data: _____________________________________________________________
+
+## Decisão humana final
+
+- Itens revisados: ☐ S01 ☐ S03 ☐ S04 ☐ S06 ☐ S12
+- Ressalva S06 [5] — conferência assistida já registrada; decisão humana: ☐ aceita ☐ revisar ☐ pendente
+- Decisão desta amostra: ☐ seguir ☐ seguir com pendências ☐ não seguir
+- Esta decisão não certifica PDFs, corpus, v4, latência ou publicação.
+- Pendência bibliográfica “Tomo II [síntese]”/Dossiê completo resolvida nos metadados? ☐ não ☐ sim (registrar evidência)
+- Responsável/data: _______________________________________________________

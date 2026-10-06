@@ -1,0 +1,84 @@
+{
+  "data": "2026-10-05",
+  "estado": "aplicada e verificada",
+  "autorizacao": "Yuri respondeu autorizo à migração 0033 e à alteração de tipo_fonte/nota_contexto do Dossiê",
+  "validacao": {
+    "fonte_id": "efc10a75-5cf4-435e-a598-7abf57f88ff7",
+    "migracao": "0033",
+    "tipo_fonte": "compilacao_documental",
+    "confiabilidade": "alta",
+    "campos_alterados": [
+      "tipo_fonte",
+      "nota_contexto"
+    ],
+    "catalogo_alinhado": true,
+    "chunks_2773_com_todos_campos_inclusive_embeddings_preservados": true,
+    "demais_fontes_preservadas": true,
+    "duplicado_vazio_preservado": true
+  },
+  "api": {
+    "consultas_somente_leitura": true,
+    "chamadas_llm": 0,
+    "resultados": [
+      {
+        "ambiente": "candidato",
+        "url": "https://projetobacuri-2osa0bxht-yuri-gomes-alves-projects.vercel.app",
+        "status": 200,
+        "fonte": {
+          "fonte_id": "efc10a75-5cf4-435e-a598-7abf57f88ff7",
+          "titulo": "Dossiê Ditadura: Mortos e Desaparecidos Políticos no Brasil (1964-1985)",
+          "autor_orgao": "Comissão de Familiares de Mortos e Desaparecidos Políticos; Instituto de Estudos sobre a Violência do Estado (IEVE)",
+          "tipo_fonte": "compilacao_documental",
+          "confiabilidade": "alta",
+          "data_documento": null,
+          "periodo": "pos_1985",
+          "url_origem": "https://comissaodaverdade.al.sp.gov.br/livros/downloads/Livro-Dossie-ditadura.pdf",
+          "nota_contexto": "Compilação documental de memória e direitos humanos organizada pela Comissão de Familiares de Mortos e Desaparecidos Políticos e pelo IEVE (edição de 2009). Reúne pesquisa, documentos e relatos de proveniências diversas; a atribuição e o alcance devem ser verificados no trecho citado. Não é relatório originalmente produzido pela CEV-SP, que apenas hospeda o PDF."
+        },
+        "categoria_na_contagem": 1
+      },
+      {
+        "ambiente": "publico",
+        "url": "https://memoria-e-verdade.vercel.app",
+        "status": 200,
+        "fonte": {
+          "fonte_id": "efc10a75-5cf4-435e-a598-7abf57f88ff7",
+          "titulo": "Dossiê Ditadura: Mortos e Desaparecidos Políticos no Brasil (1964-1985)",
+          "autor_orgao": "Comissão de Familiares de Mortos e Desaparecidos Políticos; Instituto de Estudos sobre a Violência do Estado (IEVE)",
+          "tipo_fonte": "compilacao_documental",
+          "confiabilidade": "alta",
+          "data_documento": null,
+          "periodo": "pos_1985",
+          "url_origem": "https://comissaodaverdade.al.sp.gov.br/livros/downloads/Livro-Dossie-ditadura.pdf",
+          "nota_contexto": "Compilação documental de memória e direitos humanos organizada pela Comissão de Familiares de Mortos e Desaparecidos Políticos e pelo IEVE (edição de 2009). Reúne pesquisa, documentos e relatos de proveniências diversas; a atribuição e o alcance devem ser verificados no trecho citado. Não é relatório originalmente produzido pela CEV-SP, que apenas hospeda o PDF."
+        },
+        "categoria_na_contagem": 1
+      }
+    ]
+  },
+  "integridade_chunks_antes": [
+    {
+      "fonte_id": "efc10a75-5cf4-435e-a598-7abf57f88ff7",
+      "quantidade": 2773,
+      "digest_completo": "a03fee8b498d0b19ffaa08334a9fad25"
+    }
+  ],
+  "integridade_chunks_depois": [
+    {
+      "fonte_id": "efc10a75-5cf4-435e-a598-7abf57f88ff7",
+      "quantidade": 2773,
+      "digest_completo": "a03fee8b498d0b19ffaa08334a9fad25"
+    }
+  ],
+  "restricoes_apos_migracao": {
+    "fontes_confiabilidade_check": "CHECK ((confiabilidade = ANY (ARRAY['alta'::text, 'media_alta'::text, 'media'::text, 'baixa'::text, 'alta_como_evidencia_de_autoria'::text, 'alta_como_relato_subjetivo'::text, 'baixa_factual_alta_documental'::text])))",
+    "fontes_periodo_check": "CHECK ((periodo = ANY (ARRAY['1964'::text, '1964-1968'::text, '1968-1974'::text, '1974-1979'::text, '1979-1985'::text, 'pos_1985'::text])))",
+    "fontes_tipo_fonte_check": "CHECK ((tipo_fonte = ANY (ARRAY['relatorio_oficial'::text, 'documento_repressao'::text, 'documento_inteligencia_estrangeira'::text, 'imprensa_epoca'::text, 'producao_academica'::text, 'testemunho'::text, 'legislacao_decisao_judicial'::text, 'material_didatico_educativo'::text, 'compilacao_documental'::text])))",
+    "nota_contexto_obrigatoria": "CHECK ((((tipo_fonte <> ALL (ARRAY['imprensa_epoca'::text, 'documento_repressao'::text])) OR (nota_contexto IS NOT NULL)) AND ((tipo_fonte <> 'compilacao_documental'::text) OR (NULLIF(btrim(nota_contexto), ''::text) IS NOT NULL))))"
+  },
+  "historico_apenas_0033_adicionada": true,
+  "conexao_migracao": "pooler em sessão, porta 5432; tentativa na porta 6543 falhou antes de alterar o banco",
+  "deploy_publicado_nesta_fase": false,
+  "reindexacao_executada": false,
+  "chamadas_llm_nesta_fase": 0
+}

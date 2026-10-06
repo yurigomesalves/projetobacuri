@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { NextRequest } from "next/server";
 import { criarSupabaseFalso, type SupabaseFalso } from "../apoio/supabase-falso";
 import { trechoBuscado, UUID_INTERACAO } from "../apoio/fixtures";
@@ -17,7 +17,8 @@ vi.mock("@/lib/server/embedding", () => ({
   gerarEmbeddingConsulta: vi.fn(async () => Array.from({ length: 384 }, () => 0.01)),
 }));
 vi.mock("@/lib/server/llm", () => ({
-  gerarResposta: vi.fn(async () => "O AI-5 suspendeu garantias constitucionais [1][2]."),
+  gerarResposta: vi.fn(async () => "O AI-5 suspendeu garantias constitucionais [1]."),
+  gerarRespostaDetalhada: vi.fn(),
 }));
 vi.mock("@/lib/server/limite", () => ({
   dentroDoLimite: vi.fn(() => true),
@@ -25,7 +26,7 @@ vi.mock("@/lib/server/limite", () => ({
 
 import { POST } from "@/app/api/chat/route";
 import { gerarEmbeddingConsulta } from "@/lib/server/embedding";
-import { gerarResposta } from "@/lib/server/llm";
+import { gerarResposta, gerarRespostaDetalhada } from "@/lib/server/llm";
 import { dentroDoLimite } from "@/lib/server/limite";
 import { emitirTokenContinuidade } from "@/lib/server/continuidade";
 
@@ -44,8 +45,128 @@ beforeEach(() => {
   estado.supabase = criarSupabaseFalso();
 });
 
+afterEach(() => {
+  vi.useRealTimers();
+  vi.unstubAllEnvs();
+});
+
+describe("POST /api/chat — integração experimental", () => {
+  it("inclui a evidência da subconsulta e renumera citações na ordem final", async () => {
+    vi.mocked(gerarResposta).mockResolvedValueOnce("Resposta [1][2].");
+    vi.stubEnv("RAG_ETAPAS_PAGAS_AUTORIZADAS", "sim");
+    vi.stubEnv("RAG_DECOMPOR_CONSULTA", "1");
+    vi.mocked(gerarRespostaDetalhada).mockResolvedValueOnce({ texto: '{"consultas":["Quais garantias foram suspensas?"]}', modelo: "teste", provedor: "teste" });
+    estado.supabase = criarSupabaseFalso({
+      rpc: [
+        { data: Array.from({ length: 8 }, (_, i) => trechoBuscado({ chunk_id: `original-${i}`, paginas: `${i + 1}` })) },
+        { data: [trechoBuscado({ chunk_id: "subconsulta", paginas: "90", conteudo: "Evidência específica da subconsulta." })] },
+      ],
+      tabelas: { interacoes: { data: { interacao_id: UUID_INTERACAO } } },
+    });
+    const resposta = await POST(requisicao({ mensagem: "O que foi o AI-5?" }));
+    const corpo = await resposta.json();
+    expect(resposta.status).toBe(200);
+    expect(corpo.citacoes).toHaveLength(2);
+    expect(corpo.citacoes[1]).toMatchObject({ n: 2, paginas: "90", trecho: "Evidência específica da subconsulta." });
+    expect(vi.mocked(gerarResposta).mock.calls[0][0][0].content).toContain("Evidência específica da subconsulta.");
+  });
+
+  it("verifica o resumo com o texto integral e remove ambas as partes quando reprovadas", async () => {
+    vi.stubEnv("RAG_ETAPAS_PAGAS_AUTORIZADAS", "sim");
+    vi.stubEnv("RAG_VERIFICAR_RESPOSTA", "1");
+    const conteudo = "Contexto documental. ".repeat(30) + "EVIDÊNCIA FINAL INTEGRAL";
+    estado.supabase = criarSupabaseFalso({
+      rpc: { data: [trechoBuscado({ conteudo })] },
+      tabelas: { interacoes: { data: { interacao_id: UUID_INTERACAO } } },
+    });
+    vi.mocked(gerarResposta).mockResolvedValueOnce("Uma síntese sem fundamento.\n---\nUma resposta [1].");
+    vi.mocked(gerarRespostaDetalhada).mockResolvedValueOnce({ texto: '{"veredito":"contradita"}', modelo: "teste", provedor: "teste" });
+    const resposta = await POST(requisicao({ mensagem: "O que foi o AI-5?" }));
+    const corpo = await resposta.json();
+    const prompt = vi.mocked(gerarRespostaDetalhada).mock.calls[0][0][1].content;
+    expect(prompt).toContain("Resumo: Uma síntese sem fundamento.");
+    expect(prompt).toContain("EVIDÊNCIA FINAL INTEGRAL");
+    expect(corpo.resumo).toBe("");
+    expect(corpo.citacoes).toEqual([]);
+    expect(corpo.resposta).not.toBe("Uma resposta [1].");
+    expect(estado.supabase.chamadas.find((c) => c.metodo === "insert")?.args[0]).toMatchObject({ citacoes: [], resposta: corpo.resposta });
+  });
+});
+
+describe("POST /api/chat — prazo compartilhado", () => {
+  it("não reinicia o orçamento ao passar do embedding para a geração", async () => {
+    vi.useFakeTimers();
+    estado.supabase = criarSupabaseFalso({ rpc: { data: [trechoBuscado()] } });
+    vi.mocked(gerarEmbeddingConsulta).mockImplementationOnce(() => new Promise((resolve) => {
+      setTimeout(() => resolve([0.01]), 15_000);
+    }));
+    let concluir!: (valor: string) => void;
+    vi.mocked(gerarResposta).mockImplementationOnce(() => new Promise((resolve) => { concluir = resolve; }));
+    const pendente = POST(requisicao({ mensagem: "O que foi o AI-5?" }));
+    await vi.advanceTimersByTimeAsync(15_001);
+    expect(gerarResposta).toHaveBeenCalledTimes(1);
+    await vi.advanceTimersByTimeAsync(5_000);
+    expect((await pendente).status).toBe(500);
+    concluir("Resposta tardia [1].");
+    await vi.advanceTimersByTimeAsync(1);
+    expect(estado.supabase.from).not.toHaveBeenCalled();
+  });
+
+  it("encerra embedding lento sem gerar nem registrar resposta após o prazo", async () => {
+    vi.useFakeTimers();
+    let concluir!: (valor: number[]) => void;
+    vi.mocked(gerarEmbeddingConsulta).mockImplementationOnce(() => new Promise((resolve) => { concluir = resolve; }));
+    const pendente = POST(requisicao({ mensagem: "O que foi o AI-5?" }));
+    await vi.advanceTimersByTimeAsync(20_001);
+    const resposta = await pendente;
+    expect(resposta.status).toBe(500);
+    expect(await resposta.json()).toMatchObject({ erro: { codigo: "ERRO_INTERNO" } });
+    concluir([0.01]);
+    await vi.advanceTimersByTimeAsync(1);
+    expect(gerarResposta).not.toHaveBeenCalled();
+    expect(estado.supabase.from).not.toHaveBeenCalled();
+    expect(estado.supabase.rpc).not.toHaveBeenCalled();
+  });
+
+  it("encerra geração lenta sem registrar resposta tardia", async () => {
+    vi.useFakeTimers();
+    estado.supabase = criarSupabaseFalso({ rpc: { data: [trechoBuscado()] } });
+    let concluir!: (valor: string) => void;
+    vi.mocked(gerarResposta).mockImplementationOnce(() => new Promise((resolve) => { concluir = resolve; }));
+    const pendente = POST(requisicao({ mensagem: "O que foi o AI-5?" }));
+    await vi.advanceTimersByTimeAsync(20_001);
+    const resposta = await pendente;
+    expect(resposta.status).toBe(500);
+    concluir("Resposta tardia [1].");
+    await vi.advanceTimersByTimeAsync(1);
+    expect(estado.supabase.from).not.toHaveBeenCalled();
+  });
+});
+
 describe("POST /api/chat — resposta com base documental", () => {
+  it("persiste somente fontes citadas e renumera o texto sem mudar sua identidade", async () => {
+    estado.supabase = criarSupabaseFalso({
+      rpc: { data: [trechoBuscado(), trechoBuscado({ chunk_id: "outro", paginas: "90" })] },
+      tabelas: { interacoes: { data: { interacao_id: UUID_INTERACAO } } },
+    });
+    vi.mocked(gerarResposta).mockResolvedValueOnce("Resumo.\n---\nTexto [2].");
+    const retorno = await POST(requisicao({ mensagem: "O que foi o AI-5?" }));
+    const corpo = await retorno.json();
+    expect(corpo.resposta).toBe("Texto [1].");
+    expect(corpo.citacoes).toHaveLength(1);
+    expect(corpo.citacoes[0]).toMatchObject({ n: 1, paginas: "90" });
+    expect(estado.supabase.chamadas.find((c) => c.metodo === "insert")?.args[0]).toMatchObject({ resposta: corpo.resposta, citacoes: corpo.citacoes });
+  });
+
+  it.each(["Texto sem marcador.", "Texto [99]."])("não registra uma geração com referências inválidas: %s", async (texto) => {
+    estado.supabase = criarSupabaseFalso({ rpc: { data: [trechoBuscado()] } });
+    vi.mocked(gerarResposta).mockResolvedValueOnce(texto);
+    const retorno = await POST(requisicao({ mensagem: "O que foi o AI-5?" }));
+    expect(retorno.status).toBe(500);
+    expect(estado.supabase.from).not.toHaveBeenCalled();
+  });
   it("devolve 200 com citações numeradas em sequência e interacao_id", async () => {
+    vi.mocked(gerarResposta).mockResolvedValueOnce("O AI-5 suspendeu garantias constitucionais [1][2].");
     estado.supabase = criarSupabaseFalso({
       rpc: {
         data: [
@@ -111,6 +232,22 @@ describe("POST /api/chat — resposta com base documental", () => {
 
     expect(corpo.resumo).toBe("");
     expect(corpo.resposta).toBe("O AI-5 suspendeu garantias constitucionais [1].");
+  });
+
+  it("preserva preâmbulo citado no texto integral e renumera suas fontes junto da resposta", async () => {
+    estado.supabase = criarSupabaseFalso({
+      rpc: { data: [trechoBuscado(), trechoBuscado({ chunk_id: "outro", paginas: "90" }), trechoBuscado({ chunk_id: "terceiro", paginas: "120" })] },
+      tabelas: { interacoes: { data: { interacao_id: UUID_INTERACAO } } },
+    });
+    const texto = "Preâmbulo citado [3].\n---\nPARTE 1 — RESUMO: Síntese.\n---\nPARTE 3 — RESPOSTA COMPLETA: Texto citado [2].";
+    vi.mocked(gerarResposta).mockResolvedValueOnce(texto);
+    const retorno = await POST(requisicao({ mensagem: "Quais foram as consequências do AI-5?" }));
+    const corpo = await retorno.json();
+    expect(retorno.status).toBe(200);
+    expect(corpo.resumo).toBe("");
+    expect(corpo.resposta).toBe(texto.replace("[3]", "[2]").replace("Texto citado [2]", "Texto citado [1]"));
+    expect(corpo.citacoes.map((c: { n: number; paginas: string }) => [c.n, c.paginas])).toEqual([[1, "90"], [2, "120"]]);
+    expect(estado.supabase.chamadas.find((c) => c.metodo === "insert")?.args[0]).toMatchObject({ resposta: corpo.resposta, citacoes: corpo.citacoes });
   });
 
   it("trunca trechos longos das citações em 400 caracteres", async () => {
@@ -265,6 +402,7 @@ describe("POST /api/chat — continuidade documental assinada", () => {
   }
 
   it("usa o ramo textual com token válido, intercala, deduplica e limita a oito", async () => {
+    vi.mocked(gerarResposta).mockResolvedValueOnce("Resposta [1][2][3][4][5][6][7][8].");
     process.env.CONTINUIDADE_TOKEN_SECRET = segredo;
     const token = emitirTokenContinuidade([fonteId])!;
     const vetoriais = Array.from({ length: 8 }, (_, indice) => trechoBuscado({

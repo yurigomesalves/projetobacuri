@@ -31,4 +31,10 @@ jobs:
         run: npm test
 
       - name: Build de produção
+        # Somente compilação: nenhum segredo ou banco real é usado no CI.
+        # Este build não é publicado; a Vercel usa suas próprias variáveis.
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: http://127.0.0.1:54321
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: chave-publica-sem-acesso-para-build
+          SUPABASE_SERVICE_ROLE_KEY: chave-sem-acesso-para-build
         run: npm run build

@@ -17,6 +17,39 @@ type ConfiguracaoProvedor = {
   modeloPadrao: string | undefined;
 };
 
+export type ResultadoLLM = {
+  texto: string;
+  uso?: { entrada?: number; saida?: number; total?: number };
+  modelo: string;
+  provedor: string;
+};
+
+export type OpcoesGeracao = {
+  maxTokens?: number;
+  timeoutMs?: number;
+  tentativas?: number;
+  signal?: AbortSignal;
+};
+
+function esperarComCancelamento(ms: number, signal?: AbortSignal): Promise<void> {
+  return new Promise((resolver, rejeitar) => {
+    if (signal?.aborted) {
+      rejeitar(signal?.reason);
+      return;
+    }
+    const temporizador = setTimeout(() => {
+      signal?.removeEventListener("abort", aoAbortar);
+      resolver();
+    }, ms);
+    const aoAbortar = () => {
+      clearTimeout(temporizador);
+      signal?.removeEventListener("abort", aoAbortar);
+      rejeitar(signal?.reason);
+    };
+    signal?.addEventListener("abort", aoAbortar, { once: true });
+  });
+}
+
 function obterConfiguracao(): ConfiguracaoProvedor {
   const provedor = (process.env.LLM_PROVIDER ?? "groq").toLowerCase();
 
@@ -52,11 +85,14 @@ function obterConfiguracao(): ConfiguracaoProvedor {
  * Envia o histórico de mensagens ao provedor de LLM configurado e devolve
  * o texto da resposta do assistente.
  */
-export async function gerarResposta(mensagens: MensagemLLM[]): Promise<string> {
+export async function gerarRespostaDetalhada(
+  mensagens: MensagemLLM[],
+  opcoes: OpcoesGeracao = {},
+): Promise<ResultadoLLM> {
   const { baseUrl, chave, modeloPadrao } = obterConfiguracao();
   const provedor = (process.env.LLM_PROVIDER ?? "groq").toLowerCase();
   const modelo = process.env.LLM_MODELO ?? modeloPadrao;
-  const maxTokens = Number(process.env.LLM_MAX_TOKENS ?? "2048");
+  const maxTokens = opcoes.maxTokens ?? Number(process.env.LLM_MAX_TOKENS ?? "2048");
 
   if (!Number.isInteger(maxTokens) || maxTokens < 1 || maxTokens > 8192) {
     throw new Error("LLM_MAX_TOKENS deve ser um inteiro entre 1 e 8192.");
@@ -77,10 +113,18 @@ export async function gerarResposta(mensagens: MensagemLLM[]): Promise<string> {
 
   // Modelos gratuitos (ex.: OpenRouter ":free") ficam congestionados com
   // frequência (429). Repetimos algumas vezes, respeitando o Retry-After.
-  const TENTATIVAS = 3;
+  const TENTATIVAS = opcoes.tentativas ?? 3;
+  const timeoutMs = opcoes.timeoutMs ?? 45_000;
+  if (!Number.isInteger(TENTATIVAS) || TENTATIVAS < 1 || TENTATIVAS > 3) {
+    throw new Error("tentativas deve ser um inteiro entre 1 e 3.");
+  }
+  if (!Number.isInteger(timeoutMs) || timeoutMs < 500 || timeoutMs > 45_000) {
+    throw new Error("timeoutMs deve ser um inteiro entre 500 e 45000.");
+  }
   let resposta: Response | null = null;
 
   for (let tentativa = 1; tentativa <= TENTATIVAS; tentativa++) {
+    if (opcoes.signal?.aborted) throw opcoes.signal.reason;
     const corpo = {
       model: modelo,
       messages: mensagens,
@@ -94,12 +138,15 @@ export async function gerarResposta(mensagens: MensagemLLM[]): Promise<string> {
     resposta = await fetch(baseUrl, {
       method: "POST",
       headers: cabecalhos,
-      signal: AbortSignal.timeout(45_000),
+      signal: opcoes.signal
+        ? AbortSignal.any([opcoes.signal, AbortSignal.timeout(timeoutMs)])
+        : AbortSignal.timeout(timeoutMs),
       body: JSON.stringify(corpo),
     });
 
     const transitorio = resposta.status === 429 || resposta.status >= 500;
     if (resposta.ok || !transitorio || tentativa === TENTATIVAS) break;
+    if (opcoes.signal?.aborted) throw opcoes.signal.reason;
 
     const retryAfter = Number(resposta.headers.get("retry-after"));
     const esperaMs = Math.min(
@@ -109,7 +156,7 @@ export async function gerarResposta(mensagens: MensagemLLM[]): Promise<string> {
     console.warn(
       `Provedor de LLM respondeu ${resposta.status}; nova tentativa em ${esperaMs / 1000}s (${tentativa}/${TENTATIVAS}).`
     );
-    await new Promise((resolver) => setTimeout(resolver, esperaMs));
+    await esperarComCancelamento(esperaMs, opcoes.signal);
   }
 
   if (!resposta || !resposta.ok) {
@@ -120,11 +167,32 @@ export async function gerarResposta(mensagens: MensagemLLM[]): Promise<string> {
   }
 
   const dados = await resposta.json();
+  if (dados?.choices?.[0]?.finish_reason === "length") {
+    throw new Error("Geração interrompida pelo limite de tokens; resposta não entregue.");
+  }
   const conteudo = dados?.choices?.[0]?.message?.content;
 
   if (typeof conteudo !== "string" || !conteudo.trim()) {
     throw new Error("Resposta do provedor de LLM em formato inesperado.");
   }
 
-  return conteudo;
+  const uso = dados?.usage;
+  return {
+    texto: conteudo,
+    modelo,
+    provedor,
+    uso: uso && typeof uso === "object" ? {
+      entrada: Number.isFinite(uso.prompt_tokens) ? uso.prompt_tokens : undefined,
+      saida: Number.isFinite(uso.completion_tokens) ? uso.completion_tokens : undefined,
+      total: Number.isFinite(uso.total_tokens) ? uso.total_tokens : undefined,
+    } : undefined,
+  };
+}
+
+/** Mantém a interface histórica do chat; etapas experimentais usam o resultado detalhado. */
+export async function gerarResposta(
+  mensagens: MensagemLLM[],
+  opcoes: OpcoesGeracao = {},
+): Promise<string> {
+  return (await gerarRespostaDetalhada(mensagens, opcoes)).texto;
 }

@@ -107,6 +107,17 @@ export function possuiDoisTermosDaConsulta(conteudo: string, consulta: string): 
   return termos.filter((termo) => new RegExp(`\\b${termo}\\b`).test(texto)).length >= 2;
 }
 
+/** Aceita identificadores curtos (ex.: AI-5) e uma entidade substantiva; evita
+ * descartar documentos por uma regra feita apenas para palavras longas. */
+export function possuiTermosSuficientesDaConsulta(conteudo: string, consulta: string): boolean {
+  if (possuiDoisTermosDaConsulta(conteudo, consulta)) return true;
+  const normalizado = normalizar(consulta);
+  const identificadores = normalizado.match(/\b[a-z]{1,4}[\s-]?\d{1,4}\b/g) ?? [];
+  const texto = normalizar(conteudo);
+  return identificadores.some((id) => texto.includes(id.replace(/\s+/g, " "))) &&
+    termosSubstantivos(consulta).some((termo) => new RegExp(`\\b${termo}\\b`).test(texto));
+}
+
 export function houveMudancaExplicitaDeAssunto(texto: string): boolean {
   return /\b(mudando de assunto|outro tema|em outro tema|outra questao|agora sobre)\b/.test(normalizar(texto));
 }

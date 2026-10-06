@@ -1,129 +1,155 @@
-"""Indexação: gera embeddings dos chunks e grava fonte + chunks no Supabase.
+"""Indexa uma fonte somente após conferir sua identidade documental.
 
-Lê os metadados da fonte do catálogo pipeline/fontes.json e a proveniência
-do pipeline/manifesto.json.
+Por padrão, o comando apenas diagnostica catálogo, manifesto, arquivo bruto e
+registro remoto, sem carregar modelo nem alterar o banco:
 
-Idempotente: se a fonte (mesma url_origem) já existir, os chunks dela são
-apagados e regravados — o registro da fonte é reaproveitado.
+    .venv/bin/python 04_indexar.py dossie-ditadura-cevsp
 
-Uso:
-    .venv/bin/python 04_indexar.py cnv-vol2
+Para uma fonte nova, depois de conferir a saída, use:
+
+    .venv/bin/python 04_indexar.py SLUG --aplicar
+
+Para substituir chunks de uma fonte já existente, a operação é destrutiva e
+exige as duas chaves explícitas abaixo. Faça backup autorizado antes:
+
+    .venv/bin/python 04_indexar.py SLUG --aplicar --substituir-chunks
 """
 
 import argparse
 import json
+import math
+import os
 from pathlib import Path
 
-from dotenv import load_dotenv
-import os
-
-from sentence_transformers import SentenceTransformer
-from supabase import create_client
+from identidade_documental import (
+    IdentidadeDocumentalErro,
+    resolver_fonte_existente,
+    selecionar_manifesto,
+    validar_arquivo_bruto,
+)
 
 RAIZ = Path(__file__).resolve().parent
 CATALOGO = RAIZ / "fontes.json"
 ARQ_MANIFESTO = RAIZ / "manifesto.json"
-
 MODELO = "intfloat/multilingual-e5-small"
 LOTE_EMBEDDINGS = 64
-# Lote pequeno: cada linha carrega um vetor de 384 dimensões; lotes grandes
-# estouram o statement timeout do Supabase free tier (erro 57014).
 LOTE_INSERCAO = 25
 
 
-def montar_proveniencia(url_oficial: str) -> str:
-    """Compõe o texto de proveniência a partir do manifesto do pipeline."""
-    manifesto = json.loads(ARQ_MANIFESTO.read_text(encoding="utf-8"))
-    candidatos = [d for d in manifesto if d.get("url_original") == url_oficial]
-    if not candidatos:
-        raise SystemExit(
-            f"Fonte com url_original={url_oficial} não encontrada no manifesto. "
-            "Rode antes o 01_baixar.py."
-        )
-    doc = candidatos[0]
-    return (
-        f"{doc['descricao']} Download em {doc['data_download'][:10]}, "
-        f"sha256 {doc['sha256']}."
-    )
+def ler_chunks(caminho: Path) -> list[dict]:
+    # Não usar splitlines(): U+2028/U+0085 podem fazer parte do texto do chunk.
+    with caminho.open(encoding="utf-8") as arquivo:
+        chunks = [json.loads(linha) for linha in arquivo if linha.strip()]
+    if not chunks:
+        raise IdentidadeDocumentalErro(f"Arquivo de chunks vazio: {caminho}.")
+    return chunks
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description="Indexa os chunks de uma fonte no Supabase")
-    parser.add_argument("slug", help="slug da fonte em fontes.json (ex.: cnv-vol2)")
-    args = parser.parse_args()
-
-    catalogo = json.loads(CATALOGO.read_text(encoding="utf-8"))
-    if args.slug not in catalogo:
-        raise SystemExit(f"fonte '{args.slug}' não está em {CATALOGO.name}. "
-                         f"Disponíveis: {', '.join(catalogo)}")
-    fonte_meta = catalogo[args.slug]["fonte"]
-    arq_chunks = RAIZ / "dados" / "chunks" / f"{args.slug}.jsonl"
-
-    load_dotenv(RAIZ.parent / ".env.local")
-    url = os.environ["SUPABASE_URL"]
-    chave = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
-    supabase = create_client(url, chave)
-
-    # Atenção: não usar str.splitlines() aqui — o texto extraído dos PDFs pode
-    # conter separadores de linha Unicode (U+2028, U+0085) dentro dos chunks,
-    # que o splitlines() trataria como fim de registro, corrompendo a leitura.
-    # A iteração sobre o arquivo quebra apenas em quebras de linha reais (\n).
-    with open(arq_chunks, encoding="utf-8") as f:
-        chunks = [json.loads(linha) for linha in f if linha.strip()]
-    print(f"{len(chunks)} chunks lidos de {arq_chunks.name}")
-
-    # Fonte: reaproveita se já existir (mesma url_origem), senão insere.
-    existente = (
-        supabase.table("fontes")
-        .select("fonte_id")
-        .eq("url_origem", fonte_meta["url_origem"])
-        .execute()
-    )
-    if existente.data:
-        fonte_id = existente.data[0]["fonte_id"]
-        apagados = supabase.table("chunks").delete().eq("fonte_id", fonte_id).execute()
-        print(f"Fonte já existia ({fonte_id}); {len(apagados.data)} chunks antigos removidos.")
-    else:
-        registro = dict(fonte_meta, proveniencia=montar_proveniencia(fonte_meta["url_origem"]))
-        resposta = supabase.table("fontes").insert(registro).execute()
-        fonte_id = resposta.data[0]["fonte_id"]
-        print(f"Fonte registrada: {fonte_id}")
-
-    print(f"Carregando modelo {MODELO}…")
-    modelo = SentenceTransformer(MODELO)
-
-    # O modelo e5 exige o prefixo "passage: " nos textos indexados.
-    textos = ["passage: " + c["conteudo"] for c in chunks]
+def preparar_linhas(chunks: list[dict], fonte_id: str | None, modelo) -> list[dict]:
+    """Calcula todos os vetores antes de qualquer remoção de chunks antigos."""
     embeddings = modelo.encode(
-        textos,
+        ["passage: " + chunk["conteudo"] for chunk in chunks],
         batch_size=LOTE_EMBEDDINGS,
         normalize_embeddings=True,
         show_progress_bar=True,
     )
-
-    linhas = [
+    if len(embeddings) != len(chunks):
+        raise IdentidadeDocumentalErro(
+            "O modelo devolveu quantidade de embeddings diferente da quantidade de chunks."
+        )
+    vetores = []
+    for indice, embedding in enumerate(embeddings):
+        vetor = embedding.tolist()
+        if len(vetor) != 384 or not all(math.isfinite(valor) for valor in vetor):
+            raise IdentidadeDocumentalErro(
+                f"Embedding inválido no chunk {indice}: esperadas 384 dimensões finitas."
+            )
+        vetores.append(vetor)
+    return [
         {
             "fonte_id": fonte_id,
-            "ordem": c["ordem"],
-            "conteudo": c["conteudo"],
-            "paginas": c["paginas"],
-            "secao": c["secao"],
-            # subsecao (opcional): só os documentos com mapa de subseções a
-            # preenchem; ausente/nulo nas demais fontes.
-            "subsecao": c.get("subsecao"),
-            "tipo_chunk": c.get("tipo_chunk", "corpo"),
-            # nota_contexto por chunk (opcional); quando ausente/nulo, a busca
-            # cai na nota_contexto da fonte via coalesce (ver migração 0009).
-            "nota_contexto": c.get("nota_contexto"),
-            "embedding": emb.tolist(),
+            "ordem": chunk["ordem"],
+            "conteudo": chunk["conteudo"],
+            "paginas": chunk["paginas"],
+            "secao": chunk["secao"],
+            "subsecao": chunk.get("subsecao"),
+            "tipo_chunk": chunk.get("tipo_chunk", "corpo"),
+            "nota_contexto": chunk.get("nota_contexto"),
+            "embedding": vetor,
         }
-        for c, emb in zip(chunks, embeddings)
+        for chunk, vetor in zip(chunks, vetores)
     ]
 
-    for i in range(0, len(linhas), LOTE_INSERCAO):
-        supabase.table("chunks").insert(linhas[i : i + LOTE_INSERCAO]).execute()
-        print(f"  gravados {min(i + LOTE_INSERCAO, len(linhas))}/{len(linhas)}", end="\r")
 
+def inserir_em_lotes(supabase, linhas: list[dict]) -> None:
+    for inicio in range(0, len(linhas), LOTE_INSERCAO):
+        supabase.table("chunks").insert(linhas[inicio : inicio + LOTE_INSERCAO]).execute()
+        print(f"  gravados {min(inicio + LOTE_INSERCAO, len(linhas))}/{len(linhas)}", end="\r")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Confere e indexa uma fonte no Supabase")
+    parser.add_argument("slug", help="slug da fonte em fontes.json")
+    parser.add_argument("--aplicar", action="store_true", help="autoriza gravar fonte/chunks após o diagnóstico")
+    parser.add_argument(
+        "--substituir-chunks", action="store_true",
+        help="autoriza apagar chunks existentes; requer --aplicar e backup autorizado",
+    )
+    args = parser.parse_args()
+    if args.substituir_chunks and not args.aplicar:
+        parser.error("--substituir-chunks requer --aplicar")
+
+    catalogo = json.loads(CATALOGO.read_text(encoding="utf-8"))
+    if args.slug not in catalogo:
+        raise SystemExit(f"fonte {args.slug!r} não está em {CATALOGO.name}.")
+    entrada = catalogo[args.slug]
+    fonte_meta = entrada["fonte"]
+    sha_esperado = entrada.get("sha256_esperado")
+    documento = selecionar_manifesto(
+        json.loads(ARQ_MANIFESTO.read_text(encoding="utf-8")), args.slug, fonte_meta["url_origem"]
+    )
+    sha_calculado = validar_arquivo_bruto(documento, RAIZ, sha_esperado)
+    chunks = ler_chunks(RAIZ / "dados" / "chunks" / f"{args.slug}.jsonl")
+    print(f"Identidade local conferida: {len(chunks)} chunks; sha256 {sha_calculado}.")
+
+    # Dependências de banco/modelo ficam aqui para que validações e testes sejam offline.
+    from dotenv import load_dotenv
+    from supabase import create_client
+
+    load_dotenv(RAIZ.parent / ".env.local")
+    supabase = create_client(os.environ["SUPABASE_URL"], os.environ["SUPABASE_SERVICE_ROLE_KEY"])
+    existente = resolver_fonte_existente(
+        supabase, fonte_meta, entrada.get("fonte_id_existente"), sha_esperado
+    )
+    if not args.aplicar:
+        estado = f"fonte existente {existente['fonte_id']}" if existente else "fonte ainda não cadastrada"
+        print(f"Diagnóstico concluído: {estado}. Nenhum modelo foi carregado e nada foi alterado.")
+        return
+
+    if existente and not args.substituir_chunks:
+        raise SystemExit(
+            "A fonte já existe. Para substituir seus chunks, faça backup autorizado e use "
+            "--aplicar --substituir-chunks."
+        )
+
+    from sentence_transformers import SentenceTransformer
+
+    print(f"Carregando modelo {MODELO}…")
+    fonte_id = existente["fonte_id"] if existente else None
+    linhas = preparar_linhas(chunks, fonte_id, SentenceTransformer(MODELO))
+    if not existente:
+        registro = dict(fonte_meta)
+        registro.setdefault(
+            "proveniencia",
+            f"{documento['descricao']} Download em {documento['data_download'][:10]}, sha256 {sha_calculado}.",
+        )
+        fonte_id = supabase.table("fontes").insert(registro).execute().data[0]["fonte_id"]
+        for linha in linhas:
+            linha["fonte_id"] = fonte_id
+    if existente:
+        apagados = supabase.table("chunks").delete().eq("fonte_id", fonte_id).execute()
+        print(f"{len(apagados.data or [])} chunks antigos removidos após preparar os novos.")
+    inserir_em_lotes(supabase, linhas)
     print(f"\nConcluído: {len(linhas)} chunks indexados para a fonte {fonte_id}.")
 
 
