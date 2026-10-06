@@ -2,6 +2,7 @@
 
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const CASOS = [
   { id: "S01", tipo: "documental", mensagem: "O que foi o AI-5 e quais garantias ele suspendeu?" },
@@ -21,6 +22,22 @@ const CAMPOS_CITACAO = [
   "fonte_id", "titulo", "autor_orgao", "tipo_fonte", "confiabilidade",
   "trecho", "url_origem", "tipo_chunk",
 ];
+
+export function medirApresentacao(corpo) {
+  const resposta = typeof corpo?.resposta === "string" ? corpo.resposta.trim() : "";
+  const resumo = typeof corpo?.resumo === "string" ? corpo.resumo.trim() : "";
+  const palavras = resposta ? resposta.split(/\s+/u).length : 0;
+  const blocos = resposta ? resposta.split(/\n\s*\n/u).filter(Boolean).length : 0;
+  return {
+    resumo_vazio: !resumo,
+    resumo_sem_marcadores: !/\[\d+\]/u.test(resumo),
+    palavras_resposta: palavras,
+    blocos_resposta: blocos,
+    meta_palavras: palavras >= 250 && palavras <= 450,
+    meta_blocos: blocos >= 1 && blocos <= 6,
+    rotulos_internos: /\bPARTE\s*\d+|^\s*(?:RESUMO|RESPOSTA COMPLETA|SEPARADOR)\s*:/imu.test(`${resumo}\n${resposta}`),
+  };
+}
 
 function textoNaoVazio(valor) {
   return typeof valor === "string" && valor.trim().length > 0;
@@ -144,17 +161,22 @@ function validarDestino(url) {
   return destino.toString();
 }
 
-async function executar() {
+export async function executar() {
   if (process.env.AVALIACAO_SMOKE_AUTORIZADA !== "sim") {
     throw new Error("defina AVALIACAO_SMOKE_AUTORIZADA=sim para confirmar as chamadas ao staging");
   }
   if (!process.env.AVALIACAO_SMOKE_URL) throw new Error("AVALIACAO_SMOKE_URL não foi definida");
 
   const url = validarDestino(process.env.AVALIACAO_SMOKE_URL);
+  const ids = process.env.AVALIACAO_SMOKE_CASOS?.split(",");
+  if (ids && (!ids.includes("S01") || ids.some((id) => !CASOS.some((caso) => caso.id === id)))) {
+    throw new Error("AVALIACAO_SMOKE_CASOS exige S01 para continuidade e IDs conhecidos de S01 a S11");
+  }
+  const casos = ids ? CASOS.filter((caso) => ids.includes(caso.id)) : CASOS;
   const resultados = [];
   let primeiraResposta = null;
 
-  for (const caso of CASOS) {
+  for (const caso of casos) {
     try {
       const retorno = await requisitar(url, { mensagem: caso.mensagem });
       const erros = validarRespostaChat(retorno.corpo, retorno.status, caso.tipo);
@@ -164,6 +186,7 @@ async function executar() {
         status_http: retorno.status,
         duracao_ms: Number(retorno.duracao_ms.toFixed(1)),
         citacoes: Array.isArray(retorno.corpo?.citacoes) ? retorno.corpo.citacoes.length : null,
+        apresentacao: caso.tipo === "documental" ? medirApresentacao(retorno.corpo) : null,
         passou: erros.length === 0,
         erros,
       });
@@ -189,6 +212,7 @@ async function executar() {
       continuidade.status_http = retorno.status;
       continuidade.duracao_ms = Number(retorno.duracao_ms.toFixed(1));
       continuidade.citacoes = Array.isArray(retorno.corpo?.citacoes) ? retorno.corpo.citacoes.length : null;
+      continuidade.apresentacao = medirApresentacao(retorno.corpo);
       continuidade.erros.push(...validarRespostaChat(retorno.corpo, retorno.status, "documental"));
     } catch (erro) {
       continuidade.erros.push(String(erro));
@@ -249,11 +273,13 @@ function autoteste() {
   console.log("Autoteste do gate de staging: OK");
 }
 
-if (process.argv.includes("--autoteste")) {
-  autoteste();
-} else {
-  executar().catch((erro) => {
-    console.error(`Gate de staging interrompido: ${erro.message}`);
-    process.exitCode = 1;
-  });
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  if (process.argv.includes("--autoteste")) {
+    autoteste();
+  } else {
+    executar().catch((erro) => {
+      console.error(`Gate de staging interrompido: ${erro.message}`);
+      process.exitCode = 1;
+    });
+  }
 }

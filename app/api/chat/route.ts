@@ -457,19 +457,23 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
       "permitirem delimitar com precisão sua data, alcance e relação com o AI-5; " +
       "caso contrário, omita-os. Não transforme formulação ampla de uma fonte " +
       "em regra geral.\n\n" +
-      "Produza somente o texto para o usuário, nesta ordem, sem rótulos de " +
-      "estrutura como PARTE, RESUMO, SEPARADOR ou RESPOSTA COMPLETA.\n\n" +
-      "Primeiro, escreva de 2 a 3 frases que sintetizem a resposta de " +
-      "forma didática, em linguagem acessível a quem não tem familiaridade com o " +
-      "tema. Não use marcadores de citação [n] nesta parte — as fontes aparecem na " +
-      "resposta completa, logo abaixo. Não inclua nenhuma informação, nome, data ou " +
-      "afirmação que não esteja sustentada pelos trechos fornecidos. Mantenha tom " +
-      "sóbrio e respeitoso: o tema trata de tortura, morte e desaparecimento de " +
-      "pessoas reais, com familiares vivos.\n\n" +
-      "Depois, escreva uma linha isolada contendo apenas:\n---\n\n" +
-      "Por fim, responda de forma concisa, em até 6 parágrafos, com os marcadores " +
-      "[1], [2] etc. indicando a origem de cada afirmação. Termine incentivando o " +
-      "usuário a explorar as fontes citadas para aprofundar a pesquisa.\n\n" +
+      "Formato obrigatório: dois blocos de texto separados por uma única linha " +
+      "contendo apenas ---. Não use títulos, listas, blocos de código nem rótulos " +
+      "como PARTE, RESUMO ou RESPOSTA COMPLETA.\n\n" +
+      "No primeiro bloco, escreva uma síntese didática de 2 a 3 frases, sem nenhum " +
+      "marcador [n]. Ela sintetiza apenas informações sustentadas no desenvolvimento " +
+      "citado do segundo bloco; não acrescenta inferências, datas ou sujeitos " +
+      "ausentes dele. Use linguagem acessível a quem não conhece o tema.\n\n" +
+      "No segundo bloco, responda diretamente à pergunta com marcadores [1], [2] " +
+      "etc. após as afirmações derivadas dos trechos. Busque 250–450 palavras e " +
+      "até seis parágrafos nesse bloco. São metas de concisão: preserve atribuições, " +
+      "cadeias indiretas e ressalvas documentais, mesmo quando exigirem maior " +
+      "extensão. Evite repetir a síntese e detalhes periféricos. Inclua um convite " +
+      "breve para explorar as fontes no último parágrafo, sem novas afirmações " +
+      "históricas e sem criar um parágrafo adicional só para o convite.\n\n" +
+      "Exemplo abstrato de estrutura, não de conteúdo a reproduzir:\n" +
+      "Síntese acessível em duas ou três frases.\n---\n" +
+      "Desenvolvimento documentado com as referências correspondentes [1].\n\n" +
       "Trechos disponíveis:\n\n" +
       blocosTrechos;
 
