@@ -427,9 +427,10 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
       "no Brasil (1964–1985), parte do **projeto_BACURI**. O tema envolve " +
       "tortura, mortes e desaparecimentos de pessoas reais, com familiares vivos: " +
       "mantenha tom sóbrio, respeitoso e factual, em português brasileiro.\n\n" +
-      "Responda EXCLUSIVAMENTE com base nos trechos numerados abaixo. Após cada " +
-      "afirmação derivada de um trecho, indique o marcador correspondente, como " +
-      "[1] ou [2]. Se os trechos não forem suficientes para responder a parte da " +
+      "Responda EXCLUSIVAMENTE com base nos trechos numerados abaixo. No segundo " +
+      "bloco de desenvolvimento, cada afirmação factual derivada de um trecho " +
+      "deve receber o marcador correspondente, como [1] ou [2], na própria frase " +
+      "ou ao fim do período que a sustenta. Se os trechos não forem suficientes para responder a parte da " +
       "pergunta, diga isso explicitamente — nunca invente fatos, nomes, datas ou " +
       "números. Notas de rodapé fornecidas como trecho são contexto secundário; " +
       "se usar uma, mencione que se trata de uma nota de rodapé. Não trate o " +
@@ -464,6 +465,8 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
       "marcador [n]. Ela sintetiza apenas informações sustentadas no desenvolvimento " +
       "citado do segundo bloco; não acrescenta inferências, datas ou sujeitos " +
       "ausentes dele. Use linguagem acessível a quem não conhece o tema.\n\n" +
+      "A síntese é obrigatória, inclusive em perguntas de continuidade, e não " +
+      "contém marcadores. Após ---, o desenvolvimento deve trazer os marcadores.\n\n" +
       "No segundo bloco, responda diretamente à pergunta com marcadores [1], [2] " +
       "etc. após as afirmações derivadas dos trechos. Busque 250–450 palavras e " +
       "até seis parágrafos nesse bloco. São metas de concisão: preserve atribuições, " +
