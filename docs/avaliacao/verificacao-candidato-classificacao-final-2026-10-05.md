@@ -7,7 +7,7 @@ Candidato READY: `dpl_67Q3jyeCGNqNhARrEWPToNPetkwy`.
 URL: https://projetobacuri-21297ye7a-yuri-gomes-alves-projects.vercel.app
 Código: `7e50d6e9f38e7aef03c62ca040123c0bcdafd712`, branch
 `entrega/chat-publicacao-20261005`, criada a partir de `origin/main`.
-Documentação posterior não altera os arquivos da aplicação implantada.
+A documentação e o ajuste posterior de CI não alteram o código da aplicação implantada.
 
 ## Resultado e alcance
 
@@ -66,3 +66,15 @@ A migração 0033 e a classificação do Dossiê já foram aplicadas com autoriz
 nem executar `supabase db push` global desta branch: o banco remoto também tem
 28–32, fora desta entrega. Reversão de deployment não desfaz classificação ou banco.
 Deployment anterior para reversão: `dpl_7CuqHSYBaHrSdz7ZTNVHSL5ZxNcX`.
+
+## Correção das verificações automáticas do PR
+
+PR em rascunho: https://github.com/yurigomesalves/projetobacuri/pull/2.
+O build do GitHub falhava por ausência de configuração do Supabase na coleta
+de handlers. A etapa de compilação recebeu URL local e chaves sem acesso a banco;
+esses valores não são publicados e não substituem a configuração real da Vercel.
+O build local com esses valores passou usando webpack. A prévia automática
+compilava, mas falhava ao empacotar a função de 857,42 MB sob limite de 250 MB.
+Foi adicionada `VERCEL_SUPPORT_LARGE_FUNCTIONS=1` somente a Preview; demais
+variáveis e Production preservados. A nova rodada automática verifica essas
+correções; o candidato de produção e suas 12 respostas permanecem inalterados.

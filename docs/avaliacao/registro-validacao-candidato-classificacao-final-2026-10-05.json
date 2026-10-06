@@ -62,5 +62,20 @@
     "arquivos": 19,
     "reexecutados_apos_ajuste_final": 39,
     "typecheck_lint": true
+  },
+  "pull_request": {
+    "number": 2,
+    "url": "https://github.com/yurigomesalves/projetobacuri/pull/2",
+    "draft": true,
+    "merge_executado": false
+  },
+  "correcao_ci": {
+    "causa_github": "Supabase ausente na coleta de handlers do build",
+    "ajuste": "env somente no step de compilação: localhost e chaves sem acesso; sem segredo real",
+    "causa_preview": "função de857.42MB ultrapassava250MB",
+    "preview_funcoes_grandes": "1; variável nova somente emPreview, sem alterar outros nomes ou Production",
+    "build_local_com_env_de_ci": "webpack aprovado",
+    "codigo_da_aplicacao_inalterado": true,
+    "verificacoes_remotas": "aguardando nova rodada"
   }
 }
