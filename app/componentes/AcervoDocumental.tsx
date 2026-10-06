@@ -7,6 +7,7 @@ import type { ItemAcervo, RespostaAcervo } from "@/lib/shared/tipos";
 
 const ROTULO_TIPO: Record<string, string> = {
   relatorio_oficial: "Relatório oficial",
+  compilacao_documental: "Compilação documental",
   documento_repressao: "Documento da repressão",
   documento_inteligencia_estrangeira: "Inteligência estrangeira",
   imprensa_epoca: "Imprensa da época",
@@ -222,6 +223,8 @@ export default function AcervoDocumental() {
                   __html: `<p>Este acervo reúne documentos de origens muito diferentes. Saber de onde cada um vem é essencial para entender o que ele pode, e o que não pode, nos contar.</p>
 
 <p><strong>Relatório oficial:</strong> documentos produzidos pelo Estado brasileiro após a redemocratização para apurar os crimes da ditadura, como os relatórios da Comissão Nacional da Verdade (CNV), publicados em 2014, e os das comissões estaduais e municipais.</p>
+
+<p><strong>Compilação documental:</strong> obra de memória e pesquisa, com responsabilidade editorial identificada, que reúne e contextualiza documentos, relatos, denúncias e registros de proveniências diversas. Cada trecho é lido conforme sua autoria e contexto; a compilação não transforma todas as peças reunidas em documento oficial nem lhes atribui a mesma força probatória.</p>
 
 <p><strong>Documento da repressão:</strong> papéis produzidos pelos próprios órgãos que prenderam, vigiaram e torturaram, como o DOPS, o DOI-CODI e o SNI. Provam que a repressão existiu e como agiu, mas o que dizem sobre as vítimas é, por definição, hostil e muitas vezes distorcido.</p>
 

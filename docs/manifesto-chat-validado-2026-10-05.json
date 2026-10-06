@@ -1,0 +1,457 @@
+{
+  "revisao": "escopo-atribuicao-editorial-11",
+  "arquivos": [
+    {
+      "arquivo": ".gitignore",
+      "bytes": 1126,
+      "sha256": "7a97842f7e0d0d9cfd9eeca39b70cd1df3b89ffff3f1db1985fe2d0b8aa043a2"
+    },
+    {
+      "arquivo": ".vercelignore",
+      "bytes": 14,
+      "sha256": "9359ff2aaf73895017ee083c0c11582e183acdecc33dd7ddd4ffcd71ddc915e8"
+    },
+    {
+      "arquivo": "LICENSE",
+      "bytes": 34523,
+      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "arquivo": "app/acervo/page.tsx",
+      "bytes": 304,
+      "sha256": "c4dac159ad5961b8d6d271a5b5c998165d23d003a59ad04615a54c71253437da"
+    },
+    {
+      "arquivo": "app/api/biografias/[slug]/route.ts",
+      "bytes": 6856,
+      "sha256": "6a685f441bef57818a574314e6c709171951e00e34cf11d454704af0502beff2"
+    },
+    {
+      "arquivo": "app/api/biografias/facetas/route.ts",
+      "bytes": 5466,
+      "sha256": "460d0443883188ff5ea9446686c503cbc351c486ae17c9505c3aff01a0d7a1fd"
+    },
+    {
+      "arquivo": "app/api/biografias/route.ts",
+      "bytes": 7162,
+      "sha256": "a2fe17d0a7547d5cf9986471efded19998f611e936de8bc2538ab6302f00408b"
+    },
+    {
+      "arquivo": "app/api/chat/route.ts",
+      "bytes": 19403,
+      "sha256": "85877540d2bb95161c4bfe22382efaf22c03eb4a70f008e6a3b8e951ac72e1b3"
+    },
+    {
+      "arquivo": "app/api/curadoria/cadastro/route.ts",
+      "bytes": 6243,
+      "sha256": "3f56be6078ab1ddce2548d6c8f29228800d32128fb2a20d01083f943126926de"
+    },
+    {
+      "arquivo": "app/api/curadoria/convites/[id]/route.ts",
+      "bytes": 1622,
+      "sha256": "796e2e791fb0b60d5742f7c60054f122d5dea8fc1f104eda541d6dc36bb19904"
+    },
+    {
+      "arquivo": "app/api/curadoria/convites/route.ts",
+      "bytes": 4139,
+      "sha256": "85c384f061616de66b4a24606155f0932cda07e2c883dbfd2002bf572563a82b"
+    },
+    {
+      "arquivo": "app/api/curadoria/convites/validar/route.ts",
+      "bytes": 2299,
+      "sha256": "59ed92d8bebebf06c657a7c7dc09feb0707629580119c9b3a9acddcab4304470"
+    },
+    {
+      "arquivo": "app/api/curadoria/curadores/route.ts",
+      "bytes": 1867,
+      "sha256": "20daedb4160525fabef5428c12f9b9b609f45f97c75ecf33df6cc4d3d999331c"
+    },
+    {
+      "arquivo": "app/api/curadoria/eu/route.ts",
+      "bytes": 1011,
+      "sha256": "a87ea934a68ae8d4cedaa5db7b66a5bf60dc10a0df6e6af609a17f5003135b1c"
+    },
+    {
+      "arquivo": "app/api/curadoria/feedbacks/[id]/route.ts",
+      "bytes": 3970,
+      "sha256": "c5b281cafa0215618372630425c1b47afe8b9f13b3bb621fd918584b0fa87b35"
+    },
+    {
+      "arquivo": "app/api/curadoria/feedbacks/route.ts",
+      "bytes": 3218,
+      "sha256": "bf45047de8a7e96185942fc7d38713f12613af8a4b005fbafc6469b2d7612e67"
+    },
+    {
+      "arquivo": "app/api/curadoria/perfil/route.ts",
+      "bytes": 5362,
+      "sha256": "abd377b04569cd723a8a3a5b38be3d605d6f5913e63f2287565a86d2da135760"
+    },
+    {
+      "arquivo": "app/api/eventos-geo/[id]/route.ts",
+      "bytes": 6056,
+      "sha256": "3729a0139e659aba0c1f7972c49c1a41750d9b5671c923cf70d6e59d38fafd9c"
+    },
+    {
+      "arquivo": "app/api/eventos-geo/route.ts",
+      "bytes": 4959,
+      "sha256": "735f66599e290b7531db31c286a8ad68822b064ff7fe0ccbecd540c0df89ebc4"
+    },
+    {
+      "arquivo": "app/api/feedback/route.ts",
+      "bytes": 3072,
+      "sha256": "7913e27c7e07e777223e49081ad9f839a61ddbbb415fa3b81d6f6f2ee1af0515"
+    },
+    {
+      "arquivo": "app/api/naturalidades/route.ts",
+      "bytes": 3697,
+      "sha256": "6d7e96bc0f015c2a025e637b0a34b0e418fda6fea808fb498bbf8f760623d75c"
+    },
+    {
+      "arquivo": "app/api/territorios-origem/route.ts",
+      "bytes": 6972,
+      "sha256": "e9b3c8b83518f9d4411f521cc9c0af0e976d13262b4c58a0d83c1ca353238137"
+    },
+    {
+      "arquivo": "app/api/transparencia/acervo/route.ts",
+      "bytes": 2013,
+      "sha256": "f466c87d08702ee4048ee4643818d0a924c9f239dc6142d372475363b724fc9e"
+    },
+    {
+      "arquivo": "app/api/transparencia/curadores/route.ts",
+      "bytes": 1950,
+      "sha256": "23cf0cf2e85dd9ff39c176a15102e97abde8720a12f079d78247e8dde58e2bd4"
+    },
+    {
+      "arquivo": "app/api/transparencia/route.ts",
+      "bytes": 4096,
+      "sha256": "a335b4c6ae7b2e07bfda8e4623cfc281aa86fcfb636eba5cf37a5af92945b7fd"
+    },
+    {
+      "arquivo": "app/apple-icon.png",
+      "bytes": 13686,
+      "sha256": "d92ce50e86d1430a46060d844a5d97518bc51f71116848a0294d576a964b1402"
+    },
+    {
+      "arquivo": "app/biografias/[slug]/page.tsx",
+      "bytes": 6807,
+      "sha256": "f450b3ce0e55477671328c363ef88832bc131a2f53137861029255ea72164013"
+    },
+    {
+      "arquivo": "app/biografias/page.tsx",
+      "bytes": 13918,
+      "sha256": "b75af537c7232083e8dc2f75f7f2470e9424da4a9aef252b6f323d4ec14571e3"
+    },
+    {
+      "arquivo": "app/componentes/AcervoDocumental.tsx",
+      "bytes": 13718,
+      "sha256": "561f17d507f32f706b0f0983895e5732542a119a056e3ad164f30b7f6749290a"
+    },
+    {
+      "arquivo": "app/componentes/AcessoCuradoria.tsx",
+      "bytes": 1624,
+      "sha256": "edf630268d730d42e8f758e3e9bf548ca37a92bff0cb3d30e9f1abdc0ad07718"
+    },
+    {
+      "arquivo": "app/componentes/Cabecalho.tsx",
+      "bytes": 2545,
+      "sha256": "fff45089269bf0be671c8bf50011ecd0add5fc225e3a9b6c8c1f368a416fad8b"
+    },
+    {
+      "arquivo": "app/componentes/Chat.tsx",
+      "bytes": 19489,
+      "sha256": "e19a2585c2cb1ad0ecd2747520d037ea774774c8bc23ce07c8239b71efd3f31f"
+    },
+    {
+      "arquivo": "app/componentes/Citacoes.tsx",
+      "bytes": 3651,
+      "sha256": "aecaf502e0204bbf963ee78c094203933232353ac78a934ffd24f7c8c67ffa6e"
+    },
+    {
+      "arquivo": "app/componentes/Estrutura.tsx",
+      "bytes": 7605,
+      "sha256": "788204b98b2fa2a06e5d6f257f1d8c38340f37bfbe5bd1a1ac49cc64789453e3"
+    },
+    {
+      "arquivo": "app/componentes/Feedback.tsx",
+      "bytes": 6193,
+      "sha256": "ebc8d26b4451ed8cf19271614659d36ccd10dea9bc9b2ba093e734a580f852d9"
+    },
+    {
+      "arquivo": "app/componentes/GlossarioFontes.tsx",
+      "bytes": 3779,
+      "sha256": "a517af69d5cbb79e50888e96b558fe794965d1ea34d0939ffb249fe740c32372"
+    },
+    {
+      "arquivo": "app/componentes/MapaEventos.tsx",
+      "bytes": 7010,
+      "sha256": "4b89143641e701a66c068f0b1c78fe7730fd07de6db1f2580f3a03139db61940"
+    },
+    {
+      "arquivo": "app/componentes/PainelAcervo.tsx",
+      "bytes": 13813,
+      "sha256": "be543c427ab422ea189c86f0855831a6737eb2034803f205ae2dfe63569fb090"
+    },
+    {
+      "arquivo": "app/curadoria/cadastro/page.tsx",
+      "bytes": 13506,
+      "sha256": "b876ff5f4e8d3e0bb9cfd01d9df5b57bb5bd46b797c225ec0e62e9bb652e082a"
+    },
+    {
+      "arquivo": "app/curadoria/layout.tsx",
+      "bytes": 284,
+      "sha256": "2b64a55e52ec86e5f857e3873ddbb233eeee2f8e020ff45d84b21e4d7fb0007c"
+    },
+    {
+      "arquivo": "app/curadoria/page.tsx",
+      "bytes": 39529,
+      "sha256": "9b8fa1a8cc5a0e47c2b48fc749dcd7a9faf2837e9add5f2f7c873acd7efce55d"
+    },
+    {
+      "arquivo": "app/globals.css",
+      "bytes": 28399,
+      "sha256": "4458ab1f2af6e001f18d26dc0e860cdab7bbaec8ef3d2355a47634881b867b00"
+    },
+    {
+      "arquivo": "app/icon.png",
+      "bytes": 69092,
+      "sha256": "d40bbafe367aa8c6a300a9ce59e4b1f0b0cd31d9688172a091a1f360c5516f2b"
+    },
+    {
+      "arquivo": "app/layout.tsx",
+      "bytes": 1287,
+      "sha256": "905ec06a993957d81d85f542a4c7c11f464c582bfa4133bb792b3320f8654c8c"
+    },
+    {
+      "arquivo": "app/mapa/page.tsx",
+      "bytes": 17619,
+      "sha256": "b80f9d9356dbf5f1106bc9cf8875d5a9fd662691396db826c086219c917fab57"
+    },
+    {
+      "arquivo": "app/page.tsx",
+      "bytes": 1150,
+      "sha256": "5de0975799db220f95fd199b7bbb9c183c0c6c425c7729266d91ec618ddbafa2"
+    },
+    {
+      "arquivo": "app/sobre/page.tsx",
+      "bytes": 2938,
+      "sha256": "ba119189f8add36ba942e691b418a6aea2780075c98cfdc49b30049a20dc379d"
+    },
+    {
+      "arquivo": "app/transparencia/page.tsx",
+      "bytes": 13813,
+      "sha256": "f6ad0783fdf705877794f54184cdb9c87406210b1247c6cdef0700b633372b03"
+    },
+    {
+      "arquivo": "app/visao-geral/page.tsx",
+      "bytes": 121,
+      "sha256": "deba21023fee9825f1769154d34d6c806e3ef70d16db4686e90d06c36d4f7a32"
+    },
+    {
+      "arquivo": "docs/sobre-projeto-bacuri.md",
+      "bytes": 3207,
+      "sha256": "3aac88f3ef08bfd61e258837683dae9e6e803f38473795fb6f32d2ef825d59c6"
+    },
+    {
+      "arquivo": "eslint.config.mjs",
+      "bytes": 877,
+      "sha256": "35f56be7f1fc2b3049ecf60fd56f7cbd96a0e12acef50198a49abe0b1759d4db"
+    },
+    {
+      "arquivo": "lib/client/supabase.ts",
+      "bytes": 906,
+      "sha256": "2691c1063d5773afae91d1c6f54ff53ff8f2bdc08b6b6d09f7641ef48b6a18a2"
+    },
+    {
+      "arquivo": "lib/server/citacoes.ts",
+      "bytes": 4018,
+      "sha256": "de267ddaf1957a08af1f0d23d95ceb6a06e224c5f50d19e2c66c3a04c96920f3"
+    },
+    {
+      "arquivo": "lib/server/continuidade.ts",
+      "bytes": 4973,
+      "sha256": "beaa111c0ba51c0c397e57a61aec0854bc8db56b70c618031f68aa2f17fcf437"
+    },
+    {
+      "arquivo": "lib/server/curadoria-auth.ts",
+      "bytes": 1833,
+      "sha256": "c6570b4f06c4e3690a40381032346900062f915c759d31f9dc3fe2a47c4e5673"
+    },
+    {
+      "arquivo": "lib/server/embedding.ts",
+      "bytes": 3580,
+      "sha256": "c015d2cc7f106eca3998fd454f10af7f6d97920e87f74ee511aa933f782bf4eb"
+    },
+    {
+      "arquivo": "lib/server/etapas-experimentais.ts",
+      "bytes": 4548,
+      "sha256": "c7201c729b65e76f5dab6eee983a96120b6a66fc7c795aa551d301eb50bd91a3"
+    },
+    {
+      "arquivo": "lib/server/foto-curador.ts",
+      "bytes": 1987,
+      "sha256": "0ecd9934818866d981ce908f5ebd0a51ef50a8da0e756c601574e7d15b8f281c"
+    },
+    {
+      "arquivo": "lib/server/limite.ts",
+      "bytes": 1051,
+      "sha256": "87cd25862cde6060b8285e5ec6da77f7fde66c952804b0c0aebaafada9ae9236"
+    },
+    {
+      "arquivo": "lib/server/llm.ts",
+      "bytes": 6592,
+      "sha256": "407a834a795286a140f53570897c43b6a5eeab2d2228cab0561ca1139f4855c9"
+    },
+    {
+      "arquivo": "lib/server/prazo.ts",
+      "bytes": 2544,
+      "sha256": "4e09dea2f33ba7cebc89e0083446cbe26c8a345937639ccd788210787a520d88"
+    },
+    {
+      "arquivo": "lib/server/recuperacao.ts",
+      "bytes": 11580,
+      "sha256": "ae9505b36c2193077bb15a0e9e23c42ab9f45d43024d8dcfe94dbfe25655c5f5"
+    },
+    {
+      "arquivo": "lib/server/supabase.ts",
+      "bytes": 789,
+      "sha256": "b8d09c08691cbc1fb654792d37a821128119a28734b7f90da6b1ab90a10c0f22"
+    },
+    {
+      "arquivo": "lib/server/tempos-chat.ts",
+      "bytes": 1139,
+      "sha256": "6db4a5b78125dc155edb6822a8547a46eb7737c9d927f19bb5639dced3ff5673"
+    },
+    {
+      "arquivo": "lib/shared/tipos.ts",
+      "bytes": 6188,
+      "sha256": "0857f2158d3e843c3d36a68cffba8ea851ddc6ee70d0e0854011c593a67ae591"
+    },
+    {
+      "arquivo": "next.config.ts",
+      "bytes": 1352,
+      "sha256": "1f55a70e962c47ad9d81fd70e4766b28d063bc263dd99edae98123ca3c43557e"
+    },
+    {
+      "arquivo": "package-lock.json",
+      "bytes": 350385,
+      "sha256": "2ae79cc3ff5ebb60616546100b3019433299793bf1c1b9cc46ff89ee17512848"
+    },
+    {
+      "arquivo": "package.json",
+      "bytes": 1785,
+      "sha256": "0b8538666f3b7cc7171c9c3bd9b0627e35191f3c4211182f1c1ccb05f2ac4f39"
+    },
+    {
+      "arquivo": "postcss.config.mjs",
+      "bytes": 94,
+      "sha256": "dfac7ac2d86d326a0e5adb024e7943c181393ed17a5fcb8f0315b24c7da6ddde"
+    },
+    {
+      "arquivo": "public/file.svg",
+      "bytes": 391,
+      "sha256": "2b67812c325c199a02536cdbeea0c593a72f707d323b72ee3e08dbab06753bd4"
+    },
+    {
+      "arquivo": "public/fontes/Inter-LICENSE.txt",
+      "bytes": 4380,
+      "sha256": "262481e844521b326f5ecd053e59b98c8b2da78c8ee1bdbb6e8174305e54935a"
+    },
+    {
+      "arquivo": "public/fontes/InterVariable.woff2",
+      "bytes": 352240,
+      "sha256": "693b77d4f32ee9b8bfc995589b5fad5e99adf2832738661f5402f9978429a8e3"
+    },
+    {
+      "arquivo": "public/globe.svg",
+      "bytes": 1035,
+      "sha256": "b614b9bf183925957661ac851498fe1d8029fd43a62fbfed86f9e2624a57e7cf"
+    },
+    {
+      "arquivo": "public/marca/logo-bacuri.svg",
+      "bytes": 33818,
+      "sha256": "c5d736b5e719c11b2ec669cfaa4f4687e6fd9a38081e58690cf83499ecb412ea"
+    },
+    {
+      "arquivo": "public/marca/logo_fundo_claro_transparente.png",
+      "bytes": 91615,
+      "sha256": "d21196cf2d9bb73c23c3ff84a437450aea7c33d68515a023a4e2fbb378b2b3a9"
+    },
+    {
+      "arquivo": "public/marca/logo_fundo_escuro_transparente.png",
+      "bytes": 85537,
+      "sha256": "78b2c99801a2951274d5da035c8f9552ac015bfe98a898278a54c05ec55a1d04"
+    },
+    {
+      "arquivo": "public/marca/logo_horizontal_fundo_claro_transparente.png",
+      "bytes": 38891,
+      "sha256": "fd83cda50a55877f3c05a46bfdc6a67c37ace7cbe57dab80e1694a98a6bea340"
+    },
+    {
+      "arquivo": "public/marca/logo_horizontal_fundo_escuro_transparente.png",
+      "bytes": 40778,
+      "sha256": "c8e9d1d1cc9d103416d0398ed18667649b77b38a78a5df5887ea760e55e77c4c"
+    },
+    {
+      "arquivo": "public/next.svg",
+      "bytes": 1375,
+      "sha256": "55995dfad6ecb4945a1e856ddca03c5e16aa5bf13fd21b4df6a74ae79357bcfc"
+    },
+    {
+      "arquivo": "public/vercel.svg",
+      "bytes": 128,
+      "sha256": "f081337b2fee635b455b63275406a3e7f39d6a014e25ad90dab5a67e62a12ac4"
+    },
+    {
+      "arquivo": "public/window.svg",
+      "bytes": 385,
+      "sha256": "644768c4aaeb4767bce293344eeb0c125fb804a94d801440424072202d85e3a1"
+    },
+    {
+      "arquivo": "scripts/preparar-modelo-embedding.mjs",
+      "bytes": 2258,
+      "sha256": "4f94694181e4e7fbf320f6e505ff004a569ab33f8647292708d0b3d6ed379169"
+    },
+    {
+      "arquivo": "tsconfig.json",
+      "bytes": 666,
+      "sha256": "be18523b23b78b6e1a876ddd107d330f0168bddf09d751b57e0b5edce69c66f3"
+    },
+    {
+      "arquivo": "vercel.json",
+      "bytes": 76,
+      "sha256": "9eb51272be4c61f3a0cf245ceb47cbbe886ad41b744c260ec35f703be23211b1"
+    }
+  ],
+  "pesos_preparados_no_build": true,
+  "manifesto_modelo_local": {
+    "modelo": "Xenova/multilingual-e5-small",
+    "revisao": "761b726dd34fb83930e26aab4e9ac3899aa1fa78",
+    "dtype": "fp32",
+    "arquivos": [
+      {
+        "arquivo": "config.json",
+        "sha256": "cb99455288675345e1a4f411438d5d0adbba5fbd3a67ea4fb03c015433b996c1"
+      },
+      {
+        "arquivo": "tokenizer.json",
+        "sha256": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39"
+      },
+      {
+        "arquivo": "tokenizer_config.json",
+        "sha256": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b"
+      },
+      {
+        "arquivo": "special_tokens_map.json",
+        "sha256": "d05497f1da52c5e09554c0cd874037a083e1dc1b9cfd48034d1c717f1afc07a7"
+      },
+      {
+        "arquivo": "onnx/model.onnx",
+        "sha256": "4aa845c27760e06e9a686b9d8b5d440eae4b6612cd09e5b522b716d3941f77ff"
+      },
+      {
+        "arquivo": "README.md",
+        "sha256": "561a19594636657fe033f8b4427a7743b5f6f3a12f16cecc5f286feca0453245"
+      }
+    ]
+  }
+}

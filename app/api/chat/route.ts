@@ -3,14 +3,35 @@ import { z } from "zod";
 import { supabaseServidor } from "@/lib/server/supabase";
 import { gerarEmbeddingConsulta } from "@/lib/server/embedding";
 import { gerarResposta, type MensagemLLM } from "@/lib/server/llm";
+import {
+  recuperarTrechos,
+  selecionarTrechosDasConsultas,
+  type TrechoRecuperado,
+} from "@/lib/server/recuperacao";
+import {
+  decomporConsultaExperimental,
+  respostaSustentadaExperimental,
+} from "@/lib/server/etapas-experimentais";
+import {
+  aguardarNoPrazo,
+  comSinalDePrazo,
+  conferirPrazo,
+  criarPrazoRequisicao,
+} from "@/lib/server/prazo";
 import { dentroDoLimite } from "@/lib/server/limite";
+import { normalizarCitacoesResposta } from "@/lib/server/citacoes";
+import { criarMedicaoChat } from "@/lib/server/tempos-chat";
 import {
   emitirTokenContinuidade,
   houveMudancaExplicitaDeAssunto,
-  possuiDoisTermosDaConsulta,
   verificarTokenContinuidade,
 } from "@/lib/server/continuidade";
-import type { Citacao, Mensagem, RespostaChat, RespostaErro } from "@/lib/shared/tipos";
+import type {
+  Citacao,
+  Mensagem,
+  RespostaChat,
+  RespostaErro,
+} from "@/lib/shared/tipos";
 
 export const runtime = "nodejs";
 
@@ -66,30 +87,46 @@ const RESPOSTA_FABRICACAO =
   "registradas pelas comissões da verdade e por outros acervos históricos.";
 
 function normalizar(texto: string): string {
-  return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  return texto
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
 }
 
 function solicitaContatoPessoal(texto: string): boolean {
   const valor = normalizar(texto);
-  const contato = /\b(telefone|celular|whatsapp|e-?mail|contato|endereco)\b/.test(valor);
-  const pessoa = /\b(pessoal|privado|particular|familiar|vitima|pessoa)\b/.test(valor);
-  const pedido = /\b(qual|informe|forneca|procure|encontre|numero)\b/.test(valor);
+  const contato =
+    /\b(telefone|celular|whatsapp|e-?mail|contato|endereco)\b/.test(valor);
+  const pessoa = /\b(pessoal|privado|particular|familiar|vitima|pessoa)\b/.test(
+    valor,
+  );
+  const pedido = /\b(qual|informe|forneca|procure|encontre|numero)\b/.test(
+    valor,
+  );
   return contato && pessoa && pedido;
 }
 
 function solicitaFabricacao(texto: string): boolean {
   const valor = normalizar(texto);
-  return /\b(invente|inventar|fabrique|fabricar|forje|forjar)\b/.test(valor) &&
-    /\b(citacao|citacoes|fonte|fontes|prova|referencia)\b/.test(valor);
+  return (
+    /\b(invente|inventar|fabrique|fabricar|forje|forjar)\b/.test(valor) &&
+    /\b(citacao|citacoes|fonte|fontes|prova|referencia)\b/.test(valor)
+  );
 }
 
 function dependeDeReferente(texto: string): boolean {
   const valor = normalizar(texto);
-  return /\b(acabei de mencionar|deles|delas|esse|essa|esses|essas|isso|aquilo)\b/.test(valor) ||
-    /^e\b/.test(valor);
+  return (
+    /\b(acabei de mencionar|deles|delas|esse|essa|esses|essas|isso|aquilo)\b/.test(
+      valor,
+    ) || /^e\b/.test(valor)
+  );
 }
 
-function montarConsultaBusca(mensagem: string, historico: Mensagem[] = []): string {
+function montarConsultaBusca(
+  mensagem: string,
+  historico: Mensagem[] = [],
+): string {
   if (!dependeDeReferente(mensagem)) return mensagem;
   const ultimaPergunta = [...historico]
     .reverse()
@@ -99,7 +136,10 @@ function montarConsultaBusca(mensagem: string, historico: Mensagem[] = []): stri
 
 function omitirContatosPessoais(texto: string): string {
   return texto
-    .replace(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi, "[contato pessoal omitido]")
+    .replace(
+      /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi,
+      "[contato pessoal omitido]",
+    )
     .replace(
       /(?:\+?55\s*)?\(?\d{2}\)?\s*(?:9[\s.-]?)?\d{4}[\s.-]\d{4}\b/g,
       "[contato pessoal omitido]",
@@ -117,7 +157,7 @@ function obterIp(requisicao: NextRequest): string {
 function respostaErro(
   codigo: RespostaErro["erro"]["codigo"],
   mensagem: string,
-  status: number
+  status: number,
 ): NextResponse<RespostaErro> {
   return NextResponse.json({ erro: { codigo, mensagem } }, { status });
 }
@@ -130,16 +170,12 @@ function truncar(texto: string, limite = 400): string {
 async function respostaDireta(
   pergunta: string,
   resposta: string,
+  signal: AbortSignal,
 ): Promise<NextResponse<RespostaChat>> {
-  const { data: interacao, error: erroInsercao } = await supabaseServidor
-    .from("interacoes")
-    .insert({ pergunta, resposta, citacoes: [] })
-    .select("interacao_id")
-    .single();
-
-  if (erroInsercao || !interacao) {
-    throw new Error(`Falha ao registrar interação: ${erroInsercao?.message}`);
-  }
+  const interacaoId = await registrarInteracao(
+    { pergunta, resposta, citacoes: [] },
+    signal,
+  );
 
   return NextResponse.json(
     {
@@ -147,10 +183,32 @@ async function respostaDireta(
       resposta,
       citacoes: [],
       sugestoes_pesquisa: [],
-      interacao_id: interacao.interacao_id as string,
+      interacao_id: interacaoId,
     },
     { status: 200 },
   );
+}
+
+async function registrarInteracao(
+  valores: { pergunta: string; resposta: string; citacoes: Citacao[] },
+  signal: AbortSignal,
+): Promise<string> {
+  conferirPrazo(signal);
+  const consulta = supabaseServidor
+    .from("interacoes")
+    .insert(valores)
+    .select("interacao_id")
+    .single();
+  const { data: interacao, error: erroInsercao } = await aguardarNoPrazo(
+    comSinalDePrazo(consulta, signal),
+    signal,
+  );
+
+  if (erroInsercao || !interacao) {
+    throw new Error(`Falha ao registrar interação: ${erroInsercao?.message}`);
+  }
+  conferirPrazo(signal);
+  return interacao.interacao_id as string;
 }
 
 // Separa o resumo didático da resposta completa no primeiro `---` em linha
@@ -175,139 +233,13 @@ function separarResumo(texto: string): { resumo: string; resposta: string } {
     .replace(/^\s*(parte\s*3\s*[—-]?\s*)?resposta(\s+completa)?\s*:?\s*/i, "")
     .trim();
 
-  // Se algum dos lados ficou vazio, o formato não foi seguido de fato:
+  // Lados vazios ou marcadores no resumo indicam formato inválido:
   // preserva o texto inteiro como resposta (plano B).
-  if (!resumo || !resposta) {
+  if (!resumo || !resposta || /\[\d+\]/.test(resumo)) {
     return { resumo: "", resposta: texto.trim() };
   }
 
   return { resumo, resposta };
-}
-
-type TrechoBuscado = {
-  chunk_id: string;
-  conteudo: string;
-  paginas: string;
-  secao: string | null;
-  tipo_chunk: "corpo" | "nota_rodape";
-  similaridade: number;
-  fonte_id: string;
-  titulo: string;
-  autor_orgao: string;
-  tipo_fonte: string;
-  confiabilidade: string;
-  data_documento: string | null;
-  url_origem: string;
-  nota_contexto: string | null;
-};
-
-type TrechoTextual = Pick<TrechoBuscado, "chunk_id" | "conteudo" | "fonte_id"> & {
-  relevancia: number;
-};
-
-type LinhaChunkComFonte = {
-  chunk_id: string;
-  conteudo: string;
-  paginas: string;
-  secao: string | null;
-  tipo_chunk: "corpo" | "nota_rodape";
-  fonte_id: string;
-  nota_contexto: string | null;
-  fontes: {
-    titulo: string;
-    autor_orgao: string;
-    tipo_fonte: string;
-    confiabilidade: string;
-    data_documento: string | null;
-    url_origem: string;
-    nota_contexto: string | null;
-  } | Array<{
-    titulo: string;
-    autor_orgao: string;
-    tipo_fonte: string;
-    confiabilidade: string;
-    data_documento: string | null;
-    url_origem: string;
-    nota_contexto: string | null;
-  }>;
-};
-
-function normalizarChunkRecarregado(linha: LinhaChunkComFonte): TrechoBuscado | null {
-  const fonte = Array.isArray(linha.fontes) ? linha.fontes[0] : linha.fontes;
-  if (!fonte) return null;
-  return {
-    chunk_id: linha.chunk_id,
-    conteudo: omitirContatosPessoais(linha.conteudo),
-    paginas: linha.paginas,
-    secao: linha.secao,
-    tipo_chunk: linha.tipo_chunk,
-    similaridade: 0,
-    fonte_id: linha.fonte_id,
-    titulo: fonte.titulo,
-    autor_orgao: fonte.autor_orgao,
-    tipo_fonte: fonte.tipo_fonte,
-    confiabilidade: fonte.confiabilidade,
-    data_documento: fonte.data_documento,
-    url_origem: fonte.url_origem,
-    nota_contexto: linha.nota_contexto ?? fonte.nota_contexto,
-  };
-}
-
-function intercalarTrechos(vetoriais: TrechoBuscado[], textuais: TrechoBuscado[]): TrechoBuscado[] {
-  const resultado: TrechoBuscado[] = [];
-  const vistos = new Set<string>();
-  let vetor = 0;
-  let textual = 0;
-  while (resultado.length < 8 && (vetor < vetoriais.length || textual < textuais.length)) {
-    for (const lista of [vetoriais, textuais]) {
-      let indice = lista === vetoriais ? vetor : textual;
-      while (indice < lista.length && vistos.has(lista[indice].chunk_id)) indice += 1;
-      if (lista === vetoriais) vetor = indice + 1;
-      else textual = indice + 1;
-      if (indice < lista.length && !vistos.has(lista[indice].chunk_id)) {
-        vistos.add(lista[indice].chunk_id);
-        resultado.push(lista[indice]);
-        if (resultado.length === 8) break;
-      }
-    }
-  }
-  return resultado;
-}
-
-async function buscarTextuaisPorFontes(
-  consulta: string,
-  fontes: string[],
-): Promise<TrechoBuscado[]> {
-  try {
-    const { data: candidatos, error: erroTextual } = await supabaseServidor.rpc(
-      "buscar_chunks_textuais_por_fontes",
-      { consulta_texto: consulta, fontes_candidatas: fontes, qtd_por_fonte: 4 },
-    );
-    if (erroTextual) return [];
-
-    const ordenados = ((candidatos ?? []) as TrechoTextual[])
-      .filter((trecho) => possuiDoisTermosDaConsulta(trecho.conteudo, consulta))
-      .sort((a, b) => b.relevancia - a.relevancia)
-      .slice(0, 32);
-    const ids = [...new Set(ordenados.map((trecho) => trecho.chunk_id))];
-    if (ids.length === 0) return [];
-
-    const { data: recarregados, error: erroMetadados } = await supabaseServidor
-      .from("chunks")
-      .select("chunk_id,conteudo,paginas,secao,tipo_chunk,fonte_id,nota_contexto,fontes!inner(titulo,autor_orgao,tipo_fonte,confiabilidade,data_documento,url_origem,nota_contexto)")
-      .in("chunk_id", ids);
-    if (erroMetadados) return [];
-    const porId = new Map(
-      ((recarregados ?? []) as LinhaChunkComFonte[])
-        .map(normalizarChunkRecarregado)
-        .filter((trecho): trecho is TrechoBuscado => trecho !== null)
-        .map((trecho) => [trecho.chunk_id, trecho]),
-    );
-    return ids.map((id) => porId.get(id)).filter((trecho): trecho is TrechoBuscado => Boolean(trecho));
-  } catch {
-    // Continuidade é prioridade suave: qualquer falha neste ramo preserva a busca geral.
-    return [];
-  }
 }
 
 export async function POST(requisicao: NextRequest): Promise<NextResponse> {
@@ -316,7 +248,7 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
     return respostaErro(
       "LIMITE_EXCEDIDO",
       "Muitas requisições em pouco tempo. Aguarde um minuto e tente novamente.",
-      429
+      429,
     );
   }
 
@@ -324,7 +256,11 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
   try {
     corpo = await requisicao.json();
   } catch {
-    return respostaErro("ENTRADA_INVALIDA", "Corpo da requisição deve ser JSON válido.", 400);
+    return respostaErro(
+      "ENTRADA_INVALIDA",
+      "Corpo da requisição deve ser JSON válido.",
+      400,
+    );
   }
 
   const validado = esquemaRequisicao.safeParse(corpo);
@@ -332,80 +268,126 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
     return respostaErro(
       "ENTRADA_INVALIDA",
       "A pergunta deve ter entre 3 e 1000 caracteres, e o histórico (opcional) deve ter no máximo 6 mensagens.",
-      400
+      400,
     );
   }
 
   const { mensagem, historico, continuidade } = validado.data;
+  const inicioRequisicao = Date.now();
+  const prazo = criarPrazoRequisicao();
+  const medicao = criarMedicaoChat();
+  let sucesso = false;
+  const responderDiretamente = async (texto: string) => {
+    const resultado = await medicao.medir("registro", () => respostaDireta(mensagem, texto, prazo.signal));
+    sucesso = true;
+    return resultado;
+  };
 
   try {
     if (solicitaContatoPessoal(mensagem)) {
-      return await respostaDireta(mensagem, RESPOSTA_CONTATO_PESSOAL);
+      return await responderDiretamente(RESPOSTA_CONTATO_PESSOAL);
     }
     if (solicitaFabricacao(mensagem)) {
-      return await respostaDireta(mensagem, RESPOSTA_FABRICACAO);
+      return await responderDiretamente(RESPOSTA_FABRICACAO);
     }
-    if (dependeDeReferente(mensagem) && !(historico?.length)) {
-      return await respostaDireta(mensagem, RESPOSTA_REFERENTE_AUSENTE);
+    if (dependeDeReferente(mensagem) && !historico?.length) {
+      return await responderDiretamente(RESPOSTA_REFERENTE_AUSENTE);
     }
 
     // 1. Embedding da pergunta, gerado no próprio servidor (ADR-007).
-    const consultaBusca = montarConsultaBusca(mensagem, (historico ?? []) as Mensagem[]);
-    const embedding = await gerarEmbeddingConsulta(consultaBusca);
+    const consultaBusca = montarConsultaBusca(
+      mensagem,
+      (historico ?? []) as Mensagem[],
+    );
+    const consultas = (await medicao.medir("decomposicao", () => aguardarNoPrazo(
+      decomporConsultaExperimental(
+        consultaBusca,
+        inicioRequisicao,
+        prazo.signal,
+      ),
+      prazo.signal,
+    ))) ?? [consultaBusca];
+    conferirPrazo(prazo.signal);
 
-    // 2. Busca semântica via RPC buscar_chunks (limiar e quantidade padrão da função).
-    const { data: trechos, error: erroBusca } = await supabaseServidor.rpc("buscar_chunks", {
-      consulta_embedding: embedding,
-    });
-
-    if (erroBusca) {
-      throw new Error(`Falha na busca de chunks: ${erroBusca.message}`);
-    }
-
-    const vetoriais = ((trechos ?? []) as TrechoBuscado[]).map((trecho) => ({
-      ...trecho,
-      conteudo: omitirContatosPessoais(trecho.conteudo),
-    })).slice(0, 8);
-
-    const podeUsarContinuidade = dependeDeReferente(mensagem) &&
+    const podeUsarContinuidade =
+      dependeDeReferente(mensagem) &&
       Boolean(historico?.length) &&
       !houveMudancaExplicitaDeAssunto(mensagem);
     const fontesContinuidade = podeUsarContinuidade
       ? verificarTokenContinuidade(continuidade?.token)
       : null;
-    const textuais = fontesContinuidade
-      ? await buscarTextuaisPorFontes(consultaBusca, fontesContinuidade)
-      : [];
-    const lista = fontesContinuidade ? intercalarTrechos(vetoriais, textuais) : vetoriais;
+    const recuperacoes = await Promise.all(
+      consultas.map(async (consulta) => {
+        const embedding = await medicao.medir("embedding", () => aguardarNoPrazo(
+          gerarEmbeddingConsulta(consulta),
+          prazo.signal,
+        ));
+        return medicao.medir("recuperacao", () => recuperarTrechos(
+          consulta,
+          embedding,
+          fontesContinuidade,
+          inicioRequisicao,
+          prazo.signal,
+        ));
+      }),
+    );
+    conferirPrazo(prazo.signal);
+    const recuperacao = recuperacoes[0];
+    const lista: TrechoRecuperado[] = selecionarTrechosDasConsultas(
+      recuperacoes.map((resultado) => resultado.finais),
+    )
+      .map((trecho) => ({
+        ...trecho,
+        conteudo: omitirContatosPessoais(trecho.conteudo),
+      }));
+    if (process.env.RAG_REGISTRAR_RASTROS === "1") {
+      console.info(
+        "Rastreamento interno de recuperação",
+        recuperacao.diagnostico,
+        {
+          candidatos: recuperacao.candidatos.map(
+            ({
+              chunk_id,
+              fonte_id,
+              origem,
+              posicao_vetorial,
+              posicao_textual,
+            }) => ({
+              chunk_id,
+              fonte_id,
+              origem,
+              posicao_vetorial,
+              posicao_textual,
+            }),
+          ),
+        },
+      );
+    }
 
     // 3. Regra de ouro: sem trechos relevantes, não chamamos o LLM.
     if (lista.length === 0) {
-      const { data: interacao, error: erroInsercao } = await supabaseServidor
-        .from("interacoes")
-        .insert({
+      const interacaoId = await medicao.medir("registro", () => registrarInteracao(
+        {
           pergunta: mensagem,
           resposta: RESPOSTA_SEM_BASE,
           citacoes: [],
-        })
-        .select("interacao_id")
-        .single();
-
-      if (erroInsercao || !interacao) {
-        throw new Error(`Falha ao registrar interação: ${erroInsercao?.message}`);
-      }
+        },
+        prazo.signal,
+      ));
 
       const corpoResposta: RespostaChat = {
         resumo: "",
         resposta: RESPOSTA_SEM_BASE,
         citacoes: [],
         sugestoes_pesquisa: SUGESTOES_SEM_BASE,
-        interacao_id: interacao.interacao_id as string,
+        interacao_id: interacaoId,
       };
+      sucesso = true;
       return NextResponse.json(corpoResposta, { status: 200 });
     }
 
     // 4. Monta citações na ordem dos marcadores [n].
-    const citacoes: Citacao[] = lista.map((trecho, indice) => ({
+    let citacoes: Citacao[] = lista.map((trecho, indice) => ({
       n: indice + 1,
       fonte_id: trecho.fonte_id,
       titulo: trecho.titulo,
@@ -430,10 +412,11 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
         ];
         if (trecho.secao) partes.push(`Seção: ${trecho.secao}`);
         partes.push(
-          `Tipo: ${trecho.tipo_chunk === "nota_rodape" ? "nota de rodapé" : "corpo do texto"}`
+          `Tipo: ${trecho.tipo_chunk === "nota_rodape" ? "nota de rodapé" : "corpo do texto"}`,
         );
         partes.push(`Confiabilidade da fonte: ${trecho.confiabilidade}`);
-        if (trecho.nota_contexto) partes.push(`Nota de contexto: ${trecho.nota_contexto}`);
+        if (trecho.nota_contexto)
+          partes.push(`Nota de contexto: ${trecho.nota_contexto}`);
         partes.push(`Conteúdo: ${trecho.conteudo}`);
         return partes.join("\n");
       })
@@ -452,22 +435,47 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
       "se usar uma, mencione que se trata de uma nota de rodapé. Não trate o " +
       "negacionismo histórico como um debate em aberto: responda a ele com a " +
       "documentação apresentada.\n\n" +
-      "Ao final do seu raciocínio, produza a resposta em duas partes, nesta ordem:\n\n" +
-      "PARTE 1 — RESUMO: escreva de 2 a 3 frases que sintetizem a resposta de " +
+      "Não deduza atribuições, competências ou práticas gerais de uma instituição " +
+      "a partir de perfis individuais, notas bibliográficas ou simples menções a " +
+      "processos. Preserve o sujeito e o alcance do trecho citado. Ao mencionar " +
+      "recomendação, conclusão ou ação, identifique na mesma frase o órgão, autor " +
+      "ou depoente responsável; não transfira afirmações entre instituições. " +
+      "Distinga testemunho, análise e documento oficial. Para alegação sensível " +
+      "que chegue por nota de rodapé ou por outra fonte intermediária, explicite " +
+      "a cadeia de atribuição e seu caráter indireto; omita o detalhe se não puder " +
+      "atribuí-lo com precisão.\n\n" +
+      "Concentre a resposta na pergunta e evite digressões. Ao descrever medidas " +
+      "legais, delimite o alcance efetivamente sustentado pelos trechos: não " +
+      "converta medida de alcance excepcional em regra geral. Se uma fonte usar " +
+      "formulação ampla, ou faltar a delimitação necessária, atribua-a " +
+      "explicitamente à fonte e registre que os trechos não permitem precisar " +
+      "seu alcance; se for periférico, omita. A presença de citação não torna " +
+      "segura uma generalização.\n\n" +
+      "Em perguntas sobre o AI-5, responda aos seus dispositivos e efeitos " +
+      "diretamente documentados. Não introduza outros atos, como o AI-14, salvo " +
+      "se forem indispensáveis para esclarecer a pergunta e se os trechos citados " +
+      "permitirem delimitar com precisão sua data, alcance e relação com o AI-5; " +
+      "caso contrário, omita-os. Não transforme formulação ampla de uma fonte " +
+      "em regra geral.\n\n" +
+      "Produza somente o texto para o usuário, nesta ordem, sem rótulos de " +
+      "estrutura como PARTE, RESUMO, SEPARADOR ou RESPOSTA COMPLETA.\n\n" +
+      "Primeiro, escreva de 2 a 3 frases que sintetizem a resposta de " +
       "forma didática, em linguagem acessível a quem não tem familiaridade com o " +
       "tema. Não use marcadores de citação [n] nesta parte — as fontes aparecem na " +
       "resposta completa, logo abaixo. Não inclua nenhuma informação, nome, data ou " +
       "afirmação que não esteja sustentada pelos trechos fornecidos. Mantenha tom " +
       "sóbrio e respeitoso: o tema trata de tortura, morte e desaparecimento de " +
       "pessoas reais, com familiares vivos.\n\n" +
-      "PARTE 2 — SEPARADOR: escreva, em uma linha isolada, exatamente:\n---\n\n" +
-      "PARTE 3 — RESPOSTA COMPLETA: escreva a resposta detalhada, com os marcadores " +
+      "Depois, escreva uma linha isolada contendo apenas:\n---\n\n" +
+      "Por fim, responda de forma concisa, em até 6 parágrafos, com os marcadores " +
       "[1], [2] etc. indicando a origem de cada afirmação. Termine incentivando o " +
       "usuário a explorar as fontes citadas para aprofundar a pesquisa.\n\n" +
       "Trechos disponíveis:\n\n" +
       blocosTrechos;
 
-    const mensagensLLM: MensagemLLM[] = [{ role: "system", content: promptSistema }];
+    const mensagensLLM: MensagemLLM[] = [
+      { role: "system", content: promptSistema },
+    ];
 
     for (const item of (historico ?? []) as Mensagem[]) {
       mensagensLLM.push({
@@ -478,46 +486,75 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
 
     mensagensLLM.push({ role: "user", content: mensagem });
 
-    const textoLLM = omitirContatosPessoais(await gerarResposta(mensagensLLM));
+    conferirPrazo(prazo.signal);
+    const textoLLM = omitirContatosPessoais(
+      await medicao.medir("geracao", () => aguardarNoPrazo(
+        gerarResposta(mensagensLLM, { signal: prazo.signal }),
+        prazo.signal,
+      )),
+    );
+    conferirPrazo(prazo.signal);
 
     // Separa o resumo didático da resposta completa no primeiro `---` isolado.
     // Plano B: se o modelo não seguiu o formato, resumo fica vazio e a resposta
     // completa é preservada inteira (o contrato prevê resumo: "").
-    const { resumo, resposta } = separarResumo(textoLLM);
+    let { resumo, resposta } = separarResumo(textoLLM);
+    const veredito = await medicao.medir("verificacao", () => aguardarNoPrazo(
+      respostaSustentadaExperimental(
+        mensagem,
+        resposta,
+        citacoes.map((citacao, indice) => ({ ...citacao, trecho: lista[indice].conteudo })),
+        inicioRequisicao,
+        prazo.signal,
+        resumo,
+      ),
+      prazo.signal,
+    ));
+    conferirPrazo(prazo.signal);
+    let sugestoesPesquisa: string[] = [];
+    if (veredito === false) {
+      resumo = "";
+      resposta = RESPOSTA_SEM_BASE;
+      citacoes = [];
+      sugestoesPesquisa = SUGESTOES_SEM_BASE;
+    } else {
+      ({ resposta, citacoes } = normalizarCitacoesResposta(resposta, citacoes));
+    }
 
     // 6. Registra a interação para auditoria editorial (sem dados pessoais).
-    const { data: interacao, error: erroInsercao } = await supabaseServidor
-      .from("interacoes")
-      .insert({
+    const interacaoId = await medicao.medir("registro", () => registrarInteracao(
+      {
         pergunta: mensagem,
         resposta,
         citacoes,
-      })
-      .select("interacao_id")
-      .single();
-
-    if (erroInsercao || !interacao) {
-      throw new Error(`Falha ao registrar interação: ${erroInsercao?.message}`);
-    }
+      },
+      prazo.signal,
+    ));
 
     const corpoResposta: RespostaChat = {
       resumo,
       resposta,
       citacoes,
-      sugestoes_pesquisa: [],
-      interacao_id: interacao.interacao_id as string,
+      sugestoes_pesquisa: sugestoesPesquisa,
+      interacao_id: interacaoId,
     };
 
-    const tokenContinuidade = emitirTokenContinuidade(citacoes.map((citacao) => citacao.fonte_id));
+    const tokenContinuidade = emitirTokenContinuidade(
+      citacoes.map((citacao) => citacao.fonte_id),
+    );
     if (tokenContinuidade) corpoResposta.token_continuidade = tokenContinuidade;
 
+    sucesso = true;
     return NextResponse.json(corpoResposta, { status: 200 });
   } catch (erro) {
     console.error("Erro em /api/chat:", erro);
     return respostaErro(
       "ERRO_INTERNO",
       "Não foi possível processar sua pergunta agora. Tente novamente em alguns instantes.",
-      500
+      500,
     );
+  } finally {
+    medicao.finalizar(sucesso);
+    prazo.encerrar();
   }
 }

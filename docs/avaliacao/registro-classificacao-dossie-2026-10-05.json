@@ -1,0 +1,68 @@
+{
+  "estado": "preparado; banco real não alterado",
+  "proposta": {
+    "fonte_id": "efc10a75-5cf4-435e-a598-7abf57f88ff7",
+    "campos_antes": {
+      "tipo_fonte": "relatorio_oficial",
+      "nota_contexto": "Compilação documental de familiares/IEVE, não relatório originalmente produzido pela CEV-SP; hospedar não implica autoria."
+    },
+    "campos_depois": {
+      "tipo_fonte": "compilacao_documental",
+      "nota_contexto": "Compilação documental de memória e direitos humanos organizada pela Comissão de Familiares de Mortos e Desaparecidos Políticos e pelo IEVE (edição de 2009). Reúne pesquisa, documentos e relatos de proveniências diversas; a atribuição e o alcance devem ser verificados no trecho citado. Não é relatório originalmente produzido pela CEV-SP, que apenas hospeda o PDF."
+    },
+    "confiabilidade_preservada": "alta",
+    "subtipo_preservado": null,
+    "status": "preparada; aplicação no banco exige autorização da migração"
+  },
+  "simulacao": {
+    "modo": "tabela_temporaria_com_rollback",
+    "fonte_id": "efc10a75-5cf4-435e-a598-7abf57f88ff7",
+    "categoria_aceita": true,
+    "nota_vazia_rejeitada": true,
+    "categoria_desconhecida_rejeitada": true,
+    "duplicado_preservado": true,
+    "banco_real": [
+      {
+        "fonte_id": "d6f2e787-ee4a-49a3-9992-534be02ba8f2",
+        "tipo_fonte": "relatorio_oficial"
+      },
+      {
+        "fonte_id": "efc10a75-5cf4-435e-a598-7abf57f88ff7",
+        "tipo_fonte": "relatorio_oficial"
+      }
+    ]
+  },
+  "catalogo": {
+    "sha256_conferido": "e902047328adfa21ca523121684dd657ded74e28015199e2df59950cba0758a4",
+    "metadados_bibliograficos_alinhados": true,
+    "divergencias_aguardando_migracao": [
+      "tipo_fonte",
+      "nota_contexto"
+    ],
+    "sintese_url_distinta": true
+  },
+  "validacao": {
+    "testes_identidade_documental": 7,
+    "typecheck": "passou",
+    "lint": "passou",
+    "dry_run": "somente 0033_compilacao_documental.sql"
+  },
+  "rollback": {
+    "fonte_id": "efc10a75-5cf4-435e-a598-7abf57f88ff7",
+    "campos": {
+      "tipo_fonte": "relatorio_oficial",
+      "nota_contexto": "Compilação documental de familiares/IEVE, não relatório originalmente produzido pela CEV-SP; hospedar não implica autoria."
+    },
+    "restricoes_anteriores": [
+      {
+        "nome": "fontes_tipo_fonte_check",
+        "definicao": "CHECK ((tipo_fonte = ANY (ARRAY['relatorio_oficial'::text, 'documento_repressao'::text, 'documento_inteligencia_estrangeira'::text, 'imprensa_epoca'::text, 'producao_academica'::text, 'testemunho'::text, 'legislacao_decisao_judicial'::text, 'material_didatico_educativo'::text])))"
+      },
+      {
+        "nome": "nota_contexto_obrigatoria",
+        "definicao": "CHECK (((tipo_fonte <> ALL (ARRAY['imprensa_epoca'::text, 'documento_repressao'::text])) OR (nota_contexto IS NOT NULL)))"
+      }
+    ],
+    "execucao": "Somente após autorização; restaurar dados antes de remover categoria e impedir reversão se outras fontes a utilizarem."
+  }
+}

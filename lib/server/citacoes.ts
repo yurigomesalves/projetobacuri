@@ -7,6 +7,24 @@
 
 import type { Citacao, Marcador } from "@/lib/shared/tipos";
 
+/** Valida referências geradas sem atribuir ao modelo uma fonte que ele não citou. */
+export function normalizarCitacoesResposta(resposta: string, citacoes: Citacao[]): {
+  resposta: string; citacoes: Citacao[];
+} {
+  const numeros = [...resposta.matchAll(/\[(\d+)\]/g)].map((m) => Number(m[1]));
+  const disponiveis = new Set(citacoes.map((c) => c.n));
+  if (!numeros.length || numeros.some((n) => !disponiveis.has(n))) {
+    throw new Error("Referências inválidas na resposta gerada");
+  }
+  const usados = new Set(numeros);
+  const finais = citacoes.filter((c) => usados.has(c.n));
+  const novos = new Map(finais.map((c, indice) => [c.n, indice + 1]));
+  return {
+    resposta: resposta.replace(/\[(\d+)\]/g, (_, n: string) => `[${novos.get(Number(n))}]`),
+    citacoes: finais.map((c, indice) => ({ ...c, n: indice + 1 })),
+  };
+}
+
 // Formato retornado pelo Supabase ao selecionar uma linha de ligação com o
 // join `fontes (...)`. O join pode vir como objeto ou array de 1 elemento
 // dependendo da versão do client — tratamos os dois casos.

@@ -14,6 +14,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import type { RespostaAcervo, ItemAcervo } from "@/lib/shared/tipos";
 const tipos: Record<string, string> = {
   relatorio_oficial: "Relatório oficial",
+  compilacao_documental: "Compilação documental",
   documento_repressao: "Documento da repressão",
   documento_inteligencia_estrangeira: "Inteligência estrangeira",
   imprensa_epoca: "Imprensa da época",

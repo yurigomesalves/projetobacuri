@@ -13,6 +13,8 @@ export default function GlossarioFontes() {
 
 <p><strong>Relatório oficial:</strong> documentos produzidos pelo Estado brasileiro após a redemocratização para apurar os crimes da ditadura, como os relatórios da Comissão Nacional da Verdade (CNV), publicados em 2014, e os das comissões estaduais e municipais.</p>
 
+<p><strong>Compilação documental:</strong> obra de memória e pesquisa, com responsabilidade editorial identificada, que reúne e contextualiza documentos, relatos, denúncias e registros de proveniências diversas. Cada trecho é lido conforme sua autoria e contexto; a compilação não transforma todas as peças reunidas em documento oficial nem lhes atribui a mesma força probatória.</p>
+
 <p><strong>Documento da repressão:</strong> papéis produzidos pelos próprios órgãos que prenderam, vigiaram e torturaram, como o DOPS, o DOI-CODI e o SNI. Provam que a repressão existiu e como agiu, mas o que dizem sobre as vítimas é, por definição, hostil e muitas vezes distorcido.</p>
 
 <p><strong>Inteligência estrangeira:</strong> documentos de governos de outros países (como os Estados Unidos) que acompanhavam o Brasil e foram depois liberados ao público. São informativos, mas refletem os interesses do país que os produziu.</p>

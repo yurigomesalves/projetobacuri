@@ -1,4 +1,4 @@
-# Contrato de API — Projeto Bacuri (v1.6 — continuidade documental assinada, ADR-030, 14/09/2026)
+# Contrato de API — Projeto Bacuri (v1.7 — recuperação rastreável experimental, ADR-031, 14/09/2026)
 
 > Fechado na Fase 2 (Análise/Contrato) a partir do rascunho v0.1, incorporando as
 > pendências dos ADRs 001, 003 e 005 (ver `docs/decisoes.md`) e alinhando os tipos ao
@@ -44,6 +44,7 @@ Pergunta do usuário → resposta com citações.
   leitura de interações e não prova aprovação editorial das fontes citadas.
 - `resumo`: síntese didática (2–3 frases) exibida **antes** da resposta completa, em linguagem acessível. Gerado na mesma chamada ao LLM (economia de tokens): o modelo devolve `RESUMO\n---\nRESPOSTA`, e o servidor separa no primeiro `---`. Plano B (modelo não seguiu o formato): `resumo: ""` e a resposta completa preservada inteira. **Salvaguarda editorial (curador, Princípio 3)**: o resumo não traz marcadores `[n]` nem afirma nada além do que a resposta citada sustenta; é sempre exibido junto da resposta completa e da lista de fontes, nunca isolado. Recurso futuro de copiar/compartilhar só o resumo reabre essa análise (aí o resumo teria de levar as fontes junto).
 - Se a busca não atingir o limiar de relevância: 200 com `citacoes: []`, `resumo: ""` e resposta honesta padrão (não há base documental + sugestões). **Nunca** resposta factual sem citação.
+- Se a parte candidata a resumo contiver marcadores numéricos `[n]`, o formato é inválido: aplica-se o plano B (`resumo: ""`, texto integral como resposta), preservando afirmações e referências. A normalização de citações ocorre sobre esse texto integral; não se apagam marcadores para transformar o preâmbulo em resumo e não se gera outra resposta paga.
 - **Fluxo interno (RAG)**: antes da busca, pedidos explícitos de contato pessoal,
   ordens para fabricar citação e referências sem antecedente no histórico recebem
   resposta segura determinística, com `citacoes: []`, sem enviar trechos ao LLM. Nas
@@ -68,6 +69,52 @@ Pergunta do usuário → resposta com citações.
   substituídos por `[contato pessoal omitido]` antes de montar o prompt, a resposta e
   o trecho público da citação. A URL bibliográfica da fonte permanece disponível.
 - O prompt do LLM recebe `tipo_chunk`, `confiabilidade` e `nota_contexto` de cada trecho e a resposta preserva os marcadores `[n]` na ordem de `citacoes`.
+- Regra editorial de escopo e atribuição: não deduzir competências ou práticas institucionais de perfis individuais, notas bibliográficas ou menções a processos; preservar sujeito e alcance do trecho. Recomendações, conclusões e ações devem identificar na mesma frase o órgão, autor ou depoente responsável, sem transferir afirmações entre instituições. Distinguir testemunho, análise e documento oficial. Alegações sensíveis por fonte intermediária exigem cadeia de atribuição e caráter indireto explícitos; omitir detalhes sem atribuição precisa. Instrução revisada pelo curador em 2026-10-05; não constitui verificação automática de sustentação histórica.
+- Após a verificação opcional, o servidor mantém na lista pública apenas as citações usadas na resposta completa e renumera conjuntamente os marcadores e a lista, preservando a identidade e os metadados das fontes. Persistência e continuidade usam essa lista final. Uma geração sem marcador válido, com referência numérica desconhecida ou interrompida pelo limite de tokens (`finish_reason: length`) retorna 500 `ERRO_INTERNO`, sem registro de resposta factual; não representa lacuna do acervo. Não há repetição paga automática para completar texto truncado. Recusas determinísticas e ausência de resultados mantêm suas respostas 200 sem citações. Esta validação estrutural não comprova a sustentação histórica das afirmações.
+- **Recuperação rastreável (experimental, desligada por padrão):** quando
+  `RAG_RECUPERACAO_EXPERIMENTAL=1`, o servidor obtém até 50 candidatos vetoriais e
+  50 textuais, preservando internamente a origem e as posições dos ramos. A fusão
+  usa RRF com parâmetros configurados; até oito fontes prováveis recebem busca
+  textual adicional, e o token de continuidade é apenas uma preferência. No máximo
+  24 candidatos seguem para a ordenação e oito entram no prompt. Esses rastros não
+  pertencem à resposta pública nem ao registro de `interacoes`.
+- Decomposição, reranqueamento e verificação semântica são etapas experimentais
+  opcionais no provedor já configurado. Quando a decomposição estiver ativa,
+  os resultados da pergunta original e de até duas subconsultas são intercalados
+  por posição, começando pela pergunta original, com deduplicação por `chunk_id`,
+  até oito trechos. Listas vazias ou duplicadas não ocupam vagas; a ordem interna
+  de cada lista é preservada. Com uma consulta, a seleção permanece igual.
+  A verificação opcional avalia conjuntamente resumo e resposta completa contra
+  os textos integrais recuperados, com a mesma numeração das citações públicas.
+  Reprovação de qualquer parte remove ambas e as citações, retornando a lacuna
+  documental prevista; falha operacional do verificador continua retornando
+  `null`, sem conferir aprovação semântica. As citações públicas seguem abreviadas.
+  Após validar a entrada, o processamento
+  compartilha um prazo de 20 segundos entre embedding, recuperação, geração,
+  verificação e registro da interação. Esgotamento do prazo retorna 500 com
+  `ERRO_INTERNO`, nunca uma declaração de lacuna documental. Operações de rede
+  recebem cancelamento; o cálculo compartilhado do embedding pode terminar em
+  segundo plano, mas a requisição vencida não inicia geração nem registro.
+  Execução local síncrona não é interrompível: se bloquear o event loop,
+  o erro só poderá ser enviado ao devolver o controle, com nova conferência
+  do relógio antes de aceitar o resultado. Cancelamento de uma gravação já
+  enviada não garante desfazer uma transação confirmada pelo banco.
+  Diagnóstico opcional `RAG_METRICAS_TEMPO=1` registra somente etapa, duração,
+  sucesso/falha, identificador aleatório da instância e ordem da requisição
+  naquela instância. Não registra pergunta, resposta, fontes ou credenciais,
+  não altera o JSON público e não amplia o prazo. A duração no servidor começa
+  após validação; a medição externa inclui inicialização e transporte.
+  No build Vercel, o modelo `Xenova/multilingual-e5-small` é preparado na revisão
+  `761b726dd34fb83930e26aab4e9ac3899aa1fa78` e incluído somente na função de chat.
+  A consulta usa CPU/fp32, os mesmos prefixo `query:`, pooling mean e normalização;
+  muda apenas a origem dos arquivos, eliminando download no primeiro pedido.
+  Na Vercel, arquivos ausentes causam erro técnico, sem fallback para download.
+  Os pesos gerados ficam fora do Git. Preparação local: `npm run preparar:embedding`.
+  Falha de etapa opcional retorna à ordenação determinística, sem repetição automática.
+- Falha da RPC RRF experimental retorna à busca vetorial de controle, preservando
+  as regras de continuidade e o prazo restante. O diagnóstico interno registra
+  a falha e a estratégia efetivamente utilizada; se o controle também falhar,
+  a rota retorna o erro temporário existente. O contrato público não muda.
 
 ### POST /api/feedback
 - Request: `{ "interacao_id": uuid, "classificacao": "util" | "incompleta" | "incorreta", "resposta_alternativa"?: string (até 3000), "fontes_sugeridas"?: string }`
@@ -247,6 +294,13 @@ a vítima pertence, segundo fonte documental. **Desligada por padrão** no mapa.
   vem omitido até decisão futura.
 
 ## Tipos compartilhados (lib/shared/tipos.ts)
+`tipo_fonte` segue o vocabulário de `docs/taxonomia.md`, incluindo
+`compilacao_documental` (05/10/2026): obra com responsabilidade editorial
+identificada que reúne e contextualiza registros de proveniências diversas.
+O campo permanece uma string; o novo valor não altera o formato das respostas.
+Essa categoria exige nota de contexto e crítica da autoria e do alcance de cada
+trecho, sem transformar as peças reunidas em relatório oficial.
+
 ```ts
 Mensagem   = { papel: "usuario" | "assistente", conteudo: string }
 Citacao    = { n: number, fonte_id, titulo, autor_orgao, tipo_fonte, confiabilidade,

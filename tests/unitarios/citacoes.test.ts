@@ -1,6 +1,19 @@
 import { describe, expect, it } from "vitest";
-import { montarCitacao, montarMarcadores } from "@/lib/server/citacoes";
+import { montarCitacao, montarMarcadores, normalizarCitacoesResposta } from "@/lib/server/citacoes";
 import { linhaFonteJoin, linhaMarcadorJoin } from "../apoio/fixtures";
+
+describe("normalizarCitacoesResposta", () => {
+  const fontes = [1, 2, 3, 4].map((n) => montarCitacao(linhaFonteJoin({ paginas: `${n}` }), n));
+  it("preserva identidade e texto ao remover fontes não usadas, inclusive marcadores repetidos", () => {
+    const resultado = normalizarCitacoesResposta("Texto [4], outro [2][4].", fontes);
+    expect(resultado.resposta).toBe("Texto [2], outro [1][2].");
+    expect(resultado.citacoes.map((c) => [c.n, c.paginas])).toEqual([[1, "2"], [2, "4"]]);
+    expect(fontes[3].n).toBe(4);
+  });
+  it.each(["Texto sem fonte.", "Texto [1][9].", "Texto [0]."])("recusa geração inválida: %s", (texto) => {
+    expect(() => normalizarCitacoesResposta(texto, fontes)).toThrow("Referências inválidas");
+  });
+});
 
 describe("montarCitacao", () => {
   it("monta a citação completa com o n informado e tipo_chunk sempre 'corpo'", () => {

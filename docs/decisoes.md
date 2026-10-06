@@ -592,3 +592,21 @@
   generalização. Uma eventual promoção exige outro lote após o congelamento.
 - **Registro**: `docs/avaliacao/decisao-pendente-continuidade-2026-09-14.md` e
   `docs/avaliacao/revisao-tecnica-continuidade-2026-09-14.md`.
+
+
+## ADR-032 — Distinguir compilação documental e fixar a identidade na ingestão
+- **Data**: 05/10/2026. **Estado**: migração 0033 e atualização dos dois campos aplicadas após autorização explícita de Yuri; banco, catálogo, integridade dos chunks e APIs conferidos.
+- **Decisão editorial**: adicionar `compilacao_documental`; no Dossiê de
+  Familiares/IEVE, manter `confiabilidade: alta`, sem validar automaticamente
+  todo o conteúdo. A nota de contexto e a crítica por trecho são obrigatórias.
+- **Identidade**: o livro de 762 páginas é distinto da síntese de 16 páginas.
+  Catálogo e manifesto usam o PDF completo, o hash conferido e o UUID existente
+  `efc10a75-5cf4-435e-a598-7abf57f88ff7`. Data sem precisão comprovada e licença
+  não demonstrada permanecem nulas; autoria não é inferida da hospedagem estatal.
+- **Ingestão**: seleção ambígua por URL deve interromper o processo; UUID fixado
+  exige correspondência com os metadados e o hash. O indexador individual tem
+  diagnóstico como padrão; substituir chunks exige opção explícita e autorização.
+- **Limites**: sem reindexação, fusão ou exclusão do registro vazio duplicado,
+  promoção do candidato ou validação científica do corpus nesta fase.
+- **Registro**: `docs/avaliacao/decisao-classificacao-dossie-2026-10-05.md` e
+  `docs/avaliacao/implementacao-classificacao-dossie-2026-10-05.md`.
