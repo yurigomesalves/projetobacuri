@@ -489,7 +489,7 @@ export async function POST(requisicao: NextRequest): Promise<NextResponse> {
     conferirPrazo(prazo.signal);
     const textoLLM = omitirContatosPessoais(
       await medicao.medir("geracao", () => aguardarNoPrazo(
-        gerarResposta(mensagensLLM, { signal: prazo.signal }),
+        gerarResposta(mensagensLLM, { signal: prazo.signal, maxTokens: 4096 }),
         prazo.signal,
       )),
     );
