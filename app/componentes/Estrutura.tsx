@@ -3,13 +3,14 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import AcessoCuradoria from "./AcessoCuradoria";
+import ContaComunidade from "./ContaComunidade";
 import { CatalogoProvider } from "./PainelAcervo";
 const links = [
   ["/", "Pesquisa", "search"],
   ["/acervo", "Acervo", "grid"],
   ["/biografias", "Biografias", "people"],
   ["/mapa", "Territórios", "map"],
+  ["/comunidade", "Comunidade", "people"],
   ["/transparencia", "Transparência", "shield"],
   ["/sobre", "Sobre o projeto", "info"],
 ];
@@ -205,7 +206,7 @@ export default function Estrutura({ children }: { children: React.ReactNode }) {
                   </button>
                 ))}
               </div>
-              <AcessoCuradoria />
+              <ContaComunidade />
             </div>
           </header>
           <div className="bk-route" id="conteudo" tabIndex={-1}>
