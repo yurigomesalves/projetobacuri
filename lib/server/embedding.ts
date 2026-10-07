@@ -90,3 +90,13 @@ async function gerarEmbeddingSemCache(texto: string): Promise<number[]> {
 
   return Array.from(saida.data as Float32Array);
 }
+
+/** Indexação editorial no mesmo espaço do acervo, com o prefixo de passagem. */
+export async function gerarEmbeddingPassagem(texto: string): Promise<number[]> {
+  carregamento ??= criarPipeline();
+  try {
+    const extrair = await carregamento;
+    const saida = await extrair(`passage: ${texto}`, { pooling: "mean", normalize: true });
+    return Array.from(saida.data as Float32Array);
+  } catch (error) { carregamento = null; throw error; }
+}

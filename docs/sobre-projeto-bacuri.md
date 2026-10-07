@@ -21,3 +21,27 @@ O nome "Bacuri" constitui uma homenagem a Eduardo Collen Leite (conhecido pelo p
 **Transparência e software livre.** O projeto baseia-se em transparência editorial, colaboração do usuário e é disponibilizado como um software livre com código totalmente aberto sob a licença AGPL-3.0.
 
 **Memória e justiça.** Assume um compromisso ético e político com as lutas pela reparação histórica das vítimas da ditadura e das suas respectivas famílias.
+
+## Participação na comunidade e revisão editorial
+
+A comunidade reúne discussões sobre três pontos de partida: perguntas e respostas
+do chat, biografias e registros do mapa. A leitura é pública. Para publicar, a
+pessoa cria uma conta gratuita, confirma o e-mail e escolhe uma tag pública
+persistente. A tag identifica as contribuições no espaço comum, mas não há
+verificação da identidade civil: o nome real é opcional e o e-mail permanece
+privado.
+
+Ao abrir uma discussão, o projeto preserva a origem e uma cópia do registro com
+suas fontes. Assim, o debate pode ser acompanhado sem apagar aquilo que lhe deu
+origem. Avaliações de participantes têm o mesmo peso e não substituem a apuração
+histórica; autoria, participação incorporada e outras situações de impedimento
+afastam a pessoa da decisão correspondente. A curadoria decide publicamente com
+base nas fontes e nos pareceres independentes previstos nas regras da comunidade.
+
+Uma proposta aprovada sobre uma biografia ou um registro do mapa recebe o estado
+**Atualização editorial pendente**. Ela encaminha a revisão pelo fluxo de
+preparação e publicação do acervo. Depois de concluída, a curadoria registra
+publicamente a conclusão, a justificativa e o vínculo para o registro atualizado.
+Essa aprovação não transforma a proposta em resposta de referência do chat. O
+assistente só pode se beneficiar do conteúdo depois que o registro revisado e
+suas fontes passam pela indexação editorial normal do acervo.

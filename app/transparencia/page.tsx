@@ -7,6 +7,7 @@ import type {
   RespostaErro,
 } from "@/lib/shared/tipos";
 import Link from "next/link";
+import DecisoesComunidade from "../componentes/DecisoesComunidade";
 
 const ROTULO_CLASSIFICACAO: Record<string, string> = {
   util: "Útil",
@@ -94,49 +95,16 @@ export default function TransparenciaPage() {
           <h1 className="font-sans text-2xl font-bold tracking-tight text-tinta-950 sm:text-3xl dark:text-papel-50">
             Transparência editorial
           </h1>
-          {/* Texto definitivo aprovado em docs/revisao-editorial-fase4.md */}
           <div className="mt-2 space-y-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
-            <p>
-              Esta página mostra como o <strong>projeto_BACURI</strong> lida com
-              as avaliações enviadas por quem usa o assistente. Quando alguém
-              marca uma resposta como incompleta ou incorreta e propõe um texto
-              alternativo ou novas fontes, essa contribuição{" "}
-              <strong>não muda o acervo automaticamente</strong>. Ela entra em
-              uma fila e é lida, uma a uma, por uma pessoa responsável pela
-              curadoria histórica do projeto.
-            </p>
-            <p>
-              Cada contribuição é avaliada por três critérios. Primeiro,
-              fidelidade às fontes documentais: a proposta precisa se basear em
-              documentos reais — como o Relatório da Comissão Nacional da
-              Verdade, pesquisas acadêmicas ou depoimentos — e não em opinião
-              pessoal. Segundo, citação verificável: é preciso indicar de onde a
-              informação vem, com autor, documento e, quando possível, página,
-              para que qualquer pessoa possa checar. Terceiro, recusa de
-              negacionismo: propostas que tentem minimizar, justificar ou
-              colocar em dúvida crimes documentados da ditadura — como tortura,
-              mortes e desaparecimentos forçados — são recusadas. Esses fatos
-              não são tratados como uma opinião entre outras: eles estão
-              registrados em documentos oficiais, com nomes, datas e
-              responsáveis, e é assim que o projeto os apresenta.
-            </p>
-            <p>
-              Toda decisão — aceitar ou recusar — é publicada nesta página,
-              junto com a justificativa de quem decidiu. Isso vale tanto para
-              quem concorda quanto para quem discorda do projeto: nada é
-              decidido &quot;por trás das cortinas&quot;.
-            </p>
-            <p>
-              Este trabalho existe para ajudar a preservar a memória das pessoas
-              atingidas pela ditadura, contar a história com base em provas e
-              documentos, e contribuir para que o Brasil enfrente esse período
-              com verdade e justiça.
-            </p>
+            <p>Esta página reúne decisões públicas sobre propostas abertas a partir de três origens: perguntas e respostas do chat, biografias e registros do mapa. As avaliações de participantes ajudam a ordenar a fila; pareceres independentes da curadoria decidem cada proposta à luz das fontes. As avaliações legadas do assistente são contribuições enviadas pelo formulário anterior, examinadas no fluxo de curadoria então vigente.</p>
+            <p>Uma tag pública persistente identifica cada participação; ela está ligada a uma conta com e-mail confirmado, sem exigir identidade civil. Nenhuma contribuição muda o acervo documental, treina o modelo ou torna uma afirmação verdadeira por ter recebido mais apoio. Cada decisão registra resultado, justificativa e fontes verificáveis. Tortura, mortes, desaparecimentos forçados e outras violações documentadas não são apresentados como opiniões equivalentes à sua negação.</p>
+            <p>A aprovação de uma proposta sobre biografia ou registro do mapa encaminha sua revisão pelo fluxo editorial do acervo e fica identificada como “Atualização editorial pendente”. Quando a revisão é concluída, a curadoria registra aqui a justificativa e o vínculo para o registro atualizado. O chat só pode se beneficiar desse conteúdo depois da indexação editorial normal do acervo.</p>
           </div>
         </div>
       </header>
 
       <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-6 sm:px-6">
+        <DecisoesComunidade />
         {!carregandoCuradores && curadores.length > 0 && (
           <section className="mb-8">
             <h2 className="text-lg font-semibold tracking-tight text-tinta-950 dark:text-papel-50">
@@ -145,7 +113,7 @@ export default function TransparenciaPage() {
             <p className="mt-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
               As pessoas listadas abaixo avaliam, à luz das fontes documentais,
               as contribuições enviadas ao projeto e decidem, com justificativa
-              pública, o que entra ou não no acervo. A curadoria reúne
+              pública, quais propostas são aceitas ou recusadas. A curadoria reúne
               pesquisadoras e pesquisadores, professoras e professores e
               integrantes de movimentos sociais e de memória — uma pluralidade
               que reflete o compromisso do projeto com a colaboração e com a
@@ -219,6 +187,7 @@ export default function TransparenciaPage() {
           </Link>
         </section>
 
+        <h2 className="mb-4 text-lg font-semibold">Avaliações legadas do assistente</h2>
         {carregando && (
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
             Carregando...

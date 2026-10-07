@@ -33,11 +33,12 @@ export async function autenticarCurador(req: NextRequest): Promise<Curador | nul
     return null;
   }
 
-  const { data: curador, error: erroCurador } = await supabaseServidor
+  let consulta = supabaseServidor
     .from("curadores")
     .select("user_id, nome, email, papel")
-    .eq("user_id", userData.user.id)
-    .maybeSingle();
+    .eq("user_id", userData.user.id);
+  if (process.env.BACURI_COMUNIDADE_ATIVA === "true") consulta = consulta.eq("ativo", true);
+  const { data: curador, error: erroCurador } = await consulta.maybeSingle();
 
   if (erroCurador || !curador) {
     return null;

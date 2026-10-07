@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  distDir: process.env.BACURI_AMBIENTE_LOCAL === "true" ? ".next/comunidade-local" : ".next",
   // Transformers.js (embedding da consulta — ADR-007) carrega binários
   // nativos do ONNX Runtime; não pode ser empacotado pelo bundler.
   serverExternalPackages: ["@huggingface/transformers"],

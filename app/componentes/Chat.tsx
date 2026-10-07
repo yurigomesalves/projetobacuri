@@ -5,7 +5,7 @@ import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
 import type { Mensagem, RespostaChat, RespostaErro } from "@/lib/shared/tipos";
 import Citacoes from "./Citacoes";
-import Feedback from "./Feedback";
+import CompartilharResposta from "./CompartilharResposta";
 
 const MIN_CARACTERES = 3;
 const MAX_CARACTERES = 1000;
@@ -33,6 +33,9 @@ type MensagemExibida = Mensagem & {
   // Referência opaca do servidor, mantida só no estado desta conversa.
   // Ela não entra no histórico, não é exibida e nunca é persistida.
   tokenContinuidade?: string;
+  tokenCompartilhamento?: string;
+  perguntaCompartilhada?: string;
+  referenciasOuro?: RespostaChat["referencias_ouro"];
   erro?: string;
 };
 
@@ -240,7 +243,7 @@ function MensagemAssistente({
                     <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-600 dark:text-neutral-400">
                       Para aprofundar a pesquisa
                     </h3>
-                    <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-neutral-700 dark:text-neutral-300">
+                    <ul className="bk-research-suggestions mt-2 list-outside list-disc pl-5 space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
                       {mensagem.sugestoesPesquisa.map((sugestao) => (
                         <li key={sugestao}>{sugestao}</li>
                       ))}
@@ -256,7 +259,9 @@ function MensagemAssistente({
               )}
 
               {mensagem.interacaoId && (
-                <Feedback interacaoId={mensagem.interacaoId} />
+                <>
+                  {!!mensagem.referenciasOuro?.length && <p className="mt-3 text-xs">Respostas de referência consultadas: {mensagem.referenciasOuro.map(r => <a key={r.ouro_id} className="mr-2 underline" href={`/comunidade/ouro?id=${r.ouro_id}#${r.ouro_id}`}>{r.titulo}</a>)}</p>}
+                  <CompartilharResposta interacaoId={mensagem.interacaoId} token={mensagem.tokenCompartilhamento} pergunta={mensagem.perguntaCompartilhada} resumo={mensagem.resumo} citacoes={mensagem.citacoes} resposta={mensagem.conteudo} /></>
               )}
             </>
           )}
@@ -361,6 +366,9 @@ export default function Chat() {
             sugestoesPesquisa: dados.sugestoes_pesquisa,
             interacaoId: dados.interacao_id,
             tokenContinuidade: dados.token_continuidade,
+            tokenCompartilhamento: dados.token_compartilhamento,
+            perguntaCompartilhada: conteudo,
+            referenciasOuro: dados.referencias_ouro,
           },
         ]);
       } else {
@@ -503,6 +511,7 @@ export default function Chat() {
       </div>
 
       <form
+        data-chat-composer="true"
         onSubmit={aoEnviarFormulario}
         className="border-t border-papel-200 bg-papel-50 px-4 py-3 sm:px-6 dark:border-tinta-900 dark:bg-tinta-950"
       >

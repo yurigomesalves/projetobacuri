@@ -1,5 +1,13 @@
 # Avaliação documental do RAG — piloto
 
+## Memória de encerramento
+
+O estado consolidado de conteúdo e design das respostas, incluindo publicações
+dos PRs #2/#3/#4 em 6 de outubro de 2026, está na
+[memória do projeto](../memoria-projeto.md). Consultar esse registro para distinguir
+entregas publicadas, resultados amostrais e pesquisa experimental. Os relatórios
+abaixo preservam o estado e as limitações de cada avaliação.
+
 Estado: conjunto-ouro com P01–P24 e P31 aprovado e âncoras de evidência auditadas em 9 de setembro de 2026. P24 foi dividida para separar a questão geral sobre registros clandestinos da análise do caso Ismene em P31.
 
 ## Plano e critério de passagem

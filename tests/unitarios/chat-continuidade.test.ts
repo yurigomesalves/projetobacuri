@@ -1,4 +1,6 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
+// Esta heurística não depende de sessão nem de credenciais do navegador.
+vi.mock("@/app/componentes/CompartilharResposta", () => ({ default: () => null }));
 import { pareceContinuidade } from "@/app/componentes/Chat";
 
 describe("heurística de continuidade no chat", () => {

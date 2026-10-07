@@ -3,13 +3,14 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import AcessoCuradoria from "./AcessoCuradoria";
+import ContaComunidade from "./ContaComunidade";
 import { CatalogoProvider } from "./PainelAcervo";
 const links = [
   ["/", "Pesquisa", "search"],
   ["/acervo", "Acervo", "grid"],
   ["/biografias", "Biografias", "people"],
   ["/mapa", "Territórios", "map"],
+  ["/comunidade", "Comunidade", "people"],
   ["/transparencia", "Transparência", "shield"],
   ["/sobre", "Sobre o projeto", "info"],
 ];
@@ -24,6 +25,8 @@ export function Icone({ nome }: { nome: string }) {
     shield: "M12 2l8 4v6c0 5-8 10-8 10S4 17 4 12V6zM8 12l3 3 5-6",
     info: "M12 11v6M12 7v1M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0",
     menu: "M4 6h16M4 12h16M4 18h16",
+    close: "M6 6l12 12M18 6 6 18",
+    expand: "M3 4h18v16H3zM9 4v16M13 8l3 4-3 4",
     panel: "M3 4h18v16H3zM9 4v16M16 8l-3 4 3 4",
     system: "M4 4h16v12H4zM8 20h8M12 16v4",
     light:
@@ -95,7 +98,7 @@ export default function Estrutura({ children }: { children: React.ReactNode }) {
           JUSTIÇA
         </span>
       </Link>
-      <p className="bk-nav-label">ESPAÇO DE PESQUISA</p>
+      <p className="bk-nav-label">HISTÓRIA COLABORATIVA DIGITAL</p>
       <nav aria-label={mobile ? "Navegação móvel" : "Navegação principal"}>
         {links.map(([url, label, icon]) => (
           <Link
@@ -139,8 +142,8 @@ export default function Estrutura({ children }: { children: React.ReactNode }) {
           }
           aria-expanded={mobile ? open : !collapsed}
         >
-          <Icone nome="panel" />
-          <span>{mobile ? "Fechar menu" : "Recolher menu"}</span>
+          <Icone nome={mobile ? "close" : collapsed ? "expand" : "panel"} />
+          <span>{mobile ? "Fechar menu" : collapsed ? "Expandir menu" : "Recolher menu"}</span>
         </button>
         <p>
           História pública
@@ -205,7 +208,7 @@ export default function Estrutura({ children }: { children: React.ReactNode }) {
                   </button>
                 ))}
               </div>
-              <AcessoCuradoria />
+              <ContaComunidade />
             </div>
           </header>
           <div className="bk-route" id="conteudo" tabIndex={-1}>
