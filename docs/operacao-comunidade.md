@@ -160,3 +160,52 @@ por Escape, clique fora, mudança de foco ou navegação; e-mail permanece priva
 Menu validado em quatro testes de navegador no desktop/celular: ausência do
 atalho isolado, links conforme função, privacidade do e-mail, Escape e saída.
 Captura real local inspecionada; lint, TypeScript e diff aprovados.
+
+
+## Prévia remota isolada — 07/10/2026
+
+Com autorização do responsável, foi criado o projeto gratuito
+`bacuri-comunidade-preview` no Supabase. As 32 migrações existentes foram aplicadas
+nesse banco novo, com 46 tabelas públicas. O projeto de produção não recebeu
+migrações, dados demonstrativos nem alterações de configuração. O projeto
+`profhistoria`, informado como sem uso, foi pausado e seus dados preservados.
+
+A configuração da comunidade está restrita à branch
+`melhoria/comunidade-colaborativa-20261006`. Ouro no chat permanece desligado.
+Não foram copiados documentos históricos da produção; chamadas pagas de geração
+e etapas opcionais de RAG permanecem desativadas na prévia.
+
+Prévia testada:
+https://projetobacuri-r9l7i94pc-yuri-gomes-alves-projects.vercel.app
+
+Quatro contas demonstrativas foram criadas administrativamente, com e-mail já
+confirmado: um participante e três curadores. Essa composição inicial permite
+testar os pareceres e a independência da revisão; não comprova a entrega de
+confirmação de cadastro pelo correio eletrônico. As credenciais e os relatórios
+detalhados ficam em `.local/comunidade/preview`, ignorada pelo Git.
+
+Verificações reais pelo navegador: login das quatro contas, edição do perfil,
+compartilhamento de resposta real de ausência de base com confirmação, busca,
+comentário e revisão, histórico, resposta a comentário, reconhecimento, proposta
+e revisão, avaliação e retirada, acompanhamento, notificações, dois pareceres
+concordantes, decisão pública, recurso editorial, denúncia de conteúdo alheio,
+moderação e reversão com revisão independente. O progresso de um de dois pareceres
+foi conferido na captura do painel antes do segundo parecer. Não houve aprovação
+de conteúdo histórico nem geração de resposta ouro.
+
+Foto: envio, miniatura e remoção aprovados no teste separado com PNG válido.
+A primeira tentativa não encontrou a miniatura no prazo curto da asserção; o
+novo teste confirmou HTTP de sucesso e aguardou a imagem. Notificações antigas
+foram verificadas com 25 avisos demonstrativos adicionais: segunda página, filtro
+de não lidas e marcação de todas como lidas. Nenhum erro JavaScript observado.
+
+Confirmação obrigatória permanece ativada: login de conta sem confirmação foi
+bloqueado. A chamada anônima à função de escrita também foi bloqueada. SMTP
+personalizado ainda não está configurado; cadastro público para qualquer endereço
+e entrega real de confirmação/recuperação continuam pendentes. A prévia não deve
+ser tratada como lançamento público da comunidade.
+
+O build padrão da Vercel terminou com sucesso. A revisão anterior do código tem
+224 testes em 28 arquivos, 28 testes de navegador, lint e TypeScript aprovados.
+As validações remotas complementam esses resultados e não equivalem à avaliação
+de qualidade histórica, à ativação em produção ou à autorização de despesas.
