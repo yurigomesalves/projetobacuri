@@ -15,8 +15,10 @@ describe("comunidade — migrações em PostgreSQL isolado", () => {
   async function discussao() {
     return (await agir("compartilhar", { interacao_id: ids.interacao, titulo: "Título da discussão", motivo: "Verificar a fundamentação da resposta.", categoria: "fontes" })).discussao_id;
   }
-  async function proposta(di: string, extras: Record<string, unknown> = {}) {
-    return agir("propor", { discussao_id: di, texto: "Uma resposta alternativa documentada [1].", justificativa: "A fonte permite melhorar esta resposta.", chunk_ids: [ids.chunk], ...extras });
+  async function proposta(di: string, extras: Record<string, unknown> = {}, encaminhar = true) {
+    const p = await agir("propor", { discussao_id: di, texto: "Uma resposta alternativa documentada [1].", justificativa: "A fonte permite melhorar esta resposta.", chunk_ids: [ids.chunk], ...extras });
+    if (encaminhar) await agir("encaminhar", { versao_id: p.versao_id, justificativa: "Encaminhamento excepcional justificado nesta fixture." }, ids.curador1);
+    return p;
   }
   async function parecer(versao: string, ator: string, resultado = "aprovar") {
     return agir("parecer", { versao_id: versao, resultado, justificativa: "Fonte e atribuição conferidas nesta versão.", sintese: "Proposta julgada com base nos trechos documentais conferidos." }, ator);
@@ -147,6 +149,7 @@ describe("comunidade — migrações em PostgreSQL isolado", () => {
     const p = await proposta(await discussao()); await parecer(p.versao_id, ids.curador1); await parecer(p.versao_id, ids.curador2);
     const dc = (await db.query<{ decisao_id: string }>("select decisao_id from decisoes_comunidade")).rows[0].decisao_id;
     await agir("recorrer", { alvo_tipo: "decisao", alvo_id: dc, motivo: "Nova evidência permite outra avaliação." }, ids.membro);
+    await recusa("encaminhar", { versao_id: p.versao_id, justificativa: "Tentar retirar o impedimento da rodada anterior." }, ids.curador1, "CONFLITO");
     await recusa("parecer", { versao_id: p.versao_id, resultado: "recusar", justificativa: "Tentar julgar o próprio veredito.", sintese: "Este parecer não é independente." }, ids.curador1, "REVISOR_IMPEDIDO");
     expect((await db.query<Record<string, unknown>>("select * from decisoes_comunidade")).rows).toHaveLength(1);
     expect((await db.query<Record<string, unknown>>("select estado from respostas_ouro")).rows[0].estado).toBe("suspensa");
@@ -189,12 +192,28 @@ describe("comunidade — migrações em PostgreSQL isolado", () => {
     expect(v.rows[0].chunk_ids).toEqual([outro, ids.chunk]);
   });
   it("encaminhamento automático exige idade e diversidade de avaliações", async () => {
-    const p = await proposta(await discussao());
+    const p = await proposta(await discussao(), {}, false);
     for (const ator of [ids.curador1, ids.curador2, ids.curador3, ids.membro, ids.candidato]) await agir("avaliar", { versao_id: p.versao_id, tipo: "apoio" }, ator);
     const estado = async () => (await db.query<{ estado: string }>("select estado from propostas_versoes where versao_id=$1", [p.versao_id])).rows[0].estado;
     expect(await estado()).toBe("aberta");
     await db.query("update propostas_versoes set criada_em=now()-interval '73 hours' where versao_id=$1", [p.versao_id]);
     await consulta("curadoria", {}, ids.curador1); expect(await estado()).toBe("encaminhada");
+  });
+  it("impede parecer antes de encaminhamento e exige nova versão após ajustes", async () => {
+    const p = await proposta(await discussao(), {}, false);
+    const dados = { versao_id: p.versao_id, resultado: "aprovar", justificativa: "Fonte conferida antes do encaminhamento.", sintese: "Esta decisão não deve ser registrada." };
+    await recusa("parecer", dados, ids.curador1, "CONFLITO");
+    await agir("encaminhar", { versao_id: p.versao_id, justificativa: "Encaminhamento excepcional fundamentado." }, ids.curador1);
+    await parecer(p.versao_id, ids.curador1, "ajustes");
+    await db.query("update propostas_versoes set criada_em=now()-interval '73 hours' where versao_id=$1", [p.versao_id]);
+    for (const ator of [ids.curador1, ids.curador2, ids.curador3, ids.membro, ids.candidato]) await agir("avaliar", { versao_id: p.versao_id, tipo: "apoio" }, ator);
+    await consulta("curadoria", {}, ids.curador2);
+    expect((await db.query<{estado:string}>("select estado from propostas_versoes where versao_id=$1", [p.versao_id])).rows[0].estado).toBe("aberta");
+    await recusa("encaminhar", { versao_id: p.versao_id, justificativa: "Tentar reenviar o mesmo texto sem revisão." }, ids.curador2, "CONFLITO");
+    await recusa("parecer", dados, ids.curador2, "CONFLITO");
+    const nova = await agir("revisar_proposta", { proposta_id: p.proposta_id, texto: "Nova versão após os ajustes solicitados.", justificativa: "A proposta incorporou a revisão editorial.", chunk_ids: [ids.chunk] });
+    await agir("encaminhar", { versao_id: nova.versao_id, justificativa: "Nova versão pode seguir para análise." }, ids.curador1);
+    expect((await parecer(nova.versao_id, ids.curador2)).resultado).toBe("pendente");
   });
   it("destituição aguarda defesa e exige dois terços dos demais", async () => {
     const d = await agir("propor_destituicao", { alvo_id: ids.curador3, justificativa: "Procedimento de revisão da composição." }, ids.curador1);

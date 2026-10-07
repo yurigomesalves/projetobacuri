@@ -7,7 +7,7 @@ import { supabase } from "@/lib/client/supabase";
 import { comunidadeGet, nomeAutor } from "./ComunidadeApi";
 import AvatarComunidade from "./AvatarComunidade";
 
-type PerfilMenu = { tag?: string; nome?: string; nivel?: string; pontos?: number; curador: boolean };
+type PerfilMenu = { tag?: string; nome?: string; nivel?: string; pontos?: number; curador: boolean; legado?: boolean };
 
 export default function ContaComunidade() {
   const router = useRouter();
@@ -32,7 +32,13 @@ export default function ContaComunidade() {
         const eu = await comunidadeGet("eu");
         if (ativo && atual === versao) setPerfil({ tag: eu.perfil ? nomeAutor(eu.perfil.tag) : undefined,
           nome: eu.perfil?.nome_publico, nivel: eu.perfil?.nivel, pontos: eu.perfil?.pontos, curador: eu.curador === true });
-      } catch { if (ativo && atual === versao) setPerfil({ curador: false }); }
+      } catch {
+        try {
+          const resposta = await fetch("/api/curadoria/eu", { headers: { Authorization: `Bearer ${data.session.access_token}` } });
+          const legado = resposta.ok ? await resposta.json() : null;
+          if (ativo && atual === versao) setPerfil({ curador: !!legado?.nome, nome: legado?.nome, legado: true });
+        } catch { if (ativo && atual === versao) setPerfil({ curador: false }); }
+      }
     }
     void carregar();
     const { data } = supabase.auth.onAuthStateChange(() => { queueMicrotask(() => void carregar()); });
@@ -87,7 +93,7 @@ export default function ContaComunidade() {
       <nav aria-label="Menu da conta" onClick={() => setAberto(false)}>
         <Link href="/conta">Meu perfil <span aria-hidden="true">→</span></Link>
         <Link href="/comunidade">Minha comunidade <span className="bc-account-notifications" role="img" aria-label={pendentes ? "Há notificações não lidas" : "Notificações"}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" /></svg>{pendentes && <i />}</span></Link>
-        {perfil.curador && <Link href="/comunidade/curadoria">Curadoria <span aria-hidden="true">→</span></Link>}
+        {perfil.curador && <Link href={perfil.legado ? "/curadoria" : "/comunidade/curadoria"}>Curadoria <span aria-hidden="true">→</span></Link>}
       </nav>
       <div className="bc-account-exit"><button type="button" disabled={saindo} onClick={() => void sair()}>{saindo ? "Saindo…" : "Sair da Conta"}<span aria-hidden="true">↪</span></button>{erro && <p role="alert">{erro}</p>}</div>
     </div>}

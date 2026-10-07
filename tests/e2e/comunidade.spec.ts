@@ -26,7 +26,7 @@ async function ambiente(page: Page, curador = false, proprio = false) {
       notificacoes: { itens: [{ notificacao_id: "n1", tipo: "decisao", dados: { discussao_id: id }, criada_em: "2026-01-01T00:00:00Z", lida_em: null }] }, fontes: { itens: [fonte], total: 1 },
       ouro: { itens: [{ ouro_id: "90000000-0000-4000-8000-000000000001", versao_id: versao.versao_id, titulo: discussao.titulo, texto: versao.texto, autor: "@autor", discussao_id: id, estado: "ativa", fontes_validas: true, fontes: [fonte] }], total: 1 },
       transparencia: { itens: [{ decisao_id: "d1", discussao_id: id, versao_id: versao.versao_id, resultado: "aprovada", sintese: "Fontes e contexto conferidos nesta versão.", criada_em: "2026-01-01T00:00:00Z", ciclo: 1, pareceristas: ["@curador1", "@curador2"], fontes: [fonte] }], total: 1, eventos: [], revisoes_ouro: [] },
-      curadoria: { itens: [{ proposta_id: proposta.proposta_id, discussao_id: id, titulo: discussao.titulo, autor: "@autor", impedido: false, versao }], curadores: [{ user_id: user.id, nome: "Pessoa de teste", ativo: true }], candidaturas: [], destituicoes: [], denuncias: [], moderacoes: [], recursos: [] },
+      curadoria: { itens: [{ proposta_id: proposta.proposta_id, discussao_id: id, titulo: discussao.titulo, autor: "@autor", impedido: false, versao: { ...versao, estado: "encaminhada" } }], curadores: [{ user_id: user.id, nome: "Pessoa de teste", ativo: true }], candidaturas: [], destituicoes: [], denuncias: [], moderacoes: [], recursos: [] },
     };
     await r.fulfill({ json: respostas[recurso || ""] || perfil });
   });
@@ -243,4 +243,14 @@ test("quórum insuficiente aparece antes de tentar enviar parecer", async ({ pag
   await expect(page.getByText("Falta 1 curador elegível para formar o quórum.", { exact: true })).toBeVisible();
   await expect(page.getByRole("progressbar")).toHaveAttribute("max", "2");
   await expect(page.getByLabel("Justificativa do parecer")).not.toBeVisible();
+});
+test("menu preserva curadoria legada com comunidade desativada", async ({ page }) => {
+  await ambiente(page, true);
+  await entrar(page);
+  await page.route("**/api/comunidade**", r => r.fulfill({ status: 503, json: { erro: { mensagem: "A comunidade está em preparação." } } }));
+  await page.route("**/api/curadoria/eu", r => r.fulfill({ json: { nome: "Curador de teste" } }));
+  await page.evaluate(() => window.dispatchEvent(new Event("bacuri-perfil-atualizado")));
+  await expect(page.locator(".bk-topbar").getByRole("button", { name: "Menu da conta", exact: true })).toBeVisible();
+  await page.locator(".bk-topbar").getByRole("button", { name: "Menu da conta" }).click();
+  await expect(page.getByRole("link", { name: "Curadoria", exact: true })).toHaveAttribute("href", "/curadoria");
 });

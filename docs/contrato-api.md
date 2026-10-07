@@ -439,3 +439,8 @@ identidade. Bucket privado `fotos-comunidade`, sem políticas de acesso direto:
 leituras e escritas passam pelo servidor; nunca aceitar caminho fornecido pelo cliente.
 Cache público desabilitado para refletir troca, remoção e encerramento do perfil.
 Nenhuma migração das tabelas editoriais é necessária; requer Supabase Storage ativo.
+<!-- Revisão do PR #5: pareceres só em versões encaminhadas ou recorridas;
+encaminhamento manual só em versões abertas sem pedido editorial de ajustes no
+ciclo atual. Ajustes exigem nova versão antes de qualquer novo encaminhamento.
+Com a comunidade desativada, o menu preserva acesso à curadoria legada por
+consulta autenticada a /api/curadoria/eu. -->

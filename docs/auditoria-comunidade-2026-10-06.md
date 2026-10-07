@@ -163,3 +163,23 @@ As duas melhorias foram implementadas após a solicitação do Yuri:
 - Não houve migração de banco, alteração de fontes históricas, edição de papéis ou
   publicação remota. O encerramento formal de destituições e a projeção agregada
   de não lidas para históricos muito grandes continuam sendo trabalhos distintos.
+
+## Preparação do PR e revisão automática
+
+Credenciais, contas, capturas e ambiente local ficaram fora dos commits. PR #5
+organizado em backend, interface e testes/documentação. A configuração pessoal
+do Codex foi preservada fora do PR. A prévia do commit inicial passou em 12
+verificações de páginas desktop/celular, sem erros JavaScript ou overflow; a API
+retornou 503 de preparação. Supabase Preview foi ignorado pela integração: não há
+banco remoto isolado para certificar o ciclo completo.
+
+A revisão automática identificou atalhos de estados editoriais: agora pareceres
+só aceitam versões encaminhadas/recorridas; encaminhamento manual não altera
+recursos nem reencaminha versões com pedido editorial de ajustes. O encaminhamento
+automático também exige nova versão após ajustes. Testes PostgreSQL cobrem esses
+casos. O menu recupera a curadoria legada quando a comunidade está desativada.
+As alterações SQL são somente nos arquivos de migração preparados; nenhuma
+migração foi aplicada ao banco local persistente ou remoto nesta etapa.
+
+Após correções: 224 testes em 28 arquivos e 28 casos de navegador aprovados
+(26 da suíte e dois de fallback legado); lint, tipos e diff aprovados.

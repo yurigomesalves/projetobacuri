@@ -76,6 +76,7 @@ create function comunidade_encaminhar_elegiveis() returns void language sql secu
  update propostas_versoes v set estado='encaminhada' from propostas_comunidade p where v.proposta_id=p.proposta_id and v.numero=p.versao_atual and p.estado<>'oculta' and comunidade_visivel(p.discussao_id) and v.estado='aberta' and v.criada_em<=now()-interval '72 hours'
  and (select count(*) from avaliacoes_proposta a join membros_comunidade m on m.user_id=a.membro_id where a.versao_id=v.versao_id and m.encerrado_em is null and m.suspenso_em is null)>=5
  and (select count(*) filter(where a.tipo='apoio')::numeric/nullif(count(*),0) from avaliacoes_proposta a join membros_comunidade m on m.user_id=a.membro_id where a.versao_id=v.versao_id and m.encerrado_em is null and m.suspenso_em is null)>=0.6
+ and not exists(select 1 from pareceres_comunidade pc where pc.versao_id=v.versao_id and pc.ciclo=v.ciclo and pc.resultado='ajustes')
 $$;
 
 create or replace function comunidade_executar(p_acao text,p_dados jsonb,p_ator uuid) returns jsonb language plpgsql security definer set search_path=public,extensions,pg_temp as $$
@@ -165,9 +166,11 @@ begin
   end if;
   if not comunidade_e_curador(p_ator) then raise exception 'NAO_PERMITIDO'; end if;
   if p_acao='encaminhar' then
+   if vv.estado<>'aberta' or exists(select 1 from pareceres_comunidade where versao_id=vv.versao_id and ciclo=vv.ciclo and resultado='ajustes') then raise exception 'CONFLITO'; end if;
    update propostas_versoes set estado='encaminhada' where versao_id=vv.versao_id;
    insert into eventos_governanca(tipo,alvo_id,justificativa,atores) values('encaminhamento',vv.versao_id,p_dados->>'justificativa',array[p_ator]); return jsonb_build_object('ok',true);
   end if;
+  if vv.estado not in ('encaminhada','recorrida') then raise exception 'CONFLITO'; end if;
   if comunidade_impedido(vv.versao_id,p_ator) then raise exception 'CONFLITO_INTERESSE'; end if;
   if p_dados->>'resultado'='aprovar' and (cardinality(vv.chunk_ids)=0 or jsonb_array_length(comunidade_fontes(vv.chunk_ids))<>cardinality(vv.chunk_ids)) then raise exception 'FONTES_OBRIGATORIAS'; end if;
   if vv.estado='recorrida' and exists(select 1 from pareceres_comunidade where versao_id=vv.versao_id and ciclo<vv.ciclo and curador_id=p_ator) then raise exception 'REVISOR_IMPEDIDO'; end if;
