@@ -21,6 +21,7 @@ function respostaErro(
 
 /** Cria um convite e devolve o link para o admin enviar manualmente. */
 export async function POST(requisicao: NextRequest): Promise<NextResponse> {
+  if (process.env.BACURI_COMUNIDADE_ATIVA === "true") return respostaErro("NAO_AUTORIZADO", "A entrada na curadoria agora exige candidatura na comunidade e aprovação unânime.", 403);
   const curador = await autenticarCurador(requisicao);
   if (!exigirAdmin(curador)) {
     return respostaErro("NAO_AUTORIZADO", "Acesso não autorizado à curadoria.", 401);

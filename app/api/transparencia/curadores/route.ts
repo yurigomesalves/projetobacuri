@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { supabaseServidor } from "@/lib/server/supabase";
 import { dentroDoLimite } from "@/lib/server/limite";
 import type { CuradorPublico, RespostaErro } from "@/lib/shared/tipos";
+import { comunidadeAtiva } from "@/lib/server/comunidade";
 
 export const runtime = "nodejs";
 
@@ -33,10 +34,12 @@ export async function GET(requisicao: NextRequest): Promise<NextResponse> {
   }
 
   try {
-    const { data, error } = await supabaseServidor
+    let consulta = supabaseServidor
       .from("curadores")
       .select("nome, foto_url, lattes_url, organizacao, sobre")
       .order("nome", { ascending: true });
+    if (comunidadeAtiva()) consulta = consulta.eq("ativo", true);
+    const { data, error } = await consulta;
 
     if (error) {
       throw new Error(`Falha ao listar curadores: ${error.message}`);

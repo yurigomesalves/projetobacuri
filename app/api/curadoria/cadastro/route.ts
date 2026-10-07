@@ -44,6 +44,7 @@ function respostaErro(
  * Rota pública (protegida pelo token de convite, que é secreto e expira).
  */
 export async function POST(requisicao: NextRequest): Promise<NextResponse> {
+  if (process.env.BACURI_COMUNIDADE_ATIVA === "true") return respostaErro("NAO_AUTORIZADO", "Inscreva-se na comunidade. A entrada na curadoria exige candidatura e aprovação unânime.", 403);
   const ip = obterIp(requisicao);
   if (!dentroDoLimite(ip)) {
     return respostaErro(

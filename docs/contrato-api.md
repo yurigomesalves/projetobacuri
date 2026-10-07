@@ -120,12 +120,61 @@ Pergunta do usuário → resposta com citações.
   a falha e a estratégia efetivamente utilizada; se o controle também falhar,
   a rota retorna o erro temporário existente. O contrato público não muda.
 
+## Comunidade colaborativa (implementação 2026-10)
+
+Contrato complementar: [comunidade.md](comunidade.md). O fórum usa a identidade do
+Supabase Auth, e-mail confirmado e perfil público por tag. As interações privadas
+não se tornam públicas sem compartilhamento explícito e comprovante assinado.
+`RespostaChat` ganha campos opcionais `token_compartilhamento` e
+`referencias_ouro` (`{ ouro_id, versao_id, titulo }[]`), preservando os demais campos.
+O uso editorial no chat permanece desligado até avaliação independente. Pareceres
+contabilizam somente a revisão das mesmas fontes; alterações documentais exigem
+reconferência antes de concluir o quórum. Fontes públicas incluem proveniência, tipo
+e nota de contexto quando disponíveis.
+
+### GET /api/comunidade
+Consulta paginada (20 itens, página começando em 1) por `recurso`:
+`discussoes`, `discussao&id=uuid`, `perfil&tag=...`, `eu`, `notificacoes`,
+`curadoria`, `transparencia`, `ouro`, `fontes&q=...`.
+`discussao` aceita `versao_id` para abrir a proposta decidida sem depender da
+paginação; `ouro` aceita `id` para consultar a referência editorial específica.
+Consultas privadas exigem Bearer JWT validado; curadoria exige papel em exercício.
+Respostas são objetos JSON com `itens` nas listas, `total` e `pagina` quando paginadas;
+detalhes retornam o objeto correspondente. Erros seguem `RespostaErro`.
+Na consulta privada `curadoria`, denúncias e registros de moderação de comentários
+e propostas incluem `discussao_id` quando o alvo existe, para localizar o conteúdo.
+Essa conferência ocorre no servidor e não altera as projeções públicas.
+O painel privado inclui `quorum` em propostas, candidaturas, recursos de moderação
+e destituições. O objeto informa `elegiveis`, `recebidos`, `favoraveis`,
+`contrarios`, `ajustes`, `necessarios`, `faltam`, `insuficientes`, `impedido` e
+`aguarda_consentimento`/`aguarda_defesa` quando pertinente. Propostas descontam
+autores, colaboradores incorporados e pareceristas anteriores de recursos;
+pareceres com fontes alteradas não contam. Havendo divergência, aplica-se a
+maioria prevista na operação SQL. São indicadores de leitura: a decisão continua
+sendo registrada exclusivamente pela transação de governança no banco.
+`notificacoes` preserva a paginação de 20 itens e acrescenta `titulo_discussao`
+quando disponível. Filtro de não lidas na interface se refere à página exibida,
+sem alterar o total global ou descartar acesso às páginas antigas.
+
+### POST /api/comunidade
+Comando autenticado `{ acao, dados }`, resposta `{ resultado }`. Ações e regras
+documentadas em `comunidade.md`; payload desconhecido é rejeitado, o autor nunca é
+aceito do cliente. Toda mudança sensível é atômica no banco. Leituras e escritas
+mantêm RLS fechado para acesso direto; APIs não expõem e-mail ou registros privados.
+Denúncias não podem ter como alvo o próprio conteúdo ou perfil: a API confere
+autoria no banco antes do registro (403). Alvo inexistente retorna 404; falha
+na conferência retorna 503, sem registrar a denúncia.
+
 ### POST /api/feedback
 - Request: `{ "interacao_id": uuid, "classificacao": "util" | "incompleta" | "incorreta", "resposta_alternativa"?: string (até 3000), "fontes_sugeridas"?: string }`
 - Response 201: `{ "status": "recebido_para_curadoria" }`
 - Feedback NUNCA altera o acervo automaticamente: entra na fila de curadoria humana (tabela `feedbacks`, status pendente/aceito/recusado — transparência editorial).
 
 ## Autenticação da curadoria (Fase 7 — contas individuais)
+Fluxo legado, preservado quando `BACURI_COMUNIDADE_ATIVA=false`. Com a comunidade
+ativada, o cadastro é público e a admissão editorial usa candidatura, consentimento
+e unanimidade; os endpoints antigos de convite/cadastro deixam de conceder papéis.
+
 A senha única compartilhada (`CURADORIA_SENHA`) foi **removida**. O acesso é por **conta
 individual** via Supabase Auth (e-mail + senha), criada **somente por convite** (não há
 cadastro aberto). As rotas protegidas exigem o header `Authorization: Bearer <access_token>`
@@ -376,3 +425,17 @@ Isso protege o projeto (e você) juridicamente e é coerente com o princípio 1 
 - JSON em snake_case; datas ISO 8601; idioma pt-BR.
 - Paginação: `pagina` (1-based), 20 itens por página.
 - Rotas públicas com rate limit (sugestão inicial: 20 req/min/IP no chat).
+
+### Foto de perfil — comunidade
+
+`GET /api/comunidade/foto?tag=@identificador` devolve somente a imagem WebP
+pública de um perfil ativo; ausência retorna 404, sem expor identificadores privados.
+Sem `tag`, GET exige Bearer e permite ao titular carregar sua própria foto.
+`POST /api/comunidade/foto` exige conta confirmada, não suspensa, e recebe
+multipart com campo `foto`: JPEG, PNG ou WebP, até 2 MiB. O servidor valida os
+bytes, limita pixels, remove metadados e converte para WebP quadrado de 256 px.
+`DELETE` remove apenas a foto do titular. A imagem é opcional e não verifica
+identidade. Bucket privado `fotos-comunidade`, sem políticas de acesso direto:
+leituras e escritas passam pelo servidor; nunca aceitar caminho fornecido pelo cliente.
+Cache público desabilitado para refletir troca, remoção e encerramento do perfil.
+Nenhuma migração das tabelas editoriais é necessária; requer Supabase Storage ativo.

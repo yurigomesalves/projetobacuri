@@ -137,6 +137,10 @@ export type RespostaChat = {
   sugestoes_pesquisa: string[];
   interacao_id: string;
   token_continuidade?: string;
+  /** Comprovante opaco, somente para publicação voluntária no fórum. */
+  token_compartilhamento?: string;
+  /** Proveniência editorial; as evidências históricas permanecem em citacoes. */
+  referencias_ouro?: { ouro_id: string; versao_id: string; titulo: string }[];
 };
 
 // --- POST /api/feedback ---
