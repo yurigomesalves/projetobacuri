@@ -19,6 +19,22 @@ type Discussao = { titulo: string; motivo: string; categoria: string; autor: Aut
 type Eu = { user_id: string; perfil: { nivel: string } | null };
 const votos: Record<string, string> = { apoio: "Apoio", ajustes: "Precisa de ajustes", sem_fundamento: "Sem fundamento", aprovar: "Aprovar", recusar: "Recusar", aprovada: "Aprovada", recusada: "Recusada" };
 
+function agruparComentarios(comentarios: Comentario[]) {
+  const ids = new Set(comentarios.map(comentario => comentario.comentario_id));
+  const respostas = new Map<string, Comentario[]>();
+  const raizes: Comentario[] = [];
+  for (const comentario of comentarios) {
+    if (comentario.pai_id && ids.has(comentario.pai_id)) {
+      const irmas = respostas.get(comentario.pai_id) || [];
+      irmas.push(comentario);
+      respostas.set(comentario.pai_id, irmas);
+    } else {
+      raizes.push(comentario);
+    }
+  }
+  return { raizes, respostas };
+}
+
 function AutorLink({ autor }: { autor: Autor }) {
   const nome = nomeAutor(autor);
   return nome.startsWith("@") && nome !== "@conta_desativada" ? <Link className="bc-author" href={`/comunidade/perfil/${encodeURIComponent(nome)}`}><AvatarComunidade tag={nome} tamanho={26} /><span>{nome}</span></Link> : <span>{nome === "@conta_desativada" ? "Conta encerrada" : nome}</span>;
@@ -107,6 +123,7 @@ export default function DiscussaoPagina() {
   if (carregando && !discussao) return <main className="p-6"><p role="status">Carregando discussão…</p></main>;
   if (erro || !discussao) return <main className="p-6"><MensagemErro erro={erro || "Discussão indisponível."} /></main>;
   const d = discussao; const userId = eu?.perfil ? eu.user_id : undefined;
+  const comentariosAgrupados = agruparComentarios(d.comentarios);
   return <main className="bc-page bc-thread-page">
     <NavegacaoComunidade /><ComunidadeLayout><div className="bc-thread">
     <Link className="bc-back" href="/comunidade">← Voltar à comunidade</Link><h1 className="bc-thread-title">{d.titulo}</h1><p className="mt-2 text-xs"><AutorLink autor={d.autor} /> · {data(d.criado_em)} · {d.categoria}</p><p className="mt-3 whitespace-pre-wrap">{d.motivo}</p>
@@ -117,7 +134,7 @@ export default function DiscussaoPagina() {
     {userId && userId !== d.autor_id && <details className="mt-4"><summary className="text-xs">Denunciar discussão</summary><FormularioAcao acao="denunciar" base={{ alvo_tipo: "discussao", alvo_id: id }} maximo={2000} rotulo="Motivo da denúncia" concluido={atualizar} /></details>}
     {userId && ["revisor", "referencia"].includes(eu?.perfil?.nivel || "") && <OrganizarDiscussao discussaoId={id} concluido={atualizar} />}
     <section className="bc-thread-section" id="propostas"><h2 className="bc-section-title">Propostas de melhoria ({d.total_propostas})</h2>{!d.propostas.length && <p className="mt-2 text-sm">Nenhuma proposta nesta página.</p>}{d.propostas.map(p => <PropostaItem key={p.proposta_id} proposta={p} userId={userId} discussaoId={id} comentarios={d.comentarios} concluido={atualizar} />)}{userId && <details className="mt-6"><summary className="font-semibold">Propor uma resposta mais adequada</summary><EditorProposta discussaoId={id} comentarios={d.comentarios.filter(c => c.autor_id !== userId)} concluido={atualizar} /></details>}</section>
-    <section className="bc-thread-section" id="comentarios"><h2 className="bc-section-title">Comentários ({d.total_comentarios})</h2>{!d.comentarios.length && <p className="mt-2 text-sm">Nenhum comentário nesta página.</p>}{d.comentarios.map(c => <ComentarioItem key={c.comentario_id} comentario={c} userId={userId} discussaoId={id} concluido={atualizar} />)}{userId && <FormularioAcao acao="comentar" base={{ discussao_id: id }} campo="texto" minimo={1} maximo={4000} rotulo="Novo comentário" botao="Publicar comentário" concluido={atualizar} />}</section>
+    <section className="bc-thread-section" id="comentarios"><h2 className="bc-section-title">Comentários ({d.total_comentarios})</h2>{!d.comentarios.length && <p className="mt-2 text-sm">Nenhum comentário nesta página.</p>}{comentariosAgrupados.raizes.map(c => <div className="bc-comment-thread" key={c.comentario_id}><ComentarioItem comentario={c} userId={userId} discussaoId={id} concluido={atualizar} />{comentariosAgrupados.respostas.get(c.comentario_id)?.map(resposta => <ComentarioItem key={resposta.comentario_id} comentario={resposta} userId={userId} discussaoId={id} concluido={atualizar} />)}</div>)}{userId && <FormularioAcao acao="comentar" base={{ discussao_id: id }} campo="texto" minimo={1} maximo={4000} rotulo="Novo comentário" botao="Publicar comentário" concluido={atualizar} />}</section>
     {Math.max(d.total_comentarios, d.total_propostas) > 20 && <nav className="mt-6 flex justify-between" aria-label="Páginas da discussão"><button disabled={pagina === 1 || carregando} onClick={() => setPagina(p => p - 1)}>Anterior</button><span>Página {pagina}</span><button disabled={pagina * 20 >= Math.max(d.total_comentarios, d.total_propostas) || carregando} onClick={() => setPagina(p => p + 1)}>Próxima</button></nav>}
   </div></ComunidadeLayout></main>;
 }
