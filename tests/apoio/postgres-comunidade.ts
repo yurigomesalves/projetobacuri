@@ -25,7 +25,7 @@ export async function criarPostgresComunidade() {
   const pasta = resolve("supabase/migrations");
   const bases = [
     "0001_acervo.sql", "0002_tipo_chunk.sql", "0003_interacoes_feedbacks.sql",
-    "0005_curadoria.sql", "0009_nota_contexto_chunk.sql", "0010_curadoria_contas.sql",
+    "0005_curadoria.sql", "0006_biografias_eventos.sql", "0009_nota_contexto_chunk.sql", "0010_curadoria_contas.sql",
     "0015_subsecao_chunk.sql",
   ];
   const novas = (await readdir(pasta)).filter((nome) => /^00(3[4-9]|[4-9]\d)_/.test(nome)).sort();

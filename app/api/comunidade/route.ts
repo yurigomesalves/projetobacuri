@@ -7,6 +7,7 @@ import { dentroDoLimite } from "@/lib/server/limite";
 import { indexarOuro } from "@/lib/server/ouro";
 import { BUCKET_FOTOS, caminhoFoto } from "@/lib/server/foto-perfil";
 import { acrescentarQuoruns } from "@/lib/server/quorum-comunidade";
+import { copiarRegistroPublico } from "@/lib/server/registro-comunidade";
 
 export const runtime = "nodejs";
 const privado = new Set(["eu", "notificacoes", "curadoria"]);
@@ -25,6 +26,7 @@ function erroBanco(error: { message: string; code?: string }) {
     FONTES_OBRIGATORIAS: [400, "Indique fontes. A aprovação como resposta de referência exige trechos conferidos do acervo."], FONTE_INVALIDA: [400, "Um dos trechos não está disponível no acervo."],
     FONTES_ALTERADAS: [409, "As fontes mudaram. Uma nova proposta precisa ser conferida."], AGUARDE_DEFESA: [409, "Aguarde a defesa ou o prazo de sete dias."],
     USE_DESTITUICAO: [409, "Afastamento de curador exige o procedimento colegiado."],
+    REGISTRO_SEM_ALTERACAO: [409, "Publique a revisão do registro no acervo antes de registrar a conclusão."],
   };
   const entrada = mensagens[error.message];
   if (entrada) return erro(entrada[1], entrada[0]);
@@ -87,6 +89,18 @@ export async function POST(req: NextRequest) {
     const entrada = schema?.safeParse(base.data.dados);
     if (!entrada?.success) return erro("Confira os campos obrigatórios e seus limites.");
     const dados = entrada.data as Record<string, unknown>;
+    if (base.data.acao === "compartilhar_registro" || base.data.acao === "concluir_editorial") {
+      let origem = String(dados.origem), identificador = String(dados.registro_id);
+      if (base.data.acao === "concluir_editorial") {
+        if (!membro.curador) return erro("Área restrita à curadoria.", 403);
+        const contexto = await supabaseServidor.rpc("comunidade_registro_editorial", { p_decisao: dados.decisao_id, p_ator: membro.userId });
+        if (contexto.error) return erroBanco(contexto.error);
+        origem = contexto.data.origem; identificador = contexto.data.registro_id;
+      }
+      const registro = await copiarRegistroPublico(origem, identificador);
+      if (!registro) return erro("Registro publicado não encontrado no acervo.", 404);
+      dados.registro_original = registro;
+    }
     if (base.data.acao === "denunciar") {
       const alvos: Record<string, [string, string, string]> = {
         discussao: ["discussoes_comunidade", "discussao_id", "autor_id"],
@@ -109,7 +123,7 @@ export async function POST(req: NextRequest) {
     const { data, error } = await supabaseServidor.rpc("comunidade_executar", { p_acao: base.data.acao, p_dados: dados, p_ator: membro.userId });
     if (error) return erroBanco(error);
     let indexacaoPendente = false;
-    if (base.data.acao === "parecer" && data?.resultado === "aprovada") {
+    if (base.data.acao === "parecer" && data?.resultado === "aprovada" && !data?.estado_editorial) {
       try { await indexarOuro(String(dados.versao_id)); } catch { indexacaoPendente = true; }
     }
     if (base.data.acao === "encerrar_conta") {

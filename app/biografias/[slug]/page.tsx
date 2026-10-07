@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import ReactMarkdown from "react-markdown";
+import CompartilharResposta from "@/app/componentes/CompartilharResposta";
 import Citacoes from "@/app/componentes/Citacoes";
 import type { Biografia, RespostaErro } from "@/lib/shared/tipos";
 
@@ -137,6 +138,8 @@ export default function BiografiaPage() {
           </p>
         )}
       </header>
+
+      <CompartilharResposta key={biografia.slug} interacaoId={`biografia-${biografia.slug}`} resposta="" registro={{ origem: "biografia", identificador: biografia.slug, conteudo: biografia }} />
 
       <article className="bk-reading mt-7 [&_a]:underline [&_a]:underline-offset-2 [&_h2]:mt-8 [&_h2]:font-sans [&_h2]:text-xl [&_h2]:font-semibold [&_h3]:font-sans [&_h3]:text-lg [&_h3]:font-semibold [&_li]:ml-5 [&_li]:list-disc [&_strong]:font-semibold">
         <ReactMarkdown>{biografia.texto_md}</ReactMarkdown>

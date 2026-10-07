@@ -8,6 +8,8 @@ const proposta = {
   comentario_incorporado_id: uuid.optional(),
 };
 export const esquemasComunidade: Record<string, z.ZodType> = {
+  compartilhar_registro: z.object({ origem: z.enum(["biografia", "evento"]), registro_id: z.string().trim().min(1).max(200), titulo: z.string().trim().min(5).max(180), motivo, categoria: z.enum(["erro_factual", "omissao", "fontes", "interpretacao", "clareza"]), confirmacao_publicacao: z.literal(true) }).strict().refine(d => d.origem === "biografia" ? /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(d.registro_id) : uuid.safeParse(d.registro_id).success),
+  concluir_editorial: z.object({ decisao_id: uuid, justificativa: motivo }).strict(),
   salvar_perfil: z.object({ tag: z.string().trim().toLowerCase().regex(/^@[a-z0-9_]{3,30}$/), nome_publico: z.string().max(120).optional(), bio: z.string().max(500).optional(), aceita_termos: z.literal(true) }).strict(),
   encerrar_conta: z.object({ confirmacao: z.literal("ENCERRAR") }).strict(),
   compartilhar: z.object({ interacao_id: uuid, token_compartilhamento: z.string().max(2048), titulo: z.string().trim().min(5).max(180), motivo, categoria: z.enum(["erro_factual", "omissao", "fontes", "interpretacao", "clareza"]), confirmacao_publicacao: z.literal(true) }).strict(),

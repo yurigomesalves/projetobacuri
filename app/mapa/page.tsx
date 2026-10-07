@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ReactMarkdown from "react-markdown";
+import CompartilharResposta from "@/app/componentes/CompartilharResposta";
 import Citacoes from "@/app/componentes/Citacoes";
 import { Icone } from "@/app/componentes/Estrutura";
 import type { EventoGeo, RespostaErro } from "@/lib/shared/tipos";
@@ -452,6 +453,7 @@ function MapaConteudo() {
                 </button>
               </div>
               <h2>{eventoSelecionado.titulo}</h2>
+              <CompartilharResposta key={eventoSelecionado.evento_id} interacaoId={`evento-${eventoSelecionado.evento_id}`} resposta="" registro={{ origem: "evento", identificador: eventoSelecionado.evento_id, conteudo: eventoSelecionado }} />
               <p className="bk-territory-event-meta">
                 {formatarData(eventoSelecionado.data)} ·{" "}
                 {eventoSelecionado.municipio} — {eventoSelecionado.uf}

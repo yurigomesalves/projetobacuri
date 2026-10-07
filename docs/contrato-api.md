@@ -157,6 +157,29 @@ quando disponível. Filtro de não lidas na interface se refere à página exibi
 sem alterar o total global ou descartar acesso às páginas antigas.
 
 ### POST /api/comunidade
+
+Extensão de registros (migração 0038): `compartilhar_registro` recebe `origem`
+(`biografia` ou `evento`), `registro_id` (slug da biografia ou UUID do evento),
+`titulo`, `motivo`, `categoria` e `confirmacao_publicacao: true`. Exige conta
+confirmada e perfil ativo. O servidor usa os mesmos leitores dos detalhes públicos
+para copiar conteúdo, marcadores, vínculos e fontes; rejeita qualquer cópia,
+link ou autoria enviada pelo navegador. Somente registros publicados são aceitos.
+Uma discussão por registro é reutilizada; discussão ocultada não é republicada.
+Discussões antigas conservam a origem `chat` e seu comprovante de compartilhamento.
+As consultas de discussão/lista/painel acrescentam `origem`, `origem_id`,
+`origem_link`; o detalhe acrescenta `registro_original` (cópia pública imutável).
+
+Propostas de registros mantêm avaliações, fontes do acervo, impedimentos, quórum
+e recursos existentes. Aprovação não cria resposta de referência: a decisão
+recebe `estado_editorial: pendente`. A curadoria aplica a revisão pelo fluxo de
+preparação/publicação do acervo e registra `concluir_editorial` com `decisao_id`
+e `justificativa` (10–3000 caracteres). O servidor verifica o registro publicado
+atual, preserva nova cópia com fontes e gera seu link; o banco exige decisão
+aprovada vigente, sem recurso, curador independente e conteúdo diferente do
+original. A conclusão é única e pública (`concluida`, link, justificativa,
+data e responsável). Recursos suspendem pendências anteriores; o histórico de
+conclusões já registradas permanece público. O chat só recebe o acervo revisado
+após sua indexação editorial normal.
 Comando autenticado `{ acao, dados }`, resposta `{ resultado }`. Ações e regras
 documentadas em `comunidade.md`; payload desconhecido é rejeitado, o autor nunca é
 aceito do cliente. Toda mudança sensível é atômica no banco. Leituras e escritas

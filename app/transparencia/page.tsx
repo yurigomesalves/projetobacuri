@@ -96,9 +96,9 @@ export default function TransparenciaPage() {
             Transparência editorial
           </h1>
           <div className="mt-2 space-y-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
-            <p>Esta página reúne dois registros públicos. As <strong>decisões da comunidade</strong> tratam de propostas abertas a partir de respostas do chat: avaliações de participantes ajudam a ordenar a fila, e pareceres independentes da curadoria decidem cada versão com base nas fontes. As <strong>avaliações legadas do assistente</strong> são contribuições enviadas pelo formulário anterior, examinadas no fluxo de curadoria então vigente.</p>
-            <p>Nenhuma contribuição muda o acervo documental, treina o modelo ou torna uma afirmação verdadeira por ter recebido mais apoio. Cada decisão registra resultado, justificativa e fontes verificáveis. Tortura, mortes, desaparecimentos forçados e outras violações documentadas não são apresentados como opiniões equivalentes à sua negação.</p>
-            <p>O projeto preserva memória, verdade e justiça ao tornar visíveis as fontes, os critérios e os limites de cada decisão.</p>
+            <p>Esta página reúne decisões públicas sobre propostas abertas a partir de três origens: perguntas e respostas do chat, biografias e registros do mapa. As avaliações de participantes ajudam a ordenar a fila; pareceres independentes da curadoria decidem cada proposta à luz das fontes. As avaliações legadas do assistente são contribuições enviadas pelo formulário anterior, examinadas no fluxo de curadoria então vigente.</p>
+            <p>Uma tag pública persistente identifica cada participação; ela está ligada a uma conta com e-mail confirmado, sem exigir identidade civil. Nenhuma contribuição muda o acervo documental, treina o modelo ou torna uma afirmação verdadeira por ter recebido mais apoio. Cada decisão registra resultado, justificativa e fontes verificáveis. Tortura, mortes, desaparecimentos forçados e outras violações documentadas não são apresentados como opiniões equivalentes à sua negação.</p>
+            <p>A aprovação de uma proposta sobre biografia ou registro do mapa encaminha sua revisão pelo fluxo editorial do acervo e fica identificada como “Atualização editorial pendente”. Quando a revisão é concluída, a curadoria registra aqui a justificativa e o vínculo para o registro atualizado. O chat só pode se beneficiar desse conteúdo depois da indexação editorial normal do acervo.</p>
           </div>
         </div>
       </header>

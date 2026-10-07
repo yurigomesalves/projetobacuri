@@ -254,3 +254,104 @@ test("menu preserva curadoria legada com comunidade desativada", async ({ page }
   await page.locator(".bk-topbar").getByRole("button", { name: "Menu da conta" }).click();
   await expect(page.getByRole("link", { name: "Curadoria", exact: true })).toHaveAttribute("href", "/curadoria");
 });
+
+for (const origem of ["biografia", "evento"] as const) test(`publica ${origem} após login com rascunho e fontes preservados`, async ({ page }) => {
+  const comandos = await ambiente(page);
+  const registroId = "a0000000-0000-4000-8000-000000000001";
+  const conteudo = origem === "biografia"
+    ? { slug: "pessoa-teste", nome: "Pessoa de teste", tipo: "vitima", resumo_1_linha: "Resumo de teste", texto_md: "Texto público preservado.", fontes: [citacao], marcadores: [], eventos: [], organizacoes: [] }
+    : { evento_id: registroId, titulo: "Evento de teste", data: "1970-01-01", municipio: "Cidade", uf: "SP", geometria: { type: "Point", coordinates: [-46, -23] }, descricao_md: "Texto público preservado.", fontes: [citacao], marcadores: [], vitimas: [], tipos_crime: ["tortura"] };
+  await page.route("**/api/biografias/pessoa-teste", r => r.fulfill({ json: conteudo }));
+  await page.route(`**/api/eventos-geo/${registroId}`, r => r.fulfill({ json: conteudo }));
+  await page.route("**/api/eventos-geo", r => r.fulfill({ json: { type: "FeatureCollection", features: [] } }));
+  await page.route("**/api/comunidade**", async r => {
+    if (r.request().method() === "POST") {
+      const comando = r.request().postDataJSON(); comandos.push(comando);
+      return r.fulfill({ json: { resultado: { discussao_id: id } } });
+    }
+    if (new URL(r.request().url()).searchParams.get("recurso") === "discussao") return r.fulfill({ json: { ...discussao, origem, origem_link: origem === "biografia" ? "/biografias/pessoa-teste" : `/mapa?evento=${registroId}`, registro_original: conteudo } });
+    return r.fallback();
+  });
+  await page.goto(origem === "biografia" ? "/biografias/pessoa-teste" : `/mapa?evento=${registroId}`);
+  await page.getByRole("button", { name: "Discutir na comunidade" }).click();
+  const janela = page.getByRole("dialog", { name: "Prévia da publicação" });
+  await expect(janela.getByText("Documento de demonstração", { exact: true })).toBeVisible();
+  await janela.getByLabel("Título", { exact: true }).fill("Conferir o registro publicado");
+  await janela.getByLabel("Motivo da discussão").fill("As fontes do registro precisam de conferência.");
+  await janela.getByLabel("Categoria", { exact: true }).selectOption("fontes");
+  await janela.getByRole("link", { name: "Entrar ou criar conta" }).click();
+  await page.getByLabel("E-mail", { exact: true }).fill(user.email);
+  await page.getByLabel("Senha", { exact: true }).fill("senha-de-teste");
+  await page.getByRole("button", { name: "Entrar", exact: true }).last().click();
+  await expect(page).toHaveURL(/\/comunidade\/compartilhar$/);
+  await expect(janela.getByLabel("Título", { exact: true })).toHaveValue("Conferir o registro publicado");
+  await expect(janela.getByLabel("Categoria", { exact: true })).toHaveValue("fontes");
+  expect(comandos).toHaveLength(0);
+  await janela.getByRole("checkbox").check();
+  await janela.getByRole("button", { name: "Confirmar publicação" }).click();
+  await expect(page).toHaveURL(new RegExp(`/comunidade/${id}$`));
+  expect(comandos[0]).toMatchObject({ acao: "compartilhar_registro", dados: { origem, registro_id: origem === "biografia" ? "pessoa-teste" : registroId, confirmacao_publicacao: true } });
+  expect(comandos[0].dados).not.toHaveProperty("registro_original");
+  await expect(page.getByRole("heading", { name: origem === "biografia" ? "Biografia original" : "Registro original" })).toBeVisible();
+  await expect(page.getByText("Texto público preservado.", { exact: true })).toBeVisible();
+});
+
+for (const tema of ["claro", "escuro"]) test(`discussão compacta e denúncia por teclado no tema ${tema}`, async ({ page }, info) => {
+  const comandos = await ambiente(page);
+  await page.addInitScript(valor => localStorage.setItem("bacuri-tema", valor), tema);
+  await entrar(page); await page.goto(`/comunidade/${id}`);
+  const menu = page.getByLabel("Opções da discussão", { exact: true });
+  await menu.focus(); await page.keyboard.press("Enter");
+  await expect(page.getByRole("button", { name: "Denunciar discussão", exact: true })).toBeVisible();
+  await page.keyboard.press("Escape"); await expect(menu).toBeFocused();
+  await menu.press("Enter"); await page.getByRole("button", { name: "Denunciar discussão", exact: true }).click();
+  await page.getByLabel("Motivo da denúncia").fill("Motivo de denúncia para conferência da curadoria.");
+  await page.locator(".bc-comment-panel").getByRole("button", { name: "Enviar", exact: true }).click();
+  await expect.poll(() => comandos.some(c => c.acao === "denunciar" && c.dados.alvo_tipo === "discussao")).toBe(true);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: info.outputPath(`discussao-${tema}.png`), fullPage: true });
+});
+
+test("menu diferencia abrir e fechar e recupera foco", async ({ page }, info) => {
+  await ambiente(page); await page.goto("/comunidade");
+  if (info.project.name === "celular") {
+    const abrir = page.getByRole("button", { name: "Abrir menu", exact: true });
+    await abrir.click();
+    const fechar = page.getByRole("button", { name: "Fechar menu", exact: true });
+    expect(await abrir.locator("path").getAttribute("d")).not.toBe(await fechar.locator("path").getAttribute("d"));
+    await fechar.click(); await expect(abrir).toBeFocused();
+  } else {
+    const recolher = page.getByRole("button", { name: "Recolher menu", exact: true });
+    const path = await recolher.locator("path").getAttribute("d");
+    await recolher.click(); const expandir = page.getByRole("button", { name: "Expandir menu", exact: true });
+    expect(await expandir.locator("path").getAttribute("d")).not.toBe(path);
+    await expandir.press("Enter"); await expect(recolher).toHaveAttribute("aria-expanded", "true");
+  }
+});
+
+for (const tema of ["claro", "escuro"]) test(`sugestões do chat formam lista vertical no tema ${tema}`, async ({ page }, info) => {
+  await ambiente(page); await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.addInitScript(valor => localStorage.setItem("bacuri-tema", valor), tema);
+  await page.route("**/api/chat", r => r.fulfill({ json: { interacao_id: id, resposta: "Resposta demonstrativa com fonte [1].", citacoes: [citacao], sugestoes_pesquisa: ["Consultar o documento citado e sua nota de contexto.", "Comparar os trechos e as páginas indicadas.", "Examinar a proveniência das fontes mencionadas."] } }));
+  await page.goto("/"); await page.getByRole("textbox", { name: "Escreva sua pergunta" }).fill("Pergunta de demonstração"); await page.getByRole("button", { name: "Enviar", exact: true }).click();
+  const lista = page.locator(".bk-research-suggestions"); await expect(lista.locator("li")).toHaveCount(3);
+  const caixas = await lista.locator("li").evaluateAll(items => items.map(el => { const r = el.getBoundingClientRect(); return { x: r.x, y: r.y, bottom: r.bottom }; }));
+  for (let i = 1; i < caixas.length; i++) { expect(caixas[i].x).toBe(caixas[0].x); expect(caixas[i].y).toBeGreaterThanOrEqual(caixas[i-1].bottom); }
+  await page.screenshot({ path: info.outputPath(`sugestoes-${tema}.png`), fullPage: true });
+});
+
+test("decisão editorial aparece pendente e curadoria registra conclusão", async ({ page }) => {
+  const comandos = await ambiente(page, true);
+  await page.route("**/api/comunidade?**", async r => {
+    const recurso = new URL(r.request().url()).searchParams.get("recurso");
+    if (recurso === "discussao") return r.fulfill({ json: { ...discussao, propostas: [{ ...proposta, versoes: [{ ...versao, estado: "decidida", decisoes: [{ decisao_id: id, resultado: "aprovada", estado_editorial: "pendente", sintese: "Atualização do registro encaminhada.", ciclo: 1, criada_em: "2026-01-01" }] }] }] } });
+    if (recurso === "curadoria") return r.fulfill({ json: { itens: [], editoriais: [{ decisao_id: id, discussao_id: id, versao_id: versao.versao_id, titulo: "Revisão aprovada", origem_link: "/biografias/pessoa-teste", impedido: false }], curadores: [], candidaturas: [], destituicoes: [], denuncias: [], moderacoes: [], recursos: [] } });
+    return r.fallback();
+  });
+  await entrar(page); await page.goto(`/comunidade/${id}`);
+  await expect(page.getByText("Atualização editorial pendente", { exact: true })).toBeVisible();
+  await page.goto("/comunidade/curadoria");
+  await page.getByLabel("Justificativa da conclusão editorial").fill("Registro revisado e publicado pelo fluxo editorial do acervo.");
+  await page.getByRole("button", { name: "Registrar conclusão editorial", exact: true }).click();
+  await expect.poll(() => comandos.some(c => c.acao === "concluir_editorial")).toBe(true);
+});

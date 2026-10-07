@@ -22,6 +22,6 @@ export default function RetomarCompartilhamento() {
   }, []);
   return <main className="bc-page bc-document-page"><NavegacaoComunidade /><h1 className="text-2xl font-bold">Retomar publicação</h1><p className="mt-3 text-sm">Confira os dados e confirme a publicação. O rascunho não é enviado automaticamente.</p>
     {erro && <div className="mt-4"><MensagemErro erro={erro} /><Link className="mt-3 inline-block underline" href="/">Voltar ao chat</Link></div>}
-    {rascunho && <CompartilharResposta interacaoId={rascunho.interacaoId} token={rascunho.token} pergunta={rascunho.pergunta} resumo={rascunho.resumo} citacoes={rascunho.citacoes} resposta={rascunho.resposta} />}
+    {rascunho && <CompartilharResposta interacaoId={rascunho.interacaoId} token={rascunho.token} pergunta={rascunho.pergunta} resumo={rascunho.resumo} citacoes={rascunho.citacoes} resposta={rascunho.resposta} registro={rascunho.registro} />}
   </main>;
 }

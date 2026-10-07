@@ -764,7 +764,7 @@ textarea {
 .bk-research [role="log"] {
   overflow: visible;
 }
-.bk-research [role="log"] ul:first-of-type {
+.bk-research [role="log"] > ul:first-of-type {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -1480,7 +1480,7 @@ textarea {
   .bk-acervo-guide li {
     min-height: 0;
   }
-  .bk-research [role="log"] ul:first-of-type {
+  .bk-research [role="log"] > ul:first-of-type {
     grid-template-columns: 1fr;
   }
   .bk-filters label {
@@ -1964,4 +1964,25 @@ textarea {
  .bc-follow-row { align-items:flex-start; flex-direction:column; gap:8px; }
  .bc-vote-actions { align-items:stretch; }
  .bc-vote-actions button { flex:1 1 auto; }
+}
+
+/* Discussões: ritmo mais compacto, mantendo seções e respostas agrupadas. */
+.bc-thread-title { margin-bottom:14px; }
+.bc-thread-jumps { margin:18px 0; }
+.bc-original { padding:22px; }
+.bc-thread-section { margin-top:28px; }
+.bc-thread .bc-proposal { padding:20px; margin-top:16px; }
+.bc-thread .bc-comment { padding:18px; margin-top:12px; }
+.bc-thread .bc-comment-reply { padding:16px 18px 16px 22px; }
+.bc-thread .bc-comment-text { margin:12px 0; line-height:1.75; }
+.bc-thread .bc-comment-panel { margin-top:14px; padding-top:14px; }
+.bk-research-suggestions { display:block; list-style-position:outside; }
+.bk-research-suggestions li { padding-left:3px; }
+.bc-thread-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+.bc-thread-heading h1 { min-width:0; overflow-wrap:anywhere; }
+.bc-record-copy { overflow-wrap:anywhere; font-size:14px; line-height:1.75; }
+.bc-record-copy > * + * { margin-top:12px; }
+@media(max-width:600px) {
+ .bc-thread .bc-original, .bc-thread .bc-proposal, .bc-thread .bc-comment { padding:16px; }
+ .bc-thread .bc-comment-reply { padding:14px 14px 14px 17px; }
 }

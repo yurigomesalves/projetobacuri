@@ -129,3 +129,16 @@ privacidade de leituras/histórico, conta e reentrada após login, moderação e
 quóruns, reputação e revogação; lint/tipos/build, fluxo navegador móvel/teclado.
 Antes de ouro em produção, avaliar perguntas independentes e registrar evidência,
 latência/custo/atribuição e falsos positivos. Nunca alegar melhora sem avaliação.
+
+## Discussões sobre registros (0038)
+
+A API também recebe `compartilhar_registro` e `concluir_editorial`, conforme o
+contrato principal. Biografias e eventos publicados preservam cópia pública e
+fontes obtidas pelo servidor. Aprovação registra atualização editorial pendente,
+sem criar resposta ouro. Conclusão exige publicação prévia no acervo e registra
+cópia, link, justificativa e responsável; recursos preservam o histórico.
+
+A interface apresenta três níveis: Participante, Colaborador e Colaborador
+experiente. Os critérios internos acima permanecem intactos; `revisor` e
+`referencia` usam o mesmo rótulo público “Colaborador experiente”. Essa correspondência
+é documentação interna, não uma explicação exibida nos perfis.

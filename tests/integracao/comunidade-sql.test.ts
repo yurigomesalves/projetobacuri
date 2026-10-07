@@ -38,6 +38,53 @@ describe("comunidade — migrações em PostgreSQL isolado", () => {
     await db.exec("rollback to savepoint erro_esperado");
   }
 
+  async function registro(origem = "biografia") {
+    const registroId = "a0000000-0000-4000-8000-000000000001";
+    if (origem === "biografia") await db.query("insert into biografias(biografia_id,slug,nome,tipo,resumo_1_linha,texto_md,status_curadoria) values ($1,'pessoa-teste','Pessoa de teste','vitima','Resumo público','Texto público','publicada')", [registroId]);
+    else await db.query("insert into eventos_geo(evento_id,titulo,data,municipio,uf,geometria,descricao_md,tipo_evento,tipos_crime,status_curadoria) values ($1,'Evento de teste','1970-01-01','Cidade','SP','{}','Descrição pública','caso_individual',array['tortura'],'publicada')", [registroId]);
+    const copia = { ...(origem === "biografia" ? { slug: "pessoa-teste", texto_md: "Texto público" } : { evento_id: registroId, descricao_md: "Descrição pública" }), fontes: [{ titulo: "Fonte preservada", paginas: "10", trecho: "Trecho preservado" }] };
+    const dados = { origem, registro_id: origem === "biografia" ? "pessoa-teste" : registroId, titulo: "Conferir registro público", motivo: "Conferir fontes do registro público.", categoria: "fontes", confirmacao_publicacao: true, registro_original: copia };
+    return { dados, copia, registroId, di: (await agir("compartilhar_registro", dados)).discussao_id };
+  }
+  it.each(["biografia", "evento"])("preserva origem, cópia e fontes de %s; aprovação aguarda editorial sem ouro", async origem => {
+    const { di, dados, copia } = await registro(origem);
+    expect((await agir("compartilhar_registro", dados)).discussao_id).toBe(di);
+    expect(await consulta("discussao", { id: di })).toMatchObject({ origem, registro_original: copia });
+    const p = await proposta(di);
+    await recusa("avaliar", { versao_id: p.versao_id, tipo: "apoio" });
+    await parecer(p.versao_id, ids.curador1);
+    expect(await parecer(p.versao_id, ids.curador2)).toMatchObject({ resultado: "aprovada", estado_editorial: "pendente" });
+    expect((await db.query("select * from respostas_ouro")).rows).toHaveLength(0);
+    expect((await consulta("curadoria", {}, ids.curador1)).editoriais).toHaveLength(1);
+    const dc = (await db.query<{ decisao_id: string }>("select decisao_id from decisoes_comunidade")).rows[0];
+    await recusa("concluir_editorial", { decisao_id: dc.decisao_id, justificativa: "Conferida a publicação editorial.", registro_original: copia }, ids.membro);
+    await recusa("concluir_editorial", { decisao_id: dc.decisao_id, justificativa: "Conferida a publicação editorial.", registro_original: copia }, ids.curador1, "REGISTRO_SEM_ALTERACAO");
+    const atualizada = { ...copia, fontes: [...copia.fontes, { titulo: "Fonte adicionada", paginas: "11", trecho: "Referência nova" }] };
+    expect(await agir("concluir_editorial", { decisao_id: dc.decisao_id, justificativa: "Publicação editorial concluída e conferida.", registro_original: atualizada }, ids.curador1)).toMatchObject({ estado_editorial: "concluida" });
+    const historico = await consulta("transparencia");
+    expect(historico.itens).toEqual(expect.arrayContaining([expect.objectContaining({ estado_editorial: "concluida", registro_atualizado: atualizada, concluida_por: "@curador1" })]));
+    expect((await consulta("discussao", { id: di })).registro_original).toEqual(copia);
+    await recusa("concluir_editorial", { decisao_id: dc.decisao_id, justificativa: "Tentativa de substituir conclusão.", registro_original: atualizada }, ids.curador1, "CONFLITO");
+    await db.exec("savepoint ouro_invalido");
+    await expect(db.query("insert into respostas_ouro(versao_id,titulo,texto,chunk_ids) values ($1,'Registro aprovado','Texto',array[$2::uuid])", [p.versao_id, ids.chunk])).rejects.toThrow("NAO_PERMITIDO");
+    await db.exec("rollback to savepoint ouro_invalido");
+  });
+  it("suspende atualização pendente quando há recurso e impede conclusão", async () => {
+    const { di, copia } = await registro(); const p = await proposta(di);
+    await parecer(p.versao_id, ids.curador1); await parecer(p.versao_id, ids.curador2);
+    const dc = (await db.query<{ decisao_id: string }>("select decisao_id from decisoes_comunidade")).rows[0];
+    await agir("recorrer", { alvo_tipo: "decisao", alvo_id: dc.decisao_id, motivo: "Novas evidências exigem revisar a decisão." }, ids.membro);
+    expect((await consulta("curadoria", {}, ids.curador1)).editoriais).toEqual([]);
+    await recusa("concluir_editorial", { decisao_id: dc.decisao_id, justificativa: "Não deve concluir durante recurso.", registro_original: { ...copia, texto_md: "Alterado" } }, ids.curador1, "CONFLITO");
+  });
+  it("não compartilha rascunho nem republica discussão ocultada", async () => {
+    const { di, dados } = await registro();
+    await agir("moderar", { alvo_tipo: "discussao", alvo_id: di, acao: "ocultar", justificativa: "Ocultação demonstrativa fundamentada." }, ids.curador1);
+    await recusa("compartilhar_registro", dados, ids.membro, "AUSENTE");
+    await db.exec("update biografias set status_curadoria='rascunho'");
+    await recusa("compartilhar_registro", dados, ids.membro, "AUSENTE");
+  });
+
   it("mantém interações privadas com RLS", async () => {
     const { rows } = await db.query<{ relrowsecurity: boolean }>(
       "select relrowsecurity from pg_class where oid='public.interacoes'::regclass",

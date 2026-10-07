@@ -5,6 +5,9 @@ vi.mock("@/lib/server/supabase", () => ({ supabaseServidor: { rpc: estado.rpc, f
 vi.mock("@/lib/server/comunidade", () => ({ comunidadeAtiva: () => process.env.BACURI_COMUNIDADE_ATIVA === "true", autenticarMembro: async () => estado.membro, verificarTokenCompartilhamento: () => false }));
 vi.mock("@/lib/server/ouro", () => ({ indexarOuro: vi.fn() }));
 vi.mock("@/lib/server/limite", () => ({ dentroDoLimite: () => true }));
+vi.mock("@/lib/server/registro-comunidade", () => ({ copiarRegistroPublico: vi.fn() }));
+import { copiarRegistroPublico } from "@/lib/server/registro-comunidade";
+import { indexarOuro } from "@/lib/server/ouro";
 import { GET, POST } from "@/app/api/comunidade/route";
 const userId = "10000000-0000-4000-8000-000000000001";
 function post(dados: unknown) { return new NextRequest("http://localhost/api/comunidade", { method: "POST", headers: { authorization: "Bearer teste" }, body: JSON.stringify(dados) }); }
@@ -62,4 +65,43 @@ it("notificações antigas conservam paginação e ganham título da discussão"
   const r = await GET(new NextRequest("http://localhost/api/comunidade?recurso=notificacoes&pagina=2", { headers: { authorization: "Bearer teste" } }));
   expect(r.status).toBe(200); expect(await r.json()).toMatchObject({ total: 28, pagina: 2, itens: [{ titulo_discussao: "Discussão conhecida" }] });
   expect(estado.rpc).toHaveBeenCalledWith("comunidade_consultar", expect.objectContaining({ p_ator: userId, p_dados: expect.objectContaining({ pagina: 2 }) }));
+});
+
+
+describe("registros públicos e conclusão editorial", () => {
+  const dados = { origem: "biografia", registro_id: "pessoa-teste", titulo: "Revisar biografia", motivo: "Conferir as fontes da biografia.", categoria: "fontes", confirmacao_publicacao: true };
+  it("envia à transação somente cópia obtida pelo servidor", async () => {
+    const copia = { slug: "pessoa-teste", fontes: [{ titulo: "Fonte do servidor", paginas: "4" }] };
+    vi.mocked(copiarRegistroPublico).mockResolvedValueOnce(copia as never);
+    expect((await POST(post({ acao: "compartilhar_registro", dados }))).status).toBe(200);
+    expect(estado.rpc).toHaveBeenCalledWith("comunidade_executar", expect.objectContaining({ p_dados: { ...dados, registro_original: copia } }));
+  });
+  it("rejeita cópia, link ou autor enviados pelo navegador", async () => {
+    for (const extra of [{ registro_original: {} }, { origem_link: "https://forjado.test" }, { autor_id: userId }]) {
+      expect((await POST(post({ acao: "compartilhar_registro", dados: { ...dados, ...extra } }))).status).toBe(400);
+    }
+    expect(estado.rpc).not.toHaveBeenCalled();
+  });
+  it("exige conta confirmada e registro publicado", async () => {
+    estado.membro = null; expect((await POST(post({ acao: "compartilhar_registro", dados }))).status).toBe(401);
+    estado.membro = { userId, emailConfirmado: true, curador: false };
+    vi.mocked(copiarRegistroPublico).mockResolvedValueOnce(null);
+    expect((await POST(post({ acao: "compartilhar_registro", dados }))).status).toBe(404);
+    expect(estado.rpc).not.toHaveBeenCalled();
+  });
+  it("aprovação editorial não chama indexação ouro", async () => {
+    vi.mocked(indexarOuro).mockClear();
+    estado.rpc.mockResolvedValueOnce({ data: { resultado: "aprovada", estado_editorial: "pendente" }, error: null });
+    expect((await POST(post({ acao: "parecer", dados: { versao_id: userId, resultado: "aprovar", justificativa: "Fontes conferidas nesta versão.", sintese: "Revisão do registro encaminhada." } }))).status).toBe(200);
+    expect(indexarOuro).not.toHaveBeenCalled();
+  });
+  it("conclusão exige curador e usa a identidade fornecida pelo banco", async () => {
+    const conclusao = { decisao_id: userId, justificativa: "Revisão publicada no fluxo editorial." };
+    expect((await POST(post({ acao: "concluir_editorial", dados: conclusao }))).status).toBe(403);
+    estado.membro!.curador = true;
+    estado.rpc.mockResolvedValueOnce({ data: { origem: "biografia", registro_id: "pessoa-teste" }, error: null });
+    vi.mocked(copiarRegistroPublico).mockResolvedValueOnce({ slug: "pessoa-teste", texto_md: "Revisado" } as never);
+    expect((await POST(post({ acao: "concluir_editorial", dados: conclusao }))).status).toBe(200);
+    expect(copiarRegistroPublico).toHaveBeenLastCalledWith("biografia", "pessoa-teste");
+  });
 });

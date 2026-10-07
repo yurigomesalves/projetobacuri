@@ -243,7 +243,7 @@ function MensagemAssistente({
                     <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-600 dark:text-neutral-400">
                       Para aprofundar a pesquisa
                     </h3>
-                    <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-neutral-700 dark:text-neutral-300">
+                    <ul className="bk-research-suggestions mt-2 list-outside list-disc pl-5 space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
                       {mensagem.sugestoesPesquisa.map((sugestao) => (
                         <li key={sugestao}>{sugestao}</li>
                       ))}
