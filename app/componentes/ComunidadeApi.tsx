@@ -3,6 +3,16 @@
 
 export type Autor = { tag?: string; nome_publico?: string } | string | null;
 export function nomeAutor(autor: Autor) { return typeof autor === "string" ? autor : autor?.tag || autor?.nome_publico || "Participante"; }
+export function rotuloNivel(nivel?: string | null) {
+  if (nivel === "colaborador") return "Colaborador";
+  if (nivel === "revisor" || nivel === "referencia") return "Colaborador experiente";
+  return "Participante";
+}
+export function beneficioNivel(nivel?: string | null) {
+  if (nivel === "revisor" || nivel === "referencia") return "Pode organizar discussões com etiquetas e links relacionados. As avaliações mantêm o mesmo peso.";
+  if (nivel === "colaborador") return "Recebe reconhecimento público por contribuições acolhidas e incorporadas.";
+  return "Pode acompanhar discussões, comentar, propor melhorias e avaliar propostas.";
+}
 export function data(valor?: string) { return valor ? new Intl.DateTimeFormat("pt-BR", { dateStyle: "medium" }).format(new Date(valor)) : ""; }
 export async function comunidadeGet(recurso: string, params: Record<string,string> = {}) {
   const { tokenAtual } = await import("@/lib/client/supabase"); const token = await tokenAtual(); const qs = new URLSearchParams({ recurso, ...Object.fromEntries(Object.entries(params).filter(([, valor]) => valor !== "")) });

@@ -24,7 +24,7 @@ export function NavegacaoComunidade() {
     window.addEventListener("bacuri-perfil-atualizado", carregar);
     return () => { ativo = false; data.subscription.unsubscribe(); window.removeEventListener("bacuri-perfil-atualizado", carregar); };
   }, []);
-  const links = [["/comunidade", "Discussões"], ["/comunidade/ouro", "Respostas ouro"], ["/comunidade/regras", "Como participar"], ["/conta", "Meu perfil"], ["/comunidade/curadoria", "Curadoria"]];
+  const links = [["/comunidade", "Discussões"], ["/comunidade/ouro", "Respostas de referência"], ["/comunidade/regras", "Como participar"], ["/conta", "Meu perfil"], ["/comunidade/curadoria", "Curadoria"]];
   return <nav className="bc-nav" aria-label="Comunidade">{links.filter(([href]) => href !== "/comunidade/curadoria" || curador).map(([href, label]) => <Link key={href} href={href} aria-current={caminho === href ? "page" : undefined}>{label}</Link>)}</nav>;
 }
 export function GuiaComunidade() {

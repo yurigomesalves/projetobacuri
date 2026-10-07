@@ -22,7 +22,7 @@ function erroBanco(error: { message: string; code?: string }) {
     AUSENTE: [404, "Conteúdo indisponível."], CONFLITO: [409, "Esta versão já mudou ou foi decidida. Atualize a página."],
     CONFLITO_INTERESSE: [403, "Autor ou colaborador da proposta não pode julgá-la."], REVISOR_IMPEDIDO: [403, "Este recurso exige revisores independentes."],
     ULTIMO_CURADOR: [409, "É necessário preservar pelo menos um curador."], SAIA_CURADORIA: [409, "Encerre sua participação na curadoria antes de encerrar a conta."],
-    FONTES_OBRIGATORIAS: [400, "Indique fontes. Aprovação como ouro exige trechos conferidos do acervo."], FONTE_INVALIDA: [400, "Um dos trechos não está disponível no acervo."],
+    FONTES_OBRIGATORIAS: [400, "Indique fontes. A aprovação como resposta de referência exige trechos conferidos do acervo."], FONTE_INVALIDA: [400, "Um dos trechos não está disponível no acervo."],
     FONTES_ALTERADAS: [409, "As fontes mudaram. Uma nova proposta precisa ser conferida."], AGUARDE_DEFESA: [409, "Aguarde a defesa ou o prazo de sete dias."],
     USE_DESTITUICAO: [409, "Afastamento de curador exige o procedimento colegiado."],
   };

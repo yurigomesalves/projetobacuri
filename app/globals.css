@@ -1925,3 +1925,43 @@ textarea {
  .bc-account-form .bk-button { width:100%; }
 }
 @media(max-width:767px) { .bc-account-trigger > span:nth-child(2) { display:none; } .bc-account-trigger { max-width:none; padding:4px 7px 4px 4px; gap:5px; } }
+
+/* Ações da discussão: hierarquia de botões e respostas aninhadas. */
+.bk-nav-label { max-width:100%; font-size:9px; letter-spacing:1px; line-height:1.6; overflow-wrap:anywhere; }
+.bc-author > span:last-child { font-weight:650; }
+.bc-follow-row { display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin-top:18px; }
+.bc-follow-button { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:44px; padding:11px 18px; border:1px solid var(--bk-text); border-radius:999px; background:var(--bk-text); color:var(--bk-surface); font-size:12px; font-weight:600; box-shadow:0 5px 14px #00000012; transition:transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease; }
+.bc-follow-button::before { content:"+"; display:grid; place-items:center; width:19px; height:19px; border:1px solid currentColor; border-radius:50%; font-size:14px; font-weight:400; line-height:1; }
+.bc-follow-button:hover { transform:translateY(-1px); box-shadow:0 8px 20px #00000020; }
+.bc-follow-button:focus-visible, .bc-vote-actions button:focus-visible { outline:2px solid var(--bk-text); outline-offset:3px; }
+.bc-follow-button.is-following { background:var(--bk-surface); color:var(--bk-text); box-shadow:none; }
+.bc-follow-button.is-following::before { content:"✓"; font-size:11px; }
+.bc-follow-hint { color:var(--bk-muted); font-size:11px; }
+.bc-level-benefit { display:flex; align-items:flex-start; flex-wrap:wrap; gap:8px; margin:0 0 22px; padding:14px 18px; border:1px solid var(--bk-border); border-radius:14px; background:var(--bk-surface); color:var(--bk-muted); font-size:12px; line-height:1.7; }
+.bc-level-benefit > strong { flex:0 0 auto; color:var(--bk-text); }
+.bc-level-badge { display:inline-flex; align-items:center; width:max-content; padding:4px 9px; border:1px solid var(--bk-border); border-radius:999px; background:var(--bk-soft); color:var(--bk-text); font-size:10px; font-weight:600; line-height:1.5; }
+.bc-public-levelline { display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-top:16px; font-size:12px; }
+.bc-reference-intro { max-width:760px; color:var(--bk-muted); line-height:1.8; }
+.bc-comment-reply { position:relative; margin-left:34px; padding:18px 20px 18px 25px; border:1px solid var(--bk-border); border-left:2px solid color-mix(in srgb, var(--bk-muted) 34%, transparent); border-radius:0 14px 14px 14px; background:linear-gradient(110deg, var(--bk-soft), var(--bk-surface) 72%); }
+.bc-comment-reply::before { content:""; position:absolute; width:14px; height:22px; left:-15px; top:-1px; border-left:1px solid var(--bk-border); border-bottom:1px solid var(--bk-border); border-radius:0 0 0 10px; }
+.bc-comment-reply::after { content:""; position:absolute; width:5px; height:5px; left:-18px; top:17px; border-radius:50%; background:var(--bk-muted); opacity:.55; }
+.bc-comment-reply .bc-comment-text { margin-top:12px; }
+.bc-comment-parent { display:inline-flex; align-items:center; gap:6px; padding:5px 9px; border:1px solid var(--bk-border); border-radius:999px; background:var(--bk-surface); text-decoration:none; }
+.bc-comment-parent strong { color:var(--bk-text); font-weight:600; }
+.bc-comment-actions { gap:10px; }
+.bc-comment-actions button { min-height:32px; padding:6px 10px; border:1px solid transparent; border-radius:999px; }
+.bc-comment-actions button:hover { border-color:var(--bk-border); background:var(--bk-surface); }
+.bc-vote-actions { display:flex; align-items:center; flex-wrap:wrap; gap:10px; padding-top:6px; }
+.bc-vote-actions .bc-vote-submit { min-height:42px; padding:10px 18px; border:1px solid var(--bk-text); border-radius:999px; background:var(--bk-text); color:var(--bk-surface); font-size:12px; font-weight:600; box-shadow:0 4px 12px #00000012; }
+.bc-vote-actions .bc-vote-submit:hover { transform:translateY(-1px); box-shadow:0 7px 18px #0000001b; }
+.bc-vote-actions .bc-button-quiet { min-height:40px; padding:9px 15px; border:1px solid var(--bk-border); border-radius:999px; background:var(--bk-surface); color:var(--bk-muted); font-size:11px; text-decoration:none; transition:border-color 150ms ease, color 150ms ease, background-color 150ms ease; }
+.bc-vote-actions .bc-button-quiet:hover { border-color:var(--bk-muted); background:var(--bk-soft); color:var(--bk-text); }
+.bc-vote-actions button:disabled { transform:none; box-shadow:none; }
+@media(max-width:600px) {
+ .bc-comment-reply { margin-left:18px; padding:16px 15px 16px 18px; }
+ .bc-comment-reply::before { width:10px; left:-11px; }
+ .bc-comment-reply::after { left:-14px; }
+ .bc-follow-row { align-items:flex-start; flex-direction:column; gap:8px; }
+ .bc-vote-actions { align-items:stretch; }
+ .bc-vote-actions button { flex:1 1 auto; }
+}

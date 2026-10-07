@@ -96,7 +96,7 @@ export default function Estrutura({ children }: { children: React.ReactNode }) {
           JUSTIÇA
         </span>
       </Link>
-      <p className="bk-nav-label">ESPAÇO DE PESQUISA</p>
+      <p className="bk-nav-label">HISTÓRIA COLABORATIVA DIGITAL</p>
       <nav aria-label={mobile ? "Navegação móvel" : "Navegação principal"}>
         {links.map(([url, label, icon]) => (
           <Link

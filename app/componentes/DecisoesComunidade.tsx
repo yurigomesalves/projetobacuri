@@ -38,7 +38,7 @@ export default function DecisoesComunidade() {
       </li>)}</ul>
       {(feed?.total || 0) > 20 && <nav aria-label="Páginas de decisões do fórum" className="flex justify-between"><button disabled={pagina === 1} onClick={() => setPagina(p => p - 1)}>Anterior</button><span>Página {pagina}</span><button disabled={pagina * 20 >= (feed?.total || 0)} onClick={() => setPagina(p => p + 1)}>Próxima</button></nav>}
       {!!feed?.eventos.length && <details><summary>Histórico público da curadoria</summary><ul className="mt-3 space-y-3">{feed.eventos.map((e, i) => <li key={`${e.criado_em}-${i}`} className="text-sm"><strong>{rotulos[e.tipo] || e.tipo}</strong> · {data(e.criado_em)}<p>{e.justificativa}</p><p>{e.atores?.map(nomeAutor).join(", ")}</p></li>)}</ul></details>}
-      {!!feed?.revisoes_ouro.length && <details><summary>Revisões das respostas ouro</summary><ul className="mt-3 space-y-3">{feed.revisoes_ouro.map((r, i) => <li key={`${r.ouro_id}-${i}`} className="text-sm">{rotulos[r.acao] || r.acao} · {data(r.criada_em)}<p>{r.justificativa}</p><Link href="/comunidade/ouro" className="underline">Consultar respostas ouro</Link></li>)}</ul></details>}
+      {!!feed?.revisoes_ouro.length && <details><summary>Revisões das respostas de referência</summary><ul className="mt-3 space-y-3">{feed.revisoes_ouro.map((r, i) => <li key={`${r.ouro_id}-${i}`} className="text-sm">{rotulos[r.acao] || r.acao} · {data(r.criada_em)}<p>{r.justificativa}</p><Link href="/comunidade/ouro" className="underline">Consultar respostas de referência</Link></li>)}</ul></details>}
     </>}
   </section>;
 }

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { supabase } from "@/lib/client/supabase";
-import { comunidadeGet, nomeAutor } from "./ComunidadeApi";
+import { comunidadeGet, nomeAutor, rotuloNivel } from "./ComunidadeApi";
 import AvatarComunidade from "./AvatarComunidade";
 
 type PerfilMenu = { tag?: string; nome?: string; nivel?: string; pontos?: number; curador: boolean; legado?: boolean };
@@ -89,7 +89,7 @@ export default function ContaComunidade() {
       <AvatarComunidade tag={perfil.tag} /><span>{perfil.tag || "Minha conta"}</span><svg className="bc-account-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg>
     </button>
     {aberto && <div id={menuId} className="bc-account-dropdown">
-      <div className="bc-account-identity"><AvatarComunidade tag={perfil.tag} tamanho={44} /><div><strong>{perfil.nome || perfil.tag || "Minha conta"}</strong>{perfil.nome && perfil.tag && <span>{perfil.tag}</span>}<small>{perfil.curador ? "Curador(a)" : perfil.nivel || "Complete seu perfil"}{perfil.pontos !== undefined && ` · ${perfil.pontos} pontos de participação`}</small></div></div>
+      <div className="bc-account-identity"><AvatarComunidade tag={perfil.tag} tamanho={44} /><div><strong>{perfil.nome || perfil.tag || "Minha conta"}</strong>{perfil.nome && perfil.tag && <span>{perfil.tag}</span>}<small>{perfil.curador ? "Curador(a)" : rotuloNivel(perfil.nivel)}{perfil.pontos !== undefined && ` · ${perfil.pontos} pontos de participação`}</small></div></div>
       <nav aria-label="Menu da conta" onClick={() => setAberto(false)}>
         <Link href="/conta">Meu perfil <span aria-hidden="true">→</span></Link>
         <Link href="/comunidade">Minha comunidade <span className="bc-account-notifications" role="img" aria-label={pendentes ? "Há notificações não lidas" : "Notificações"}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" /></svg>{pendentes && <i />}</span></Link>

@@ -260,7 +260,7 @@ function MensagemAssistente({
 
               {mensagem.interacaoId && (
                 <>
-                  {!!mensagem.referenciasOuro?.length && <p className="mt-3 text-xs">Referências editoriais consultadas: {mensagem.referenciasOuro.map(r => <a key={r.ouro_id} className="mr-2 underline" href={`/comunidade/ouro?id=${r.ouro_id}#${r.ouro_id}`}>{r.titulo}</a>)}</p>}
+                  {!!mensagem.referenciasOuro?.length && <p className="mt-3 text-xs">Respostas de referência consultadas: {mensagem.referenciasOuro.map(r => <a key={r.ouro_id} className="mr-2 underline" href={`/comunidade/ouro?id=${r.ouro_id}#${r.ouro_id}`}>{r.titulo}</a>)}</p>}
                   <CompartilharResposta interacaoId={mensagem.interacaoId} token={mensagem.tokenCompartilhamento} pergunta={mensagem.perguntaCompartilhada} resumo={mensagem.resumo} citacoes={mensagem.citacoes} resposta={mensagem.conteudo} /></>
               )}
             </>
